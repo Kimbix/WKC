@@ -20,23 +20,7 @@ const kimbix_serious_no_speak = preload("res://Characters/Humber/Humber_serious1
 const kimbix_happy_speak = preload("res://Characters/Humber/Humber_happy2.png")
 const kimbix_happy_no_speak = preload("res://Characters/Humber/Humber_happy1.png")
 
-const uke_happy_speak = preload("res://Characters/Ukesito/Uke_happy2.png")
-const uke_happy_no_speak = preload("res://Characters/Ukesito/Uke_happy1.png")
-const uke_serious_speak = preload("res://Characters/Ukesito/Uke_serious2.png")
-const uke_serious_no_speak = preload("res://Characters/Ukesito/Uke_serious1.png")
-
-const nigu_happy_speak = preload("res://Characters/Nigu/Nigu_happy2.png")
-const nigu_happy_no_speak = preload("res://Characters/Nigu/Nigu_happy1.png")
-const nigu_serious_speak = preload("res://Characters/Nigu/Nigu_serious2.png")
-const nigu_serious_no_speak = preload("res://Characters/Nigu/Nigu_serious1.png")
-
-const paris_happy_speak = preload("res://Characters/Paris/Paris_happy2.png")
-const paris_happy_no_speak = preload("res://Characters/Paris/Paris_happy1.png")
-
-const clau_happy_speak = preload("res://Characters/Clau/Clau_happy2.png")
-const clau_happy_no_speak = preload("res://Characters/Clau/Clau_happy1.png")
-
-var tbi# Text box instance
+var tbi # Text box instance
 
 @onready var buttons_container : VBoxContainer = $"../ButtonsLayer/VBoxContainer"
 @onready var unshown_buttons = [
@@ -129,7 +113,10 @@ func one_more_button():
 	button.visible = true
 	unshown_buttons.erase(button)
 
-# queue_all(text, speaker, char_name, sprite, background, highlight, left):
+const uke_happy_speak = preload("res://Characters/Ukesito/Uke_happy2.png")
+const uke_happy_no_speak = preload("res://Characters/Ukesito/Uke_happy1.png")
+const uke_serious_speak = preload("res://Characters/Ukesito/Uke_serious2.png")
+const uke_serious_no_speak = preload("res://Characters/Ukesito/Uke_serious1.png")
 func _on_ukesito_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -169,6 +156,10 @@ func _on_ukesito_pressed():
 	tbi.sprite_change("Ukesito",null,false)
 	tbi.sprite_change("Humber",null,true)
 
+const nigu_happy_speak = preload("res://Characters/Nigu/Nigu_happy2.png")
+const nigu_happy_no_speak = preload("res://Characters/Nigu/Nigu_happy1.png")
+const nigu_serious_speak = preload("res://Characters/Nigu/Nigu_serious2.png")
+const nigu_serious_no_speak = preload("res://Characters/Nigu/Nigu_serious1.png")
 func _on_nigu_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -218,6 +209,8 @@ func _on_david_pressed():
 	tbi.sprite_change("David",null,false)
 	tbi.sprite_change("Humber",null,true)
 
+const paris_happy_speak = preload("res://Characters/Paris/Paris_happy2.png")
+const paris_happy_no_speak = preload("res://Characters/Paris/Paris_happy1.png")
 func _on_paris_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -246,8 +239,8 @@ func _on_paris_pressed():
 	tbi.sprite_change("Paris",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-
-
+const clau_happy_speak = preload("res://Characters/Clau/Clau_happy2.png")
+const clau_happy_no_speak = preload("res://Characters/Clau/Clau_happy1.png")
 func _on_clau_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -286,7 +279,6 @@ func _on_clau_pressed():
 	tbi.sprite_change("Clau",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-# TODO: Change cris's sprite for the correct one
 const cris_happy_speak = preload("res://Characters/Cris/Cris_happy2.png")
 const cris_happy_no_speak = preload("res://Characters/Cris/Cris_happy1.png")
 func _on_cris_pressed():
@@ -450,9 +442,8 @@ func _on_joaco_pressed():
 	tbi.sprite_change("Joaco",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-# TODO: Change cyrus's sprite for the correct one
-const cyrus_happy_speak = preload("res://Characters/Clau/Clau_happy2.png")
-const cyrus_happy_no_speak = preload("res://Characters/Clau/Clau_happy1.png")
+const cyrus_happy_speak = preload("res://Characters/Cyrus/Cyrus_happy2.png")
+const cyrus_happy_no_speak = preload("res://Characters/Cyrus/Cyrus_happy1.png")
 func _on_cyrus_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -983,9 +974,10 @@ var wait_dialogue_part_two = func():
 	tbi.queue_dialogue(" * Many remember an old fable they heard as kids * ","Humber")
 	tbi.queue_dialogue(" * You must proclaim to a body how it dies so that its spirit may rest in peace * ","Humber")
 	tbi.queue_dialogue(" * After 4 hours if nothing is done, the spirit will roam this realm * ","Humber")
-
+	
 	tbi.queue_dialogue(" * Those who remember recount the old fable to the other attendees * ","Humber")
 	tbi.queue_dialogue(" * Everyone dices to split up to gather clues on the potential killer * ","Humber")
 	tbi.queue_dialogue(" * As people go towards other parts of the mansion, I’m left alone in the main entrance. I should go too * ","Humber")
-
+	
 	tbi.queue_dialogue(" *  Where to go... * ","Humber")
+	
