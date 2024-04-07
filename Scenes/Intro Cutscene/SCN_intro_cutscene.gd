@@ -803,6 +803,7 @@ func _on_yeetus_pressed():
 	tbi.queue_dialogue("I'm gonna leave now","Humber")
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
+	tbi.sprite_change("Yeetus",yeetus_serious_no_speak,false)
 	tbi.queue_dialogue(" * I scurry away while Yeetus gives me the side eye * ","Humber")
 	
 	tbi.sprite_change("Humber",null,true)
@@ -814,7 +815,7 @@ func _on_pham_pressed():
 	one_more_button()
 	buttons_container.visible = false
 	$"../ButtonsLayer/VBoxContainer/GridContainer/Pham".queue_free()
-	tbi.sprite_change("Pham",pham_serious_speak,false)
+	tbi.sprite_change("Pham",pham_happy_speak,false)
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
 	tbi.queue_dialogue("Hi Humberto!","Pham")
