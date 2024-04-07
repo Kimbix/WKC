@@ -1,0 +1,175 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn17nnkpsj8b7"]
+
+[ext_resource type="Script" path="res://Scenes/Intro Cutscene/SCN_intro_cutscene.gd" id="1_7l8le"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScnIntroCutscene" type="Node2D" parent="."]
+script = ExtResource("1_7l8le")
+
+[node name="ButtonsLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -50.5
+offset_right = 54.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="GridContainer" type="GridContainer" parent="ButtonsLayer/VBoxContainer"]
+show_behind_parent = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="Cono" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Cono"
+
+[node name="Ukesito" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Ukesito"
+
+[node name="Nigu" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Nigu"
+
+[node name="David" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "David"
+
+[node name="Paris" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Paris"
+
+[node name="Clau" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Claudia"
+
+[node name="Cris" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Cris"
+
+[node name="Bici" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Bici"
+
+[node name="Sage" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Sage"
+
+[node name="Joaco" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Joaco"
+
+[node name="Cyrus" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Cyrus"
+
+[node name="Jem" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Jem"
+
+[node name="Felix" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Felix"
+
+[node name="Jacques" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Jacques"
+
+[node name="Cesar" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Cesar"
+
+[node name="Kiri" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Kiri"
+
+[node name="Clara" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Clara"
+
+[node name="Yeetus" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Yeetus"
+
+[node name="Pham" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Pham"
+
+[node name="Wait" type="Button" parent="ButtonsLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Wait"
+
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Ukesito" to="ScnIntroCutscene" method="_on_ukesito_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Nigu" to="ScnIntroCutscene" method="_on_nigu_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/David" to="ScnIntroCutscene" method="_on_david_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Paris" to="ScnIntroCutscene" method="_on_paris_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Clau" to="ScnIntroCutscene" method="_on_clau_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Cris" to="ScnIntroCutscene" method="_on_cris_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Bici" to="ScnIntroCutscene" method="_on_bici_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Sage" to="ScnIntroCutscene" method="_on_sage_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Joaco" to="ScnIntroCutscene" method="_on_joaco_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Cyrus" to="ScnIntroCutscene" method="_on_cyrus_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Jem" to="ScnIntroCutscene" method="_on_jem_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Felix" to="ScnIntroCutscene" method="_on_felix_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Jacques" to="ScnIntroCutscene" method="_on_jacques_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Cesar" to="ScnIntroCutscene" method="_on_cesar_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Kiri" to="ScnIntroCutscene" method="_on_kiri_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Clara" to="ScnIntroCutscene" method="_on_clara_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Yeetus" to="ScnIntroCutscene" method="_on_yeetus_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Pham" to="ScnIntroCutscene" method="_on_pham_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/Wait" to="ScnIntroCutscene" method="_on_wait_pressed"]

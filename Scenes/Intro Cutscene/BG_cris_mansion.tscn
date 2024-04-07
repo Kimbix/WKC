@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi36k5i5efulj"]
+
+[ext_resource type="Texture2D" uid="uid://hlcxra5gu7hv" path="res://Scenes/Intro Cutscene/Mansion-Rend-Moon-Lethal-Company.png" id="1_xsn74"]
+
+[node name="ScnCarBackground" type="TextureRect"]
+texture = ExtResource("1_xsn74")
+expand_mode = 2
+stretch_mode = 5

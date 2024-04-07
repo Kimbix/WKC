@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwh6o7e0glek6"]
+
+[sub_resource type="Gradient" id="Gradient_10efs"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.905269, 2.38247e-06, 1.92523e-07, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oeyr6"]
+gradient = SubResource("Gradient_10efs")
+
+[node name="ChrCris" type="TextureRect"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource("GradientTexture2D_oeyr6")
+expand_mode = 2
+stretch_mode = 5

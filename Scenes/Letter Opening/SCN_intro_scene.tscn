@@ -1,0 +1,80 @@
+[gd_scene load_steps=6 format=3 uid="uid://84l00vq7non2"]
+
+[ext_resource type="Script" path="res://Scenes/Letter Opening/SCR_intro_script.gd" id="1_18mg5"]
+[ext_resource type="Texture2D" uid="uid://bef8uy8bgtw71" path="res://Other Assets/Intro Letter/Letter_closed.png" id="2_jvfpr"]
+[ext_resource type="Texture2D" uid="uid://d4csgaapkyutr" path="res://Other Assets/Intro Letter/Letter_cardFull.png" id="2_nqa7d"]
+[ext_resource type="Texture2D" uid="uid://dfsabaxcs45up" path="res://Other Assets/Intro Letter/Letter_openBack.png" id="4_akr0i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tit78"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="ScnIntroScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_18mg5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_tit78")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Note3" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("2_nqa7d")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="LetterClosed" type="TextureRect" parent="MarginContainer2"]
+layout_mode = 2
+texture = ExtResource("2_jvfpr")
+stretch_mode = 3
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="LetterOpened" type="TextureRect" parent="MarginContainer3"]
+layout_mode = 2
+texture = ExtResource("4_akr0i")
+stretch_mode = 3

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://3sgf5bejjl3v"]
+
+[ext_resource type="Script" path="res://SCR_punch_out.gd" id="1_ue56b"]
+
+[sub_resource type="Gradient" id="Gradient_4cxj5"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lduhd"]
+gradient = SubResource("Gradient_4cxj5")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lw72s"]
+
+[sub_resource type="Gradient" id="Gradient_bua5x"]
+offsets = PackedFloat32Array(0.3, 0.5)
+colors = PackedColorArray(100, 0, 0, 1, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mk3lt"]
+gradient = SubResource("Gradient_bua5x")
+fill_to = Vector2(0.0299145, 0.119658)
+repeat = 1
+
+[node name="ScnPunchMotherFuckingOut" type="Node2D"]
+script = ExtResource("1_ue56b")
+
+[node name="Player" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture = SubResource("GradientTexture2D_lduhd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_lw72s")
+
+[node name="Oponent" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Oponent"]
+texture = SubResource("GradientTexture2D_mk3lt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oponent"]
+shape = SubResource("RectangleShape2D_lw72s")

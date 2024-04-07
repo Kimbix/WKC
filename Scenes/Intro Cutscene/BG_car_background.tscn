@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c24fli4ahqa4o"]
+
+[ext_resource type="Texture2D" uid="uid://d2gp402k57xng" path="res://Scenes/Intro Cutscene/sonic-the-hedgehog-sth-ff-029r_rgb.png" id="1_c0b87"]
+
+[node name="ScnCarBackground" type="TextureRect"]
+texture = ExtResource("1_c0b87")
+expand_mode = 2
+stretch_mode = 5
