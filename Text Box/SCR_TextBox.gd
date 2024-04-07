@@ -212,15 +212,21 @@ func next_all():
 	current_step += 1
 	if (dict["text"] == null): next_all()
 
+var disable_input = false
 @onready var fade_black = $FadeBlack
 func fade_black_back_in(callback : Callable, text : String):
+	disable_input = true
+	var ending = func():
+		callback.call()
+		disable_input = false
+	
 	var backOff = func():
 		var tweenOff = get_tree().create_tween()
 		if (current_state == State.FINISHED):
 			change_state(State.READY)
 			hide_textbox()
 		tweenOff.tween_property(fade_black, "modulate", Color(0, 0, 0, 0), 1)
-		tweenOff.tween_callback(callback)
+		tweenOff.tween_callback(ending)
 	
 	var cback = func():
 		if (text != ""): queue_dialogue(text,"")

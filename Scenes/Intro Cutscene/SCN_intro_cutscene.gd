@@ -102,21 +102,22 @@ func _ready():
 	tbi.sprite_change("Humber",null,true)
 
 func _input(_event):
+	if tbi.disable_input: return
 	if (current_stage == Stages.CAR and
 		tbi.current_state == tbi.State.READY and
 		Input.is_action_just_released("ui_accept")):
 		buttons_container.visible = true
 		current_stage = Stages.TALKING
-	if (current_stage == Stages.TALKING and
+	elif (current_stage == Stages.TALKING and
 		tbi.current_state == tbi.State.READY and
 		Input.is_action_just_released("ui_accept")):
 			buttons_container.visible = true
-	if (current_stage == Stages.WAIT_PRESSED_ONE and
+	elif (current_stage == Stages.WAIT_PRESSED_ONE and
 		tbi.current_state == tbi.State.READY and
 		Input.is_action_just_released("ui_accept")):
 			tbi.fade_black_back_in(wait_dialogue_part_two, "Everyone had a wonderful time")
 			current_stage = Stages.WAIT_PRESSED_TWO
-	if (current_stage == Stages.WAIT_PRESSED_TWO and
+	elif (current_stage == Stages.WAIT_PRESSED_TWO and
 		tbi.current_state == tbi.State.READY and
 		Input.is_action_just_released("ui_accept")):
 			tbi.fade_black_back_in(wait_dialogue_part_two, "Everyone had a wonderful time")
@@ -988,6 +989,3 @@ var wait_dialogue_part_two = func():
 	tbi.queue_dialogue(" * As people go towards other parts of the mansion, I’m left alone in the main entrance. I should go too * ","Humber")
 
 	tbi.queue_dialogue(" *  Where to go... * ","Humber")
-
-
-	
