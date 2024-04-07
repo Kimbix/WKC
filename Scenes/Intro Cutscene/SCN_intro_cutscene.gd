@@ -318,11 +318,10 @@ func _on_cris_pressed():
 	tbi.sprite_change("Cris",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-# TODO: Change bici's sprite for the correct one
-const bici_happy_speak = preload("res://Characters/Clau/Clau_happy2.png")
-const bici_happy_no_speak = preload("res://Characters/Clau/Clau_happy1.png")
-const bici_serious_speak = preload("res://Characters/Clau/Clau_serious2.png")
-const bici_serious_no_speak = preload("res://Characters/Clau/Clau_serious1.png")
+const bici_happy_speak = preload("res://Characters/Bici/Bici_happy2.png")
+const bici_happy_no_speak = preload("res://Characters/Bici/Bici_happy1.png")
+const bici_serious_speak = preload("res://Characters/Bici/Bici_serious2.png")
+const bici_serious_no_speak = preload("res://Characters/Bici/Bici_serious1.png")
 func _on_bici_pressed():
 	one_more_button()
 	buttons_container.visible = false
