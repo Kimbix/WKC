@@ -523,9 +523,8 @@ func _on_jem_pressed():
 	tbi.sprite_change("Jem",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-# TODO: Change felix's sprite for the correct one
-const felix_happy_speak = preload("res://Characters/Clau/Clau_happy2.png")
-const felix_happy_no_speak = preload("res://Characters/Clau/Clau_happy1.png")
+const felix_happy_speak = preload("res://Characters/Felix/Felix_happy2.png")
+const felix_happy_no_speak = preload("res://Characters/Felix/Felix_happy1.png")
 func _on_felix_pressed():
 	one_more_button()
 	buttons_container.visible = false
