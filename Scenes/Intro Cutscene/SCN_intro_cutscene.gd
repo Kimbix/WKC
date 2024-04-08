@@ -404,8 +404,8 @@ func _on_sage_pressed():
 	tbi.sprite_change("Humber",null,true)
 
 # TODO: Change joaco's sprite for the correct one
-const joaco_happy_speak = preload("res://Characters/Clau/Clau_happy2.png")
-const joaco_happy_no_speak = preload("res://Characters/Clau/Clau_happy1.png")
+const joaco_happy_speak = preload("res://Characters/Joaco/Joaco_happy2.png")
+const joaco_happy_no_speak = preload("res://Characters/Joaco/Joaco_happy1.png")
 func _on_joaco_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -981,4 +981,3 @@ var wait_dialogue_part_two = func():
 	tbi.queue_dialogue(" * As people go towards other parts of the mansion, I’m left alone in the main entrance. I should go too * ","Humber")
 	
 	tbi.queue_dialogue(" *  Where to go... * ","Humber")
-	
