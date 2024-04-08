@@ -403,7 +403,6 @@ func _on_sage_pressed():
 	tbi.sprite_change("Sage",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-# TODO: Change joaco's sprite for the correct one
 const joaco_happy_speak = preload("res://Characters/Joaco/Joaco_happy2.png")
 const joaco_happy_no_speak = preload("res://Characters/Joaco/Joaco_happy1.png")
 func _on_joaco_pressed():
