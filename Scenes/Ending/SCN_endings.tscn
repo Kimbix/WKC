@@ -1,0 +1,104 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddbxg3vh1iyw4"]
+
+[ext_resource type="Script" path="res://Scenes/Ending/SCR_endings.gd" id="1_cy0ak"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScnIntroCutscene" type="Node2D" parent="."]
+script = ExtResource("1_cy0ak")
+
+[node name="ButtonsLayer" type="CanvasLayer" parent="."]
+
+[node name="EndingsContainer" type="GridContainer" parent="ButtonsLayer"]
+show_behind_parent = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.0
+offset_top = -55.0
+offset_right = 109.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+columns = 2
+
+[node name="Cris" type="Button" parent="ButtonsLayer/EndingsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Cris"
+
+[node name="Ukesito" type="Button" parent="ButtonsLayer/EndingsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Ukesito"
+
+[node name="Yeetus" type="Button" parent="ButtonsLayer/EndingsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Yeetus"
+
+[node name="Cyrus" type="Button" parent="ButtonsLayer/EndingsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Cyrus"
+
+[node name="Kimbix" type="Button" parent="ButtonsLayer/EndingsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Kimbix"
+
+[node name="Cono" type="Button" parent="ButtonsLayer/EndingsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Cono"
+
+[node name="Kiri" type="Button" parent="ButtonsLayer/EndingsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Kiri"
+
+[node name="Magnitude" type="Button" parent="ButtonsLayer/EndingsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Magnitude"
+
+[node name="Joaco" type="Button" parent="ButtonsLayer/EndingsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Joaco"
+
+[node name="Bici" type="Button" parent="ButtonsLayer/EndingsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Bici"
+
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Cris" to="ScnIntroCutscene" method="_on_cris_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Ukesito" to="ScnIntroCutscene" method="_on_ukesito_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Yeetus" to="ScnIntroCutscene" method="_on_yeetus_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Cyrus" to="ScnIntroCutscene" method="_on_cyrus_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Kimbix" to="ScnIntroCutscene" method="_on_kimbix_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Cono" to="ScnIntroCutscene" method="_on_cono_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Kiri" to="ScnIntroCutscene" method="_on_kiri_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Magnitude" to="ScnIntroCutscene" method="_on_magnitude_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Joaco" to="ScnIntroCutscene" method="_on_joaco_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Bici" to="ScnIntroCutscene" method="_on_bici_pressed"]

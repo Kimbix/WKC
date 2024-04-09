@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyiij24g2kvrv"]
+
+[ext_resource type="Texture2D" uid="uid://b7sydmabqtbhu" path="res://Characters/Yeetus/Yeetus_angry1.png" id="1_c34ni"]
+
+[node name="ScnCredits" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(596, 329)
+scale = Vector2(0.383666, 0.393694)
+texture = ExtResource("1_c34ni")
