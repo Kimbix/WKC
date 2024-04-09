@@ -104,7 +104,6 @@ func _input(_event):
 	elif (current_stage == Stages.WAIT_PRESSED_TWO and
 		tbi.current_state == tbi.State.READY and
 		Input.is_action_just_released("ui_accept")):
-			tbi.fade_black_back_in(wait_dialogue_part_two, "Everyone had a wonderful time")
 			get_tree().change_scene_to_file("res://Characters/CHR_Cris.tscn")
 
 func one_more_button():
