@@ -149,7 +149,7 @@ func next_all():
 	if (queue.size() == current_step): return
 	var dict = queue[current_step]
 	if (dict["background"] != null):
-		if ($Background.get_child(0) != null):
+		if ($Background.get_child_count() > 0):
 			$Background.get_child(0).queue_free()
 		$Background.add_child(dict["background"].instantiate())
 	if (dict["text"] != null):

@@ -13,8 +13,6 @@ var tbi
 
 func _ready():
 	load_game()
-	print(save_dict)
-	ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CRIS)
 	endings_buttons.visible = false
 	tbi = text_box.instantiate()
 	add_child(tbi)
