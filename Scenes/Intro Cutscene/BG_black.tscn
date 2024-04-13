@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://s8agh8di8t8n"]
-
-[ext_resource type="Texture2D" uid="uid://bsx33dhpcodp0" path="res://Scenes/Intro Cutscene/BG_black.png" id="1_pm8mq"]
-
-[node name="ScnCarBackground" type="TextureRect"]
-texture = ExtResource("1_pm8mq")
-expand_mode = 2
-stretch_mode = 5

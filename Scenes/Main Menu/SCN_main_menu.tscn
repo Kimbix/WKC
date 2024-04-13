@@ -1,0 +1,146 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyiij24g2kvrv"]
+
+[ext_resource type="Script" path="res://Scenes/Main Menu/SCN_main_menu.gd" id="1_k1ilt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg0rw"]
+bg_color = Color(0.301961, 0.141176, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plbqt"]
+bg_color = Color(1, 0.960784, 0.933333, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sdq3"]
+bg_color = Color(1, 0.960784, 0.933333, 1)
+
+[node name="ScnMainMenu" type="CanvasLayer"]
+script = ExtResource("1_k1ilt")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 128
+text = "Mistery Ooze"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "Quit"
+
+[node name="Endings" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+
+[node name="Book" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 128
+text = "BOOK"
+
+[node name="Book" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
+
+[node name="Panel" type="Panel" parent="Book"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mg0rw")
+
+[node name="MarginContainer" type="MarginContainer" parent="Book/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Book/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="Book/Panel/MarginContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_plbqt")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Book/Panel/MarginContainer/HSplitContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="LeftLabel" type="Label" parent="Book/Panel/MarginContainer/HSplitContainer/Panel/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "INFORMATION"
+
+[node name="LeftPage" type="Button" parent="Book/Panel/MarginContainer/HSplitContainer/Panel/VSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = " ← "
+
+[node name="Panel2" type="Panel" parent="Book/Panel/MarginContainer/HSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_7sdq3")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Book/Panel/MarginContainer/HSplitContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+
+[node name="RightLabel" type="Label" parent="Book/Panel/MarginContainer/HSplitContainer/Panel2/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "INFORMATION"
+
+[node name="RightPage" type="Button" parent="Book/Panel/MarginContainer/HSplitContainer/Panel2/VSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = " → "
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="MarginContainer/Book" to="." method="_on_book_pressed"]
+[connection signal="pressed" from="Book/Panel/MarginContainer/HSplitContainer/Panel/VSplitContainer/LeftPage" to="." method="_on_left_page_pressed"]
+[connection signal="pressed" from="Book/Panel/MarginContainer/HSplitContainer/Panel2/VSplitContainer/RightPage" to="." method="_on_right_page_pressed"]

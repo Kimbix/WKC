@@ -144,14 +144,14 @@ func display_text(next_text, speaker):
 	change_state(State.READING)
 	tween.tween_callback(END_READING_FUNCTION)
 
+@onready var background_container : TextureRect = $Background/TextureRect
+
 var current_step : int = 1
 func next_all():
 	if (queue.size() == current_step): return
 	var dict = queue[current_step]
 	if (dict["background"] != null):
-		if ($Background.get_child_count() > 0):
-			$Background.get_child(0).queue_free()
-		$Background.add_child(dict["background"].instantiate())
+		background_container.texture = dict["background"]
 	if (dict["text"] != null):
 		display_text(dict["text"], dict["speaker"])
 	if (dict["char_name"] == null): 
@@ -214,7 +214,7 @@ func next_all():
 
 var disable_input = false
 @onready var fade_black = $FadeBlack
-func fade_black_back_in(callback : Callable, text : String):
+func fade_black_back_in(callback : Callable, midfunction : Callable):
 	disable_input = true
 	var ending = func():
 		callback.call()
@@ -229,8 +229,7 @@ func fade_black_back_in(callback : Callable, text : String):
 		tweenOff.tween_callback(ending)
 	
 	var cback = func():
-		if (text != ""): queue_dialogue(text,"")
-		await get_tree().create_timer(1.0 if text == "" else 2.5).timeout
+		await midfunction.call()
 		backOff.call()
 	
 	var tweenOn = get_tree().create_tween()

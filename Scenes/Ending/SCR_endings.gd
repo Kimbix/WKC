@@ -29,7 +29,7 @@ func _input(event):
 			show_buttons()
 			endings_buttons.visible = true
 		State.SEEING_ENDING:
-			get_tree().change_scene_to_file("res://Scenes/Credits/SCN_credits.tscn")
+			get_tree().change_scene_to_file("res://Scenes/Main Menu/SCN_main_menu.tscn")
 
 func show_buttons():
 	for ending in ScrPersistentData.possible_endings:
