@@ -23,12 +23,15 @@ var previous_location : Location = Location.NO_PREVIOUS
 const text_box : PackedScene = preload("res://Text Box/TXT_TextBox.tscn")
 var tbi
 
+const mansion_background = preload("res://Scenes/Intro Cutscene/Main.jpg")
+
 func _ready():
 	locations_container.visible = false
 	tbi = text_box.instantiate()
 	add_child(tbi)
 	
-	tbi.queue_dialogue("A donde ir...?", "Humber")
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
+	tbi.queue_dialogue("Where to go...?", "Humber")
 
 func _input(_event):
 	if tbi.disable_input: return
@@ -43,7 +46,11 @@ func _input(_event):
 			tbi.queue_dialogue("It's nearing midnight, I should go back with the rest", "Humber")
 			current_state = State.ENDING
 		var state when state == State.PLACE_DIALOGUE and locations_container.get_child_count() > 2:
-			locations_container.visible = true
+			var back_mansion = func():
+				locations_container.visible = true
+			var change_bg = func():
+				tbi.queue_all(null, null, null, null, mansion_background, false, false)
+			tbi.fade_black_back_in(back_mansion, change_bg)
 		State.ENDING:
 			get_tree().change_scene_to_file("res://Scenes/Ending/SCN_endings.tscn")
 
@@ -229,18 +236,18 @@ var dungeon_scene = func():
 	match (previous_location):
 		Location.KITCHEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIRI)
-			tbi.queue_dialogue("You previously went to the Kitchen", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Kitchen", "")
 		Location.BEDROOM:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CRIS)
-			tbi.queue_dialogue("You previously went to the Bedroom", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Bedroom", "")
 		Location.GARAGE:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIMBIX)
-			tbi.queue_dialogue("You previously went to the Garage", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Garage", "")
 		Location.GARDEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CONO)
-			tbi.queue_dialogue("You previously went to the Garden", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Garden", "")
 		_:
-			tbi.queue_dialogue("Nothing else happened", "The evil cris")
+			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.DUNGEON
 
 const clara_happy_speak = preload("res://Characters/Clara/Clara_happy2.png")
@@ -259,11 +266,18 @@ const felix_serious_no_speak = preload("res://Characters/Felix/Felix_serious1.pn
 const jem_serious_speak = preload("res://Characters/Jem/Jem_serious2.png")
 const jem_serious_no_speak = preload("res://Characters/Jem/Jem_serious1.png")
 
+const kitchen_background = preload("res://Scenes/Investigation/Kitchen/SPR-luxury-kitchens-5211364-hero-688d716970544978bc12abdf17ce6f83.jpg")
 func _on_kitchen_pressed():
 	locations_container.visible = false
 	current_state = State.PLACE_DIALOGUE
 	$"../ButtonsLayer/LocationsContainer/Kitchen".queue_free()
-	tbi.fade_black_back_in(kitchen_scene, "You went to the kitchen")
+	var kitchen_trans = func():
+		tbi.queue_all(null, null, null, null, kitchen_background, false, false)
+		tbi.queue_dialogue("You went to the kitchen", "")
+		await get_tree().create_timer(3.0).timeout
+		tbi.change_state(tbi.State.READY)
+		tbi.hide_textbox()
+	tbi.fade_black_back_in(kitchen_scene, kitchen_trans)
 
 var kitchen_scene = func():
 	tbi.queue_dialogue(" * Maybe I should get a snack from the kitchen * ", "Humber")
@@ -274,7 +288,7 @@ var kitchen_scene = func():
 	if (randi_range(0, 1) == 1):
 		tbi.queue_dialogue("Clara and Cesar", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
-		tbi.sprit_change("Padding",padding_texture,true)
+		tbi.sprite_change("Padding",padding_texture,true)
 		tbi.sprite_change("Clara",clara_serious_no_speak,false)
 		tbi.sprite_change("Cesar",cesar_serious_no_speak,false)
 		
@@ -379,10 +393,10 @@ var kitchen_scene = func():
 		tbi.queue_dialogue("heyy", "Jem")
 		tbi.sprite_change("Jem",jem_serious_no_speak,false)
 		
-		tbi.sprite_change("Humber",kimbix_serious_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("hello", "Humber")
 		tbi.queue_dialogue("What have you been up to", "Humber")
-		tbi.sprite_change("Humber",kimbix_serious_no_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
 		tbi.sprite_change("Felix",felix_serious_speak,false)
 		tbi.queue_dialogue("Finding evidence against cyrus", "Felix")
@@ -392,9 +406,9 @@ var kitchen_scene = func():
 		tbi.queue_dialogue("No we are not", "Jem")
 		tbi.sprite_change("Jem",jem_serious_no_speak,false)
 		
-		tbi.sprite_change("Humber",kimbix_serious_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("Care to elaborate?", "Humber")
-		tbi.sprite_change("Humber",kimbix_serious_no_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
 		tbi.sprite_change("Jem",jem_serious_speak,false)
 		tbi.queue_dialogue("Please do not entertain that theory further", "Jem")
@@ -404,9 +418,9 @@ var kitchen_scene = func():
 		tbi.queue_dialogue("So… I've cyrus look at you a certain way", "Felix")
 		tbi.sprite_change("Felix",felix_serious_no_speak,false)
 		
-		tbi.sprite_change("Humber",kimbix_serious_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("And what way is that?", "Humber")
-		tbi.sprite_change("Humber",kimbix_serious_no_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
 		tbi.sprite_change("Felix",felix_serious_speak,false)
 		tbi.queue_dialogue("murderous intent", "Felix")
@@ -428,9 +442,9 @@ var kitchen_scene = func():
 		tbi.queue_dialogue("cyrus has been following you all over the mansion", "Felix")
 		tbi.sprite_change("Felix",felix_serious_no_speak,false)
 		
-		tbi.sprite_change("Humber",kimbix_serious_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("why would he do that?", "Humber")
-		tbi.sprite_change("Humber",kimbix_serious_no_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
 		tbi.sprite_change("Felix",felix_serious_speak,false)
 		tbi.queue_dialogue("to kill you-", "Felix")
@@ -440,9 +454,9 @@ var kitchen_scene = func():
 		tbi.queue_dialogue("No. It's most likey that Cyrus wants to talk to you but hasn't gotten the chance to.", "Jem")
 		tbi.sprite_change("Jem",jem_serious_no_speak,false)
 		
-		tbi.sprite_change("Humber",kimbix_serious_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("Well do you know where he's been?", "Humber")
-		tbi.sprite_change("Humber",kimbix_serious_no_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
 		tbi.sprite_change("Felix",felix_serious_speak,false)
 		tbi.queue_dialogue("We saw him go in to the kitchen, probably to get a knife and kill you", "Felix")
@@ -452,9 +466,9 @@ var kitchen_scene = func():
 		tbi.queue_dialogue("...", "Jem")
 		tbi.sprite_change("Jem",jem_serious_no_speak,false)
 		
-		tbi.sprite_change("Humber",kimbix_serious_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("Well thanks, I'll try to ask him about it", "Humber")
-		tbi.sprite_change("Humber",kimbix_serious_no_speak,false)
+		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
 		tbi.queue_dialogue(" * I bid goodbye and leave the room. Maybe i should make some theories too * ", "Humber")
 		
@@ -465,18 +479,18 @@ var kitchen_scene = func():
 	match (previous_location):
 		Location.DUNGEON:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIRI)
-			tbi.queue_dialogue("You previously went to the Dungeon", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Dungeon", "")
 		Location.BEDROOM:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CYRU)
-			tbi.queue_dialogue("You previously went to the Bedroom", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Bedroom", "")
 		Location.GARAGE:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.MAGNITUDE)
-			tbi.queue_dialogue("You previously went to the Garage", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Garage", "")
 		Location.GARDEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.BICI)
-			tbi.queue_dialogue("You previously went to the Garden", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Garden", "")
 		_:
-			tbi.queue_dialogue("Nothing else happened", "The evil cris")
+			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.KITCHEN
 
 const bedroom_background = preload("res://Scenes/Investigation/Bedroom/bedroom_background.jpg")
@@ -674,25 +688,32 @@ var bedroom_scene = func():
 	match (previous_location):
 		Location.DUNGEON:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CRIS)
-			tbi.queue_dialogue("You previously went to the Dungeon", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Dungeon", "")
 		Location.KITCHEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CYRU)
-			tbi.queue_dialogue("You previously went to the Kitchen", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Kitchen", "")
 		Location.GARAGE:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.YEETUS)
-			tbi.queue_dialogue("You previously went to the Garage", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Garage", "")
 		Location.GARDEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.UKESITO)
-			tbi.queue_dialogue("You previously went to the Garden", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Garden", "")
 		_:
-			tbi.queue_dialogue("Nothing else happened", "The evil cris")
+			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.BEDROOM
 
+const garage_background = preload("res://Scenes/Investigation/Garage/061A4059-scaled.jpg")
 func _on_garage_pressed():
 	locations_container.visible = false
 	current_state = State.PLACE_DIALOGUE
 	$"../ButtonsLayer/LocationsContainer/Garage".queue_free()
-	tbi.fade_black_back_in(garage_scene, "You went to the garage")
+	var garage_trans = func():
+		tbi.queue_all(null, null, null, null, garage_background, false, false)
+		tbi.queue_dialogue("You went to the garage", "")
+		await get_tree().create_timer(3.0).timeout
+		tbi.change_state(tbi.State.READY)
+		tbi.hide_textbox()
+	tbi.fade_black_back_in(garage_scene, garage_trans)
 
 const david_happy_speak = preload("res://Characters/David/David_happy2.png")
 const david_happy_no_speak = preload("res://Characters/David/David_happy1.png")
@@ -859,25 +880,32 @@ var garage_scene = func():
 	match (previous_location):
 		Location.DUNGEON:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIMBIX)
-			tbi.queue_dialogue("You previously went to the Dungeon", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Dungeon", "")
 		Location.KITCHEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.MAGNITUDE)
-			tbi.queue_dialogue("You previously went to the Kitchen", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Kitchen", "")
 		Location.BEDROOM:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.YEETUS)
-			tbi.queue_dialogue("You previously went to the Bedroom", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Bedroom", "")
 		Location.GARDEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.JOACO)
-			tbi.queue_dialogue("You previously went to the Garden", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Garden", "")
 		_:
-			tbi.queue_dialogue("Nothing else happened", "The evil cris")
+			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.GARAGE
 
+const garden_background = preload("res://Scenes/Investigation/Garden/beautiful-gardens-in-the-world.jpg")
 func _on_garden_pressed():
 	locations_container.visible = false
 	current_state = State.PLACE_DIALOGUE
 	$"../ButtonsLayer/LocationsContainer/Garden".queue_free()
-	tbi.fade_black_back_in(garden_scene, "You went to the garage")
+	var garden_trans = func():
+		tbi.queue_all(null, null, null, null, garden_background, false, false)
+		tbi.queue_dialogue("You went to the garden", "")
+		await get_tree().create_timer(3.0).timeout
+		tbi.change_state(tbi.State.READY)
+		tbi.hide_textbox()
+	tbi.fade_black_back_in(garden_scene, garden_trans)
 
 const uke_happy_speak = preload("res://Characters/Ukesito/Uke_happy2.png")
 const uke_happy_no_speak = preload("res://Characters/Ukesito/Uke_happy1.png")
@@ -1175,16 +1203,16 @@ var garden_scene = func():
 	match (previous_location):
 		Location.DUNGEON:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CONO)
-			tbi.queue_dialogue("You previously went to the Dungeon", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Dungeon", "")
 		Location.KITCHEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.BICI)
-			tbi.queue_dialogue("You previously went to the Kitchen", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Kitchen", "")
 		Location.BEDROOM:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.UKESITO)
-			tbi.queue_dialogue("You previously went to the Bedroom", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Bedroom", "")
 		Location.GARAGE:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.JOACO)
-			tbi.queue_dialogue("You previously went to the Garage", "The evil cris")
+			tbi.queue_dialogue("You previously went to the Garage", "")
 		_:
-			tbi.queue_dialogue("Nothing else happened", "The evil cris")
+			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.GARDEN

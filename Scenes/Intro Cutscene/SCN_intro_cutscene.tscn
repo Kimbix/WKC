@@ -154,6 +154,7 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 32
 text = "Wait"
 
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Cono" to="ScnIntroCutscene" method="_on_cono_pressed"]
 [connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Ukesito" to="ScnIntroCutscene" method="_on_ukesito_pressed"]
 [connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Nigu" to="ScnIntroCutscene" method="_on_nigu_pressed"]
 [connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/David" to="ScnIntroCutscene" method="_on_david_pressed"]

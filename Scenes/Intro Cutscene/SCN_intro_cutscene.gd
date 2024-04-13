@@ -808,6 +808,29 @@ func _on_yeetus_pressed():
 	tbi.sprite_change("Humber",null,true)
 	tbi.sprite_change("Yeetus",null,false)
 
+const cono = preload("res://Characters/Cone/Cone_normal.png")
+func _on_cono_pressed():
+	one_more_button()
+	buttons_container.visible = false
+	$"../ButtonsLayer/VBoxContainer/GridContainer/Cono".queue_free()
+	tbi.sprite_change("Cone",cono,false)
+	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
+	
+	tbi.sprite_change("Humber",kimbix_happy_speak,true)
+	tbi.queue_dialogue("mr butler fetch me a drink (nestea)","Humber")
+	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
+
+	tbi.sprite_change("Cone",null,false)
+	tbi.queue_dialogue(" * leaves and gets a glass of red nestea * ","Cone")
+	tbi.sprite_change("Cone",cono,false)
+	
+	tbi.sprite_change("Humber",kimbix_happy_speak,true)
+	tbi.queue_dialogue("thanks for the evil nestea mr orange (derogatory)","Humber")
+	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
+	
+	tbi.sprite_change("Cone",null,false)
+	tbi.sprite_change("Humber",null,true)
+	
 const pham_happy_speak = preload("res://Characters/Pham/Pham_happy1.png")
 const pham_serious_speak = preload("res://Characters/Pham/Pham_serious1.png")
 func _on_pham_pressed():

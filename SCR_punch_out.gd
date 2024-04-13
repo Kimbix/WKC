@@ -149,8 +149,6 @@ func _input(event):
 	if Input.is_action_just_pressed("dodge_left"): player_dodge_left()
 	if Input.is_action_just_pressed("dodge_right"): player_dodge_right()
 	if Input.is_action_just_pressed("dodge_down"): player_dodge_down()
-	
-	if Input.is_key_pressed(KEY_PAGEUP): oponent_hook_right()
 
 func player_change_state(state : fighter_state):
 	player_state = state
@@ -288,6 +286,7 @@ func oponent_get_hit():
 	$Buttonlayer/MarginContainer/VBoxContainer/ConeHealth.text = "Cone Tyson " + str(oponent_health)
 	
 	if (oponent_health < 0):
+		save_endings(ScrPersistentData.Endings.CONO)
 		oponent_sprite.play("defeat")
 		oponent_state = fighter_state.DEFEATED
 		await get_tree().create_timer(1.0).timeout
@@ -389,3 +388,60 @@ func _on_retry_pressed():
 	get_tree().reload_current_scene()
 func _on_quit_pressed():
 	get_tree().quit()
+	
+var save_dict = {}
+func load_game():
+	if not FileAccess.file_exists("user://endings.json"):
+		save_dict = {
+			"cris": false,
+			"ukesito": false,
+			"yeetus": false,
+			"cyrus": false,
+			"kimbix": false,
+			"cono": false,
+			"kiri": false,
+			"magnitude": false,
+			"joaco": false,
+			"bici": false
+		}
+		return
+	
+	var load_file = FileAccess.open("user://endings.json", FileAccess.READ)
+	var json_object = JSON.new()
+	
+	var json_string = load_file.get_line()
+	if (not json_object.parse(json_string) == OK):
+		print("JSON PARSE ERROR")
+	var data = json_object.get_data()
+	save_dict = data
+	load_file.close()
+
+func save_endings(ending : ScrPersistentData.Endings):
+	load_game()
+	var save_game = FileAccess.open("user://endings.json", FileAccess.WRITE)
+	match(ending):
+		ScrPersistentData.Endings.CRIS:
+			save_dict["cris"] = true
+		ScrPersistentData.Endings.UKESITO:
+			save_dict["ukesito"] = true
+		ScrPersistentData.Endings.YEETUS:
+			save_dict["yeetus"] = true
+		ScrPersistentData.Endings.CYRU:
+			save_dict["cyrus"] = true
+		ScrPersistentData.Endings.KIMBIX:
+			save_dict["kimbix"] = true
+		ScrPersistentData.Endings.CONO:
+			save_dict["cono"] = true
+		ScrPersistentData.Endings.KIRI:
+			save_dict["kiri"] = true
+		ScrPersistentData.Endings.MAGNITUDE:
+			save_dict["magnitude"] = true
+		ScrPersistentData.Endings.JOACO:
+			save_dict["joaco"] = true
+		ScrPersistentData.Endings.BICI:
+			save_dict["bici"] = true
+	
+	var json = JSON.new()
+	var json_string = JSON.stringify(save_dict)
+	save_game.store_line(json_string)
+	save_game.close()

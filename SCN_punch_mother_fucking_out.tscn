@@ -252,7 +252,7 @@ script = ExtResource("1_ue56b")
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ko0d0")
-animation = &"defeat"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Oponent"]
@@ -264,7 +264,8 @@ shape = SubResource("RectangleShape2D_lw72s")
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_nlbht")
-animation = &"punch"
+animation = &"idle"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_lw72s")
@@ -310,7 +311,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_font_sizes/font_size = 64
-text = "Streamer 100"
+text = "Kimbix 100"
 
 [node name="ConeHealth" type="Label" parent="Buttonlayer/MarginContainer/VBoxContainer"]
 layout_mode = 2

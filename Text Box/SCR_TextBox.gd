@@ -45,12 +45,12 @@ func _process(_delta):
 			if not queue.is_empty():
 				next_all()
 		State.READING:
-			if Input.is_action_just_pressed("ui_accept"):
+			if Input.is_action_just_pressed("ui_accept") or Input.is_key_pressed(KEY_Z):
 				tween.stop()
 				label.visible_ratio = 1
 				END_READING_FUNCTION.call()
 		State.FINISHED:
-			if Input.is_action_just_pressed("ui_accept"):
+			if Input.is_action_just_pressed("ui_accept") or Input.is_key_pressed(KEY_Z):
 				change_state(State.READY)
 				hide_textbox()
 
