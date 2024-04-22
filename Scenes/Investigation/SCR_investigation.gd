@@ -750,37 +750,38 @@ var garage_scene = func():
 		tbi.queue_dialogue("Hi", "Paris")
 		tbi.sprite_change("Paris",paris_serious_no_speak,false)
 		
-		tbi.sprite_change("David™",david_serious_speak,false)
+		tbi.sprite_change("David",david_serious_speak,false)
 		tbi.queue_dialogue("Hello", "David™")
-		tbi.sprite_change("David™",david_serious_no_speak,false)
+		tbi.sprite_change("David",david_serious_no_speak,false)
 		
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("Do you guys have any juicy evidence?", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.sprite_change("David™",david_serious_speak,false)
+		tbi.sprite_change("David",david_serious_speak,false)
 		tbi.queue_dialogue("We found traces of horse food. It has to be the horse", "David™")
 		tbi.queue_dialogue("THE HORSE KILLED CRIS", "David™")
-		tbi.sprite_change("David™",david_serious_no_speak,false)
+		tbi.sprite_change("David",david_serious_no_speak,false)
 		
 		tbi.sprite_change("Paris",paris_serious_speak,false)
 		tbi.queue_dialogue("David calm down", "Paris")
 		tbi.sprite_change("Paris",paris_serious_no_speak,false)
 		
-		tbi.sprite_change("David™",david_serious_speak,false)
+		tbi.sprite_change("David",david_serious_speak,false)
 		tbi.queue_dialogue("But Paris the horse. Why did we all eat with the horse like if it were just a normal person?", "David™")
 		tbi.queue_dialogue("IT'S A HORSE. HORSES ARE MEANT TO BE EATEN", "David™")
-		tbi.sprite_change("David™",david_serious_no_speak,false)
+		tbi.sprite_change("David",david_serious_no_speak,false)
 		
 		tbi.queue_dialogue("...", "Paris")
 		tbi.queue_dialogue("...", "Kimbix")
 		tbi.queue_dialogue("the others in the room stare at David", "")
 		
-		tbi.sprite_change("David™",david_serious_speak,false)
+		tbi.sprite_change("David",david_serious_speak,false)
 		tbi.queue_dialogue("I'M GOING TO KILL YOU HORSE", "David™")
-		tbi.sprite_change("David™",david_serious_no_speak,false)
+		tbi.sprite_change("David",david_serious_no_speak,false)
 		tbi.queue_dialogue("david runs towards the closet and paris traps him inside", "")
-		tbi.sprite_change("David™",null,false)
+		tbi.sprite_change("Padding",null,true)
+		tbi.sprite_change("David",null,false)
 		
 		tbi.sprite_change("Padding™",null,true)
 		tbi.queue_dialogue("heeeeeeeelp", "David™")
@@ -1175,8 +1176,8 @@ var garden_scene = func():
 		
 		tbi.queue_dialogue(". . .", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
-		if (randi_range(0, 10000) == 0): tbi.queue_dialogue("No", "Humber")
-		else: tbi.queue_dialogue("Yes", "Humber")
+		if (randi_range(0, 100) == 0): tbi.queue_dialogue("Yes", "Humber")
+		else: tbi.queue_dialogue("No", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
 		tbi.queue_dialogue("...", "Jacques")

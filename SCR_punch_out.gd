@@ -103,7 +103,7 @@ func _process(delta):
 				if (oponent_health < 1000): oponent_hook_right()
 				else: oponent_punch_right()
 			_: pass
-		oponent_attack_timer = oponent_attack_wait * randf_range(0.5, 1)
+		oponent_attack_timer = oponent_attack_wait * (randf_range(0.75, 1) if oponent_health > 750 else randf_range(0.5, 0.75))
 	
 	# Dodge logic
 	if (dodge_cooldown_timer > 0):
@@ -176,14 +176,14 @@ func oponent_change_state(state : fighter_state):
 @onready var oponent_sprite : AnimatedSprite2D = $Oponent/Sprite2D
 
 func player_punch_left():
-	if (player_sprite.animation == "punch"): return
 	if (player_state != fighter_state.IDLE and player_state != fighter_state.PUNCHING): return
 	if ((last_punch == punch.LEFT or last_punch == punch.STAR) and punch_cooldown_timer > 0.0): return
-	if (last_punch == punch.RIGHT and punch_cooldown_timer > 0.6): return
+	if (last_punch == punch.RIGHT and player_sprite.animation == "punch" and player_sprite.frame < 4):return
 	
 	player_sprite.flip_h = false
+	player_sprite.stop()
 	player_sprite.play("punch")
-	player_sprite.speed_scale = 1 + (punch_combo / 10.0)
+	player_sprite.speed_scale = min(1.5, 1+ (punch_combo / 10.0))
 	
 	if (oponent_state == fighter_state.BLOCKING):
 		print("Punch Blocked!")
@@ -204,19 +204,21 @@ func player_punch_left():
 	pass
 
 func player_punch_right():
-	if (player_sprite.animation == "punch"): return
 	if (player_state != fighter_state.IDLE and player_state != fighter_state.PUNCHING): return
 	if ((last_punch == punch.RIGHT or last_punch == punch.STAR) and punch_cooldown_timer > 0.0): return
-	if (last_punch == punch.LEFT and punch_cooldown_timer > 0.5): return
+	if (last_punch == punch.LEFT and player_sprite.animation == "punch" and player_sprite.frame < 4):return
+	
+	
 	
 	player_sprite.flip_h = true
+	player_sprite.stop()
 	player_sprite.play("punch")
-	player_sprite.speed_scale = 1 + (punch_combo / 10.0)
+	player_sprite.speed_scale = min(1.5, 1+ (punch_combo / 10.0))
 	
 	if (oponent_state == fighter_state.BLOCKING):
 		print("Punch Blocked!")
 		return
-	
+		
 	player_instance.position.y -= 30
 	
 	last_punch = punch.RIGHT
@@ -241,7 +243,7 @@ func player_dodge_left():
 	player_change_state(fighter_state.LEFT_DODGE)
 	dodge_cooldown_timer = dodge_cooldown_wait
 	
-	punch_combo_cooldown_timer = min(punch_combo_cooldown_wait, dodge_cooldown_timer + 1.0)
+	punch_combo_cooldown_timer = max(punch_combo_cooldown_wait, dodge_cooldown_timer + 2.0)
 	pass
 
 func player_dodge_right():
@@ -254,7 +256,7 @@ func player_dodge_right():
 	player_change_state(fighter_state.RIGHT_DODGE)
 	dodge_cooldown_timer = dodge_cooldown_wait
 	
-	punch_combo_cooldown_timer = min(punch_combo_cooldown_wait, dodge_cooldown_timer + 1.0)
+	punch_combo_cooldown_timer = max(punch_combo_cooldown_wait, dodge_cooldown_timer + 2.0)
 	pass
 
 func player_dodge_down():
@@ -319,6 +321,9 @@ func damage_player_center():
 		player_sprite.modulate = Color(1,0,0)
 		tween.tween_property(player_sprite, "modulate", Color(1,1,1), 0.25)
 		
+		punch_combo_drain_rate = 1.0
+		punch_combo = 0
+		$Buttonlayer/MarginContainer/VBoxContainer/Combo.text = "Combo " + str(punch_combo)
 		check_dead()
 
 func damage_player_right():
@@ -330,6 +335,9 @@ func damage_player_right():
 		player_sprite.modulate = Color(1,0,0)
 		tween.tween_property(player_sprite, "modulate", Color(1,1,1), 0.25)
 		
+		punch_combo_drain_rate = 1.0
+		punch_combo = 0
+		$Buttonlayer/MarginContainer/VBoxContainer/Combo.text = "Combo " + str(punch_combo)
 		check_dead()
 
 func damage_player_left():
@@ -341,6 +349,9 @@ func damage_player_left():
 		player_sprite.modulate = Color(1,0,0)
 		tween.tween_property(player_sprite, "modulate", Color(1,1,1), 0.25)
 		
+		punch_combo_drain_rate = 1.0
+		punch_combo = 0
+		$Buttonlayer/MarginContainer/VBoxContainer/Combo.text = "Combo " + str(punch_combo)
 		check_dead()
 
 func oponent_punch_left():

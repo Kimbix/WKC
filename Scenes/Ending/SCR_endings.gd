@@ -16,17 +16,6 @@ var tbi
 
 func _ready():
 	load_game()
-	
-	if (save_dict.keys().filter(func(x): return (x != "cris" and x != "cono")).any(func(x): return x)):
-		if (ScrPersistentData.possible_endings.has(ScrPersistentData.Endings.CONO)):
-			var where = ScrPersistentData.possible_endings.find(ScrPersistentData.Endings.CONO)
-			ScrPersistentData.possible_endings.remove_at(where)
-			
-	if (save_dict.keys().filter(func(x): return x != "cris").any(func(x): return x)):
-		if (ScrPersistentData.possible_endings.has(ScrPersistentData.Endings.CRIS)):
-			var where = ScrPersistentData.possible_endings.find(ScrPersistentData.Endings.CRIS)
-			ScrPersistentData.possible_endings.remove_at(where)
-	
 	endings_buttons.visible = false
 	tbi = text_box.instantiate()
 	add_child(tbi)
@@ -496,7 +485,7 @@ func _on_cono_pressed():
 		tbi.queue_dialogue("You feel deja vu", "...")
 	save_endings(ScrPersistentData.Endings.CONO)
 	endings_buttons.visible = false
-	current_state = State.SEEING_ENDING
+	current_state = State.CONO_ENDING
 	
 	tbi.sprite_change("Joaco",joaco_serious_no_speak,false)
 	tbi.sprite_change("Nigu",nigu_serious_speak,true)
