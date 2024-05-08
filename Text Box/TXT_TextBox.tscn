@@ -36,6 +36,7 @@ layout_mode = 2
 
 [node name="FadeBlack" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0)
+z_index = 10
 z_as_relative = false
 anchors_preset = 15
 anchor_right = 1.0

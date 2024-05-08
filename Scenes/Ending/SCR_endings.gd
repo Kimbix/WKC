@@ -1,6 +1,7 @@
 extends Node2D
 
 const mansion_background = preload("res://Scenes/Intro Cutscene/Main.jpg")
+const black_background = preload("res://Global/Solid_black.png")
 
 enum State {
 	START,
@@ -35,10 +36,14 @@ func _input(event):
 		State.SEEING_ENDING:
 			get_tree().change_scene_to_file("res://Scenes/Main Menu/SCN_main_menu.tscn")
 		State.CONO_ENDING:
-			get_tree().change_scene_to_file("res://SCN_punch_mother_fucking_out.tscn")
-			
+			var exit_func = func():
+				tbi.sprite_change("Cone",null,false)
+				tbi.sprite_change("Kimbix",null,true)
+				tbi.queue_all(null, null, null, null, black_background, false, false)
+			tbi.fade_black_back_in(func(): get_tree().change_scene_to_file("res://SCN_punch_mother_fucking_out.tscn"), exit_func)
 
 func show_buttons():
+	ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CONO)
 	for ending in ScrPersistentData.possible_endings:
 		match(ending):
 			ScrPersistentData.Endings.CRIS:
@@ -494,7 +499,7 @@ func _on_cono_pressed():
 	
 	tbi.sprite_change("Joaco",joaco_serious_speak,false)
 	tbi.queue_dialogue("WOAH WOAH WOAH", "Joaco")
-	tbi.queue_dialogue("audio. audio audio place", "Joaco")
+	tbi.queue_dialogue("audio... audio... audio place", "Joaco")
 	tbi.sprite_change("Joaco",joaco_serious_no_speak,false)
 	
 	tbi.sprite_change("Nigu",nigu_serious_speak,true)
@@ -516,11 +521,11 @@ func _on_cono_pressed():
 	tbi.sprite_change("Kimbix",kimbix_evil_no_speak,true)
 	
 	tbi.sprite_change("Joaco",null,false)
-	tbi.sprite_change("Cone",cone_evil_speak,true)
+	tbi.sprite_change("Cone",cone_evil_speak,false)
 	tbi.queue_dialogue("I see you figured out my true identity", "Cone")
 	tbi.queue_dialogue("I hate people who spoil surprises", "Cone")
 	tbi.queue_dialogue("I'll enjoy sending you to the same place where cris is", "Cone")
-	tbi.sprite_change("Cone",cone_evil_no_speak,true)
+	tbi.sprite_change("Cone",cone_evil_no_speak,false)
 
 const kiri_happy_speak = preload("res://Characters/Kiri/Kiri_happy2.png")
 const kiri_happy_no_speak = preload("res://Characters/Kiri/Kiri_happy1.png")
