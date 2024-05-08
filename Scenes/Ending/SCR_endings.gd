@@ -43,7 +43,6 @@ func _input(event):
 			tbi.fade_black_back_in(func(): get_tree().change_scene_to_file("res://SCN_punch_mother_fucking_out.tscn"), exit_func)
 
 func show_buttons():
-	ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CONO)
 	for ending in ScrPersistentData.possible_endings:
 		match(ending):
 			ScrPersistentData.Endings.CRIS:
