@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dyiij24g2kvrv"]
+[gd_scene load_steps=10 format=3 uid="uid://dyiij24g2kvrv"]
 
 [ext_resource type="Script" path="res://Scenes/Main Menu/SCN_main_menu.gd" id="1_k1ilt"]
 [ext_resource type="Texture2D" uid="uid://lg4cykyd1ups" path="res://Scenes/Main Menu/MainMenu.png" id="2_wl8ex"]
 [ext_resource type="Texture2D" uid="uid://dejg2dsdj40s5" path="res://Scenes/Main Menu/Title.png" id="3_do0pe"]
+[ext_resource type="Texture2D" uid="uid://b5s4n5mumuh6x" path="res://Scenes/Main Menu/Button_Play.png" id="3_koir7"]
+[ext_resource type="Texture2D" uid="uid://dpkbgo5euhupx" path="res://Scenes/Main Menu/Button_Endings.png" id="4_41tnx"]
+[ext_resource type="Texture2D" uid="uid://bwecoevsk61o6" path="res://Scenes/Main Menu/Button_Quit.png" id="5_nmot0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg0rw"]
 bg_color = Color(0.301961, 0.141176, 0, 1)
@@ -39,23 +42,26 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Button" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 128
-text = "Play "
+texture_normal = ExtResource("3_koir7")
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Book" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 128
-text = "Quit"
+texture_normal = ExtResource("4_41tnx")
 
-[node name="Book" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Credits" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 128
-text = "BOOK"
+texture_normal = ExtResource("4_41tnx")
+
+[node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = ExtResource("5_nmot0")
 
 [node name="Endings" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -64,6 +70,7 @@ size_flags_vertical = 4
 
 [node name="Book" type="MarginContainer" parent="."]
 visible = false
+z_index = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -151,13 +158,13 @@ text = " → "
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Title" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(966, 245)
+z_index = 1
+position = Vector2(966, 211)
 scale = Vector2(0.857399, 0.857399)
 texture = ExtResource("3_do0pe")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Book" to="." method="_on_book_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Book/Panel/MarginContainer/HSplitContainer/Panel/VSplitContainer/LeftPage" to="." method="_on_left_page_pressed"]
 [connection signal="pressed" from="Book/Panel/MarginContainer/HSplitContainer/Panel2/VSplitContainer/RightPage" to="." method="_on_right_page_pressed"]
