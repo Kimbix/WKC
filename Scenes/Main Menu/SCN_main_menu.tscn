@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyiij24g2kvrv"]
+[gd_scene load_steps=11 format=3 uid="uid://dyiij24g2kvrv"]
 
 [ext_resource type="Script" path="res://Scenes/Main Menu/SCN_main_menu.gd" id="1_k1ilt"]
 [ext_resource type="Texture2D" uid="uid://lg4cykyd1ups" path="res://Scenes/Main Menu/MainMenu.png" id="2_wl8ex"]
 [ext_resource type="Texture2D" uid="uid://dejg2dsdj40s5" path="res://Scenes/Main Menu/Title.png" id="3_do0pe"]
 [ext_resource type="Texture2D" uid="uid://b5s4n5mumuh6x" path="res://Scenes/Main Menu/Button_Play.png" id="3_koir7"]
 [ext_resource type="Texture2D" uid="uid://dpkbgo5euhupx" path="res://Scenes/Main Menu/Button_Endings.png" id="4_41tnx"]
+[ext_resource type="Texture2D" uid="uid://bix0u1fka2wty" path="res://Scenes/Main Menu/Button_Credits.png" id="5_apkwn"]
 [ext_resource type="Texture2D" uid="uid://bwecoevsk61o6" path="res://Scenes/Main Menu/Button_Quit.png" id="5_nmot0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg0rw"]
@@ -53,10 +54,9 @@ size_flags_vertical = 4
 texture_normal = ExtResource("4_41tnx")
 
 [node name="Credits" type="TextureButton" parent="MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_vertical = 4
-texture_normal = ExtResource("4_41tnx")
+texture_normal = ExtResource("5_apkwn")
 
 [node name="Quit" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
