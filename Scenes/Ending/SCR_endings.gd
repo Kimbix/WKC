@@ -1,5 +1,10 @@
 extends Node2D
 
+## Navigation bar, use the Ctrl + F function to look for these anchors
+# NO IDEA ENDING
+
+var save_dict = {}
+
 const mansion_background = preload("res://Scenes/Intro Cutscene/Main.jpg")
 const black_background = preload("res://Global/Solid_black.png")
 
@@ -33,6 +38,12 @@ func _input(event):
 		State.START:
 			show_buttons()
 			endings_buttons.visible = true
+			var cant_figure = true
+			for button in $"../ButtonsLayer/EndingsContainer".get_children():
+				print(button.visible)
+				if button.visible: cant_figure = false
+			if cant_figure:
+				$"../ButtonsLayer/EndingsContainer/None".visible = true
 		State.SEEING_ENDING:
 			get_tree().change_scene_to_file("res://Scenes/Main Menu/SCN_main_menu.tscn")
 		State.CONO_ENDING:
@@ -46,7 +57,11 @@ func show_buttons():
 	for ending in ScrPersistentData.possible_endings:
 		match(ending):
 			ScrPersistentData.Endings.CRIS:
-				$"../ButtonsLayer/EndingsContainer/Cris".visible = true
+				var show_button = true
+				for key in save_dict:
+					if (key == "cris"): continue
+					if (!save_dict[key]): show_button = false
+				$"../ButtonsLayer/EndingsContainer/Cris".visible = show_button
 			ScrPersistentData.Endings.UKESITO:
 				$"../ButtonsLayer/EndingsContainer/Ukesito".visible = true
 			ScrPersistentData.Endings.YEETUS:
@@ -56,7 +71,11 @@ func show_buttons():
 			ScrPersistentData.Endings.KIMBIX:
 				$"../ButtonsLayer/EndingsContainer/Kimbix".visible = true
 			ScrPersistentData.Endings.CONO:
-				$"../ButtonsLayer/EndingsContainer/Cono".visible = true
+				var show_button = true
+				for key in save_dict:
+					if (key == "cono" or key == "cris"): continue
+					if (!save_dict[key]): show_button = false
+				$"../ButtonsLayer/EndingsContainer/Cono".visible = show_button
 			ScrPersistentData.Endings.KIRI:
 				$"../ButtonsLayer/EndingsContainer/Kiri".visible = true
 			ScrPersistentData.Endings.MAGNITUDE:
@@ -730,7 +749,18 @@ func _on_bici_pressed():
 	tbi.queue_dialogue("EGGNOID ENDING", "...")
 	tbi.queue_dialogue("...", "...")
 
-var save_dict = {}
+# NO IDEA ENDING
+func _on_none_pressed():
+	endings_buttons.visible = false
+	current_state = State.SEEING_ENDING
+	
+	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
+	tbi.queue_dialogue("I really have no idea who did this", "Kimbix")
+	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
+
+	tbi.queue_dialogue("...", "...")
+
+
 func load_game():
 	if not FileAccess.file_exists("user://endings.json"):
 		save_dict = {

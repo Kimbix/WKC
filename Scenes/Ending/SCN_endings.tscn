@@ -38,6 +38,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Cris"
 
+[node name="None" type="Button" parent="ButtonsLayer/EndingsContainer"]
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "I have no clue"
+
 [node name="Ukesito" type="Button" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
@@ -93,6 +99,7 @@ theme_override_font_sizes/font_size = 32
 text = "Bici"
 
 [connection signal="pressed" from="ButtonsLayer/EndingsContainer/Cris" to="ScnIntroCutscene" method="_on_cris_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/None" to="ScnIntroCutscene" method="_on_none_pressed"]
 [connection signal="pressed" from="ButtonsLayer/EndingsContainer/Ukesito" to="ScnIntroCutscene" method="_on_ukesito_pressed"]
 [connection signal="pressed" from="ButtonsLayer/EndingsContainer/Yeetus" to="ScnIntroCutscene" method="_on_yeetus_pressed"]
 [connection signal="pressed" from="ButtonsLayer/EndingsContainer/Cyrus" to="ScnIntroCutscene" method="_on_cyrus_pressed"]
