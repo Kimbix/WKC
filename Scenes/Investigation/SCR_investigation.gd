@@ -54,6 +54,596 @@ func _input(_event):
 		State.ENDING:
 			get_tree().change_scene_to_file("res://Scenes/Ending/SCN_endings.tscn")
 
+const cone = preload("res://Characters/Cone/Cone_normal.png")
+
+const clau_serious_speak = preload("res://Characters/Clau/Clau_serious1.png")
+const clau_serious_no_speak = preload("res://Characters/Clau/Clau_serious2.png")
+func cyru_cutscene():
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	tbi.sprite_change("Padding",padding_texture,true)
+	tbi.sprite_change("Jem",jem_serious_no_speak,false)
+	tbi.sprite_change("Clau",clau_serious_no_speak,false)
+	
+	# TODO: This one also happens in the main hall lmao
+	
+	tbi.queue_dialogue("* As I walk towards the main hall I see Jem and someone behind a...? plant *", "Humber")
+	
+	tbi.sprite_change("Clau",clau_serious_speak,false)
+	tbi.queue_dialogue("BOOO AHH JAJAJA QUE MIEDO", "Clau")
+	tbi.sprite_change("Clau",clau_serious_no_speak,false)
+	
+	tbi.queue_dialogue("...", "Humber")
+	tbi.queue_dialogue("...", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("AAAAAAHHH! :(", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Clau",clau_serious_speak,false)
+	tbi.queue_dialogue("Como puedes ver doy mucho miedo", "Clau")
+	tbi.sprite_change("Clau",clau_serious_no_speak,false)
+	
+	tbi.sprite_change("Jem",jem_serious_speak,false)
+	tbi.queue_dialogue("mhm...", "Jem")
+	tbi.queue_dialogue("So, justo te estabamos buscando para hablarte de algo que recordamos", "Jem")
+	tbi.sprite_change("Jem",jem_serious_no_speak,false)
+	
+	tbi.sprite_change("Clau",clau_serious_speak,false)
+	tbi.queue_dialogue("Pero solo si nos das flips MUAJAJAJA", "Clau")
+	tbi.sprite_change("Clau",clau_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("No", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Clau",clau_serious_speak,false)
+	tbi.queue_dialogue("Después de todo lo que ha pasado yo creo que fue Cyrus", "Clau")
+	tbi.sprite_change("Clau",clau_serious_no_speak,false)
+	
+	tbi.sprite_change("Jem",jem_serious_speak,false)
+	tbi.queue_dialogue("No vale, cyrus nunca haria algo asi", "Jem")
+	tbi.sprite_change("Jem",jem_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Pero que paso? Cyrus hizo algo?", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Jem",jem_serious_speak,false)
+	tbi.queue_dialogue("Antes de que comieramos Cyrus se puso a discutir con Cris de una serie o algo", "Jem")
+	tbi.sprite_change("Jem",jem_serious_no_speak,false)
+	
+	tbi.sprite_change("Clau",clau_serious_speak,false)
+	tbi.queue_dialogue("Y después Cyrus le dijo a Cris que le iba a dar con un plato", "Clau")
+	tbi.sprite_change("Clau",clau_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("aja... un plato", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Clau",clau_serious_speak,false)
+	tbi.queue_dialogue("De hecho, llegamos a ver un plato roto en la cocina con sangre", "Clau")
+	tbi.sprite_change("Clau",clau_serious_no_speak,false)
+	
+	tbi.sprite_change("Jem",jem_serious_speak,false)
+	tbi.queue_dialogue("No sabemos si es sangre", "Jem")
+	tbi.sprite_change("Jem",jem_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("hmmm bueno, igual estare pendiente. Gracias", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Jem",jem_serious_speak,false)
+	tbi.queue_dialogue("De nada", "Jem")
+	tbi.sprite_change("Jem",jem_serious_no_speak,false)
+	
+	tbi.sprite_change("Clau",clau_serious_speak,false)
+	tbi.queue_dialogue("chao tonto", "Clau")
+	tbi.sprite_change("Clau",clau_serious_no_speak,false)
+	
+	tbi.clean_up()
+
+func joaco_cutscene():
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	tbi.sprite_change("Padding",padding_texture,true)
+	tbi.sprite_change("Felix",felix_serious_no_speak,false)
+	tbi.sprite_change("Sage",sage_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Haiii", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Felix",felix_serious_speak,false)
+	tbi.queue_dialogue("Hellooo", "Felix")
+	tbi.sprite_change("Felix",felix_serious_no_speak,false)
+	
+	tbi.sprite_change("Sage",sage_serious_speak,false)
+	tbi.queue_dialogue("Heeyyy", "Sage")
+	tbi.sprite_change("Sage",sage_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("What's up?", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Felix",felix_serious_speak,false)
+	tbi.queue_dialogue("Just thinking on who it could be", "Felix")
+	tbi.sprite_change("Felix",felix_serious_no_speak,false)
+	
+	tbi.sprite_change("Sage",sage_serious_speak,false)
+	tbi.queue_dialogue("Girl, you know it’s your man. Stop coping", "Sage")
+	tbi.sprite_change("Sage",sage_serious_no_speak,false)
+	
+	tbi.sprite_change("Felix",felix_serious_speak,false)
+	tbi.queue_dialogue("Aghhh...", "Felix")
+	tbi.sprite_change("Felix",felix_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("You’re saying it’s Joaco?", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Felix",felix_serious_speak,false)
+	tbi.queue_dialogue("No, he could never hurt a fly", "Felix")
+	tbi.sprite_change("Felix",felix_serious_no_speak,false)
+	
+	tbi.sprite_change("Sage",sage_serious_speak,false)
+	tbi.queue_dialogue("He could DEFINITELY hurt a fly", "Sage")
+	tbi.sprite_change("Sage",sage_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Rewind a bit guys, what makes you think that it was him?", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Sage",sage_serious_speak,false)
+	tbi.queue_dialogue("Ignoring the fact he lost his mind, he’s was rambling about an octa...glarium or something", "Sage")
+	tbi.sprite_change("Sage",sage_serious_no_speak,false)
+	
+	tbi.sprite_change("Felix",felix_serious_speak,false)
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Octavarium", "Humber & Felix")
+	tbi.sprite_change("Felix",felix_serious_no_speak,false)
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Sage",sage_serious_speak,false)
+	tbi.queue_dialogue("yeah that", "Sage")
+	tbi.sprite_change("Sage",sage_serious_no_speak,false)
+	
+	tbi.sprite_change("Felix",felix_serious_speak,false)
+	tbi.queue_dialogue("Sometimes when he's talking to me he suddenly stays quiet and says “octavarium” or “new album”", "Felix")
+	tbi.sprite_change("Felix",felix_serious_no_speak,false)
+	
+	tbi.sprite_change("Sage",sage_serious_speak,false)
+	tbi.queue_dialogue("Oh and not the mention the tantrum he had before dinner", "Sage")
+	tbi.queue_dialogue("He was scrolling instagram and saw a post of some 5 dads...? talking about a new album", "Sage")
+	tbi.sprite_change("Sage",sage_serious_no_speak,false)
+	
+	tbi.sprite_change("Felix",felix_serious_speak,false)
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Dream Theater", "Humber & Felix")
+	tbi.sprite_change("Felix",felix_serious_no_speak,false)
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Sage",sage_serious_speak,false)
+	tbi.queue_dialogue("yeah yeah", "Sage")
+	tbi.queue_dialogue("Let me finish damn", "Sage")
+	tbi.queue_dialogue("And then he had a breakdown or something", "Sage")
+	tbi.sprite_change("Sage",sage_serious_no_speak,false)
+	
+	tbi.sprite_change("Felix",felix_serious_speak,false)
+	tbi.queue_dialogue("It took me a while to calm him down. I was kinda scared", "Felix")
+	tbi.sprite_change("Felix",felix_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Damn, i’ll make sure not to mention that to him", "Humber")
+	tbi.queue_dialogue("I’ve gotta run but thanks guys", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Felix",felix_serious_speak,false)
+	tbi.queue_dialogue("byeeeee", "Felix")
+	tbi.sprite_change("Felix",felix_serious_no_speak,false)
+	
+	tbi.sprite_change("Sage",sage_serious_speak,false)
+	tbi.queue_dialogue("see yaa", "Sage")
+	tbi.sprite_change("Sage",sage_serious_no_speak,false)
+	
+	tbi.clean_up()
+
+func bici_cutscene():
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	tbi.sprite_change("Padding",padding_texture,true)
+	tbi.sprite_change("Paris",paris_serious_no_speak,false)
+	tbi.sprite_change("David",david_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Hello hello", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Paris",paris_serious_speak,false)
+	tbi.queue_dialogue("Hi :3", "Paris")
+	tbi.sprite_change("Paris",paris_serious_no_speak,false)
+	
+	tbi.sprite_change("David",david_serious_speak,false)
+	tbi.queue_dialogue("Hola berto :3", "David")
+	tbi.sprite_change("David",david_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("How have you guys been? Are you starting to like the horse more?", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("David",david_serious_speak,false)
+	tbi.queue_dialogue("NEVER! THAT HORSE MUST DIE", "David")
+	tbi.sprite_change("David",david_serious_no_speak,false)
+	
+	tbi.queue_dialogue("...", "Paris")
+	
+	tbi.queue_dialogue("...", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Okay", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Paris",paris_serious_speak,false)
+	tbi.queue_dialogue("Uhm...", "Paris")
+	tbi.queue_dialogue("We wanted to tell you that we think it was bici", "Paris")
+	tbi.sprite_change("Paris",paris_serious_no_speak,false)
+	
+	tbi.sprite_change("David",david_serious_speak,false)
+	tbi.queue_dialogue("No we don’t, I think it was the horse", "David")
+	tbi.sprite_change("David",david_serious_no_speak,false)
+	
+	tbi.queue_dialogue("* Paris glances at David *", "Paris")
+	
+	tbi.sprite_change("David",david_serious_speak,false)
+	tbi.queue_dialogue("Okay we came here to tell you about bici...", "David")
+	tbi.sprite_change("David",david_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("What about bici?", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("David",david_serious_speak,false)
+	tbi.queue_dialogue("Well...", "David")
+	tbi.sprite_change("David",david_serious_no_speak,false)
+	
+	tbi.queue_dialogue("Uhm...", "Paris")
+	tbi.sprite_change("Paris",paris_serious_speak,false)
+	tbi.queue_dialogue("We went to talk with Bici and everything was fine", "Paris")
+	tbi.sprite_change("Paris",paris_serious_no_speak,false)
+	
+	tbi.sprite_change("David",david_serious_speak,false)
+	tbi.queue_dialogue("That was until paris has to go to the bathroom", "David")
+	tbi.sprite_change("David",david_serious_no_speak,false)
+	
+	tbi.queue_dialogue("* Paris nods *", "Paris")
+	
+	tbi.sprite_change("David",david_serious_speak,false)
+	tbi.queue_dialogue("Then bici was regañandome all because i wasn’t reading the webtoons T-T", "David")
+	tbi.sprite_change("David",david_serious_no_speak,false)
+	
+	tbi.sprite_change("Paris",paris_serious_speak,false)
+	tbi.queue_dialogue("When I came back, bici acted as if nothing happened", "Paris")
+	tbi.queue_dialogue("After a while, she left, not without giving david a glare", "Paris")
+	tbi.sprite_change("Paris",paris_serious_no_speak,false)
+	
+	tbi.sprite_change("David",david_serious_speak,false)
+	tbi.queue_dialogue("And she also told me not to forget what we talked about", "David")
+	tbi.sprite_change("David",david_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("And that was?", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Paris",paris_serious_speak,false)
+	tbi.queue_dialogue("“You’re not the only one on thin ice, after I’m done with someone else, you’re next”", "Paris")
+	tbi.sprite_change("Paris",paris_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Jeez, looks like bici is going to be paying a lot of visits...", "Humber")
+	tbi.queue_dialogue("Well, thanks guys. I’ll be on the lookout for bici", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("David",david_serious_speak,false)
+	tbi.queue_dialogue("See you!", "David")
+	tbi.sprite_change("David",david_serious_no_speak,false)
+	
+	tbi.sprite_change("Paris",paris_serious_speak,false)
+	tbi.queue_dialogue("Bye bye", "Paris")
+	tbi.sprite_change("Paris",paris_serious_no_speak,false)
+	
+	tbi.clean_up()
+
+func magnitude_cutscene():
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	tbi.sprite_change("Pham",pham_serious_speak,true)
+	tbi.queue_dialogue("Hey humberto", "Pham")
+	
+	tbi.sprite_change("Ukesito",uke_serious_speak,false)
+	tbi.queue_dialogue("hey", "Ukesito")
+	tbi.sprite_change("Ukesito",uke_serious_no_speak,false)
+	
+	tbi.sprite_change("Yeetus",yeetus_serious_speak,false)
+	tbi.queue_dialogue("NEIGH", "Yeetus")
+	tbi.sprite_change("Yeetus",yeetus_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Hey", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Ukesito",uke_serious_speak,false)
+	tbi.queue_dialogue("We were talking about this precense weve been seeing all over the mansion", "Ukesito")
+	tbi.sprite_change("Ukesito",uke_serious_no_speak,false)
+	
+	tbi.queue_dialogue("They talk to you about the so called ghost. Yeetus seems to be visibly afraid and shits on the floor.", "")
+	tbi.queue_dialogue("Uke pays no mind to it but pham is absolutely baffled", "")
+	tbi.queue_dialogue("I'm reminded of something similar cris said, I think I know who it is*", "")
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("I've heard enough, thanks guys", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.clean_up()
+
+const yeetus_cutscene_background = preload("res://Characters/Yeetus/Cutscene_yeetus.png")
+func yeetus_cutscene(): 
+	tbi.sprite_change("Humber",kimbix_cutscene(),true)
+	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
+	tbi.queue_dialogue(" * walks up to Humber *", "Cyrus")
+	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
+	tbi.queue_dialogue("ey gafo", "Cyrus")
+	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
+
+	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
+	tbi.queue_dialogue("?", "Kimbix")
+	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
+	tbi.queue_dialogue("I found a Ouija board, want to help me summon cris", "Cyrus")
+	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
+
+	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
+	tbi.queue_dialogue("sure", "Kimbix")
+	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
+	
+	tbi.queue_dialogue(" * I am lead to cris's body and Cyrus sets the board down. We rummage around the house looking for offerings. * ", "Kimbix")
+	tbi.queue_dialogue(" * Cyrus sets candles down around the board and the offerings * ", "Kimbix")
+	tbi.queue_dialogue(" * peanuts, an HDD and a crude drawing of cris * ", "Kimbix")
+	tbi.queue_dialogue(" * As we light up the candles, the main hall lights flicker. * ", "Kimbix")
+	tbi.queue_dialogue(" * They completely turn off and we're left in the dark with the candles letting us see each other. * ", "Kimbix")
+	
+	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
+	tbi.queue_dialogue("chant with me", "Cyrus")
+	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
+	
+	tbi.queue_dialogue(" * we hold each other's hands * ", "Kimbix")
+	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
+	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
+	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet ", "Cyrus")
+	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet ", "Kimbix")
+	tbi.queue_dialogue(" * The room shakes * ", "Kimbix")
+	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet! ", "Cyrus")
+	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet! ", "Kimbix")
+	tbi.queue_dialogue(" * The lights heavily flicker * ", "Kimbix")
+	tbi.queue_dialogue(" LOREM IPSUM DOLOR SIT AMET ", "Cyrus")
+	tbi.queue_dialogue(" LOREM IPSUM DOLOR SIT AMET ", "Kimbix")
+	tbi.queue_dialogue(" * There's a flash of white light and before us we see the ghost of cris * ", "Kimbix")
+	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
+	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
+	
+	tbi.queue_all(null, null, null, null, yeetus_cutscene_background, false, false)
+	tbi.queue_dialogue("MEEEEEDICCC", "Ghost Cris")
+	tbi.queue_dialogue("MEEEEEEEEDDIIIICCC", "Ghost Cris")
+	tbi.queue_dialogue("oh hey guys", "Ghost Cris")
+
+	tbi.queue_dialogue(" * We ask cris how he died  * ", "Kimbix")
+	tbi.queue_dialogue(" *  Cris couldn't tell us much, but he did tell us how he felt a hoof before dying  * ", "Kimbix")
+	
+	tbi.queue_dialogue("I'm gonna go now, I was playing tf2 with Magnitude", "Ghost Cris")
+	tbi.queue_dialogue(" * dissapears * ", "Ghost Cris")
+	
+	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Well that was something…", "Kimbix")
+	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
+
+func uke_cutscene():
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	tbi.sprite_change("Padding",padding_texture,true)
+	tbi.sprite_change("Bici",bici_serious_no_speak,false)
+	tbi.sprite_change("Cono",cone,false)
+	
+	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.queue_dialogue("Hey mr streamer, I saw something before cris' death and I wanted to see if you could make anything of it", "Bici")
+	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Okay, i'm listening", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.queue_dialogue("Before we ate, I saw uke walk over to a wall", "Bici")
+	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("That's normal", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.queue_dialogue("But what isn't is that he started mumbling about him not being appreciated and how he was going to take over Walter", "Bici")
+	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("That's not normal", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.queue_dialogue("* Cone nods in agreement *", "Cone")
+	
+	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.queue_dialogue("And the worst part was him saying “ahora soy admin hahaHAHAHAHA” when we all split up", "Bici")
+	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	
+	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.queue_dialogue("Pretty scary stuff", "Bici")
+	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Oh yeah, he's definitely a prime suspect now", "Humber")
+	tbi.queue_dialogue("Thanks a lot bici", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.queue_dialogue("Consider this a favor, you'll be repaying it after", "Bici")
+	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("What have i gotten myself into", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.queue_dialogue(">:)", "Bici")
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Anyway... I'll be going now, thanks", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.clean_up()
+
+func cono_cutscene():
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	tbi.sprite_change("Padding",padding_texture,true)
+	tbi.sprite_change("Nigu",nigu_serious_no_speak,false)
+	tbi.sprite_change("Joaco",joaco_serious_no_speak,false)
+	
+	tbi.sprite_change("Joaco",joaco_serious_no_speak,false)
+	tbi.sprite_change("Nigu",nigu_serious_speak,true)
+	tbi.queue_dialogue("Hey i think cono is a fake", "Nigu")
+	tbi.sprite_change("Nigu",nigu_serious_no_speak,true)
+	
+	tbi.sprite_change("Joaco",joaco_serious_speak,false)
+	tbi.queue_dialogue("WOAH WOAH WOAH", "Joaco")
+	tbi.queue_dialogue("audio... audio... audio place", "Joaco")
+	tbi.sprite_change("Joaco",joaco_serious_no_speak,false)
+	
+	tbi.sprite_change("Nigu",nigu_serious_speak,true)
+	tbi.queue_dialogue("so…", "Nigu")
+	tbi.sprite_change("Nigu",nigu_serious_no_speak,true)
+	
+	tbi.queue_dialogue(" * Nigu explains how cono has been acting extremely robotic. * ", "")
+	tbi.queue_dialogue(" * Never answering questions or even speaking. He said he also noticed a red spot in cono’s face. * ", "")
+	tbi.queue_dialogue(" * Nigu asked, cone seemed nervous * ", "")
+
+	tbi.sprite_change("Nigu",nigu_serious_speak,true)
+	tbi.queue_dialogue("And thats about it", "Nigu")
+	tbi.sprite_change("Nigu",nigu_serious_no_speak,true)
+	
+	tbi.sprite_change("Nigu",null,true)
+	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Hmmm really makes you think…", "Kimbix")
+	tbi.queue_dialogue("that's not cono, thats-", "Kimbix")
+	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
+	
+	tbi.clean_up()
+
+func kimbix_cutscene():
+	# TODO: Once again, it FEELS like there's supposed to be a background change here
+	# but there's nothing indicated in the docs, so imma leave it to cris.
+	
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.queue_dialogue("* After leaving the room I notice there's no one in the main hall *", "Humber")
+	tbi.queue_dialogue("* Making my move, I leave the mansion running towards my car *", "Humber")
+	tbi.queue_dialogue("* I open the trunk and reach for my jacket pocket. Grabbing cris’ gun, I make sure the safety is on and throw it inside *", "Humber")
+	tbi.queue_dialogue("* I take a quick glance at my surroundings, no one has spotted me yet. I close the trunk and lock my car *", "Humber")
+	tbi.queue_dialogue("* I run back towards the mansion, composing myself before entering *", "Humber")
+	tbi.queue_dialogue("* Luckily, no one saw me enter *", "Humber")
+	
+	tbi.clean_up()
+
+func cris_cutscene():
+	# TODO: in this cutscene cris just fcking wrote it like 
+	# its happening from the dinning table, which is NOT here
+	# sooooo either this cutscene is being changed later
+	# or im supposed to change the background
+	# either way im doing that later.
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Hmmm...", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("The more I think about it the way Cris died doesn’t sit right with me", "Humber")
+	tbi.queue_dialogue("They’re all cris’ friends, it’s hard to believe any one of us could do this", "Humber")
+	tbi.queue_dialogue("Even if everyone seems suspicious", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.queue_dialogue("* I walk towards the dning table *", "Humber")
+	tbi.queue_dialogue("* Circling around it I find nothing of interest *", "Humber")
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("There has to be something here", "Humber")
+	tbi.queue_dialogue("A clue maybe", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.queue_dialogue("* My eyes pace around the main hall *", "Humber")
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Let me find something, anything!", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.queue_dialogue("* Seeing as there is nothing else except for cris’ body still there I feel like giving up *", "Humber")
+	tbi.queue_dialogue("* I feel something compel me to look up *", "Humber")
+	tbi.queue_dialogue("* As I do, I spot a broken rope dangling from the ceiling. *", "Humber")
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Huh...", "Humber")
+	tbi.queue_dialogue("I never noticed that, what could it mean?", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.clean_up()
+
+func kiri_cutscene():
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	tbi.sprite_change("Padding",padding_texture,true)
+	tbi.sprite_change("Clara",clara_serious_no_speak,false)
+	tbi.sprite_change("Cesar",cesar_serious_no_speak,false)
+
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Hello hello", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+
+	tbi.sprite_change("Clara",clara_serious_speak,false)
+	tbi.queue_dialogue("Hellooo", "Clara")
+	tbi.sprite_change("Clara",clara_serious_no_speak,false)
+
+	tbi.sprite_change("Cesar",cesar_serious_speak,false)
+	tbi.queue_dialogue("How's the investigation going?", "Cesar")
+	tbi.sprite_change("Cesar",cesar_serious_no_speak,false)
+
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Pretty good, but I could definitely use a good lead right now", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+
+	tbi.sprite_change("Padding",null,true)
+	tbi.sprite_change("Jacques",jacques_serious_speak,true)
+	tbi.sprite_change("Jacques",jacques_serious_speak,true)
+	tbi.queue_dialogue("Guess what", "Jacques")
+	tbi.sprite_change("Jacques",jacques_serious_no_speak,true)
+
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Que?", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+
+	tbi.sprite_change("Jacques",jacques_serious_speak,true)
+	tbi.queue_dialogue("so", "Jacques")
+	tbi.sprite_change("Jacques",jacques_serious_no_speak,true)
+
+	tbi.sprite_change("Cesar",cesar_serious_speak,false)
+	tbi.queue_dialogue("We have just what we need, we saw something right before we went to eat. We thought you should know", "Cesar")
+	tbi.sprite_change("Cesar",cesar_serious_no_speak,false)
+
+	tbi.sprite_change("Clara",clara_serious_speak,false)
+	tbi.queue_dialogue("It’s extremely incriminating, so use it wisely", "Clara")
+	tbi.sprite_change("Clara",clara_serious_no_speak,false)
+
+	tbi.clean_up()
+
+	# TODO: Here it just fcking says *The three recount,
+	# probably cris forgot to fcking finish writing the script
+	# must finish later probably
+
 func _on_the_dungeon_pressed():
 	locations_container.visible = false
 	current_state = State.PLACE_DIALOGUE
@@ -229,23 +819,20 @@ var dungeon_scene = func():
 		
 		tbi.queue_dialogue("I leave the room, hoping to find out what Cris did with those piñatas", "Kiri")
 		
-		tbi.sprite_change("Humber",null,true)
-		tbi.sprite_change("Padding",null,true)
-		tbi.sprite_change("Kiri",null,false)
-		tbi.sprite_change("Cyrus",null,false)
+		tbi.clean_up()
 	match (previous_location):
 		Location.KITCHEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIRI)
-			tbi.queue_dialogue("You previously went to the Kitchen", "")
+			kiri_cutscene()
 		Location.BEDROOM:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CRIS)
-			tbi.queue_dialogue("You previously went to the Bedroom", "")
+			cris_cutscene()
 		Location.GARAGE:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIMBIX)
-			tbi.queue_dialogue("You previously went to the Garage", "")
+			kimbix_cutscene()
 		Location.GARDEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CONO)
-			tbi.queue_dialogue("You previously went to the Garden", "")
+			cono_cutscene()
 		_:
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.DUNGEON
@@ -479,16 +1066,16 @@ var kitchen_scene = func():
 	match (previous_location):
 		Location.DUNGEON:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIRI)
-			tbi.queue_dialogue("You previously went to the Dungeon", "")
+			kiri_cutscene()
 		Location.BEDROOM:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CYRU)
-			tbi.queue_dialogue("You previously went to the Bedroom", "")
+			cyru_cutscene()
 		Location.GARAGE:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.MAGNITUDE)
-			tbi.queue_dialogue("You previously went to the Garage", "")
+			magnitude_cutscene()
 		Location.GARDEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.BICI)
-			tbi.queue_dialogue("You previously went to the Garden", "")
+			bici_cutscene()
 		_:
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.KITCHEN
@@ -688,16 +1275,16 @@ var bedroom_scene = func():
 	match (previous_location):
 		Location.DUNGEON:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CRIS)
-			tbi.queue_dialogue("You previously went to the Dungeon", "")
+			cris_cutscene()
 		Location.KITCHEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CYRU)
-			tbi.queue_dialogue("You previously went to the Kitchen", "")
+			cyru_cutscene()
 		Location.GARAGE:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.YEETUS)
-			tbi.queue_dialogue("You previously went to the Garage", "")
+			yeetus_cutscene()
 		Location.GARDEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.UKESITO)
-			tbi.queue_dialogue("You previously went to the Garden", "")
+			uke_cutscene()
 		_:
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.BEDROOM
@@ -881,16 +1468,16 @@ var garage_scene = func():
 	match (previous_location):
 		Location.DUNGEON:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIMBIX)
-			tbi.queue_dialogue("You previously went to the Dungeon", "")
+			kimbix_cutscene()
 		Location.KITCHEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.MAGNITUDE)
-			tbi.queue_dialogue("You previously went to the Kitchen", "")
+			magnitude_cutscene()
 		Location.BEDROOM:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.YEETUS)
-			tbi.queue_dialogue("You previously went to the Bedroom", "")
+			yeetus_cutscene()
 		Location.GARDEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.JOACO)
-			tbi.queue_dialogue("You previously went to the Garden", "")
+			joaco_cutscene()
 		_:
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.GARAGE
@@ -1204,16 +1791,16 @@ var garden_scene = func():
 	match (previous_location):
 		Location.DUNGEON:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CONO)
-			tbi.queue_dialogue("You previously went to the Dungeon", "")
+			cono_cutscene()
 		Location.KITCHEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.BICI)
-			tbi.queue_dialogue("You previously went to the Kitchen", "")
+			bici_cutscene()
 		Location.BEDROOM:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.UKESITO)
-			tbi.queue_dialogue("You previously went to the Bedroom", "")
+			uke_cutscene()
 		Location.GARAGE:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.JOACO)
-			tbi.queue_dialogue("You previously went to the Garage", "")
+			joaco_cutscene()
 		_:
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.GARDEN

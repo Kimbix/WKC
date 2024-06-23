@@ -134,6 +134,12 @@ func queue_all(text, speaker, char_name, sprite, background, highlight, left):
 	queue[-1]["highlight"] = highlight
 	queue[-1]["left"] = left
 
+func clean_up():
+	for key in chars_on_left.keys():
+		sprite_change(key, null, true)
+	for key in chars_on_right.keys():
+		sprite_change(key, null, false)
+
 func display_text(next_text, speaker):
 	label.text = next_text
 	speaker_label.text = speaker

@@ -29,7 +29,7 @@ func _ready():
 	tbi.queue_all(null, null, null, null, mansion_background, false, false)
 	tbi.queue_dialogue("Who's to blame...?", "Humber")
 
-func _input(event):
+func _input(_event):
 	if tbi.disable_input: return
 	if (not Input.is_action_just_released("ui_accept")): return
 	if (not tbi.current_state == tbi.State.READY): return
@@ -263,7 +263,6 @@ const yeetus_angry_speak = preload("res://Characters/Yeetus/Yeetus_angry2.png")
 const yeetus_angry_no_speak = preload("res://Characters/Yeetus/Yeetus_angry1.png")
 
 const yeetus_ending = preload("res://Characters/Yeetus/Ending_yeetus.png")
-const yeetus_midscene = preload("res://Characters/Yeetus/Cutscene_yeetus.png")
 func _on_yeetus_pressed():
 	if (save_dict["yeetus"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -271,65 +270,6 @@ func _on_yeetus_pressed():
 	endings_buttons.visible = false
 	current_state = State.SEEING_ENDING
 	
-	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
-	tbi.queue_dialogue(" * walks up to Humber *", "Cyrus")
-	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
-	tbi.queue_dialogue("ey gafo", "Cyrus")
-	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
-
-	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
-	tbi.queue_dialogue("?", "Kimbix")
-	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
-	
-	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
-	tbi.queue_dialogue("I found a Ouija board, want to help me summon cris", "Cyrus")
-	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
-
-	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
-	tbi.queue_dialogue("sure", "Kimbix")
-	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
-	
-	tbi.queue_dialogue(" * I am lead to cris's body and Cyrus sets the board down. We rummage around the house looking for offerings. * ", "Kimbix")
-	tbi.queue_dialogue(" * Cyrus sets candles down around the board and the offerings * ", "Kimbix")
-	tbi.queue_dialogue(" * peanuts, an HDD and a crude drawing of cris * ", "Kimbix")
-	tbi.queue_dialogue(" * As we light up the candles, the main hall lights flicker. * ", "Kimbix")
-	tbi.queue_dialogue(" * They completely turn off and we're left in the dark with the candles letting us see each other. * ", "Kimbix")
-	
-	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
-	tbi.queue_dialogue("chant with me", "Cyrus")
-	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
-	
-	tbi.queue_dialogue(" * we hold each other's hands * ", "Kimbix")
-	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
-	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
-	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet ", "Cyrus")
-	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet ", "Kimbix")
-	tbi.queue_dialogue(" * The room shakes * ", "Kimbix")
-	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet! ", "Cyrus")
-	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet! ", "Kimbix")
-	tbi.queue_dialogue(" * The lights heavily flicker * ", "Kimbix")
-	tbi.queue_dialogue(" LOREM IPSUM DOLOR SIT AMET ", "Cyrus")
-	tbi.queue_dialogue(" LOREM IPSUM DOLOR SIT AMET ", "Kimbix")
-	tbi.queue_dialogue(" * There's a flash of white light and before us we see the ghost of cris * ", "Kimbix")
-	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
-	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
-	
-	tbi.queue_all(null, null, null, null, yeetus_midscene, false, false)
-	tbi.queue_dialogue("MEEEEEDICCC", "Ghost Cris")
-	tbi.queue_dialogue("MEEEEEEEEDDIIIICCC", "Ghost Cris")
-	tbi.queue_dialogue("oh hey guys", "Ghost Cris")
-
-	tbi.queue_dialogue(" * We ask cris how he died  * ", "Kimbix")
-	tbi.queue_dialogue(" *  Cris couldn't tell us much, but he did tell us how he felt a hoof before dying  * ", "Kimbix")
-	
-	tbi.queue_dialogue("I'm gonna go now, I was playing tf2 with Magnitude", "Ghost Cris")
-	tbi.queue_dialogue(" * dissapears * ", "Ghost Cris")
-	
-	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
-	tbi.queue_dialogue("Well that was something…", "Kimbix")
-	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
-	
-	tbi.sprite_change("Cyrus",null,false)
 	tbi.sprite_change("Yeetus",yeetus_angry_speak,false)
 	tbi.queue_dialogue("NEIGHT NEIGH NWGIH PTRSS PRES NWIIIGHHHHH", "Yeetus")
 	tbi.sprite_change("Yeetus",yeetus_angry_no_speak,false)
@@ -510,35 +450,10 @@ func _on_cono_pressed():
 	endings_buttons.visible = false
 	current_state = State.CONO_ENDING
 	
-	tbi.sprite_change("Joaco",joaco_serious_no_speak,false)
-	tbi.sprite_change("Nigu",nigu_serious_speak,true)
-	tbi.queue_dialogue("Hey i think cono is a fake", "Nigu")
-	tbi.sprite_change("Nigu",nigu_serious_no_speak,true)
+	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
+	tbi.queue_dialogue("That's not cone that's-", "Kimbix")
+	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
 	
-	tbi.sprite_change("Joaco",joaco_serious_speak,false)
-	tbi.queue_dialogue("WOAH WOAH WOAH", "Joaco")
-	tbi.queue_dialogue("audio... audio... audio place", "Joaco")
-	tbi.sprite_change("Joaco",joaco_serious_no_speak,false)
-	
-	tbi.sprite_change("Nigu",nigu_serious_speak,true)
-	tbi.queue_dialogue("so…", "Nigu")
-	tbi.sprite_change("Nigu",nigu_serious_no_speak,true)
-	
-	tbi.queue_dialogue(" * Nigu explains how cono has been acting extremely robotic. * ", "")
-	tbi.queue_dialogue(" * Never answering questions or even speaking. He said he also noticed a red spot in cono’s face. * ", "")
-	tbi.queue_dialogue(" * Nigu asked, cone seemed nervous * ", "")
-
-	tbi.sprite_change("Nigu",nigu_serious_speak,true)
-	tbi.queue_dialogue("And thats about it", "Nigu")
-	tbi.sprite_change("Nigu",nigu_serious_no_speak,true)
-	
-	tbi.sprite_change("Nigu",null,true)
-	tbi.sprite_change("Kimbix",kimbix_evil_speak,true)
-	tbi.queue_dialogue("Hmmm really makes you think…", "Kimbix")
-	tbi.queue_dialogue("that's not cono, thats-", "Kimbix")
-	tbi.sprite_change("Kimbix",kimbix_evil_no_speak,true)
-	
-	tbi.sprite_change("Joaco",null,false)
 	tbi.sprite_change("Cone",cone_evil_speak,false)
 	tbi.queue_dialogue("I see you figured out my true identity", "Cone")
 	tbi.queue_dialogue("I hate people who spoil surprises", "Cone")
@@ -594,40 +509,6 @@ func _on_magnitude_pressed():
 	save_endings(ScrPersistentData.Endings.MAGNITUDE)
 	endings_buttons.visible = false
 	current_state = State.SEEING_ENDING
-	
-	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
-	tbi.sprite_change("Pham",pham_serious_speak,true)
-	tbi.queue_dialogue("Hey humberto", "Pham")
-	
-	tbi.sprite_change("Ukesito",ukesito_serious_speak,false)
-	tbi.queue_dialogue("hey", "Ukesito")
-	tbi.sprite_change("Ukesito",ukesito_serious_no_speak,false)
-	
-	tbi.sprite_change("Yeetus",yeetus_serious_speak,false)
-	tbi.queue_dialogue("NEIGH", "Yeetus")
-	tbi.sprite_change("Yeetus",yeetus_serious_no_speak,false)
-	
-	tbi.sprite_change("Humber",kimbix_serious_speak,true)
-	tbi.queue_dialogue("Hey", "Humber")
-	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
-	
-	tbi.sprite_change("Ukesito",ukesito_serious_speak,false)
-	tbi.queue_dialogue("We were talking about this precense weve been seeing all over the mansion", "Ukesito")
-	tbi.sprite_change("Ukesito",ukesito_serious_no_speak,false)
-	
-	tbi.queue_dialogue("They talk to you about the so called ghost. Yeetus seems to be visibly afraid and shits on the floor.", "")
-	tbi.queue_dialogue("Uke pays no mind to it but pham is absolutely baffled", "")
-	tbi.queue_dialogue("I'm reminded of something similar cris said, I think I know who it is*", "")
-	
-	tbi.sprite_change("Humber",kimbix_serious_speak,true)
-	tbi.queue_dialogue("I've heard enough, thanks guys", "Humber")
-	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
-	
-	
-	tbi.sprite_change("Humber",null,true)
-	tbi.sprite_change("Ukesito",null,false)
-	tbi.sprite_change("Yeetus",null,false)
-	tbi.sprite_change("Pham",null,true)
 	
 	tbi.sprite_change("Humber",kimbix_serious_speak,true)
 	tbi.queue_dialogue("Magnitude", "Humber")
@@ -812,7 +693,6 @@ func save_endings(ending : ScrPersistentData.Endings):
 		ScrPersistentData.Endings.BICI:
 			save_dict["bici"] = true
 	
-	var json = JSON.new()
 	var json_string = JSON.stringify(save_dict)
 	save_game.store_line(json_string)
 	save_game.close()
