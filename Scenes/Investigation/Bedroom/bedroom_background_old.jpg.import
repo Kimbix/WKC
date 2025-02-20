@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cib4uxv4l2jka"
-path="res://.godot/imported/bedroom_background.jpg-5586a583ce59b66c30e0ebbfb6660883.ctex"
+uid="uid://d0pm72lmi10h8"
+path="res://.godot/imported/bedroom_background_old.jpg-d7edd8ffa9219f24fcd22901f7eea572.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Investigation/Bedroom/bedroom_background.jpg"
-dest_files=["res://.godot/imported/bedroom_background.jpg-5586a583ce59b66c30e0ebbfb6660883.ctex"]
+source_file="res://Scenes/Investigation/Bedroom/bedroom_background_old.jpg"
+dest_files=["res://.godot/imported/bedroom_background_old.jpg-d7edd8ffa9219f24fcd22901f7eea572.ctex"]
 
 [params]
 
