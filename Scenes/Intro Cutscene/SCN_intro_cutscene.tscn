@@ -1,6 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bn17nnkpsj8b7"]
+[gd_scene load_steps=24 format=3 uid="uid://bn17nnkpsj8b7"]
 
-[ext_resource type="Script" path="res://Scenes/Intro Cutscene/SCN_intro_cutscene.gd" id="1_7l8le"]
+[ext_resource type="Script" uid="uid://drsoti0e0mtau" path="res://Scenes/Intro Cutscene/SCN_intro_cutscene.gd" id="1_7l8le"]
+[ext_resource type="Script" uid="uid://bci8unplm321r" path="res://Scenes/Main Menu/button_control.gd" id="2_c06mg"]
+[ext_resource type="PackedScene" uid="uid://bt33drb03ogrm" path="res://Button_Control.tscn" id="2_eap7a"]
+[ext_resource type="Texture2D" uid="uid://el2otjvc01ek" path="res://Assets/UI/Labels/Characters/Button_Label_Bici.png" id="3_iqbal"]
+[ext_resource type="Texture2D" uid="uid://e4co867rg5tq" path="res://Assets/UI/Labels/Characters/Button_Label_Cone.png" id="3_yuhcw"]
+[ext_resource type="Texture2D" uid="uid://cpo7qw0utqnhj" path="res://Assets/UI/Labels/Characters/Button_Label_Ukesito.png" id="4_228gy"]
+[ext_resource type="Texture2D" uid="uid://bmw8ldeb46lsi" path="res://Assets/UI/Labels/Characters/Button_Label_Cesar.png" id="5_i1yqi"]
+[ext_resource type="Texture2D" uid="uid://c2gr58fs1wphj" path="res://Assets/UI/Labels/Characters/Button_Label_Chris.png" id="6_58cu6"]
+[ext_resource type="Texture2D" uid="uid://daglmlwqx05q5" path="res://Assets/UI/Labels/Actions/Button_Label_Wait.png" id="6_228gy"]
+[ext_resource type="Texture2D" uid="uid://crrnq66pwh8fj" path="res://Assets/UI/Labels/Characters/Button_Label_Clara.png" id="7_c06mg"]
+[ext_resource type="Texture2D" uid="uid://b4o4e4e3lhray" path="res://Assets/UI/Labels/Characters/Button_Label_Clau.png" id="8_eap7a"]
+[ext_resource type="Texture2D" uid="uid://v3kgwc7yhfuo" path="res://Assets/UI/Labels/Characters/Button_Label_Cyrus.png" id="9_aat0a"]
+[ext_resource type="Texture2D" uid="uid://co1v3jec51sap" path="res://Assets/UI/Labels/Characters/Button_Label_David.png" id="10_68pme"]
+[ext_resource type="Texture2D" uid="uid://bonp01qmt3qu5" path="res://Assets/UI/Labels/Characters/Button_Label_Felix.png" id="11_d82ur"]
+[ext_resource type="Texture2D" uid="uid://c83eiue0g8xvn" path="res://Assets/UI/Labels/Characters/Button_Label_Jacques.png" id="12_i83ca"]
+[ext_resource type="Texture2D" uid="uid://d4cxk8e3t6qgm" path="res://Assets/UI/Labels/Characters/Button_Label_Jem.png" id="13_wg24y"]
+[ext_resource type="Texture2D" uid="uid://ccwficbiot7oo" path="res://Assets/UI/Labels/Characters/Button_Label_Joaco.png" id="14_wj3yb"]
+[ext_resource type="Texture2D" uid="uid://cu474ktwfyvl" path="res://Assets/UI/Labels/Characters/Button_Label_Kiri.png" id="15_fb47f"]
+[ext_resource type="Texture2D" uid="uid://wnf6b4usry8p" path="res://Assets/UI/Labels/Characters/Button_Label_Nigu.png" id="16_4aci3"]
+[ext_resource type="Texture2D" uid="uid://df41u7gcoj024" path="res://Assets/UI/Labels/Characters/Button_Label_Paris.png" id="17_l3qpx"]
+[ext_resource type="Texture2D" uid="uid://cy5bjjmc6y2v5" path="res://Assets/UI/Labels/Characters/Button_Label_Pham.png" id="18_ciimh"]
+[ext_resource type="Texture2D" uid="uid://clxscyrbappeq" path="res://Assets/UI/Labels/Characters/Button_Label_Sage.png" id="19_l3qpx"]
+[ext_resource type="Texture2D" uid="uid://c73f6xc052f8r" path="res://Assets/UI/Labels/Characters/Button_Label_Yeetus.png" id="21_ciimh"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -22,155 +44,235 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -54.5
-offset_top = -50.5
-offset_right = 54.5
-offset_bottom = 50.5
+offset_top = -75.0
+offset_bottom = 75.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 150
 
-[node name="GridContainer" type="GridContainer" parent="ButtonsLayer/VBoxContainer"]
-show_behind_parent = true
+[node name="LocationsContainer" type="GridContainer" parent="ButtonsLayer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_vertical = 0
+theme_override_constants/h_separation = 535
+theme_override_constants/v_separation = 145
 columns = 2
 
-[node name="Cono" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Bici_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Cono"
+size_flags_horizontal = 4
 
-[node name="Ukesito" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Bici" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Bici_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("3_iqbal")
+
+[node name="Cono_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Ukesito"
+size_flags_horizontal = 4
 
-[node name="Nigu" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Cono" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Cono_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("3_yuhcw")
+
+[node name="Cesar_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Nigu"
+size_flags_horizontal = 4
 
-[node name="David" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Cesar" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Cesar_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("5_i1yqi")
+
+[node name="Chris_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Chris" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Chris_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("6_58cu6")
+
+[node name="Clara_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "David"
+size_flags_horizontal = 4
 
-[node name="Paris" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Clara" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Clara_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("7_c06mg")
+
+[node name="Clau_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Paris"
+size_flags_horizontal = 4
 
-[node name="Clau" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Clau" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Clau_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("8_eap7a")
+
+[node name="Cyrus_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Cyrus" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Cyrus_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("9_aat0a")
+
+[node name="David_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Claudia"
+size_flags_horizontal = 4
 
-[node name="Cris" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Cris"
+[node name="David" parent="ButtonsLayer/VBoxContainer/LocationsContainer/David_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("10_68pme")
 
-[node name="Bici" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Bici"
-
-[node name="Sage" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Felix_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Sage"
+size_flags_horizontal = 4
 
-[node name="Joaco" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Felix" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Felix_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("11_d82ur")
+
+[node name="Jacques_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Joaco"
+size_flags_horizontal = 4
 
-[node name="Cyrus" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Jacques" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Jacques_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("12_i83ca")
+
+[node name="Jem_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Cyrus"
+size_flags_horizontal = 4
 
-[node name="Jem" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Jem" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Jem_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("13_wg24y")
+
+[node name="Joaco_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Jem"
+size_flags_horizontal = 4
 
-[node name="Felix" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Joaco" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Joaco_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("14_wj3yb")
+
+[node name="Kiri_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Felix"
+size_flags_horizontal = 4
 
-[node name="Jacques" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Kiri" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Kiri_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("15_fb47f")
+
+[node name="Nigu_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Jacques"
+size_flags_horizontal = 4
 
-[node name="Cesar" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Nigu" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Nigu_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("16_4aci3")
+
+[node name="Paris_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Cesar"
+size_flags_horizontal = 4
 
-[node name="Kiri" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Paris" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Paris_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("17_l3qpx")
+
+[node name="Pham_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Kiri"
+size_flags_horizontal = 4
 
-[node name="Clara" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Pham" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Pham_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("18_ciimh")
+
+[node name="Sage_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Clara"
+size_flags_horizontal = 4
 
-[node name="Yeetus" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Sage" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Sage_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("19_l3qpx")
+
+[node name="Ukesito_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Yeetus"
+size_flags_horizontal = 4
 
-[node name="Pham" type="Button" parent="ButtonsLayer/VBoxContainer/GridContainer"]
+[node name="Ukesito" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Ukesito_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("4_228gy")
+
+[node name="Yeetus_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Pham"
+size_flags_horizontal = 4
 
-[node name="Wait" type="Button" parent="ButtonsLayer/VBoxContainer"]
+[node name="Yeetus" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Yeetus_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("21_ciimh")
+
+[node name="Wait_Control" type="Control" parent="ButtonsLayer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 4
-theme_override_font_sizes/font_size = 32
-text = "Wait"
+size_flags_horizontal = 4
+size_flags_vertical = 8
+script = ExtResource("2_c06mg")
 
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Cono" to="ScnIntroCutscene" method="_on_cono_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Ukesito" to="ScnIntroCutscene" method="_on_ukesito_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Nigu" to="ScnIntroCutscene" method="_on_nigu_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/David" to="ScnIntroCutscene" method="_on_david_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Paris" to="ScnIntroCutscene" method="_on_paris_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Clau" to="ScnIntroCutscene" method="_on_clau_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Cris" to="ScnIntroCutscene" method="_on_cris_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Bici" to="ScnIntroCutscene" method="_on_bici_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Sage" to="ScnIntroCutscene" method="_on_sage_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Joaco" to="ScnIntroCutscene" method="_on_joaco_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Cyrus" to="ScnIntroCutscene" method="_on_cyrus_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Jem" to="ScnIntroCutscene" method="_on_jem_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Felix" to="ScnIntroCutscene" method="_on_felix_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Jacques" to="ScnIntroCutscene" method="_on_jacques_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Cesar" to="ScnIntroCutscene" method="_on_cesar_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Kiri" to="ScnIntroCutscene" method="_on_kiri_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Clara" to="ScnIntroCutscene" method="_on_clara_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Yeetus" to="ScnIntroCutscene" method="_on_yeetus_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/GridContainer/Pham" to="ScnIntroCutscene" method="_on_pham_pressed"]
-[connection signal="pressed" from="ButtonsLayer/VBoxContainer/Wait" to="ScnIntroCutscene" method="_on_wait_pressed"]
+[node name="Wait" parent="ButtonsLayer/VBoxContainer/Wait_Control" instance=ExtResource("2_eap7a")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("6_228gy")
+
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Bici_Control/Bici" to="ScnIntroCutscene" method="_on_bici_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Cono_Control/Cono" to="ScnIntroCutscene" method="_on_cono_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Cesar_Control/Cesar" to="ScnIntroCutscene" method="_on_cesar_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Chris_Control/Chris" to="ScnIntroCutscene" method="_on_chris_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Clara_Control/Clara" to="ScnIntroCutscene" method="_on_clara_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Clau_Control/Clau" to="ScnIntroCutscene" method="_on_clau_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Cyrus_Control/Cyrus" to="ScnIntroCutscene" method="_on_cyrus_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/David_Control/David" to="ScnIntroCutscene" method="_on_david_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Felix_Control/Felix" to="ScnIntroCutscene" method="_on_felix_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Jacques_Control/Jacques" to="ScnIntroCutscene" method="_on_jacques_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Jem_Control/Jem" to="ScnIntroCutscene" method="_on_jem_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Joaco_Control/Joaco" to="ScnIntroCutscene" method="_on_joaco_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Kiri_Control/Kiri" to="ScnIntroCutscene" method="_on_kiri_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Nigu_Control/Nigu" to="ScnIntroCutscene" method="_on_nigu_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Paris_Control/Paris" to="ScnIntroCutscene" method="_on_paris_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Pham_Control/Pham" to="ScnIntroCutscene" method="_on_pham_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Sage_Control/Sage" to="ScnIntroCutscene" method="_on_sage_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Ukesito_Control/Ukesito" to="ScnIntroCutscene" method="_on_ukesito_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/LocationsContainer/Yeetus_Control/Yeetus" to="ScnIntroCutscene" method="_on_yeetus_pressed"]
+[connection signal="pressed" from="ButtonsLayer/VBoxContainer/Wait_Control/Wait" to="ScnIntroCutscene" method="_on_wait_pressed"]

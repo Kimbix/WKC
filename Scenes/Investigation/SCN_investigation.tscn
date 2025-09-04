@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://biwtat2m8jaqc"]
+[gd_scene load_steps=9 format=3 uid="uid://biwtat2m8jaqc"]
 
-[ext_resource type="Script" path="res://Scenes/Investigation/SCR_investigation.gd" id="1_qf8ob"]
+[ext_resource type="Script" uid="uid://cqorb0u87ikqd" path="res://Scenes/Investigation/SCR_investigation.gd" id="1_qf8ob"]
+[ext_resource type="Script" uid="uid://bci8unplm321r" path="res://Scenes/Main Menu/button_control.gd" id="2_1r0jw"]
+[ext_resource type="PackedScene" uid="uid://bt33drb03ogrm" path="res://Button_Control.tscn" id="3_474od"]
+[ext_resource type="Texture2D" uid="uid://cg8iosx4qqbd2" path="res://Assets/UI/Labels/Locations/Button_Label_Dungeon.png" id="5_qea11"]
+[ext_resource type="Texture2D" uid="uid://b3ah00lkcjqhj" path="res://Assets/UI/Labels/Locations/Button_Label_Bedroom.png" id="7_qea11"]
+[ext_resource type="Texture2D" uid="uid://drekdjirmhf5g" path="res://Assets/UI/Labels/Locations/Button_Label_Kitchen.png" id="8_qea11"]
+[ext_resource type="Texture2D" uid="uid://cbvdbh4i0vg6t" path="res://Assets/UI/Labels/Locations/Button_Label_Garden.png" id="9_ubl3h"]
+[ext_resource type="Texture2D" uid="uid://mxynj2fvspoo" path="res://Assets/UI/Labels/Locations/Button_Label_Garage.png" id="10_474od"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -15,50 +22,72 @@ script = ExtResource("1_qf8ob")
 
 [node name="ButtonsLayer" type="CanvasLayer" parent="."]
 
-[node name="LocationsContainer" type="GridContainer" parent="ButtonsLayer"]
-show_behind_parent = true
+[node name="LocationsContainer" type="VBoxContainer" parent="ButtonsLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -183.5
-offset_top = -83.5
-offset_right = 183.5
-offset_bottom = 83.5
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.8, 0.8)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-columns = 2
+theme_override_constants/separation = 125
+alignment = 1
 
-[node name="The Dungeon" type="Button" parent="ButtonsLayer/LocationsContainer"]
+[node name="Dungeon_Control" type="Control" parent="ButtonsLayer/LocationsContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "\"The Dungeon\""
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("2_1r0jw")
 
-[node name="Kitchen" type="Button" parent="ButtonsLayer/LocationsContainer"]
+[node name="The Dungeon" parent="ButtonsLayer/LocationsContainer/Dungeon_Control" instance=ExtResource("3_474od")]
+layout_mode = 1
+text_texture = ExtResource("5_qea11")
+
+[node name="Bedroom_Control" type="Control" parent="ButtonsLayer/LocationsContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Kitchen"
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("2_1r0jw")
 
-[node name="Bedroom" type="Button" parent="ButtonsLayer/LocationsContainer"]
+[node name="Bedroom" parent="ButtonsLayer/LocationsContainer/Bedroom_Control" instance=ExtResource("3_474od")]
+layout_mode = 1
+text_texture = ExtResource("7_qea11")
+
+[node name="Kitchen_Control" type="Control" parent="ButtonsLayer/LocationsContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Bedroom"
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("2_1r0jw")
 
-[node name="Garage" type="Button" parent="ButtonsLayer/LocationsContainer"]
+[node name="Kitchen" parent="ButtonsLayer/LocationsContainer/Kitchen_Control" instance=ExtResource("3_474od")]
+layout_mode = 1
+text_texture = ExtResource("8_qea11")
+
+[node name="Garden_Control" type="Control" parent="ButtonsLayer/LocationsContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Garage"
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("2_1r0jw")
 
-[node name="Garden" type="Button" parent="ButtonsLayer/LocationsContainer"]
+[node name="Garden" parent="ButtonsLayer/LocationsContainer/Garden_Control" instance=ExtResource("3_474od")]
+layout_mode = 1
+text_texture = ExtResource("9_ubl3h")
+
+[node name="Garage_Control" type="Control" parent="ButtonsLayer/LocationsContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Garden"
+size_flags_horizontal = 4
+size_flags_vertical = 6
+script = ExtResource("2_1r0jw")
 
-[connection signal="pressed" from="ButtonsLayer/LocationsContainer/The Dungeon" to="ScnIntroCutscene" method="_on_the_dungeon_pressed"]
-[connection signal="pressed" from="ButtonsLayer/LocationsContainer/Kitchen" to="ScnIntroCutscene" method="_on_kitchen_pressed"]
-[connection signal="pressed" from="ButtonsLayer/LocationsContainer/Bedroom" to="ScnIntroCutscene" method="_on_bedroom_pressed"]
-[connection signal="pressed" from="ButtonsLayer/LocationsContainer/Garage" to="ScnIntroCutscene" method="_on_garage_pressed"]
-[connection signal="pressed" from="ButtonsLayer/LocationsContainer/Garden" to="ScnIntroCutscene" method="_on_garden_pressed"]
+[node name="Garage" parent="ButtonsLayer/LocationsContainer/Garage_Control" instance=ExtResource("3_474od")]
+layout_mode = 1
+text_texture = ExtResource("10_474od")
+
+[connection signal="pressed" from="ButtonsLayer/LocationsContainer/Dungeon_Control/The Dungeon" to="ScnIntroCutscene" method="_on_the_dungeon_pressed"]
+[connection signal="pressed" from="ButtonsLayer/LocationsContainer/Bedroom_Control/Bedroom" to="ScnIntroCutscene" method="_on_bedroom_pressed"]
+[connection signal="pressed" from="ButtonsLayer/LocationsContainer/Kitchen_Control/Kitchen" to="ScnIntroCutscene" method="_on_kitchen_pressed"]
+[connection signal="pressed" from="ButtonsLayer/LocationsContainer/Garden_Control/Garden" to="ScnIntroCutscene" method="_on_garden_pressed"]
+[connection signal="pressed" from="ButtonsLayer/LocationsContainer/Garage_Control/Garage" to="ScnIntroCutscene" method="_on_garage_pressed"]

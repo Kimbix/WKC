@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://6jfd7is3o5k3"]
+
+[ext_resource type="FontFile" uid="uid://bhhup8y3o0yw1" path="res://Assets/UI/Chrisbday2025-Regular.ttf" id="1_b7hex"]
+
+[resource]
+default_font = ExtResource("1_b7hex")
+default_font_size = 46

@@ -1,6 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://3sgf5bejjl3v"]
+[gd_scene load_steps=41 format=3 uid="uid://3sgf5bejjl3v"]
 
-[ext_resource type="Script" path="res://SCR_punch_out.gd" id="1_ue56b"]
+[ext_resource type="Script" uid="uid://bdi1oftfralyn" path="res://SCR_punch_out.gd" id="1_ue56b"]
 [ext_resource type="Texture2D" uid="uid://djepauv8p5y1q" path="res://Characters/PUNCH OUT/kimbix_idle.png" id="2_4h80s"]
 [ext_resource type="Texture2D" uid="uid://ka8cfqmg28ky" path="res://Characters/PUNCH OUT/cono_idle.png" id="2_52uwr"]
 [ext_resource type="Texture2D" uid="uid://cphejw2fg8yw0" path="res://Characters/PUNCH OUT/cono_hurt.png" id="2_us1bb"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cyv5mk1j6bkj5" path="res://Characters/PUNCH OUT/punch_bg.png" id="2_yypqt"]
 [ext_resource type="Texture2D" uid="uid://clqub7k0tbapt" path="res://Characters/PUNCH OUT/kimbix_punch.png" id="3_87m0w"]
 [ext_resource type="Texture2D" uid="uid://cdudg6uhgohpm" path="res://Characters/PUNCH OUT/cono_punch.png" id="4_d6bly"]
+[ext_resource type="Theme" uid="uid://brd5vyvr1h0aj" path="res://Title_theme.tres" id="9_gda27"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xn32h"]
 atlas = ExtResource("2_us1bb")
@@ -296,29 +297,38 @@ grow_vertical = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_top = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Buttonlayer/MarginContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Buttonlayer/MarginContainer"]
 layout_mode = 2
-
-[node name="Combo" type="Label" parent="Buttonlayer/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 64
-text = "Combo"
+theme_override_constants/separation = 760
+alignment = 1
 
 [node name="KimbixHealth" type="Label" parent="Buttonlayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 64
+theme = ExtResource("9_gda27")
+theme_override_font_sizes/font_size = 112
 text = "Kimbix 100"
 
 [node name="ConeHealth" type="Label" parent="Buttonlayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_font_sizes/font_size = 64
+theme = ExtResource("9_gda27")
+theme_override_font_sizes/font_size = 112
 text = "Cone Tyson 3000"
+
+[node name="Combo" type="Label" parent="Buttonlayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme = ExtResource("9_gda27")
+theme_override_font_sizes/font_size = 112
+text = "Combo"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Buttons" type="MarginContainer" parent="Buttonlayer"]
 visible = false
@@ -337,14 +347,16 @@ size_flags_vertical = 4
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 64
+theme = ExtResource("9_gda27")
+theme_override_font_sizes/font_size = 112
 text = "Stay Determined?"
 
 [node name="Quit" type="Button" parent="Buttonlayer/Buttons/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 64
+theme = ExtResource("9_gda27")
+theme_override_font_sizes/font_size = 112
 text = "Skill Issue"
 
 [connection signal="pressed" from="Buttonlayer/Buttons/VBoxContainer/Retry" to="." method="_on_retry_pressed"]

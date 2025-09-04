@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddbxg3vh1iyw4"]
+[gd_scene load_steps=14 format=3 uid="uid://ddbxg3vh1iyw4"]
 
-[ext_resource type="Script" path="res://Scenes/Ending/SCR_endings.gd" id="1_cy0ak"]
+[ext_resource type="Script" uid="uid://cfqgo5stuav8a" path="res://Scenes/Ending/SCR_endings.gd" id="1_cy0ak"]
+[ext_resource type="PackedScene" uid="uid://bt33drb03ogrm" path="res://Button_Control.tscn" id="2_vgrty"]
+[ext_resource type="Texture2D" uid="uid://el2otjvc01ek" path="res://Assets/UI/Labels/Characters/Button_Label_Bici.png" id="3_jkabb"]
+[ext_resource type="Texture2D" uid="uid://e4co867rg5tq" path="res://Assets/UI/Labels/Characters/Button_Label_Cone.png" id="4_sq4ug"]
+[ext_resource type="Texture2D" uid="uid://c2gr58fs1wphj" path="res://Assets/UI/Labels/Characters/Button_Label_Chris.png" id="5_3arvf"]
+[ext_resource type="Texture2D" uid="uid://v3kgwc7yhfuo" path="res://Assets/UI/Labels/Characters/Button_Label_Cyrus.png" id="6_qjvhs"]
+[ext_resource type="Texture2D" uid="uid://ccwficbiot7oo" path="res://Assets/UI/Labels/Characters/Button_Label_Joaco.png" id="7_1niy8"]
+[ext_resource type="Texture2D" uid="uid://cu474ktwfyvl" path="res://Assets/UI/Labels/Characters/Button_Label_Kiri.png" id="8_erqhj"]
+[ext_resource type="Texture2D" uid="uid://cpo7qw0utqnhj" path="res://Assets/UI/Labels/Characters/Button_Label_Ukesito.png" id="9_qrd88"]
+[ext_resource type="Texture2D" uid="uid://c73f6xc052f8r" path="res://Assets/UI/Labels/Characters/Button_Label_Yeetus.png" id="10_s831j"]
+[ext_resource type="Texture2D" uid="uid://cq6lk4u68363o" path="res://Assets/UI/Labels/Characters/Button_Label_NoOne.png" id="10_sq4ug"]
+[ext_resource type="Texture2D" uid="uid://c7aklovgwugri" path="res://Assets/UI/Labels/Characters/Button_Label_Humber.png" id="11_3arvf"]
+[ext_resource type="Texture2D" uid="uid://d1m06phj6xkts" path="res://Assets/UI/Labels/Characters/Button_Label_Magnitude.png" id="12_3arvf"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -30,82 +42,134 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/h_separation = 595
+theme_override_constants/v_separation = 60
 columns = 2
 
-[node name="Cris" type="Button" parent="ButtonsLayer/EndingsContainer"]
+[node name="Bici_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Cris"
+size_flags_horizontal = 4
 
-[node name="None" type="Button" parent="ButtonsLayer/EndingsContainer"]
+[node name="Bici" parent="ButtonsLayer/EndingsContainer/Bici_Control" instance=ExtResource("2_vgrty")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("3_jkabb")
+
+[node name="Chris_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "I have no clue"
+size_flags_horizontal = 4
 
-[node name="Ukesito" type="Button" parent="ButtonsLayer/EndingsContainer"]
+[node name="Chris" parent="ButtonsLayer/EndingsContainer/Chris_Control" instance=ExtResource("2_vgrty")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("5_3arvf")
+
+[node name="Cono_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Ukesito"
+size_flags_horizontal = 4
 
-[node name="Yeetus" type="Button" parent="ButtonsLayer/EndingsContainer"]
+[node name="Cono" parent="ButtonsLayer/EndingsContainer/Cono_Control" instance=ExtResource("2_vgrty")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("4_sq4ug")
+
+[node name="Cyrus_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Yeetus"
+size_flags_horizontal = 4
 
-[node name="Cyrus" type="Button" parent="ButtonsLayer/EndingsContainer"]
+[node name="Cyrus" parent="ButtonsLayer/EndingsContainer/Cyrus_Control" instance=ExtResource("2_vgrty")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("6_qjvhs")
+
+[node name="Joaco_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Cyrus"
+size_flags_horizontal = 4
 
-[node name="Kimbix" type="Button" parent="ButtonsLayer/EndingsContainer"]
+[node name="Joaco" parent="ButtonsLayer/EndingsContainer/Joaco_Control" instance=ExtResource("2_vgrty")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("7_1niy8")
+
+[node name="Kiri_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Kimbix"
+size_flags_horizontal = 4
 
-[node name="Cono" type="Button" parent="ButtonsLayer/EndingsContainer"]
+[node name="Kiri" parent="ButtonsLayer/EndingsContainer/Kiri_Control" instance=ExtResource("2_vgrty")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("8_erqhj")
+
+[node name="Yeetus_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Cono"
+size_flags_horizontal = 4
 
-[node name="Kiri" type="Button" parent="ButtonsLayer/EndingsContainer"]
+[node name="Yeetus" parent="ButtonsLayer/EndingsContainer/Yeetus_Control" instance=ExtResource("2_vgrty")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("10_s831j")
+
+[node name="NoOne_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Kiri"
+size_flags_horizontal = 4
 
-[node name="Magnitude" type="Button" parent="ButtonsLayer/EndingsContainer"]
+[node name="None" parent="ButtonsLayer/EndingsContainer/NoOne_Control" instance=ExtResource("2_vgrty")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("10_sq4ug")
+
+[node name="Kimbix_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Magnitude"
+size_flags_horizontal = 4
 
-[node name="Joaco" type="Button" parent="ButtonsLayer/EndingsContainer"]
+[node name="Kimbix" parent="ButtonsLayer/EndingsContainer/Kimbix_Control" instance=ExtResource("2_vgrty")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("11_3arvf")
+
+[node name="Magnitude_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Joaco"
+size_flags_horizontal = 4
 
-[node name="Bici" type="Button" parent="ButtonsLayer/EndingsContainer"]
+[node name="Magnitude" parent="ButtonsLayer/EndingsContainer/Magnitude_Control" instance=ExtResource("2_vgrty")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("12_3arvf")
+
+[node name="Ukesito_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
 visible = false
 layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "Bici"
+size_flags_horizontal = 4
 
-[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Cris" to="ScnIntroCutscene" method="_on_cris_pressed"]
-[connection signal="pressed" from="ButtonsLayer/EndingsContainer/None" to="ScnIntroCutscene" method="_on_none_pressed"]
-[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Ukesito" to="ScnIntroCutscene" method="_on_ukesito_pressed"]
-[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Yeetus" to="ScnIntroCutscene" method="_on_yeetus_pressed"]
-[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Cyrus" to="ScnIntroCutscene" method="_on_cyrus_pressed"]
-[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Kimbix" to="ScnIntroCutscene" method="_on_kimbix_pressed"]
-[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Cono" to="ScnIntroCutscene" method="_on_cono_pressed"]
-[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Kiri" to="ScnIntroCutscene" method="_on_kiri_pressed"]
-[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Magnitude" to="ScnIntroCutscene" method="_on_magnitude_pressed"]
-[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Joaco" to="ScnIntroCutscene" method="_on_joaco_pressed"]
-[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Bici" to="ScnIntroCutscene" method="_on_bici_pressed"]
+[node name="Ukesito" parent="ButtonsLayer/EndingsContainer/Ukesito_Control" instance=ExtResource("2_vgrty")]
+layout_mode = 1
+scale = Vector2(1, 1)
+text_texture = ExtResource("9_qrd88")
+
+[node name="LocationsContainer" type="GridContainer" parent="ButtonsLayer"]
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/h_separation = 535
+theme_override_constants/v_separation = 145
+
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Bici_Control/Bici" to="ScnIntroCutscene" method="_on_bici_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Chris_Control/Chris" to="ScnIntroCutscene" method="_on_chris_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Cono_Control/Cono" to="ScnIntroCutscene" method="_on_cono_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Cyrus_Control/Cyrus" to="ScnIntroCutscene" method="_on_cyrus_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Joaco_Control/Joaco" to="ScnIntroCutscene" method="_on_joaco_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Kiri_Control/Kiri" to="ScnIntroCutscene" method="_on_kiri_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Yeetus_Control/Yeetus" to="ScnIntroCutscene" method="_on_yeetus_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/NoOne_Control/None" to="ScnIntroCutscene" method="_on_none_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Kimbix_Control/Kimbix" to="ScnIntroCutscene" method="_on_kimbix_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Magnitude_Control/Magnitude" to="ScnIntroCutscene" method="_on_magnitude_pressed"]
+[connection signal="pressed" from="ButtonsLayer/EndingsContainer/Ukesito_Control/Ukesito" to="ScnIntroCutscene" method="_on_ukesito_pressed"]

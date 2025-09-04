@@ -71,12 +71,12 @@ func _process(delta):
 	if (oponent_state == fighter_state.DEFEATED):
 		oponent_sprite.rotate(0.05)
 		oponent_sprite.position += Vector2(randi_range(-3, 10), randi_range(-10, 3))
-		print("WIN WIN WIN")
+		#print("WIN WIN WIN")
 		return
 	if (player_state == fighter_state.DEFEATED):
 		player_sprite.rotate(0.05)
 		player_sprite.position += Vector2(randi_range(-10, 3), randi_range(3, 10))
-		print("LOSE LOSE LOSE")
+		#print("LOSE LOSE LOSE")
 		return
 	
 	if (oponent_sprite.frame == 0 and oponent_sprite.animation == "idle"):
@@ -128,7 +128,7 @@ func _process(delta):
 		print("Combo lost!")
 		punch_combo_drain_rate = 1.0
 		punch_combo = 0
-		$Buttonlayer/MarginContainer/VBoxContainer/Combo.text = "Combo " + str(punch_combo)
+		$Buttonlayer/MarginContainer/Combo.text = "Combo " + str(punch_combo)
 	
 	# Punch cooldown logic
 	if (punch_cooldown_timer > 0):
@@ -198,7 +198,7 @@ func player_punch_left():
 	oponent_get_hit()
 	
 	punch_combo += 1
-	$Buttonlayer/MarginContainer/VBoxContainer/Combo.text = "Combo " + str(punch_combo)
+	$Buttonlayer/MarginContainer/Combo.text = "Combo " + str(punch_combo)
 	punch_combo_cooldown_timer = punch_combo_cooldown_wait
 	punch_combo_drain_rate = max(3.5, punch_combo_drain_rate + 0.05)
 	pass
@@ -228,7 +228,7 @@ func player_punch_right():
 	oponent_get_hit()
 	
 	punch_combo += 1
-	$Buttonlayer/MarginContainer/VBoxContainer/Combo.text = "Combo " + str(punch_combo)
+	$Buttonlayer/MarginContainer/Combo.text = "Combo " + str(punch_combo)
 	punch_combo_cooldown_timer = punch_combo_cooldown_wait
 	punch_combo_drain_rate = max(3.5, punch_combo_drain_rate + 0.05)
 	pass
@@ -276,7 +276,7 @@ func oponent_get_hit():
 	if (punch_combo > 5):
 		oponent_change_state(fighter_state.BEING_HIT)
 	
-	oponent_health -= player_damage * (1 + (punch_combo / 25.0))
+	oponent_health -= player_damage * (1 + (punch_combo / 10.0))
 	print("Oponent HP: (", oponent_health, " / ", oponent_max_health, ")")
 	
 	oponent_hitstun_timer = oponent_hitstun_wait
@@ -323,7 +323,7 @@ func damage_player_center():
 		
 		punch_combo_drain_rate = 1.0
 		punch_combo = 0
-		$Buttonlayer/MarginContainer/VBoxContainer/Combo.text = "Combo " + str(punch_combo)
+		$Buttonlayer/MarginContainer/Combo.text = "Combo " + str(punch_combo)
 		check_dead()
 
 func damage_player_right():
@@ -337,7 +337,7 @@ func damage_player_right():
 		
 		punch_combo_drain_rate = 1.0
 		punch_combo = 0
-		$Buttonlayer/MarginContainer/VBoxContainer/Combo.text = "Combo " + str(punch_combo)
+		$Buttonlayer/MarginContainer/Combo.text = "Combo " + str(punch_combo)
 		check_dead()
 
 func damage_player_left():
@@ -351,7 +351,7 @@ func damage_player_left():
 		
 		punch_combo_drain_rate = 1.0
 		punch_combo = 0
-		$Buttonlayer/MarginContainer/VBoxContainer/Combo.text = "Combo " + str(punch_combo)
+		$Buttonlayer/MarginContainer/Combo.text = "Combo " + str(punch_combo)
 		check_dead()
 
 func oponent_punch_left():
@@ -431,7 +431,7 @@ func save_endings(ending : ScrPersistentData.Endings):
 	load_game()
 	var save_game = FileAccess.open("user://endings.json", FileAccess.WRITE)
 	match(ending):
-		ScrPersistentData.Endings.CRIS:
+		ScrPersistentData.Endings.CHRIS:
 			save_dict["cris"] = true
 		ScrPersistentData.Endings.UKESITO:
 			save_dict["ukesito"] = true

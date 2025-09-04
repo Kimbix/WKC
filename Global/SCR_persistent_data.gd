@@ -1,7 +1,7 @@
 extends Node
 
 enum Endings {
-	CRIS,
+	CHRIS,
 	UKESITO,
 	YEETUS,
 	CYRU,

@@ -16,6 +16,18 @@ enum State {
 var current_state : State = State.START
 
 @onready var endings_buttons : GridContainer = $"../ButtonsLayer/EndingsContainer"
+# idiot buttons
+@onready var bici_control = $"../ButtonsLayer/EndingsContainer/Bici_Control"
+@onready var chris_control = $"../ButtonsLayer/EndingsContainer/Chris_Control"
+@onready var cono_control = $"../ButtonsLayer/EndingsContainer/Cono_Control"
+@onready var cyrus_control = $"../ButtonsLayer/EndingsContainer/Cyrus_Control"
+@onready var joaco_control = $"../ButtonsLayer/EndingsContainer/Joaco_Control"
+@onready var kiri_control = $"../ButtonsLayer/EndingsContainer/Kiri_Control"
+@onready var none_control = $"../ButtonsLayer/EndingsContainer/NoOne_Control"
+@onready var kimbix_control = $"../ButtonsLayer/EndingsContainer/Kimbix_Control"
+@onready var yeetus_control = $"../ButtonsLayer/EndingsContainer/Yeetus_Control"
+@onready var ukesito_control = $"../ButtonsLayer/EndingsContainer/Ukesito_Control"
+@onready var magnitude_control = $"../ButtonsLayer/EndingsContainer/Magnitude_Control"
 
 const text_box : PackedScene = preload("res://Text Box/TXT_TextBox.tscn")
 var tbi
@@ -39,11 +51,11 @@ func _input(_event):
 			show_buttons()
 			endings_buttons.visible = true
 			var cant_figure = true
-			for button in $"../ButtonsLayer/EndingsContainer".get_children():
+			for button in endings_buttons.get_children():
 				print(button.visible)
 				if button.visible: cant_figure = false
 			if cant_figure:
-				$"../ButtonsLayer/EndingsContainer/None".visible = true
+				endings_buttons.visible = true
 		State.SEEING_ENDING:
 			get_tree().change_scene_to_file("res://Scenes/Main Menu/SCN_main_menu.tscn")
 		State.CONO_ENDING:
@@ -56,37 +68,37 @@ func _input(_event):
 func show_buttons():
 	for ending in ScrPersistentData.possible_endings:
 		match(ending):
-			ScrPersistentData.Endings.CRIS:
+			ScrPersistentData.Endings.CHRIS:
 				var show_button = true
 				for key in save_dict:
-					if (key == "cris"): continue
+					if (key == "chris"): continue
 					if (!save_dict[key]): show_button = false
-				$"../ButtonsLayer/EndingsContainer/Cris".visible = show_button
+				chris_control.visible = show_button
 			ScrPersistentData.Endings.UKESITO:
-				$"../ButtonsLayer/EndingsContainer/Ukesito".visible = true
+				ukesito_control.visible = true
 			ScrPersistentData.Endings.YEETUS:
-				$"../ButtonsLayer/EndingsContainer/Yeetus".visible = true
+				yeetus_control.visible = true
 			ScrPersistentData.Endings.CYRU:
-				$"../ButtonsLayer/EndingsContainer/Cyrus".visible = true
+				cyrus_control.visible = true
 			ScrPersistentData.Endings.KIMBIX:
-				$"../ButtonsLayer/EndingsContainer/Kimbix".visible = true
+				kimbix_control.visible = true
 			ScrPersistentData.Endings.CONO:
 				var show_button = true
 				for key in save_dict:
-					if (key == "cono" or key == "cris"): continue
+					if (key == "cono" or key == "chris"): continue
 					if (!save_dict[key]): show_button = false
-				$"../ButtonsLayer/EndingsContainer/Cono".visible = show_button
+				cono_control.visible = show_button
 			ScrPersistentData.Endings.KIRI:
-				$"../ButtonsLayer/EndingsContainer/Kiri".visible = true
+				kiri_control.visible = true
 			ScrPersistentData.Endings.MAGNITUDE:
-				$"../ButtonsLayer/EndingsContainer/Magnitude".visible = true
+				magnitude_control.visible = true
 			ScrPersistentData.Endings.JOACO:
-				$"../ButtonsLayer/EndingsContainer/Joaco".visible = true
+				joaco_control.visible = true
 			ScrPersistentData.Endings.BICI:
-				$"../ButtonsLayer/EndingsContainer/Bici".visible = true
+				bici_control.visible = true
 
-const cris_happy_speak = preload("res://Characters/Cris/Cris_happy2.png")
-const cris_happy_no_speak = preload("res://Characters/Cris/Cris_happy1.png")
+const chris_happy_speak = preload("res://Characters/Chris/Chris_happy2.png")
+const chris_happy_no_speak = preload("res://Characters/Chris/Chris_happy1.png")
 
 const jem_happy_speak = preload("res://Characters/Jem/Jem_happy2.png")
 const jem_happy_no_speak = preload("res://Characters/Jem/Jem_happy1.png")
@@ -95,11 +107,11 @@ const felix_happy_no_speak = preload("res://Characters/Felix/Felix_happy1.png")
 const felix_serious_speak = preload("res://Characters/Felix/Felix_serious2.png")
 const felix_serious_no_speak = preload("res://Characters/Felix/Felix_serious1.png")
 
-const cris_ending = preload("res://Characters/Cris/cris_end.png")
-func _on_cris_pressed():
-	if (save_dict["cris"]):
+const chris_ending = preload("res://Characters/Chris/Chris_end.png")
+func _on_chris_pressed():
+	if (save_dict["chris"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
-	save_endings(ScrPersistentData.Endings.CRIS)
+	save_endings(ScrPersistentData.Endings.CHRIS)
 	endings_buttons.visible = false
 	current_state = State.SEEING_ENDING
 	tbi.sprite_change("Kimbix",kimbix_evil_speak,true)
@@ -128,32 +140,32 @@ func _on_cris_pressed():
 	tbi.sprite_change("Jacques",null,false)
 	
 	tbi.sprite_change("Kimbix",null,true)
-	tbi.queue_dialogue(" * We hear a very loud flush from the toilet. the door to the bathroom opens and cris comes out * ", "Kimbix")
-	tbi.sprite_change("Cris",cris_happy_no_speak,true)
+	tbi.queue_dialogue(" * We hear a very loud flush from the toilet. the door to the bathroom opens and chris comes out * ", "Kimbix")
+	tbi.sprite_change("Chris",chris_happy_no_speak,true)
 	
 	tbi.queue_dialogue("CRIIISSSS!!!!!", "Everyone")
-	tbi.queue_dialogue(" * We shower cris in hugs * ", "Everyone")
+	tbi.queue_dialogue(" * We shower chris in hugs * ", "Everyone")
 
-	tbi.sprite_change("Cris",cris_happy_speak,true)
-	tbi.queue_dialogue("Woah what up with you guys", "Cris")
-	tbi.sprite_change("Cris",cris_happy_no_speak,true)
+	tbi.sprite_change("Chris",chris_happy_speak,true)
+	tbi.queue_dialogue("Woah what up with you guys", "Chris")
+	tbi.sprite_change("Chris",chris_happy_no_speak,true)
 
 	tbi.sprite_change("Jem",jem_happy_speak,false)
 	tbi.queue_dialogue("We thought you died", "Jem")
 	tbi.sprite_change("Jem",jem_happy_no_speak,false)
 
-	tbi.sprite_change("Cris",cris_happy_speak,true)
-	tbi.queue_dialogue("HUH", "Cris")
-	tbi.sprite_change("Cris",cris_happy_no_speak,true)
+	tbi.sprite_change("Chris",chris_happy_speak,true)
+	tbi.queue_dialogue("HUH", "Chris")
+	tbi.sprite_change("Chris",chris_happy_no_speak,true)
 
 	tbi.sprite_change("Jem",null,false)
 	tbi.sprite_change("Felix",felix_happy_speak,false)
 	tbi.queue_dialogue("Yeah we even went on a manhunt for clues", "Felix")
 	tbi.sprite_change("Felix",felix_happy_no_speak,false)
 
-	tbi.sprite_change("Cris",cris_happy_speak,true)
-	tbi.queue_dialogue("Oh dear…", "Cris")
-	tbi.sprite_change("Cris",cris_happy_no_speak,true)
+	tbi.sprite_change("Chris",chris_happy_speak,true)
+	tbi.queue_dialogue("Oh dear…", "Chris")
+	tbi.sprite_change("Chris",chris_happy_no_speak,true)
 	
 	tbi.sprite_change("Felix",null,false)
 	tbi.sprite_change("Ukeisto",ukesito_happy_speak,false)
@@ -161,18 +173,18 @@ func _on_cris_pressed():
 	tbi.sprite_change("Ukeisto",ukesito_happy_no_speak,false)
 	
 	tbi.sprite_change("Ukeisto",null,false)
-	tbi.queue_dialogue("Cris explains how after the light went off, he felt the sudden urge to go to the bathroom.", "Cris")
-	tbi.queue_dialogue("When he came out, no one was there, so he went back in and played on his phone.", "Cris")
+	tbi.queue_dialogue("Chris explains how after the light went off, he felt the sudden urge to go to the bathroom.", "Chris")
+	tbi.queue_dialogue("When he came out, no one was there, so he went back in and played on his phone.", "Chris")
 
-	tbi.sprite_change("Cris",cris_happy_speak,true)
-	tbi.queue_dialogue("I thought you al left haha. Well Im glad you all care for me that much.", "Cris")
-	tbi.sprite_change("Cris",cris_happy_no_speak,true)
+	tbi.sprite_change("Chris",chris_happy_speak,true)
+	tbi.queue_dialogue("I thought you al left haha. Well Im glad you all care for me that much.", "Chris")
+	tbi.sprite_change("Chris",chris_happy_no_speak,true)
 	
-	tbi.sprite_change("Cris",cris_happy_speak,true)
-	tbi.queue_dialogue("love you guys", "Cris")
-	tbi.sprite_change("Cris",null,true)
+	tbi.sprite_change("Chris",chris_happy_speak,true)
+	tbi.queue_dialogue("love you guys", "Chris")
+	tbi.sprite_change("Chris",null,true)
 	
-	tbi.queue_all(null, null, null, null, cris_ending, false, false)
+	tbi.queue_all(null, null, null, null, chris_ending, false, false)
 	tbi.queue_dialogue("TRUE ENDING", "...")
 	tbi.queue_dialogue("...", "...")
 
@@ -298,17 +310,17 @@ func _on_yeetus_pressed():
 	
 	tbi.sprite_change("Yeetus",yeetus_angry_speak,false)
 	tbi.queue_dialogue(" * Yeetus clears its throat * ", "Yeetus")
-	tbi.queue_dialogue("You see, i was in a contract with cris", "Yeetus")
+	tbi.queue_dialogue("You see, i was in a contract with chris", "Yeetus")
 	tbi.queue_dialogue("trapped for ever in the body of a horse.", "Yeetus")
-	tbi.queue_dialogue("I was once a human. I was studying along side cris.", "Yeetus")
-	tbi.queue_dialogue("I was a lazy person, after I didn't do my part in the group proyect, cris cursed me and forced me to sign it.", "Yeetus")
+	tbi.queue_dialogue("I was once a human. I was studying along side chris.", "Yeetus")
+	tbi.queue_dialogue("I was a lazy person, after I didn't do my part in the group proyect, chris cursed me and forced me to sign it.", "Yeetus")
 	tbi.queue_dialogue("But now i am free. I will take my leave now", "Yeetus")
 	tbi.sprite_change("Yeetus",null,false)
 	
 	tbi.queue_dialogue("yeetus leaves", "")
 
 	tbi.queue_all(null, null, null, null, yeetus_ending, false, false)
-	tbi.queue_dialogue("HORSE ENDING", "")
+	tbi.queue_dialogue("FREEDOM ENDING", "")
 	tbi.queue_dialogue("...", "")
 
 const cyrus_ending = preload("res://Characters/Cyrus/Ending_cyrus.png")
@@ -338,7 +350,7 @@ func _on_cyrus_pressed():
 	tbi.queue_dialogue("everyone is invested in the drama", "")
 	
 	tbi.sprite_change("Cyrus",cyrus_angry_speak,false)
-	tbi.queue_dialogue("cris stopped watching shows with me because of you. IM GOING TO KILL YOU", "Cyrus")
+	tbi.queue_dialogue("chris stopped watching shows with me because of you. IM GOING TO KILL YOU", "Cyrus")
 	tbi.sprite_change("Cyrus",cyrus_angry_no_speak,false)
 	
 	tbi.queue_dialogue(" * Cyrus lunges at me * ", "Kimbix")
@@ -356,7 +368,7 @@ func _on_cyrus_pressed():
 	tbi.queue_dialogue(" * When i arrive at my house soon after i feel a ghostly precense near the couch * ", "Kimbix")
 	tbi.queue_dialogue(" * As i get close i see the tv is on with Bojack horseman on * ", "Kimbix")
 	tbi.queue_dialogue(" * this is going to be a fun night * ", "Kimbix")
-	tbi.queue_dialogue("CYRUS ENDING", "...")
+	tbi.queue_dialogue("JEALOUSY ENDING", "...")
 	tbi.queue_dialogue("...", "...")
 
 const kimbix_serious_speak = preload("res://Characters/Humber/Humber_serious2.png")
@@ -457,7 +469,7 @@ func _on_cono_pressed():
 	tbi.sprite_change("Cone",cone_evil_speak,false)
 	tbi.queue_dialogue("I see you figured out my true identity", "Cone")
 	tbi.queue_dialogue("I hate people who spoil surprises", "Cone")
-	tbi.queue_dialogue("I'll enjoy sending you to the same place where cris is", "Cone")
+	tbi.queue_dialogue("I'll enjoy sending you to the same place where chris is", "Cone")
 	tbi.sprite_change("Cone",cone_evil_no_speak,false)
 
 const kiri_happy_speak = preload("res://Characters/Kiri/Kiri_happy2.png")
@@ -491,12 +503,12 @@ func _on_kiri_pressed():
 	tbi.sprite_change("Kiri",null,false)
 	
 	tbi.queue_dialogue("We restrained her and waited for the police to arrive, as they took her away, her book dropped. ", "Humber")
-	tbi.queue_dialogue("We saw what page it was on and figured out what cris meant. We all have a laugh", "Humber")
+	tbi.queue_dialogue("We saw what page it was on and figured out what chris meant. We all have a laugh", "Humber")
 	
 	tbi.sprite_change("Humber",null,true)
 	
 	tbi.queue_all(null, null, null, null, kiri_ending, false, false)
-	tbi.queue_dialogue("KIRI ENDING", "")
+	tbi.queue_dialogue("小红书 ENDING", "")
 	tbi.queue_dialogue("...", "")
 
 const magnitude_angry = preload("res://Characters/Magnitude/Magnitude_angry1.png")
@@ -592,18 +604,19 @@ func _on_joaco_pressed():
 	tbi.queue_dialogue("JAJSHAJAJAJ AUDIO PLACE", "Joaco")
 	tbi.queue_dialogue("IT'S NOT FAIR", "Joaco")
 	tbi.queue_dialogue("DREAM FINALLY RELEASED THEIR NEW ALBUM", "Joaco")
-	tbi.queue_dialogue("AND CRIS DID NOT TELL ME", "Joaco")
+	tbi.queue_dialogue("AND CHRIS DID NOT TELL ME", "Joaco")
 	tbi.queue_dialogue("BUT NOW", "Joaco")
 	tbi.queue_dialogue("HE'S IN THE AUDIO PLACE", "Joaco")
 	tbi.queue_dialogue("HSHAHDHAJAHSHAJA", "Joaco")
 	tbi.sprite_change("Joaco",joaco_angry_no_speak,true)
 	
-	tbi.queue_dialogue(" * Everyone is visibly disturbed * ", "Joaco")
+	tbi.queue_dialogue(" * Everyone is visibly disturbed * ", "")
+	tbi.queue_dialogue(" * Not long after, men dressed in white arrive at the mansion and take Joaco away * ", "")
 	
 	tbi.sprite_change("Joaco",null,true)
 	
 	tbi.queue_all(null, null, null, null, joaco_ending, false, false)
-	tbi.queue_dialogue("AUDIOPLACE ENDING", "...")
+	tbi.queue_dialogue("AUDIO PLACE ENDING", "...")
 	tbi.queue_dialogue("audioplaceaudioplaceaudioplaceaudioplaceaudioplaceaudioplaceaudioplace", "Joaco")
 	tbi.queue_dialogue("...", "...")
 
@@ -617,7 +630,7 @@ func _on_bici_pressed():
 	
 	tbi.sprite_change("Bici",bici_angry_speak,true)
 	tbi.queue_dialogue("Do you have any idea how it feels to find someone that will read ANY WEBTOON.", "Bici")
-	tbi.queue_dialogue("I've recommended so many and they've fallen on deaf ears, and then cris came around.", "Bici")
+	tbi.queue_dialogue("I've recommended so many and they've fallen on deaf ears, and then chris came around.", "Bici")
 	tbi.queue_dialogue(" that was until he stopped reading them. So i had to teach an example out of him", "Bici")
 	tbi.sprite_change("Bici",bici_angry_no_speak,true)
 	
@@ -645,7 +658,7 @@ func _on_none_pressed():
 func load_game():
 	if not FileAccess.file_exists("user://endings.json"):
 		save_dict = {
-			"cris": false,
+			"chris": false,
 			"ukesito": false,
 			"yeetus": false,
 			"cyrus": false,
@@ -672,8 +685,8 @@ func save_endings(ending : ScrPersistentData.Endings):
 	load_game()
 	var save_game = FileAccess.open("user://endings.json", FileAccess.WRITE)
 	match(ending):
-		ScrPersistentData.Endings.CRIS:
-			save_dict["cris"] = true
+		ScrPersistentData.Endings.CHRIS:
+			save_dict["chris"] = true
 		ScrPersistentData.Endings.UKESITO:
 			save_dict["ukesito"] = true
 		ScrPersistentData.Endings.YEETUS:

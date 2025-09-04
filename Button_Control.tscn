@@ -1,0 +1,129 @@
+[gd_scene load_steps=7 format=3 uid="uid://bt33drb03ogrm"]
+
+[ext_resource type="Script" uid="uid://bci8unplm321r" path="res://Scenes/Main Menu/button_control.gd" id="1_lheh5"]
+[ext_resource type="Texture2D" uid="uid://boslarrfu0h2d" path="res://Assets/UI/Buttons/frame0000.png" id="2_b8ba6"]
+[ext_resource type="Texture2D" uid="uid://biiudbhw6ym26" path="res://Assets/UI/Labels/Actions/Button_Label_Credits.png" id="2_n71wv"]
+[ext_resource type="Texture2D" uid="uid://d2btextpmmiax" path="res://Assets/UI/Buttons/Button_Pressed_Overlay.png" id="3_n71wv"]
+[ext_resource type="Texture2D" uid="uid://cg8iosx4qqbd2" path="res://Assets/UI/Labels/Locations/Button_Label_Dungeon.png" id="4_1yiqh"]
+[ext_resource type="Texture2D" uid="uid://cgxps2jq0eje0" path="res://Assets/UI/Buttons/Button_Frame.png" id="5_511a8"]
+
+[node name="Button" type="Button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -62.5
+offset_right = 248.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+pivot_offset = Vector2(247.5, 61.4062)
+size_flags_horizontal = 4
+script = ExtResource("1_lheh5")
+text_texture = ExtResource("2_n71wv")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+clip_children = 2
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 124.0
+mouse_filter = 2
+texture = ExtResource("2_b8ba6")
+
+[node name="brown_left" type="ColorRect" parent="TextureRect2"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 137.94
+offset_bottom = -3.13
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.14159
+scale = Vector2(-0.778934, -1.02079)
+mouse_filter = 2
+color = Color(0.666667, 0.396078, 0.0901961, 1)
+
+[node name="Colors" type="Control" parent="TextureRect2"]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 0
+offset_bottom = 116.0
+mouse_filter = 2
+
+[node name="orange" type="ColorRect" parent="TextureRect2/Colors"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 243.0
+offset_top = -96.0
+offset_right = 327.0
+offset_bottom = 46.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.4501
+scale = Vector2(4.198, 1.597)
+pivot_offset = Vector2(37.415, 150.9)
+mouse_filter = 2
+color = Color(1, 0.623529, 0.176471, 1)
+
+[node name="yellow" type="ColorRect" parent="TextureRect2/Colors"]
+clip_children = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 232.0
+offset_right = 273.195
+offset_bottom = -3.13
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.4501
+scale = Vector2(-6.23212, 3.50221)
+pivot_offset = Vector2(20.5975, 56.435)
+mouse_filter = 2
+color = Color(1, 0.819608, 0.360784, 1)
+
+[node name="Pressed_Overlay" type="TextureRect" parent="TextureRect2"]
+process_mode = 4
+physics_interpolation_mode = 0
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -62.0
+offset_right = 264.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.96887, 0.24266)
+mouse_filter = 2
+texture = ExtResource("3_n71wv")
+
+[node name="Text" type="TextureRect" parent="TextureRect2"]
+process_mode = 4
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+texture = ExtResource("4_1yiqh")
+
+[node name="Frame" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 496.0
+offset_bottom = 124.0
+mouse_filter = 2
+texture = ExtResource("5_511a8")
+
+[connection signal="mouse_entered" from="." to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_button_mouse_exited"]

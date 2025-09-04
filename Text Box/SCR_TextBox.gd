@@ -16,13 +16,16 @@ var highlight_queue = []
 var character_queue = []
 var text_queue = []
 
-@onready var textbox_container : MarginContainer = $MarginContainer/TextboxContainer
-@onready var speaker_container : MarginContainer = $MarginContainer/MarginContainer
+@onready var textbox_container : MarginContainer = $PanelContainer/MarginContainer/TextboxContainer
+@onready var speaker_container : MarginContainer = $PanelContainer/MarginContainer/MarginContainer
 
-@onready var start_symbol : Label = $MarginContainer/TextboxContainer/MarginContainer/HBoxContainer/StartSymbol
-@onready var end_symbol : Label  = $MarginContainer/TextboxContainer/MarginContainer/HBoxContainer/EndSymbol
-@onready var label : Label = $MarginContainer/TextboxContainer/MarginContainer/HBoxContainer/Text
-@onready var speaker_label : Label = $MarginContainer/MarginContainer/Panel/Label
+@onready var panel_texture : TextureRect = $PanelContainer/TextboxTexture
+@onready var speaker_texture : TextureRect = $PanelContainer/MarginContainer/MarginContainer/SpeakerTexture
+
+@onready var start_symbol : Label = $PanelContainer/MarginContainer/TextboxContainer/MarginContainer/HBoxContainer/StartSymbol
+@onready var end_symbol : Label = $PanelContainer/MarginContainer/TextboxContainer/MarginContainer/MarginContainer/EndSymbol
+@onready var label : Label = $PanelContainer/MarginContainer/TextboxContainer/MarginContainer/HBoxContainer/Text
+@onready var speaker_label : Label = $PanelContainer/MarginContainer/MarginContainer/Speaker
 
 
 @onready var tween : Tween
@@ -61,11 +64,15 @@ func hide_textbox():
 	speaker_label.text = ""
 	textbox_container.hide()
 	speaker_container.hide()
+	panel_texture.hide()
+	speaker_texture.hide()
 
 func show_textbox():
 	start_symbol.text = ">"
 	textbox_container.show()
 	speaker_container.show()
+	panel_texture.show()
+	speaker_texture.show()
 
 func queue_text(next_text):
 	text_queue.append(next_text)

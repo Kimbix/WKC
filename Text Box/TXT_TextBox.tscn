@@ -1,6 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://m1bk5sdmi2ri"]
+[gd_scene load_steps=9 format=3 uid="uid://m1bk5sdmi2ri"]
 
-[ext_resource type="Script" path="res://Text Box/SCR_TextBox.gd" id="1_auj0r"]
+[ext_resource type="Script" uid="uid://dlu2ss2vpe65" path="res://Text Box/SCR_TextBox.gd" id="1_auj0r"]
+[ext_resource type="Texture2D" uid="uid://c6cy8kwavv301" path="res://Assets/UI/Textures/Textbox_v2.png" id="2_k88rq"]
+[ext_resource type="Texture2D" uid="uid://dpvehpguw3yst" path="res://Assets/UI/Textures/Speaker.png" id="3_fiq24"]
+[ext_resource type="Theme" uid="uid://6jfd7is3o5k3" path="res://textbox_theme.tres" id="3_k88rq"]
+[ext_resource type="FontFile" uid="uid://bhhup8y3o0yw1" path="res://Assets/UI/Chrisbday2025-Regular.ttf" id="5_k3t0n"]
 
 [sub_resource type="Gradient" id="Gradient_gt3pc"]
 offsets = PackedFloat32Array(0)
@@ -9,14 +13,11 @@ colors = PackedColorArray(0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_45ukq"]
 gradient = SubResource("Gradient_gt3pc")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7gbwt"]
-bg_color = Color(0, 0, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j2kny"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e4b3y"]
-bg_color = Color(1, 1, 1, 1)
+[sub_resource type="LabelSettings" id="LabelSettings_towyp"]
+font = ExtResource("5_k3t0n")
+font_size = 60
+font_color = Color(0.228653, 0.118385, 0.0703558, 1)
+shadow_size = 0
 
 [node name="TxtTextBox" type="CanvasLayer"]
 script = ExtResource("1_auj0r")
@@ -89,87 +90,83 @@ theme_override_constants/margin_bottom = 0
 clip_contents = true
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-visibility_layer = 3
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -206.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 3
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_bottom = 32
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_top = 815.0
+offset_right = 1922.0
+offset_bottom = 1080.0
+metadata/_edit_use_anchors_ = true
 
-[node name="TextboxContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="TextboxTexture" type="TextureRect" parent="PanelContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 128
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 128
+texture = ExtResource("2_k88rq")
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+visibility_layer = 3
+layout_mode = 2
 theme_override_constants/margin_bottom = 0
 
-[node name="Panel" type="Panel" parent="MarginContainer/TextboxContainer"]
+[node name="TextboxContainer" type="MarginContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_7gbwt")
+theme_override_constants/margin_left = 65
+theme_override_constants/margin_top = -90
+theme_override_constants/margin_bottom = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TextboxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/TextboxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_top = 180
 
-[node name="Panel" type="Panel" parent="MarginContainer/TextboxContainer/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/TextboxContainer/MarginContainer"]
+visible = false
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_j2kny")
+theme_override_constants/margin_right = 35
+theme_override_constants/margin_bottom = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TextboxContainer/MarginContainer"]
+[node name="EndSymbol" type="Label" parent="PanelContainer/MarginContainer/TextboxContainer/MarginContainer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("3_k88rq")
+theme_override_font_sizes/font_size = 45
+text = "V"
 
-[node name="StartSymbol" type="Label" parent="MarginContainer/TextboxContainer/MarginContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/TextboxContainer/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 30
+size_flags_vertical = 0
+
+[node name="StartSymbol" type="Label" parent="PanelContainer/MarginContainer/TextboxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme = ExtResource("3_k88rq")
 text = "*"
 
-[node name="Text" type="Label" parent="MarginContainer/TextboxContainer/MarginContainer/HBoxContainer"]
+[node name="Text" type="Label" parent="PanelContainer/MarginContainer/TextboxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 1
-theme_override_font_sizes/font_size = 30
+size_flags_vertical = 0
+theme = ExtResource("3_k88rq")
 text = "This is the default text :D, you should NOT be seeing this"
 autowrap_mode = 3
+max_lines_visible = 4
 
-[node name="EndSymbol" type="Label" parent="MarginContainer/TextboxContainer/MarginContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer"]
 layout_mode = 2
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 30
-text = "V"
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/margin_left = 105
+theme_override_constants/margin_top = -31
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+[node name="SpeakerTexture" type="TextureRect" parent="PanelContainer/MarginContainer/MarginContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 160
-theme_override_constants/margin_top = -32
-theme_override_constants/margin_right = 768
-theme_override_constants/margin_bottom = 130
+texture = ExtResource("3_fiq24")
+stretch_mode = 4
 
-[node name="Panel" type="Panel" parent="MarginContainer/MarginContainer"]
+[node name="Speaker" type="Label" parent="PanelContainer/MarginContainer/MarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_e4b3y")
-
-[node name="Label" type="Label" parent="MarginContainer/MarginContainer/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.000182857
+size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
-text = "Gimberto
-"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "Gimberto"
+label_settings = SubResource("LabelSettings_towyp")

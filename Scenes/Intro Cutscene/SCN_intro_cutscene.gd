@@ -7,14 +7,13 @@ enum Stages {
 	WAIT_PRESSED_TWO
 }
 var current_stage = Stages.CAR
-
-const text_box : PackedScene = preload("res://Text Box/TXT_TextBox.tscn")
 var tbi # Text box instance
 
-const test_cris = preload("res://Characters/CHR_Cris.tscn")
+## PRELOADS ##
+const text_box : PackedScene = preload("res://Text Box/TXT_TextBox.tscn")
 
 const black_background = preload("res://Scenes/Intro Cutscene/BG_black.png")
-const car_background = preload("res://Scenes/Intro Cutscene/sonic-the-hedgehog-sth-ff-029r_rgb.png")
+const car_background = preload("res://Scenes/Main Menu/MainMenu.png")
 const mansion_background = preload("res://Scenes/Intro Cutscene/Main.jpg")
 
 const kimbix_serious_speak = preload("res://Characters/Humber/Humber_serious2.png")
@@ -22,25 +21,30 @@ const kimbix_serious_no_speak = preload("res://Characters/Humber/Humber_serious1
 const kimbix_happy_speak = preload("res://Characters/Humber/Humber_happy2.png")
 const kimbix_happy_no_speak = preload("res://Characters/Humber/Humber_happy1.png")
 
-
+# variables for idiot buttons :P
 @onready var buttons_container : VBoxContainer = $"../ButtonsLayer/VBoxContainer"
-@onready var unshown_buttons = [
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Nigu",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/David",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Paris",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Clau",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Sage",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Joaco",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Cyrus",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Jem",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Felix",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Jacques",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Cesar",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Kiri",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Clara",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Yeetus",
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Pham"
-]
+@onready var unshown_buttons = $"../ButtonsLayer/VBoxContainer/LocationsContainer".get_children().filter(func(object): return object.get_child(0).get_name() not in ["Cono","Cyrus", "Bici", "Chris"])
+# making these variables in case i change the tree structure again :(
+@onready var cono_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Cono_Control"
+@onready var bici_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Bici_Control"
+@onready var cesar_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Cesar_Control"
+@onready var chris_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Chris_Control"
+@onready var clara_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Clara_Control"
+@onready var clau_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Clau_Control"
+@onready var cyrus_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Cyrus_Control"
+@onready var david_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/David_Control"
+@onready var felix_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Felix_Control"
+@onready var jaques_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Jacques_Control"
+@onready var jem_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Jem_Control"
+@onready var joaco_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Joaco_Control"
+@onready var kiri_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Kiri_Control"
+@onready var nigu_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Nigu_Control"
+@onready var paris_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Paris_Control"
+@onready var pham_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Pham_Control"
+@onready var sage_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Sage_Control"
+@onready var ukesito_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Ukesito_Control"
+@onready var yeetus_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Yeetus_Control"
+@onready var wait_control = $"../ButtonsLayer/VBoxContainer/Wait_Control"
 
 # Here's all of the arguments because i keep forgetting
 # queue_all(text, speaker, char_name, sprite, background, highlight, left):
@@ -52,7 +56,7 @@ func _ready():
 	tbi.queue_dialogue("* The ride is peaceful as I listen to the 'Risk of Rain 2: Survivors of the Void OST' in the car *","???")
 	
 	tbi.sprite_change("Humber",kimbix_happy_speak,true)
-	tbi.queue_dialogue("Cris said he had a surprise for us","Humber")
+	tbi.queue_dialogue("Chris said he had a surprise for us","Humber")
 	tbi.queue_dialogue("I wonder what it is","Humber")
 	tbi.queue_dialogue("Maybe it's another quiz","Humber")
 	tbi.queue_dialogue("Or maybe it's going to be a multiplayer game","Humber")
@@ -78,7 +82,7 @@ func _ready():
 	
 	tbi.queue_dialogue("* Opening the main door, I see how some have arrived but not all *","Humber")
 	tbi.queue_dialogue("* Some are exploring the house and looking at the other rooms *","Humber")
-	tbi.queue_dialogue("* I don’t feel like looking at the rooms, Cris has already shown them to me so many times *","Humber")
+	tbi.queue_dialogue("* I don’t feel like looking at the rooms, Chris has already shown them to me so many times *","Humber")
 	
 	tbi.sprite_change("Humber",kimbix_happy_speak,true)
 	tbi.queue_dialogue("Looks like I'm early, maybe I should talk to others to kill time or I could just wait here","Humber")
@@ -125,7 +129,7 @@ const uke_serious_no_speak = preload("res://Characters/Ukesito/Uke_serious1.png"
 func _on_ukesito_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Ukesito".queue_free()
+	ukesito_control.queue_free()
 	tbi.sprite_change("Ukesito",uke_happy_speak,false)
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
@@ -168,7 +172,7 @@ const nigu_serious_no_speak = preload("res://Characters/Nigu/Nigu_serious1.png")
 func _on_nigu_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Nigu".queue_free()
+	nigu_control.queue_free()
 	tbi.sprite_change("Nigu",nigu_happy_no_speak,false)
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	tbi.queue_dialogue(":3","Nigu")
@@ -189,7 +193,7 @@ const david_serious_no_speak = preload("res://Characters/David/David_serious1.pn
 func _on_david_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/David".queue_free()
+	david_control.queue_free()
 	tbi.sprite_change("David",david_happy_speak,false)
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
@@ -219,7 +223,7 @@ const paris_happy_no_speak = preload("res://Characters/Paris/Paris_happy1.png")
 func _on_paris_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Paris".queue_free()
+	paris_control.queue_free()
 	tbi.sprite_change("Paris",paris_happy_speak,false)
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
@@ -249,7 +253,7 @@ const clau_happy_no_speak = preload("res://Characters/Clau/Clau_happy1.png")
 func _on_clau_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Clau".queue_free()
+	clau_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
 	tbi.sprite_change("Clau",clau_happy_speak,false)
@@ -284,36 +288,36 @@ func _on_clau_pressed():
 	tbi.sprite_change("Clau",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const cris_happy_speak = preload("res://Characters/Cris/Cris_happy2.png")
-const cris_happy_no_speak = preload("res://Characters/Cris/Cris_happy1.png")
-func _on_cris_pressed():
+const chris_happy_speak = preload("res://Characters/Chris/Chris_happy2.png")
+const chris_happy_no_speak = preload("res://Characters/Chris/Chris_happy1.png")
+func _on_chris_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Cris".queue_free()
+	chris_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
-	tbi.sprite_change("Cris",cris_happy_no_speak,false)
+	tbi.sprite_change("Chris",chris_happy_no_speak,false)
 	
 	tbi.sprite_change("Humber",kimbix_happy_speak,true)
-	tbi.queue_dialogue("hello mestir cristin carneflin","Humber")
+	tbi.queue_dialogue("hello mestir christin carneflin","Humber")
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
-	tbi.sprite_change("Cris",cris_happy_speak,false)
-	tbi.queue_dialogue("hi mr flintin","Cris")
-	tbi.sprite_change("Cris",cris_happy_no_speak,false)
+	tbi.sprite_change("Chris",chris_happy_speak,false)
+	tbi.queue_dialogue("hi mr flintin","Chris")
+	tbi.sprite_change("Chris",chris_happy_no_speak,false)
 	
 	tbi.queue_dialogue("...","Humber")
-	tbi.queue_dialogue("...","Cris")
+	tbi.queue_dialogue("...","Chris")
 	tbi.queue_dialogue("...","Humber")
 	
-	tbi.sprite_change("Cris",cris_happy_speak,false)
-	tbi.queue_dialogue("I'm gonna go check on the food mr gimp","Cris")
-	tbi.sprite_change("Cris",cris_happy_no_speak,false)
+	tbi.sprite_change("Chris",chris_happy_speak,false)
+	tbi.queue_dialogue("I'm gonna go check on the food mr gimp","Chris")
+	tbi.sprite_change("Chris",chris_happy_no_speak,false)
 	
 	tbi.sprite_change("Humber",kimbix_happy_speak,true)
 	tbi.queue_dialogue("Okay","Humber")
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
-	tbi.sprite_change("Cris",null,false)
+	tbi.sprite_change("Chris",null,false)
 	tbi.sprite_change("Humber",null,true)
 
 const bici_happy_speak = preload("res://Characters/Bici/Bici_happy2.png")
@@ -323,7 +327,7 @@ const bici_serious_no_speak = preload("res://Characters/Bici/Bici_serious1.png")
 func _on_bici_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Bici".queue_free()
+	bici_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	tbi.sprite_change("Bici",bici_happy_no_speak,false)
 	
@@ -351,7 +355,7 @@ func _on_bici_pressed():
 	
 	tbi.sprite_change("Bici",bici_happy_speak,false)
 	tbi.queue_dialogue("By the way you should really read this webtoon","Bici")
-	tbi.queue_dialogue("Cris hasn’t been reading the ones I've been recommending","Bici")
+	tbi.queue_dialogue("Chris hasn’t been reading the ones I've been recommending","Bici")
 	tbi.sprite_change("Bici",bici_happy_no_speak,false)
 	
 	tbi.sprite_change("Humber",kimbix_happy_speak,true)
@@ -371,7 +375,7 @@ const sage_happy_no_speak = preload("res://Characters/Sage/Sage_happy1.png")
 func _on_sage_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Sage".queue_free()
+	sage_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	tbi.sprite_change("Sage",sage_happy_no_speak,false)
 	
@@ -412,7 +416,7 @@ const joaco_happy_no_speak = preload("res://Characters/Joaco/Joaco_happy1.png")
 func _on_joaco_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Joaco".queue_free()
+	joaco_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	tbi.sprite_change("Joaco",joaco_happy_no_speak,false)
 	
@@ -435,7 +439,7 @@ func _on_joaco_pressed():
 	
 	tbi.sprite_change("Joaco",joaco_happy_speak,false)
 	tbi.queue_dialogue("Thank you fan- Wait WHY DID YOU BUY 50 ALMONDS???","Joaco")
-	tbi.queue_dialogue("Let me guess, Cris","Joaco")
+	tbi.queue_dialogue("Let me guess, Chris","Joaco")
 	tbi.sprite_change("Joaco",joaco_happy_no_speak,false)
 	
 	tbi.sprite_change("Humber",kimbix_happy_speak,true)
@@ -450,7 +454,7 @@ const cyrus_happy_no_speak = preload("res://Characters/Cyrus/Cyrus_happy1.png")
 func _on_cyrus_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Cyrus".queue_free()
+	cyrus_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	tbi.sprite_change("Cyrus",cyrus_happy_no_speak,false)
 	
@@ -490,7 +494,7 @@ const jem_serious_no_speak = preload("res://Characters/Jem/Jem_serious1.png")
 func _on_jem_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Jem".queue_free()
+	jem_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	tbi.sprite_change("Jem",jem_happy_no_speak,false)
 	
@@ -531,7 +535,7 @@ const felix_happy_no_speak = preload("res://Characters/Felix/Felix_happy1.png")
 func _on_felix_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Felix".queue_free()
+	felix_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	tbi.sprite_change("Felix",felix_happy_no_speak,false)
 	
@@ -575,7 +579,7 @@ const jacques_happy_no_speak = preload("res://Characters/Jacques/Jacques_happy1.
 func _on_jacques_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Jacques".queue_free()
+	jaques_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	tbi.sprite_change("Jacques",jacques_happy_no_speak,false)
 	
@@ -637,7 +641,7 @@ const cesar_happy_no_speak = preload("res://Characters/Cesar/Cesar_happy1.png")
 func _on_cesar_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Cesar".queue_free()
+	cesar_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	tbi.sprite_change("Cesar",cesar_happy_no_speak,false)
 	
@@ -699,7 +703,7 @@ const kiri_serious_no_speak = preload("res://Characters/Kiri/Kiri_serious1.png")
 func _on_kiri_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Kiri".queue_free()
+	kiri_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	tbi.sprite_change("Kiri",kiri_happy_no_speak,false)
 	
@@ -750,7 +754,7 @@ const clara_serious_no_speak = preload("res://Characters/Clara/Clara_serious1.pn
 func _on_clara_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Clara".queue_free()
+	clara_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	tbi.sprite_change("Clara",clara_happy_no_speak,false)
 	
@@ -783,7 +787,7 @@ const yeetus_serious_no_speak = preload("res://Characters/Yeetus/Yeetus_serious1
 func _on_yeetus_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Yeetus".queue_free()
+	yeetus_control.queue_free()
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
 	tbi.sprite_change("Yeetus",yeetus_happy_speak,false)
@@ -812,7 +816,7 @@ const cono = preload("res://Characters/Cone/Cone_normal.png")
 func _on_cono_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Cono".queue_free()
+	cono_control.queue_free()
 	tbi.sprite_change("Cone",cono,false)
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
@@ -836,7 +840,7 @@ const pham_serious_speak = preload("res://Characters/Pham/Pham_serious1.png")
 func _on_pham_pressed():
 	one_more_button()
 	buttons_container.visible = false
-	$"../ButtonsLayer/VBoxContainer/GridContainer/Pham".queue_free()
+	pham_control.queue_free()
 	tbi.sprite_change("Pham",pham_happy_speak,false)
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
@@ -875,24 +879,24 @@ func _on_pham_pressed():
 
 func _on_wait_pressed():
 	current_stage = Stages.WAIT_PRESSED_ONE
-	$"../ButtonsLayer/VBoxContainer/Wait".queue_free()
-	$"../ButtonsLayer/VBoxContainer/GridContainer".queue_free()
+	wait_control.queue_free()
+	buttons_container.queue_free()
 	tbi.fade_black_back_in(wait_dialogue_part_one, func(): pass)
 
 var wait_dialogue_part_one = func():
 	tbi.queue_dialogue(" * Everyone seems to have arrived * ","Humber")
 	
-	tbi.sprite_change("Cris",cris_happy_no_speak,true)
-	tbi.queue_dialogue("* clings a crystal glass * ","Cris")
+	tbi.sprite_change("Chris",chris_happy_no_speak,true)
+	tbi.queue_dialogue("* clings a crystal glass * ","Chris")
 	
-	tbi.sprite_change("Cris",cris_happy_speak,true)
-	tbi.queue_dialogue(" ahem ","Cris")
-	tbi.queue_dialogue("The food is almost ready to be served","Cris")
-	tbi.queue_dialogue("I've arranged seating for all of you. Come now","Cris")
-	tbi.sprite_change("Cris",null,true)
+	tbi.sprite_change("Chris",chris_happy_speak,true)
+	tbi.queue_dialogue(" ahem ","Chris")
+	tbi.queue_dialogue("The food is almost ready to be served","Chris")
+	tbi.queue_dialogue("I've arranged seating for all of you. Come now","Chris")
+	tbi.sprite_change("Chris",null,true)
 	
 	tbi.queue_dialogue(" * I make my way towards the table. There are name tags on the chairs for each person * ","Humber")
-	tbi.queue_dialogue(" * I circle around the table to find my seat in between cris and uke * ","Humber")
+	tbi.queue_dialogue(" * I circle around the table to find my seat in between Chris and uke * ","Humber")
 	tbi.queue_dialogue(" * Cone brings out a cart with multiple plates all labeled and starts placing them on the table * ","Humber")
 	
 	tbi.sprite_change("Ukesito",uke_happy_speak,true)
@@ -907,39 +911,39 @@ var wait_dialogue_part_one = func():
 	tbi.queue_dialogue("Holy shit is that the 2l of duck fat that went missing?","Sage")
 	tbi.sprite_change("Sage",null,true)
 	
-	tbi.queue_dialogue(" * After Cone brings out a final plate for Cris and sets it in front of him * ","Humber")
+	tbi.queue_dialogue(" * After Cone brings out a final plate for Chris and sets it in front of him * ","Humber")
 	
-	tbi.sprite_change("Cris",cris_happy_speak,true)
+	tbi.sprite_change("Chris",chris_happy_speak,true)
 	tbi.sprite_change("Cone",load("res://Characters/Cone/Cone_normal.png"),false)
-	tbi.queue_dialogue("Thank you Cone","Cris")
-	tbi.sprite_change("Cris",cris_happy_no_speak,true)
+	tbi.queue_dialogue("Thank you Cone","Chris")
+	tbi.sprite_change("Chris",chris_happy_no_speak,true)
 	tbi.queue_dialogue(" * nods *","Cone")
 	tbi.queue_dialogue(" * Cone walks back towards the kitchen with the now empty car * ","Humber")
 	tbi.sprite_change("Cone",null,false)
 	
-	tbi.sprite_change("Cris",cris_happy_speak,true)
-	tbi.queue_dialogue("Thank you all for coming","Cris")
-	tbi.queue_dialogue("I hope you all like what our chef has prepared for you","Cris")
-	tbi.queue_dialogue("It's everyone's favorite","Cris")
-	tbi.sprite_change("Cris",null,true)
+	tbi.sprite_change("Chris",chris_happy_speak,true)
+	tbi.queue_dialogue("Thank you all for coming","Chris")
+	tbi.queue_dialogue("I hope you all like what our chef has prepared for you","Chris")
+	tbi.queue_dialogue("It's everyone's favorite","Chris")
+	tbi.sprite_change("Chris",null,true)
 	
 	pass
 
 var wait_dialogue_part_two = func():
-	tbi.sprite_change("Cris",cris_happy_speak,true)
-	tbi.queue_dialogue("Now that we all ate, I want to show you guys something","Cris")
-	tbi.sprite_change("Cris",cris_happy_no_speak,true)
+	tbi.sprite_change("Chris",chris_happy_speak,true)
+	tbi.queue_dialogue("Now that we all ate, I want to show you guys something","Chris")
+	tbi.sprite_change("Chris",chris_happy_no_speak,true)
 	
-	tbi.queue_dialogue(" * We all stand up and follow behind cris * ","Humber")
+	tbi.queue_dialogue(" * We all stand up and follow behind Chris * ","Humber")
 	
-	tbi.sprite_change("Cris",cris_happy_speak,true)
-	tbi.queue_dialogue("I've spent a long time working on this so I really hope you all like it","Cris")
-	tbi.sprite_change("Cris",cris_happy_no_speak,true)
+	tbi.sprite_change("Chris",chris_happy_speak,true)
+	tbi.queue_dialogue("I've spent a long time working on this so I really hope you all like it","Chris")
+	tbi.sprite_change("Chris",chris_happy_no_speak,true)
 	
-	tbi.queue_dialogue(" * We stand close to the circular rug and cris motions for us to stay put * ","Humber")
+	tbi.queue_dialogue(" * We stand close to the circular rug and Chris motions for us to stay put * ","Humber")
 	tbi.queue_dialogue(" * As he walks towards the center of the rug he- ","Humber")
 	
-	tbi.sprite_change("Cris",null,true)
+	tbi.sprite_change("Chris",null,true)
 	tbi.queue_all(null, null, null, null, black_background, null, null)
 	tbi.queue_dialogue(" KABLAMO ","")
 	tbi.queue_dialogue(" * The lights quickly flicker before shutting off * ","Humber")
@@ -947,9 +951,9 @@ var wait_dialogue_part_two = func():
 	tbi.queue_dialogue("GASP","Bici")
 	tbi.queue_dialogue("nojoda","Cyrus")
 	tbi.queue_dialogue("Nunca se puede escapar del tercer mundo","Clau")
-	tbi.queue_dialogue("Ah it's nothing to worry about, let me get my phone","Cris")
+	tbi.queue_dialogue("Ah it's nothing to worry about, let me get my phone","Chris")
 	tbi.queue_dialogue("AAAAAAHHHH","David")
-	tbi.queue_dialogue(".   .   .   si ok entiendo","Cris")
+	tbi.queue_dialogue(".   .   .   si ok entiendo","Chris")
 	tbi.queue_dialogue("BANG","")
 	tbi.queue_dialogue(" * Another loud sound can be heard, but this one felt way closer than the thunder * ","Humber")
 	tbi.queue_dialogue(" * An audible thud rings in my ear following the band. * ","Humber")
@@ -958,7 +962,7 @@ var wait_dialogue_part_two = func():
 	tbi.queue_dialogue(" * My eyes meet a terrifying sight, as I drop my phone some gasp as they notice what it was I saw * ","Humber")
 	tbi.queue_all(null, null, null, null, mansion_background, null, null)
 	tbi.queue_dialogue(" * The lights come back on and now I can see more clearly what it is now * ","Humber")
-	tbi.queue_dialogue(" * Cris's dead body. * ","Humber")
+	tbi.queue_dialogue(" * Chris's dead body. * ","Humber")
 	tbi.queue_dialogue(" * Their body is face down with blood slowly oozing out from their torso * ","Humber")
 	
 	tbi.sprite_change("David",david_serious_speak,true)
@@ -990,7 +994,7 @@ var wait_dialogue_part_two = func():
 	tbi.queue_dialogue(" * I can only stare at what was once a living person * ","Humber")
 	tbi.queue_dialogue(" * Many start to argue over if we should check the body * ","Humber")
 	tbi.queue_dialogue(" * Despite everything I think we all thought the same thing * ","Humber")
-	tbi.queue_dialogue(" * Someone in this party just killed Cris... * ","Humber")
+	tbi.queue_dialogue(" * Someone in this party just killed Chris... * ","Humber")
 	
 	tbi.queue_dialogue(" * A while passes and many seem to calm down * ","Humber")
 	tbi.queue_dialogue(" * We hear the chiming of the grand clock, 8pm, it reads * ","Humber")
