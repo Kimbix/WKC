@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bef8uy8bgtw71"
-path="res://.godot/imported/Letter_closed.png-111c0fa65daf8d4812cb71774777ac31.ctex"
+uid="uid://d4csgaapkyutr"
+path="res://.godot/imported/Letter_cardFull.png-e2cbf20fe9d6db3ddc093f9f8e1ac119.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Other Assets/Intro Letter/Letter_closed.png"
-dest_files=["res://.godot/imported/Letter_closed.png-111c0fa65daf8d4812cb71774777ac31.ctex"]
+source_file="res://Assets/UI/Letter/Letter_cardFull.png"
+dest_files=["res://.godot/imported/Letter_cardFull.png-e2cbf20fe9d6db3ddc093f9f8e1ac119.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2ld08b8a1baw"
-path="res://.godot/imported/Letter_openFront.png-88b0482025bc1b91217977eada0f67d4.ctex"
+uid="uid://lg4cykyd1ups"
+path="res://.godot/imported/MainMenu.png-d3c002c2701bf8157b3e411228f16a48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Other Assets/Intro Letter/Letter_openFront.png"
-dest_files=["res://.godot/imported/Letter_openFront.png-88b0482025bc1b91217977eada0f67d4.ctex"]
+source_file="res://Assets/Backgrounds/MainMenu.png"
+dest_files=["res://.godot/imported/MainMenu.png-d3c002c2701bf8157b3e411228f16a48.ctex"]
 
 [params]
 

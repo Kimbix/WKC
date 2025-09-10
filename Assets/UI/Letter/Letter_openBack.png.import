@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfsabaxcs45up"
-path="res://.godot/imported/Letter_openBack.png-530e043bb1c04b932ef1916c9500e71c.ctex"
+path="res://.godot/imported/Letter_openBack.png-df0cc400b8cda90d557c2e89c8a537ce.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Other Assets/Intro Letter/Letter_openBack.png"
-dest_files=["res://.godot/imported/Letter_openBack.png-530e043bb1c04b932ef1916c9500e71c.ctex"]
+source_file="res://Assets/UI/Letter/Letter_openBack.png"
+dest_files=["res://.godot/imported/Letter_openBack.png-df0cc400b8cda90d557c2e89c8a537ce.ctex"]
 
 [params]
 

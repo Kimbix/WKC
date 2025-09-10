@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg4jjfi8is6j2"
-path="res://.godot/imported/Padding.png-9f2a9e65b3bcc6570466b70793a9f59c.ctex"
+uid="uid://bef8uy8bgtw71"
+path="res://.godot/imported/Letter_closed.png-39f0bda4e02fd2936303393f1532c1da.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Other Assets/Padding.png"
-dest_files=["res://.godot/imported/Padding.png-9f2a9e65b3bcc6570466b70793a9f59c.ctex"]
+source_file="res://Assets/UI/Letter/Letter_closed.png"
+dest_files=["res://.godot/imported/Letter_closed.png-39f0bda4e02fd2936303393f1532c1da.ctex"]
 
 [params]
 

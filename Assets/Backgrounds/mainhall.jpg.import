@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3i06580kr2wd"
-path="res://.godot/imported/Letter_cardOpen.png-beffee9ec58d87c83d45769ec7b52d43.ctex"
+uid="uid://dk5f72ug8nyhp"
+path="res://.godot/imported/mainhall.jpg-59392a934f1b061eeb38158dfa1c18c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Other Assets/Intro Letter/Letter_cardOpen.png"
-dest_files=["res://.godot/imported/Letter_cardOpen.png-beffee9ec58d87c83d45769ec7b52d43.ctex"]
+source_file="res://Assets/Backgrounds/mainhall.jpg"
+dest_files=["res://.godot/imported/mainhall.jpg-59392a934f1b061eeb38158dfa1c18c4.ctex"]
 
 [params]
 
