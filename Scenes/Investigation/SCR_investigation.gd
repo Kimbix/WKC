@@ -2,7 +2,6 @@ extends Node2D
 
 @onready var locations_container = $"../ButtonsLayer/LocationsContainer"
 
-
 enum State {
 	CHOOSING,
 	PLACE_DIALOGUE,
@@ -23,7 +22,7 @@ var previous_location : Location = Location.NO_PREVIOUS
 const text_box : PackedScene = preload("res://Text Box/TXT_TextBox.tscn")
 var tbi
 
-const mansion_background = preload("res://Scenes/Intro Cutscene/Main.jpg")
+const mansion_background = preload("uid://dk5f72ug8nyhp")
 
 func _ready():
 	locations_container.visible = false
@@ -59,14 +58,15 @@ const cone = preload("res://Characters/Cone/Cone_normal.png")
 const clau_serious_speak = preload("res://Characters/Clau/Clau_serious1.png")
 const clau_serious_no_speak = preload("res://Characters/Clau/Clau_serious2.png")
 func cyru_cutscene():
+	
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
+	
+	tbi.queue_dialogue("* As I walk towards the main hall I see Jem and someone behind a...? plant *", "Humber")
+	
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Padding",padding_texture,true)
 	tbi.sprite_change("Jem",jem_serious_no_speak,false)
 	tbi.sprite_change("Clau",clau_serious_no_speak,false)
-	
-	# TODO: This one also happens in the main hall lmao
-	
-	tbi.queue_dialogue("* As I walk towards the main hall I see Jem and someone behind a...? plant *", "Humber")
 	
 	tbi.sprite_change("Clau",clau_serious_speak,false)
 	tbi.queue_dialogue("BOOO AHH JAJAJA QUE MIEDO", "Clau")
@@ -139,9 +139,15 @@ func cyru_cutscene():
 	tbi.queue_dialogue("chao tonto", "Clau")
 	tbi.sprite_change("Clau",clau_serious_no_speak,false)
 	
-	tbi.clean_up()
+	tbi.new_clean()
 
 func joaco_cutscene():
+	
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
+	
+	tbi.queue_dialogue("As I'm walking back towards the main hall I hear two people call out for me.", "Humber")
+	tbi.queue_dialogue("I turn around and notice that it's Sage and Felix", "Humber")
+	
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Padding",padding_texture,true)
 	tbi.sprite_change("Felix",felix_serious_no_speak,false)
@@ -243,7 +249,7 @@ func joaco_cutscene():
 	tbi.queue_dialogue("see yaa", "Sage")
 	tbi.sprite_change("Sage",sage_serious_no_speak,false)
 	
-	tbi.clean_up()
+	tbi.new_clean()
 
 func bici_cutscene():
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -377,11 +383,13 @@ func magnitude_cutscene():
 	tbi.queue_dialogue("I've heard enough, thanks guys", "Humber")
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
+	###
+	
 	tbi.clean_up()
 
 const yeetus_cutscene_background = preload("res://Characters/Yeetus/Cutscene_yeetus.png")
 func yeetus_cutscene(): 
-	tbi.sprite_change("Humber",kimbix_cutscene(),true)
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
 	tbi.queue_dialogue(" * walks up to Humber *", "Cyrus")
 	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
@@ -553,11 +561,8 @@ func kimbix_cutscene():
 	tbi.clean_up()
 
 func chris_cutscene():
-	# TODO: in this cutscene chris just fcking wrote it like 
-	# its happening from the dinning table, which is NOT here
-	# sooooo either this cutscene is being changed later
-	# or im supposed to change the background
-	# either way im doing that later.
+
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
 	
 	tbi.sprite_change("Humber",kimbix_serious_speak,true)
 	tbi.queue_dialogue("Hmmm...", "Humber")
@@ -656,7 +661,7 @@ func _on_the_dungeon_pressed():
 		tbi.hide_textbox()
 	tbi.fade_black_back_in(dungeon_scene, dungeon_trans)
 
-const padding_texture = preload("res://Other Assets/Padding.png")
+const padding_texture = preload("uid://cg4jjfi8is6j2")
 
 const kimbix_serious_speak = preload("res://Characters/Humber/Humber_serious2.png")
 const kimbix_serious_no_speak = preload("res://Characters/Humber/Humber_serious1.png")
@@ -673,7 +678,7 @@ const cyrus_happy_no_speak = preload("res://Characters/Cyrus/Cyrus_happy1.png")
 const cyrus_serious_speak = preload("res://Characters/Cyrus/Cyrus_serious2.png")
 const cyrus_serious_no_speak = preload("res://Characters/Cyrus/Cyrus_serious1.png")
 
-const dungeon_background = preload("res://Scenes/Investigation/Dungeon/Dungeon.jpg")
+const dungeon_background = preload("uid://j5mv3uir8tet")
 var dungeon_scene = func():
 	tbi.queue_dialogue(" * I walk towards the dungeon * ", "Humber")
 	tbi.queue_dialogue(" * Chris would always joke and say to others he had a dungeon in their house, only to laugh at people when they actually saw what it was * ", "Humber")
@@ -732,10 +737,12 @@ var dungeon_scene = func():
 		tbi.queue_dialogue("Still, no one is there", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
+		tbi.new_clean()
+		
 		tbi.queue_dialogue(" * I leave the room without anyone noticing * ", "Humber")
 		tbi.queue_dialogue(" * Everyone must be in the other rooms of the mansion * ", "Humber")
 		tbi.queue_dialogue("Where to now?", "Humber")
-		tbi.sprite_change("Humber",null,true)
+		
 	else:
 		tbi.queue_dialogue("Kiri and Cyrus", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -817,9 +824,10 @@ var dungeon_scene = func():
 		tbi.queue_dialogue("Thanks", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
+		tbi.new_clean()
+		
 		tbi.queue_dialogue("I leave the room, hoping to find out what Chris did with those piñatas", "Humber")
 		
-		tbi.clean_up()
 	match (previous_location):
 		Location.KITCHEN:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIRI)
@@ -853,7 +861,7 @@ const felix_serious_no_speak = preload("res://Characters/Felix/Felix_serious1.pn
 const jem_serious_speak = preload("res://Characters/Jem/Jem_serious2.png")
 const jem_serious_no_speak = preload("res://Characters/Jem/Jem_serious1.png")
 
-const kitchen_background = preload("res://Scenes/Investigation/Kitchen/SPR-luxury-kitchens-5211364-hero-688d716970544978bc12abdf17ce6f83.jpg")
+const kitchen_background = preload("uid://bv6b0sxhiwmky")
 
 func _on_kitchen_pressed():
 	locations_container.visible = false
@@ -1081,7 +1089,7 @@ var kitchen_scene = func():
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.KITCHEN
 
-const bedroom_background = preload("res://Scenes/Investigation/Bedroom/bedroom_background.jpg")
+const bedroom_background = preload("uid://cib4uxv4l2jka")
 func _on_bedroom_pressed():
 	locations_container.visible = false
 	current_state = State.PLACE_DIALOGUE
@@ -1290,7 +1298,7 @@ var bedroom_scene = func():
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.BEDROOM
 
-const garage_background = preload("res://Scenes/Investigation/Garage/061A4059-scaled.jpg")
+const garage_background = preload("uid://bigfflpd5t1r5")
 func _on_garage_pressed():
 	locations_container.visible = false
 	current_state = State.PLACE_DIALOGUE
@@ -1483,7 +1491,7 @@ var garage_scene = func():
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.GARAGE
 
-const garden_background = preload("res://Scenes/Investigation/Garden/beautiful-gardens-in-the-world.jpg")
+const garden_background = preload("uid://6l53gfd7grsx")
 
 func _on_garden_pressed():
 	locations_container.visible = false

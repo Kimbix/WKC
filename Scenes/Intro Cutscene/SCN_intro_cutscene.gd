@@ -12,9 +12,9 @@ var tbi # Text box instance
 ## PRELOADS ##
 const text_box : PackedScene = preload("res://Text Box/TXT_TextBox.tscn")
 
-const black_background = preload("res://Scenes/Intro Cutscene/BG_black.png")
-const car_background = preload("res://Scenes/Main Menu/MainMenu.png")
-const mansion_background = preload("res://Scenes/Intro Cutscene/Main.jpg")
+const black_background = preload("uid://bsx33dhpcodp0")
+const car_background = preload("uid://lg4cykyd1ups")
+const mansion_background = preload("uid://dk5f72ug8nyhp")
 
 const kimbix_serious_speak = preload("res://Characters/Humber/Humber_serious2.png")
 const kimbix_serious_no_speak = preload("res://Characters/Humber/Humber_serious1.png")
@@ -1006,4 +1006,4 @@ var wait_dialogue_part_two = func():
 	tbi.queue_dialogue(" * Everyone dices to split up to gather clues on the potential killer * ","Humber")
 	tbi.queue_dialogue(" * As people go towards other parts of the mansion, I’m left alone in the main entrance. I should go too * ","Humber")
 	
-	tbi.queue_dialogue(" *  Where to go... * ","Humber")
+#	tbi.queue_dialogue(" *  Where to go... * ","Humber")

@@ -92,38 +92,6 @@ func change_state(next_state):
 var chars_on_left = {}
 var chars_on_right = {}
 
-func add_character_left(char_name : String, character : PackedScene):
-	assert(!chars_on_left.has(char_name), (char_name + " already is in chars_on_left"))
-	var char_instance = character.instantiate()
-	left_container.add_child(char_instance)
-	chars_on_left[char_name] = char_instance
-
-func remove_character_left(char_name : String):
-	assert(chars_on_left.has(char_name), (char_name + " not found in chars_on_left"))
-	chars_on_left[char_name].queue_free()
-	chars_on_left.erase(char_name)
-
-func highlight_character_left(char_name : String):
-	assert(chars_on_left.has(char_name), (char_name + " not found in chars_on_left"))
-	for character in chars_on_left.values():
-		character.modulate = Color(0.2, 0.2, 0.2)
-	chars_on_left[char_name].modulate = Color(1, 1, 1)
-
-func add_character_right(char_name : String, character : PackedScene):
-	var char_instance = character.instantiate()
-	right_container.add_child(char_instance)
-	chars_on_right[char_name] = char_instance
-
-func remove_character_right(char_name : String):
-	assert(chars_on_right.has(char_name), (char_name + " not found in chars_on_left"))
-	chars_on_right[char_name].queue_free()
-	chars_on_right.erase(char_name)
-
-func highlight_character_right(char_name : String):
-	assert(chars_on_right.has(char_name), (char_name + " not found in chars_on_right"))
-	for character in chars_on_right.values():
-		character.modulate = Color(0.2, 0.2, 0.2)
-	chars_on_right[char_name].modulate = Color(1, 1, 1)
 
 func sprite_change(char_name, sprite, left):
 	queue_all(null, null, char_name, sprite, null, false, left)
@@ -142,10 +110,20 @@ func queue_all(text, speaker, char_name, sprite, background, highlight, left):
 	queue[-1]["left"] = left
 
 func clean_up():
+	print("cleaning up")
 	for key in chars_on_left.keys():
 		sprite_change(key, null, true)
+		print(key)
 	for key in chars_on_right.keys():
 		sprite_change(key, null, false)
+		print(key)
+
+func new_clean():
+	for i in ["Bici", "Cono", "Cesar", "Chris", "Clara", "Cyrus", "David",
+	 "Felix", "Humber", "Jacques", "Jem", "Joaco", "Kiri", "Nigu", "Paris", 
+	 "Pham", "Sage", "Yeetus", "Ukesito", "Padding"]:
+		sprite_change(i, null, false)
+		sprite_change(i, null, true)
 
 func display_text(next_text, speaker):
 	label.text = next_text
