@@ -352,7 +352,7 @@ func bici_cutscene():
 	tbi.queue_dialogue("Bye bye", "Paris")
 	tbi.sprite_change("Paris",paris_serious_no_speak,false)
 	
-	tbi.clean_up()
+	tbi.new_clean()
 
 func magnitude_cutscene():
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -385,7 +385,7 @@ func magnitude_cutscene():
 	
 	###
 	
-	tbi.clean_up()
+	tbi.new_clean()
 
 const yeetus_cutscene_background = preload("res://Characters/Yeetus/Cutscene_yeetus.png")
 func yeetus_cutscene(): 
@@ -507,7 +507,7 @@ func uke_cutscene():
 	tbi.queue_dialogue("Anyway... I'll be going now, thanks", "Humber")
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
-	tbi.clean_up()
+	tbi.new_clean()
 
 func cono_cutscene():
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -543,7 +543,7 @@ func cono_cutscene():
 	tbi.queue_dialogue("that's not cono, thats-", "Kimbix")
 	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
 	
-	tbi.clean_up()
+	tbi.new_clean()
 
 func kimbix_cutscene():
 	# TODO: Once again, it FEELS like there's supposed to be a background change here
@@ -558,7 +558,7 @@ func kimbix_cutscene():
 	tbi.queue_dialogue("* I run back towards the mansion, composing myself before entering *", "Humber")
 	tbi.queue_dialogue("* Luckily, no one saw me enter *", "Humber")
 	
-	tbi.clean_up()
+	tbi.new_clean()
 
 func chris_cutscene():
 
@@ -597,7 +597,7 @@ func chris_cutscene():
 	tbi.queue_dialogue("I never noticed that, what could it mean?", "Humber")
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
-	tbi.clean_up()
+	tbi.new_clean()
 
 func kiri_cutscene():
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -643,7 +643,7 @@ func kiri_cutscene():
 	tbi.queue_dialogue("It’s extremely incriminating, so use it wisely", "Clara")
 	tbi.sprite_change("Clara",clara_serious_no_speak,false)
 
-	tbi.clean_up()
+	tbi.new_clean()
 
 	# TODO: Here it just fcking says *The three recount,
 	# probably chris forgot to fcking finish writing the script
@@ -1409,8 +1409,9 @@ var garage_scene = func():
 		tbi.queue_dialogue("Thanks for the info and the insane", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.sprite_change("Kimbix",null,true)
-		tbi.sprite_change("Paris",null,false)
+		tbi.new_clean()
+		
+		tbi.queue_dialogue(" * I go back towards the main hall feeling a bit disturbed. * ", "Humber")
 	else:
 		tbi.queue_dialogue("Pham", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -1470,8 +1471,7 @@ var garage_scene = func():
 		tbi.queue_dialogue("OKAY, THANKS", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.sprite_change("Humber",null,true)
-		tbi.sprite_change("Pham",null,false)
+		tbi.new_clean()
 		
 		tbi.queue_dialogue(" * I run towards the main hall * ", "Humber")
 	match (previous_location):
@@ -1636,6 +1636,9 @@ var garden_scene = func():
 		tbi.queue_dialogue(" * I leave * ", "Humber")
 		tbi.sprite_change("Humber",null,true)
 		tbi.queue_dialogue("What the fuck was that horse saying", "Humber")
+		
+		tbi.new_clean()
+		
 	else:
 		tbi.queue_dialogue("I spot Sage and Jac", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -1696,10 +1699,7 @@ var garden_scene = func():
 		tbi.queue_dialogue("Fine I'll get some but you better not leave", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.sprite_change("Humber",null,true)
-		tbi.sprite_change("Padding",null,true)
-		tbi.sprite_change("Sage",null,false)
-		tbi.sprite_change("Jacques",null,false)
+		tbi.new_clean()
 		
 		tbi.queue_dialogue(" * Humberto goes to a duckventure * ", "Humber")
 		
@@ -1773,8 +1773,10 @@ var garden_scene = func():
 		
 		tbi.queue_dialogue(". . .", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
+		
 		if (randi_range(0, 100) == 0): tbi.queue_dialogue("Yes", "Humber")
 		else: tbi.queue_dialogue("No", "Humber")
+		
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
 		tbi.queue_dialogue("...", "Jacques")
@@ -1792,10 +1794,7 @@ var garden_scene = func():
 		
 		tbi.queue_dialogue("Hmm… Thanks for the info, it helps a lot", "Humber")
 		
-		tbi.sprite_change("Humber",null,true)
-		tbi.sprite_change("Padding",null,true)
-		tbi.sprite_change("Sage",null,false)
-		tbi.sprite_change("Jacques",null,false)
+		tbi.new_clean()
 		
 		tbi.queue_dialogue(" * We say our goodbyes and I head towards the main hall. I hope to never see someone drink a whole liter of fat again * ", "Humber")
 	match (previous_location):
