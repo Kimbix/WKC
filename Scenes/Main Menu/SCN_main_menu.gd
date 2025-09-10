@@ -159,6 +159,7 @@ func _on_left_page_pressed():
 	update_tablet()
 
 func _on_play_button_pressed() -> void:
+	ScrPersistentData.possible_endings.clear()
 	get_tree().change_scene_to_file("res://Scenes/Letter Opening/SCN_intro_scene.tscn")
 
 func _on_endings_button_pressed() -> void:
