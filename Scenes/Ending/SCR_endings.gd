@@ -651,8 +651,24 @@ func _on_none_pressed():
 	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
 	tbi.queue_dialogue("I really have no idea who did this", "Kimbix")
 	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
+	
+	tbi.new_clean()
 
+	tbi.queue_dialogue("People take glances at each other hoping that someone might speak up with an acussation", "")
+	tbi.queue_dialogue("As the seconds turn to minutes, the awkwardness grows stronger", "")
+	tbi.queue_dialogue("I don't know what we we're all thinking by trying to play detective", "")
+	tbi.queue_dialogue("I reach for my phone and dial 911", "")
+	
 	tbi.queue_dialogue("...", "...")
+	
+	tbi.queue_dialogue("After the police and EMT arrived, they ruled his death as an accident", "...")
+	tbi.queue_dialogue("We leave after police gets our testimonies", "...")
+	
+	tbi.queue_dialogue("...", "...")
+	
+	tbi.queue_dialogue("I guess nobody really did it...", "...")
+	
+	tbi.queue_dialogue("HIDDEN ENDING: NO ONE", "...")
 
 
 func load_game():
@@ -705,6 +721,48 @@ func save_endings(ending : ScrPersistentData.Endings):
 			save_dict["joaco"] = true
 		ScrPersistentData.Endings.BICI:
 			save_dict["bici"] = true
+	
+	var json_string = JSON.stringify(save_dict)
+	save_game.store_line(json_string)
+	save_game.close()
+
+func delete_endings():
+	for i in ScrPersistentData.Endings:
+		delete_ending(ScrPersistentData.Endings.CHRIS)
+		delete_ending(ScrPersistentData.Endings.UKESITO)
+		delete_ending(ScrPersistentData.Endings.YEETUS)
+		delete_ending(ScrPersistentData.Endings.CYRU)
+		delete_ending(ScrPersistentData.Endings.KIMBIX)
+		delete_ending(ScrPersistentData.Endings.CONO)
+		delete_ending(ScrPersistentData.Endings.KIRI)
+		delete_ending(ScrPersistentData.Endings.MAGNITUDE)
+		delete_ending(ScrPersistentData.Endings.JOACO)
+		delete_ending(ScrPersistentData.Endings.BICI)
+
+func delete_ending(ending : ScrPersistentData.Endings):
+	load_game()
+	var save_game = FileAccess.open("user://endings.json", FileAccess.WRITE)
+	match(ending):		
+		ScrPersistentData.Endings.CHRIS:
+			save_dict["chris"] = false
+		ScrPersistentData.Endings.UKESITO:
+			save_dict["ukesito"] = false
+		ScrPersistentData.Endings.YEETUS:
+			save_dict["yeetus"] = false
+		ScrPersistentData.Endings.CYRU:
+			save_dict["cyrus"] = false
+		ScrPersistentData.Endings.KIMBIX:
+			save_dict["kimbix"] = false
+		ScrPersistentData.Endings.CONO:
+			save_dict["cono"] = false
+		ScrPersistentData.Endings.KIRI:
+			save_dict["kiri"] = false
+		ScrPersistentData.Endings.MAGNITUDE:
+			save_dict["magnitude"] = false
+		ScrPersistentData.Endings.JOACO:
+			save_dict["joaco"] = false
+		ScrPersistentData.Endings.BICI:
+			save_dict["bici"] = false
 	
 	var json_string = JSON.stringify(save_dict)
 	save_game.store_line(json_string)
