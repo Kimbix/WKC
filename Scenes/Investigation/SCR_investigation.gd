@@ -457,25 +457,25 @@ func uke_cutscene():
 	tbi.sprite_change("Bici",bici_serious_no_speak,false)
 	tbi.sprite_change("Cono",cone,false)
 	
-	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.sprite_change("Bici",bici_serious_speak,false)
 	tbi.queue_dialogue("Hey mr streamer, I saw something before chris' death and I wanted to see if you could make anything of it", "Bici")
-	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	tbi.sprite_change("Bici",bici_serious_no_speak,false)
 	
 	tbi.sprite_change("Humber",kimbix_serious_speak,true)
 	tbi.queue_dialogue("Okay, i'm listening", "Humber")
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
-	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.sprite_change("Bici",bici_serious_speak,false)
 	tbi.queue_dialogue("Before we ate, I saw uke walk over to a wall", "Bici")
-	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	tbi.sprite_change("Bici",bici_serious_no_speak,false)
 	
 	tbi.sprite_change("Humber",kimbix_serious_speak,true)
 	tbi.queue_dialogue("That's normal", "Humber")
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
-	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.sprite_change("Bici",bici_serious_speak,false)
 	tbi.queue_dialogue("But what isn't is that he started mumbling about him not being appreciated and how he was going to take over Walter", "Bici")
-	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	tbi.sprite_change("Bici",bici_serious_no_speak,false)
 	
 	tbi.sprite_change("Humber",kimbix_serious_speak,true)
 	tbi.queue_dialogue("That's not normal", "Humber")
@@ -483,22 +483,22 @@ func uke_cutscene():
 	
 	tbi.queue_dialogue("* Cone nods in agreement *", "Cone")
 	
-	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.sprite_change("Bici",bici_serious_speak,false)
 	tbi.queue_dialogue("And the worst part was him saying “ahora soy admin hahaHAHAHAHA” when we all split up", "Bici")
-	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	tbi.sprite_change("Bici",bici_serious_no_speak,false)
 	
-	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.sprite_change("Bici",bici_serious_speak,false)
 	tbi.queue_dialogue("Pretty scary stuff", "Bici")
-	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	tbi.sprite_change("Bici",bici_serious_no_speak,false)
 	
 	tbi.sprite_change("Humber",kimbix_serious_speak,true)
 	tbi.queue_dialogue("Oh yeah, he's definitely a prime suspect now", "Humber")
 	tbi.queue_dialogue("Thanks a lot bici", "Humber")
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
-	tbi.sprite_change("Bici",bici_serious_speak,true)
+	tbi.sprite_change("Bici",bici_serious_speak,false)
 	tbi.queue_dialogue("Consider this a favor, you'll be repaying it after", "Bici")
-	tbi.sprite_change("Bici",bici_serious_no_speak,true)
+	tbi.sprite_change("Bici",bici_serious_no_speak,false)
 	
 	tbi.sprite_change("Humber",kimbix_serious_speak,true)
 	tbi.queue_dialogue("What have i gotten myself into", "Humber")
