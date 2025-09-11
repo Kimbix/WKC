@@ -188,9 +188,13 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.959768, 0.959768)
 size_flags_horizontal = 3
+dragging_enabled = false
+dragger_visibility = 1
 
 [node name="VSplitContainer" type="VSplitContainer" parent="Book/Panel/TextureRect/MarginContainer/Panel/VSplitContainer"]
 layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 1
 
 [node name="Title" type="Label" parent="Book/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer"]
 layout_mode = 2
@@ -217,6 +221,8 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
 theme_override_constants/separation = 40
+dragging_enabled = false
+dragger_visibility = 1
 
 [node name="LeftPage" type="Button" parent="Book/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2"]
 layout_mode = 2
@@ -311,9 +317,13 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.959768, 0.959768)
 size_flags_horizontal = 3
+dragging_enabled = false
+dragger_visibility = 1
 
 [node name="VSplitContainer" type="VSplitContainer" parent="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer"]
 layout_mode = 2
+dragging_enabled = false
+dragger_visibility = 1
 
 [node name="Title" type="Label" parent="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer"]
 layout_mode = 2
@@ -340,6 +350,8 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 8
 theme_override_constants/separation = 40
+dragging_enabled = false
+dragger_visibility = 1
 
 [node name="LeftPage" type="Button" parent="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2"]
 layout_mode = 2
@@ -385,4 +397,6 @@ texture = ExtResource("12_2v1u8")
 [connection signal="pressed" from="Book/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2/LeftPage" to="." method="_on_left_page_pressed"]
 [connection signal="pressed" from="Book/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2/RightPage" to="." method="_on_right_page_pressed"]
 [connection signal="pressed" from="Book/Panel/TextureRect/MarginContainer/Panel/Close" to="." method="_on_endings_button_pressed"]
+[connection signal="pressed" from="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2/LeftPage" to="." method="_on_left_credit_pressed"]
+[connection signal="pressed" from="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2/RightPage" to="." method="_on_right_credit_pressed"]
 [connection signal="pressed" from="Credits/Panel/TextureRect/MarginContainer/Panel/Close" to="." method="_on_credits_button_pressed"]

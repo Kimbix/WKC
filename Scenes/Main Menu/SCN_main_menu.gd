@@ -2,9 +2,12 @@ extends CanvasLayer
 
 var save_dict = {}
 var book_info = []
-
 var current_page : int = 0
 var max_pages : int = 0
+
+var credits_info = []
+var current_credits : int = 0
+var max_credits : int = 4
 
 func _ready():
 	save_game()
@@ -104,6 +107,44 @@ func _ready():
 				Bici has made me read so many webcomics it's crazy. They are incredible tho, except when I catch up and now have to wait weekly for new episodes. RAAAAAAGGGHHHHHH
 				")
 	max_pages = book_info.size()
+	
+	credits_info.append(
+	"Chris
+	
+	Programming, UI, Art, Writting and Testing
+	Everything from the Characters to fixing minor bugs
+	
+	Loved making this game :)
+	
+	Github: Ruskki  |  Twitter: Ruskki_")
+	credits_info.append(
+	"Kimbix
+	
+	Programming & Testing
+	Textbox System, UIs, Bug Fixing, etc.
+	
+	He really helped bring this idea to life :)
+	
+	Github: Kimbix")
+	credits_info.append(
+	"Claudia
+	
+	Backgrounds
+	Main Hall, Bedroom, The Dungeon
+	
+	Made the backgrounds look incredible and better than I imagined!
+	
+	Twitter: arepita69")
+	credits_info.append(
+	"Pham
+	
+	Pixel Art & Animation
+	Cono's Minigame
+	
+	Amazing animation for a silly little minigame
+	
+	Twitter: pham_of_arts")
+	print(credits_info)
 
 func load_game():
 	if not FileAccess.file_exists("user://endings.json"):
@@ -139,6 +180,12 @@ func save_game():
 	save_game.store_line(json_string)
 	save_game.close()
 
+## PLAY
+func _on_play_button_pressed() -> void:
+	ScrPersistentData.possible_endings.clear()
+	get_tree().change_scene_to_file("res://Scenes/Letter Opening/SCN_intro_scene.tscn")
+
+## ENDINGS
 @onready var book = $Book
 func _on_book_pressed():
 	book.visible = not book.visible
@@ -158,26 +205,31 @@ func _on_left_page_pressed():
 	current_page = clamp(current_page - 1, 0, max_pages - 1)
 	update_tablet()
 
-func _on_play_button_pressed() -> void:
-	ScrPersistentData.possible_endings.clear()
-	get_tree().change_scene_to_file("res://Scenes/Letter Opening/SCN_intro_scene.tscn")
-
 func _on_endings_button_pressed() -> void:
 	book.visible = not book.visible
 	update_tablet()
 
-
-
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
-
+## CREDITS
 @onready var credits = $Credits
 func _on_credits_button_pressed() -> void:
 	credits.visible = not credits.visible
 	update_credits()
-	
-func update_credits():
-	pass
 
 @onready var ctitle: Label = $Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer/Title
 @onready var cinformation: Label = $Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer/Information
+
+func update_credits():
+	cinformation.text = credits_info[current_credits]
+	pass
+	
+func _on_right_credit_pressed():
+	current_credits = clamp(current_credits + 1, 0, max_credits - 1)
+	update_credits()
+
+func _on_left_credit_pressed():
+	current_credits = clamp(current_credits - 1, 0, max_credits - 1)
+	update_credits()
+
+## QUIT
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
