@@ -42,6 +42,7 @@ func _input(_event):
 		State.CHOOSING:
 			locations_container.visible = true
 		var state when state == State.PLACE_DIALOGUE and locations_container.get_child_count() == 2:
+			tbi.new_clean()
 			tbi.queue_dialogue("It's nearing midnight, I should go back with the rest", "Humber")
 			current_state = State.ENDING
 		var state when state == State.PLACE_DIALOGUE and locations_container.get_child_count() > 2:
@@ -383,8 +384,6 @@ func magnitude_cutscene():
 	tbi.queue_dialogue("I've heard enough, thanks guys", "Humber")
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
-	###
-	
 	tbi.new_clean()
 
 const yeetus_cutscene_background = preload("res://Characters/Yeetus/Cutscene_yeetus.png")
@@ -447,8 +446,12 @@ func yeetus_cutscene():
 	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
 	tbi.queue_dialogue("Well that was something…", "Kimbix")
 	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
+	
+	tbi.new_clean()
 
 func uke_cutscene():
+	tbi.new_clean()
+		
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Padding",padding_texture,true)
 	tbi.sprite_change("Bici",bici_serious_no_speak,false)
@@ -510,6 +513,7 @@ func uke_cutscene():
 	tbi.new_clean()
 
 func cono_cutscene():
+	tbi.new_clean()
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Padding",padding_texture,true)
 	tbi.sprite_change("Nigu",nigu_serious_no_speak,false)
@@ -561,7 +565,6 @@ func kimbix_cutscene():
 	tbi.new_clean()
 
 func chris_cutscene():
-
 	tbi.queue_all(null, null, null, null, mansion_background, false, false)
 	
 	tbi.sprite_change("Humber",kimbix_serious_speak,true)
@@ -600,6 +603,10 @@ func chris_cutscene():
 	tbi.new_clean()
 
 func kiri_cutscene():
+	# TODO: Here it just fcking says *The three recount,
+	# probably chris forgot to fcking finish writing the script
+	# must finish later probably
+	
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Padding",padding_texture,true)
 	tbi.sprite_change("Clara",clara_serious_no_speak,false)
@@ -644,10 +651,6 @@ func kiri_cutscene():
 	tbi.sprite_change("Clara",clara_serious_no_speak,false)
 
 	tbi.new_clean()
-
-	# TODO: Here it just fcking says *The three recount,
-	# probably chris forgot to fcking finish writing the script
-	# must finish later probably
 
 func _on_the_dungeon_pressed():
 	locations_container.visible = false
@@ -970,10 +973,7 @@ var kitchen_scene = func():
 		tbi.queue_dialogue("Thanks guys", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.sprite_change("Humber",null,true)
-		tbi.sprite_change("Padding",null,true)
-		tbi.sprite_change("Clara",null,false)
-		tbi.sprite_change("Cesar",null,false)
+		tbi.new_clean()
 	else:
 		tbi.queue_dialogue("Sofi and Jem", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -1068,10 +1068,8 @@ var kitchen_scene = func():
 		
 		tbi.queue_dialogue(" * I bid goodbye and leave the room. Maybe i should make some theories too * ", "Humber")
 		
-		tbi.sprite_change("Humber",null,true)
-		tbi.sprite_change("Padding",null,true)
-		tbi.sprite_change("Felix",null,false)
-		tbi.sprite_change("Jem",null,false)
+		tbi.new_clean()
+		
 	match (previous_location):
 		Location.DUNGEON:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIRI)
@@ -1185,12 +1183,10 @@ var bedroom_scene = func():
 		tbi.queue_dialogue("You should leave before he tries to rip your skin off","Nigu")
 		tbi.sprite_change("Nigu",nigu_serious_no_speak,false)
 		
+		tbi.new_clean()
+		
 		tbi.queue_dialogue(" * I scurry away before joaco can even think of peeling me layer by layer * ","Kimbix")
 		
-		tbi.sprite_change("Humber",null,true)
-		tbi.sprite_change("Padding",null,true)
-		tbi.sprite_change("Joaco",null,false)
-		tbi.sprite_change("Nigu",null,false)
 	else:
 		tbi.queue_dialogue("Bici and Cone", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -1274,11 +1270,8 @@ var bedroom_scene = func():
 		tbi.queue_dialogue("Well okay, thanks for the info", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.sprite_change("Humber",null,true)
-		tbi.sprite_change("Padding",null,true)
-		tbi.sprite_change("Cone",null,false)
-		tbi.sprite_change("Bici",null,false)
-
+		tbi.new_clean()
+		
 		tbi.queue_dialogue("As I wave goodbye and leave, cone stares at me menacingly. What’s his problem?", "Humber")
 
 	match (previous_location):
@@ -1638,7 +1631,6 @@ var garden_scene = func():
 		tbi.queue_dialogue("What the fuck was that horse saying", "Humber")
 		
 		tbi.new_clean()
-		
 	else:
 		tbi.queue_dialogue("I spot Sage and Jac", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)

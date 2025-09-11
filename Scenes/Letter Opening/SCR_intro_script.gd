@@ -1,6 +1,6 @@
 extends Control
 
-const scene_to_change : String = "res://Scenes/Intro Cutscene/SCN_intro_cutscene.tscn"
+@onready var scene_to_change : String = "res://Scenes/Intro Cutscene/SCN_intro_cutscene.tscn"
 
 @onready var note = $MarginContainer2
 @onready var note_dos = $MarginContainer3

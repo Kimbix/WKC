@@ -5,8 +5,8 @@ extends Node2D
 
 var save_dict = {}
 
-const mansion_background = preload("res://Scenes/Intro Cutscene/Main.jpg")
-const black_background = preload("res://Global/Solid_black.png")
+const mansion_background = preload("uid://dk5f72ug8nyhp")
+const black_background = preload("uid://bsx33dhpcodp0")
 
 enum State {
 	START,

@@ -79,19 +79,18 @@ func queue_text(next_text):
 
 func change_state(next_state):
 	current_state = next_state
-	match (current_state):
-		State.READY:
-			print("Changing to State.READY")
-		State.READING:
-			print("Changing to State.READING")
-		State.FINISHED:
-			print("Changing to State.FINISHED")
+#	match (current_state):
+#		State.READY:
+#			print("Changing to State.READY")
+#		State.READING:
+#			print("Changing to State.READING")
+#		State.FINISHED:
+#			print("Changing to State.FINISHED")
 
 @onready var left_container = $CharacterContainerLeft/LeftContainer
 @onready var right_container = $CharacterContainerRight/RightContainer
 var chars_on_left = {}
 var chars_on_right = {}
-
 
 func sprite_change(char_name, sprite, left):
 	queue_all(null, null, char_name, sprite, null, false, left)
@@ -119,7 +118,7 @@ func clean_up():
 		print(key)
 
 func new_clean():
-	for i in ["Bici", "Cono", "Cesar", "Chris", "Clara", "Cyrus", "David",
+	for i in ["Bici", "Cono", "Cone", "Cesar", "Chris", "Clau", "Clara", "Cyrus", "David",
 	 "Felix", "Humber", "Jacques", "Jem", "Joaco", "Kiri", "Nigu", "Paris", 
 	 "Pham", "Sage", "Yeetus", "Ukesito", "Padding"]:
 		sprite_change(i, null, false)
@@ -153,7 +152,7 @@ func next_all():
 	var sprite_changed = dict["sprite"] != null
 	var highlight_changed = dict["highlight"]
 	if (dict["left"]):
-		print("Changing chars on left")
+		#print("Changing chars on left")
 		if (sprite_changed):
 			if (chars_on_left.has(char_name)):
 				chars_on_left[char_name].texture = dict["sprite"]

@@ -166,8 +166,18 @@ func _on_endings_button_pressed() -> void:
 	book.visible = not book.visible
 	update_tablet()
 
-func _on_credits_button_pressed() -> void:
-	pass
+
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+@onready var credits = $Credits
+func _on_credits_button_pressed() -> void:
+	credits.visible = not credits.visible
+	update_credits()
+	
+func update_credits():
+	pass
+
+@onready var ctitle: Label = $Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer/Title
+@onready var cinformation: Label = $Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer/Information

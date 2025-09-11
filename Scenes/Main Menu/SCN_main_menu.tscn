@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dyiij24g2kvrv"]
+[gd_scene load_steps=14 format=3 uid="uid://dyiij24g2kvrv"]
 
 [ext_resource type="Script" uid="uid://bjyupdg5nh8qj" path="res://Scenes/Main Menu/SCN_main_menu.gd" id="1_k1ilt"]
 [ext_resource type="Texture2D" uid="uid://lg4cykyd1ups" path="res://Assets/Backgrounds/MainMenu.png" id="2_wl8ex"]
@@ -17,12 +17,6 @@ bg_color = Color(0.301961, 0.141176, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tcn87"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_plbqt"]
-bg_color = Color(1, 0.960784, 0.933333, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sdq3"]
-bg_color = Color(1, 0.960784, 0.933333, 1)
 
 [node name="ScnMainMenu" type="CanvasLayer"]
 script = ExtResource("1_k1ilt")
@@ -251,93 +245,128 @@ grow_horizontal = 0
 scale = Vector2(1.88652, 1.88652)
 text = "X"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="Panel2" type="Panel" parent="."]
+[node name="Credits" type="MarginContainer" parent="."]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.166675, 0.257524)
-
-[node name="MarginContainer" type="MarginContainer" parent="Panel2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -18.0
-offset_top = -12.0
-offset_right = 18.0
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 12
-theme_override_constants/margin_top = 12
-theme_override_constants/margin_right = 12
-theme_override_constants/margin_bottom = 12
-
-[node name="HSplitContainer" type="HSplitContainer" parent="Panel2/MarginContainer"]
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="Panel2/MarginContainer/HSplitContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_plbqt")
-
-[node name="VSplitContainer" type="VSplitContainer" parent="Panel2/MarginContainer/HSplitContainer/Panel"]
-layout_mode = 1
+z_index = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 128
+theme_override_constants/margin_top = 128
+theme_override_constants/margin_right = 128
+theme_override_constants/margin_bottom = 128
 
-[node name="LeftLabel" type="Label" parent="Panel2/MarginContainer/HSplitContainer/Panel/VSplitContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "INFORMATION"
-
-[node name="LeftPage" type="Button" parent="Panel2/MarginContainer/HSplitContainer/Panel/VSplitContainer"]
+[node name="Panel" type="Panel" parent="Credits"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-text = " ← "
+theme_override_styles/panel = SubResource("StyleBoxFlat_mg0rw")
 
-[node name="Panel2" type="Panel" parent="Panel2/MarginContainer/HSplitContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_7sdq3")
+[node name="TextureRect" type="TextureRect" parent="Credits/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -62.0
+offset_right = 248.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_djsjg")
 
-[node name="VSplitContainer" type="VSplitContainer" parent="Panel2/MarginContainer/HSplitContainer/Panel2"]
+[node name="MarginContainer" type="MarginContainer" parent="Credits/Panel/TextureRect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(0.992652, 1)
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="Panel" type="Panel" parent="Credits/Panel/TextureRect/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_tcn87")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="Credits/Panel/TextureRect/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.7328
+offset_top = 9.0
+offset_right = 19.7328
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.959768, 0.959768)
 size_flags_horizontal = 3
 
-[node name="RightLabel" type="Label" parent="Panel2/MarginContainer/HSplitContainer/Panel2/VSplitContainer"]
+[node name="VSplitContainer" type="VSplitContainer" parent="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-text = "INFORMATION"
 
-[node name="RightPage" type="Button" parent="Panel2/MarginContainer/HSplitContainer/Panel2/VSplitContainer"]
+[node name="Title" type="Label" parent="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 3
+theme = ExtResource("12_3a2ve")
+theme_override_colors/font_color = Color(0.909718, 0.940239, 0.999999, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/paragraph_spacing = 2
+text = "CREDITS"
+
+[node name="Information" type="Label" parent="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("12_3a2ve")
+theme_override_colors/font_color = Color(0.857563, 0.906188, 0.999999, 1)
+theme_override_font_sizes/font_size = 50
+text = "INFORMATION"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="VSplitContainer2" type="HSplitContainer" parent="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 8
+theme_override_constants/separation = 40
+
+[node name="LeftPage" type="Button" parent="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("12_3a2ve")
+text = " ← "
+
+[node name="RightPage" type="Button" parent="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme = ExtResource("12_3a2ve")
 text = " → "
+
+[node name="Close" type="Button" parent="Credits/Panel/TextureRect/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -63.6503
+offset_top = 9.0
+offset_right = -29.6503
+offset_bottom = 44.0
+grow_horizontal = 0
+scale = Vector2(1.88652, 1.88652)
+text = "X"
 
 [node name="Title" type="Sprite2D" parent="."]
 z_index = 1
@@ -356,5 +385,4 @@ texture = ExtResource("12_2v1u8")
 [connection signal="pressed" from="Book/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2/LeftPage" to="." method="_on_left_page_pressed"]
 [connection signal="pressed" from="Book/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2/RightPage" to="." method="_on_right_page_pressed"]
 [connection signal="pressed" from="Book/Panel/TextureRect/MarginContainer/Panel/Close" to="." method="_on_endings_button_pressed"]
-[connection signal="pressed" from="Panel2/MarginContainer/HSplitContainer/Panel/VSplitContainer/LeftPage" to="." method="_on_left_page_pressed"]
-[connection signal="pressed" from="Panel2/MarginContainer/HSplitContainer/Panel2/VSplitContainer/RightPage" to="." method="_on_right_page_pressed"]
+[connection signal="pressed" from="Credits/Panel/TextureRect/MarginContainer/Panel/Close" to="." method="_on_credits_button_pressed"]
