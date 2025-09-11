@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dyiij24g2kvrv"]
+[gd_scene load_steps=15 format=3 uid="uid://dyiij24g2kvrv"]
 
 [ext_resource type="Script" uid="uid://bjyupdg5nh8qj" path="res://Scenes/Main Menu/SCN_main_menu.gd" id="1_k1ilt"]
 [ext_resource type="Texture2D" uid="uid://lg4cykyd1ups" path="res://Assets/Backgrounds/MainMenu.png" id="2_wl8ex"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cgxps2jq0eje0" path="res://Assets/UI/Buttons/Button_Frame.png" id="8_wqrue"]
 [ext_resource type="Texture2D" uid="uid://blic5vu2kbqmj" path="res://Assets/UI/Labels/Actions/Button_Label_Play.png" id="9_ri1ms"]
 [ext_resource type="Texture2D" uid="uid://daes6heih0jxk" path="res://Assets/UI/Labels/Actions/Button_Label_Quit.png" id="10_hfm7t"]
+[ext_resource type="Theme" uid="uid://6jfd7is3o5k3" path="res://textbox_theme.tres" id="11_2v1u8"]
 [ext_resource type="Texture2D" uid="uid://d4fxqhkvbbxf8" path="res://Assets/UI/Labels/Actions/Button_Label_Endings.png" id="11_boqla"]
 [ext_resource type="Texture2D" uid="uid://cpohl5h80ehvp" path="res://Assets/UI/Textures/Tablet.png" id="11_djsjg"]
 [ext_resource type="Texture2D" uid="uid://bmx4mw0gfaa6w" path="res://Assets/UI/Logo/WCK_logo_updated.png" id="12_2v1u8"]
@@ -251,6 +252,29 @@ grow_horizontal = 0
 scale = Vector2(1.88652, 1.88652)
 text = "X"
 
+[node name="Delete Save" type="Button" parent="Book/Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 646.0
+offset_top = 449.0
+offset_right = 972.0
+offset_bottom = 524.0
+grow_horizontal = 0
+scale = Vector2(0.867, 0.867)
+theme = ExtResource("11_2v1u8")
+theme_override_font_sizes/font_size = 92
+
+[node name="Label" type="Label" parent="Book/Panel/Delete Save"]
+layout_mode = 0
+offset_right = 326.0
+offset_bottom = 76.0
+theme_override_font_sizes/font_size = 61
+text = "Delete Save"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Credits" type="MarginContainer" parent="."]
 visible = false
 z_index = 3
@@ -381,6 +405,7 @@ scale = Vector2(1.88652, 1.88652)
 text = "X"
 
 [node name="Title" type="Sprite2D" parent="."]
+visible = false
 z_index = 1
 position = Vector2(947, 237)
 scale = Vector2(0.738663, 0.738663)
@@ -397,6 +422,7 @@ texture = ExtResource("12_2v1u8")
 [connection signal="pressed" from="Book/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2/LeftPage" to="." method="_on_left_page_pressed"]
 [connection signal="pressed" from="Book/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2/RightPage" to="." method="_on_right_page_pressed"]
 [connection signal="pressed" from="Book/Panel/TextureRect/MarginContainer/Panel/Close" to="." method="_on_endings_button_pressed"]
+[connection signal="pressed" from="Book/Panel/Delete Save" to="." method="_on_delete_save_pressed"]
 [connection signal="pressed" from="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2/LeftPage" to="." method="_on_left_credit_pressed"]
 [connection signal="pressed" from="Credits/Panel/TextureRect/MarginContainer/Panel/VSplitContainer/VSplitContainer2/RightPage" to="." method="_on_right_credit_pressed"]
 [connection signal="pressed" from="Credits/Panel/TextureRect/MarginContainer/Panel/Close" to="." method="_on_credits_button_pressed"]

@@ -7,10 +7,11 @@ var max_pages : int = 0
 
 var credits_info = []
 var current_credits : int = 0
-var max_credits : int = 4
+var max_credits : int = 0
 
-func _ready():
-	save_game()
+func populate_endings_data():
+	book_info.clear()
+	
 	for key in save_dict.keys(): 
 		match(key):
 			"chris": 
@@ -107,7 +108,8 @@ func _ready():
 				Bici has made me read so many webcomics it's crazy. They are incredible tho, except when I catch up and now have to wait weekly for new episodes. RAAAAAAGGGHHHHHH
 				")
 	max_pages = book_info.size()
-	
+
+func populate_credits_data():
 	credits_info.append(
 	"Chris
 	
@@ -144,7 +146,13 @@ func _ready():
 	Amazing animation for a silly little minigame
 	
 	Twitter: pham_of_arts")
-	print(credits_info)
+	max_credits = credits_info.size()
+
+func _ready():
+	save_game()
+	populate_endings_data()
+	populate_credits_data()
+
 
 func load_game():
 	if not FileAccess.file_exists("user://endings.json"):
@@ -233,3 +241,15 @@ func _on_left_credit_pressed():
 ## QUIT
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+## DELETE SAVE
+func _on_delete_save_pressed() -> void:
+	var script =  preload("res://Scenes/Ending/SCR_endings.gd")
+	var sinstance = script.new()
+	sinstance.delete_endings()
+	save_dict.clear()
+	save_game()
+	book.visible = not book.visible
+	populate_endings_data()
+	update_tablet()
+	pass # Replace with function body.
