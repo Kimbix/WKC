@@ -29,6 +29,19 @@ var current_state : State = State.START
 @onready var ukesito_control = $"../ButtonsLayer/EndingsContainer/Ukesito_Control"
 @onready var magnitude_control = $"../ButtonsLayer/EndingsContainer/Magnitude_Control"
 
+## CHARACTERS
+
+## ENDINGS
+const chris_ending = preload("uid://daj67vd2lo0wm")
+const bici_ending = preload("uid://bdvbcy4o3y2aq")
+const uke_ending = preload("uid://orwh58yd6gac")
+const yeetus_ending = preload("uid://bkb8l15imvixu")
+const cyrus_ending = preload("uid://bmc0utg625bov")
+const kimbix_ending = preload("uid://51y1kpd4gkjd")
+const kiri_ending = preload("uid://cmiyqlv2wqofk")
+const magnitude_ending = preload("uid://ddjeb8e4k7o5h")
+const joaco_ending = preload("uid://die7uvpr2spf8")
+
 const text_box : PackedScene = preload("res://Text Box/TXT_TextBox.tscn")
 var tbi
 
@@ -107,7 +120,7 @@ const felix_happy_no_speak = preload("res://Characters/Felix/Felix_happy1.png")
 const felix_serious_speak = preload("res://Characters/Felix/Felix_serious2.png")
 const felix_serious_no_speak = preload("res://Characters/Felix/Felix_serious1.png")
 
-const chris_ending = preload("res://Characters/Chris/Chris_end.png")
+
 func _on_chris_pressed():
 	if (save_dict["chris"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -199,7 +212,7 @@ const ukesito_serious_speak = preload("res://Characters/Ukesito/Uke_serious2.png
 const ukesito_serious_no_speak = preload("res://Characters/Ukesito/Uke_serious1.png")
 const ukesito_angry_speak = preload("res://Characters/Ukesito/Uke_angry2.png")
 const ukesito_angry_no_speak = preload("res://Characters/Ukesito/Uke_angry1.png")
-const uke_ending = preload("res://Characters/Ukesito/Ending_uke.png")
+
 
 const jem_serious_speak = preload("res://Characters/Jem/Jem_serious2.png")
 const jem_serious_no_speak = preload("res://Characters/Jem/Jem_serious1.png")
@@ -274,7 +287,6 @@ const yeetus_serious_no_speak = preload("res://Characters/Yeetus/Yeetus_serious1
 const yeetus_angry_speak = preload("res://Characters/Yeetus/Yeetus_angry2.png")
 const yeetus_angry_no_speak = preload("res://Characters/Yeetus/Yeetus_angry1.png")
 
-const yeetus_ending = preload("res://Characters/Yeetus/Ending_yeetus.png")
 func _on_yeetus_pressed():
 	if (save_dict["yeetus"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -323,7 +335,6 @@ func _on_yeetus_pressed():
 	tbi.queue_dialogue("FREEDOM ENDING", "")
 	tbi.queue_dialogue("...", "")
 
-const cyrus_ending = preload("res://Characters/Cyrus/Ending_cyrus.png")
 func _on_cyrus_pressed():
 	if (save_dict["cyrus"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -398,7 +409,7 @@ const pham_serious_speak = preload("res://Characters/Pham/Pham_serious1.png")
 
 const cone_serious = preload("res://Characters/Cone/Cone_normal.png")
 
-const kimbix_ending = preload("res://Characters/Humber/Ending_kimbix.png")
+
 func _on_kimbix_pressed():
 	if (save_dict["kimbix"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -467,9 +478,9 @@ func _on_cono_pressed():
 	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
 	
 	tbi.sprite_change("Cone",cone_evil_speak,false)
-	tbi.queue_dialogue("I see you figured out my true identity", "Cone")
-	tbi.queue_dialogue("I hate people who spoil surprises", "Cone")
-	tbi.queue_dialogue("I'll enjoy sending you to the same place where chris is", "Cone")
+	tbi.queue_dialogue("I see you figured out my true identity", "Evil Cone")
+	tbi.queue_dialogue("I hate people who spoil surprises", "Evil Cone")
+	tbi.queue_dialogue("I'll enjoy sending you to the same place where chris is", "Evil Cone")
 	tbi.sprite_change("Cone",cone_evil_no_speak,false)
 
 const kiri_happy_speak = preload("res://Characters/Kiri/Kiri_happy2.png")
@@ -479,7 +490,7 @@ const kiri_serious_no_speak = preload("res://Characters/Kiri/Kiri_serious1.png")
 const kiri_angry_speak = preload("res://Characters/Kiri/Kiri_angry2.png")
 const kiri_angry_no_speak = preload("res://Characters/Kiri/Kiri_angry1.png")
 
-const kiri_ending = preload("res://Characters/Kiri/Ending_Kiri.png")
+
 
 func _on_kiri_pressed():
 	if (save_dict["kiri"]):
@@ -513,7 +524,7 @@ func _on_kiri_pressed():
 
 const magnitude_angry = preload("res://Characters/Magnitude/Magnitude_angry1.png")
 const magnitude_normal = preload("res://Characters/Magnitude/Magnitude_normal1.png")
-const magnitude_ending = preload("res://Characters/Magnitude/Ending_magnitude.png")
+
 
 func _on_magnitude_pressed():
 	if (save_dict["magnitude"]):
@@ -589,7 +600,7 @@ const joaco_serious_no_speak = preload("res://Characters/Joaco/Joaco_serious1.pn
 const joaco_angry_speak = preload("res://Characters/Joaco/Joaco_insane2.png")
 const joaco_angry_no_speak = preload("res://Characters/Joaco/Joaco_insane1.png")
 
-const joaco_ending = preload("res://Characters/Joaco/Ending_joaco.png")
+
 
 func _on_joaco_pressed():
 	if (save_dict["joaco"]):
@@ -620,7 +631,8 @@ func _on_joaco_pressed():
 	tbi.queue_dialogue("audioplaceaudioplaceaudioplaceaudioplaceaudioplaceaudioplaceaudioplace", "Joaco")
 	tbi.queue_dialogue("...", "...")
 
-const bici_ending = preload("res://Characters/Bici/Ending_bici.png")
+
+
 func _on_bici_pressed():
 	if (save_dict["bici"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -639,6 +651,7 @@ func _on_bici_pressed():
 	tbi.queue_dialogue(" * Bici is apprehended and taken to jail * ", "")
 	
 	tbi.sprite_change("Bici",null,true)
+	
 	tbi.queue_all(null, null, null, null, bici_ending, false, false)
 	tbi.queue_dialogue("EGGNOID ENDING", "...")
 	tbi.queue_dialogue("...", "...")
@@ -669,7 +682,6 @@ func _on_none_pressed():
 	tbi.queue_dialogue("I guess nobody really did it...", "...")
 	
 	tbi.queue_dialogue("HIDDEN ENDING: NO ONE", "...")
-
 
 func load_game():
 	if not FileAccess.file_exists("user://endings.json"):

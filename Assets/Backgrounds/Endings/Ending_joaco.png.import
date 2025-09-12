@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hlcxra5gu7hv"
-path="res://.godot/imported/mainhall_old.png-6bf2748e610b0e421306e0dc6991a851.ctex"
+uid="uid://die7uvpr2spf8"
+path="res://.godot/imported/Ending_joaco.png-92400ad26d087049e625e2ba091f2def.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/mainhall_old.png"
-dest_files=["res://.godot/imported/mainhall_old.png-6bf2748e610b0e421306e0dc6991a851.ctex"]
+source_file="res://Assets/Backgrounds/Endings/Ending_joaco.png"
+dest_files=["res://.godot/imported/Ending_joaco.png-92400ad26d087049e625e2ba091f2def.ctex"]
 
 [params]
 

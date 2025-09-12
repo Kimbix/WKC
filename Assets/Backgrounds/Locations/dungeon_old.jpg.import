@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv6b0sxhiwmky"
-path="res://.godot/imported/kitchen_old.jpg-ca9506a8e444b6652ef4b3ac6eb5492d.ctex"
+uid="uid://dwdq5hjecurfx"
+path="res://.godot/imported/dungeon_old.jpg-a8f5bbf30ca98b794465a3beaf265873.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/kitchen_old.jpg"
-dest_files=["res://.godot/imported/kitchen_old.jpg-ca9506a8e444b6652ef4b3ac6eb5492d.ctex"]
+source_file="res://Assets/Backgrounds/Locations/dungeon_old.jpg"
+dest_files=["res://.godot/imported/dungeon_old.jpg-a8f5bbf30ca98b794465a3beaf265873.ctex"]
 
 [params]
 

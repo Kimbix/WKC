@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkb8l15imvixu"
-path="res://.godot/imported/Ending_yeetus.png-c578f4cd9c5fb423dbe73bccd109c956.ctex"
+uid="uid://j5mv3uir8tet"
+path="res://.godot/imported/dungeon.jpg-61cbc69e5ea8b0f2da6be3a049e120c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Yeetus/Ending_yeetus.png"
-dest_files=["res://.godot/imported/Ending_yeetus.png-c578f4cd9c5fb423dbe73bccd109c956.ctex"]
+source_file="res://Assets/Backgrounds/Locations/dungeon.jpg"
+dest_files=["res://.godot/imported/dungeon.jpg-61cbc69e5ea8b0f2da6be3a049e120c9.ctex"]
 
 [params]
 

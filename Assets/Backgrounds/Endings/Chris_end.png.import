@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://51y1kpd4gkjd"
-path="res://.godot/imported/Ending_kimbix.png-ecb1f1984345e221aa068b546df54c8d.ctex"
+uid="uid://daj67vd2lo0wm"
+path="res://.godot/imported/Chris_end.png-7b9c0aaaa65cfe132e4e87a03205d8c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Humber/Ending_kimbix.png"
-dest_files=["res://.godot/imported/Ending_kimbix.png-ecb1f1984345e221aa068b546df54c8d.ctex"]
+source_file="res://Assets/Backgrounds/Endings/Chris_end.png"
+dest_files=["res://.godot/imported/Chris_end.png-7b9c0aaaa65cfe132e4e87a03205d8c2.ctex"]
 
 [params]
 

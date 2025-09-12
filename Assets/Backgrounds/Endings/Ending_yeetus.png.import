@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdvbcy4o3y2aq"
-path="res://.godot/imported/Ending_bici.png-9e60f8a668c595681b0f735a8e37a222.ctex"
+uid="uid://bkb8l15imvixu"
+path="res://.godot/imported/Ending_yeetus.png-7955ba134a8659524c26399155285e40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Bici/Ending_bici.png"
-dest_files=["res://.godot/imported/Ending_bici.png-9e60f8a668c595681b0f735a8e37a222.ctex"]
+source_file="res://Assets/Backgrounds/Endings/Ending_yeetus.png"
+dest_files=["res://.godot/imported/Ending_yeetus.png-7955ba134a8659524c26399155285e40.ctex"]
 
 [params]
 

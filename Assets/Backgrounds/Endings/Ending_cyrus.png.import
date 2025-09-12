@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bigfflpd5t1r5"
-path="res://.godot/imported/garage_old.jpg-ea78ed48baaa99b5a6d12397c1ef0dd4.ctex"
+uid="uid://bmc0utg625bov"
+path="res://.godot/imported/Ending_cyrus.png-606e52642ee4a254ed5826b7724e4230.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/garage_old.jpg"
-dest_files=["res://.godot/imported/garage_old.jpg-ea78ed48baaa99b5a6d12397c1ef0dd4.ctex"]
+source_file="res://Assets/Backgrounds/Endings/Ending_cyrus.png"
+dest_files=["res://.godot/imported/Ending_cyrus.png-606e52642ee4a254ed5826b7724e4230.ctex"]
 
 [params]
 

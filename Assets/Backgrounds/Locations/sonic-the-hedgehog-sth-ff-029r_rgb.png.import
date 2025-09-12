@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dk5f72ug8nyhp"
-path="res://.godot/imported/mainhall.jpg-59392a934f1b061eeb38158dfa1c18c4.ctex"
+uid="uid://d2gp402k57xng"
+path="res://.godot/imported/sonic-the-hedgehog-sth-ff-029r_rgb.png-3ff3e6514370c3755c6bfa9ad80a6611.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/mainhall.jpg"
-dest_files=["res://.godot/imported/mainhall.jpg-59392a934f1b061eeb38158dfa1c18c4.ctex"]
+source_file="res://Assets/Backgrounds/Locations/sonic-the-hedgehog-sth-ff-029r_rgb.png"
+dest_files=["res://.godot/imported/sonic-the-hedgehog-sth-ff-029r_rgb.png-3ff3e6514370c3755c6bfa9ad80a6611.ctex"]
 
 [params]
 

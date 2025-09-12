@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lg4cykyd1ups"
-path="res://.godot/imported/MainMenu.png-d3c002c2701bf8157b3e411228f16a48.ctex"
+uid="uid://bigfflpd5t1r5"
+path="res://.godot/imported/garage_old.jpg-f80c859ea966350d041fa2e77fdaa2e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/MainMenu.png"
-dest_files=["res://.godot/imported/MainMenu.png-d3c002c2701bf8157b3e411228f16a48.ctex"]
+source_file="res://Assets/Backgrounds/Locations/garage_old.jpg"
+dest_files=["res://.godot/imported/garage_old.jpg-f80c859ea966350d041fa2e77fdaa2e9.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://daj67vd2lo0wm"
-path="res://.godot/imported/Chris_end.png-e3199050c8b1fbdb5e765d0ed642b730.ctex"
+uid="uid://cmiyqlv2wqofk"
+path="res://.godot/imported/Ending_Kiri.png-d02b4bde5260b6c22dffc683f9490aad.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/Chris/Chris_end.png"
-dest_files=["res://.godot/imported/Chris_end.png-e3199050c8b1fbdb5e765d0ed642b730.ctex"]
+source_file="res://Assets/Backgrounds/Endings/Ending_Kiri.png"
+dest_files=["res://.godot/imported/Ending_Kiri.png-d02b4bde5260b6c22dffc683f9490aad.ctex"]
 
 [params]
 

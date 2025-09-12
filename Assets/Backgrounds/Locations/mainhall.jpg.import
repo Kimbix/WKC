@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsx33dhpcodp0"
-path="res://.godot/imported/BG_black.png-8fbcded2b47c27af0f25846f027363ff.ctex"
+uid="uid://dk5f72ug8nyhp"
+path="res://.godot/imported/mainhall.jpg-a640cf8346c83c5d96913906aa15c2dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Backgrounds/BG_black.png"
-dest_files=["res://.godot/imported/BG_black.png-8fbcded2b47c27af0f25846f027363ff.ctex"]
+source_file="res://Assets/Backgrounds/Locations/mainhall.jpg"
+dest_files=["res://.godot/imported/mainhall.jpg-a640cf8346c83c5d96913906aa15c2dd.ctex"]
 
 [params]
 
