@@ -253,6 +253,11 @@ func joaco_cutscene():
 	tbi.new_clean()
 
 func bici_cutscene():
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
+	
+	tbi.queue_dialogue("As I'm walking back towards the main hall, I feel the presence of two people", "Humber")
+	tbi.queue_dialogue("Instinctively knowing it's Paris and David, I turn around and greet them", "Humber")
+	
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Padding",padding_texture,true)
 	tbi.sprite_change("Paris",paris_serious_no_speak,false)
@@ -356,6 +361,13 @@ func bici_cutscene():
 	tbi.new_clean()
 
 func magnitude_cutscene():
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
+	
+	tbi.queue_dialogue("I decide to take a quick break and sit on the stairs. I try to collect my thoughts so far", "")
+	tbi.queue_dialogue("Going through everything, it's hard to believe that someone actually did it", "")
+	tbi.queue_dialogue("Maybe it was actually nobody, maybe it was mag-", "")
+	tbi.queue_dialogue("I'm interupted by the sounds of clopping and footsteps", "")
+	
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Pham",pham_serious_speak,true)
 	tbi.queue_dialogue("Hey humberto", "Pham")
@@ -388,9 +400,16 @@ func magnitude_cutscene():
 
 const yeetus_cutscene_background = preload("res://Characters/Yeetus/Cutscene_yeetus.png")
 func yeetus_cutscene(): 
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
+	
+	tbi.queue_dialogue("As I walk back, I take some notes on who it could be.", "")
+	tbi.queue_dialogue("Honestly the most suspicious guest to me seems to be that horse.", "")
+	tbi.queue_dialogue("Why did Chris even invite a horse anyway?", "")
+	
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
-	tbi.queue_dialogue(" * walks up to Humber *", "Cyrus")
+	tbi.queue_dialogue("Deep in my notes, I feel a tap on my shoulder.", "")
+	tbi.queue_dialogue("Looking up, I see Cyrus", "")
 	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
 	tbi.queue_dialogue("ey gafo", "Cyrus")
 	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
@@ -407,28 +426,28 @@ func yeetus_cutscene():
 	tbi.queue_dialogue("sure", "Kimbix")
 	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
 	
-	tbi.queue_dialogue(" * I am lead to chris's body and Cyrus sets the board down. We rummage around the house looking for offerings. * ", "Kimbix")
-	tbi.queue_dialogue(" * Cyrus sets candles down around the board and the offerings * ", "Kimbix")
-	tbi.queue_dialogue(" * peanuts, an HDD and a crude drawing of chris * ", "Kimbix")
-	tbi.queue_dialogue(" * As we light up the candles, the main hall lights flicker. * ", "Kimbix")
-	tbi.queue_dialogue(" * They completely turn off and we're left in the dark with the candles letting us see each other. * ", "Kimbix")
+	tbi.queue_dialogue(" * I am lead to chris's body and Cyrus sets the board down. We rummage around the house looking for offerings. * ", "")
+	tbi.queue_dialogue(" * Cyrus sets candles down around the board and the offerings * ", "")
+	tbi.queue_dialogue(" * peanuts, an HDD and a crude drawing of chris * ", "")
+	tbi.queue_dialogue(" * As we light up the candles, the main hall lights flicker. * ", "")
+	tbi.queue_dialogue(" * They completely turn off and we're left in the dark with the candles letting us see each other. * ", "")
 	
 	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
 	tbi.queue_dialogue("chant with me", "Cyrus")
 	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
 	
-	tbi.queue_dialogue(" * we hold each other's hands * ", "Kimbix")
+	tbi.queue_dialogue(" * we hold each other's hands * ", "")
 	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
 	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
 	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet ", "Cyrus")
 	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet ", "Kimbix")
-	tbi.queue_dialogue(" * The room shakes * ", "Kimbix")
+	tbi.queue_dialogue(" * The room shakes * ", "")
 	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet! ", "Cyrus")
 	tbi.queue_dialogue(" Lorem Ipsum dolor sit amet! ", "Kimbix")
-	tbi.queue_dialogue(" * The lights heavily flicker * ", "Kimbix")
+	tbi.queue_dialogue(" * The lights heavily flicker * ", "")
 	tbi.queue_dialogue(" LOREM IPSUM DOLOR SIT AMET ", "Cyrus")
 	tbi.queue_dialogue(" LOREM IPSUM DOLOR SIT AMET ", "Kimbix")
-	tbi.queue_dialogue(" * There's a flash of white light and before us we see the ghost of chris * ", "Kimbix")
+	tbi.queue_dialogue(" * There's a flash of white light and before us we see the ghost of chris * ", "")
 	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
 	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
 	
@@ -437,8 +456,8 @@ func yeetus_cutscene():
 	tbi.queue_dialogue("MEEEEEEEEDDIIIICCC", "Ghost Chris")
 	tbi.queue_dialogue("oh hey guys", "Ghost Chris")
 
-	tbi.queue_dialogue(" * We ask chris how he died  * ", "Kimbix")
-	tbi.queue_dialogue(" *  Chris couldn't tell us much, but he did tell us how he felt a hoof before dying  * ", "Kimbix")
+	tbi.queue_dialogue(" * We ask chris how he died  * ", "")
+	tbi.queue_dialogue(" *  Chris couldn't tell us much, but he did tell us how he felt a hoof before dying  * ", "")
 	
 	tbi.queue_dialogue("I'm gonna go now, I was playing tf2 with Magnitude", "Ghost Chris")
 	tbi.queue_dialogue(" * dissapears * ", "Ghost Chris")
@@ -447,18 +466,43 @@ func yeetus_cutscene():
 	tbi.queue_dialogue("Well that was something…", "Kimbix")
 	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
 	
+	tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
+	tbi.queue_dialogue("i'm leaving too", "Cyrus")
+	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
+	
+	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Yeah same.", "Kimbix")
+	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
+	
 	tbi.new_clean()
 
 func uke_cutscene():
 	tbi.new_clean()
-		
+	
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
+	
+	tbi.queue_dialogue("Walking through the mansion, I pick up my phone and check my unread messages", "")
+	tbi.queue_dialogue("Scrolling through them, I see some weird messages by Ukesito", "")
+	tbi.queue_dialogue("As I'm reading I keep on walking an-", "")
+	
+	tbi.queue_dialogue("Ouch. Sorry uhh", "Humber")
+	tbi.queue_dialogue("I look up to see it's Bici and Cone", "")
+	
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Padding",padding_texture,true)
 	tbi.sprite_change("Bici",bici_serious_no_speak,false)
 	tbi.sprite_change("Cono",cone,false)
 	
 	tbi.sprite_change("Bici",bici_serious_speak,false)
-	tbi.queue_dialogue("Hey mr streamer, I saw something before chris' death and I wanted to see if you could make anything of it", "Bici")
+	tbi.queue_dialogue("Hey mr streamer, you gotta be more careful but I forgive you", "Bici")
+	tbi.sprite_change("Bici",bici_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("My bad Bici. Were you looking for me?", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.sprite_change("Bici",bici_serious_speak,false)
+	tbi.queue_dialogue("Yup! I saw something before chris' death and I wanted to see if you could make anything of it", "Bici")
 	tbi.sprite_change("Bici",bici_serious_no_speak,false)
 	
 	tbi.sprite_change("Humber",kimbix_serious_speak,true)
@@ -514,6 +558,13 @@ func uke_cutscene():
 
 func cono_cutscene():
 	tbi.new_clean()
+	
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
+	
+	tbi.queue_dialogue("Walking through the mansion, I spot a glass of nestea left behind", "")
+	tbi.queue_dialogue("I take a few glances around the mansion and drink it without anyone noticing", "")
+	tbi.queue_dialogue("I leave the empty glass back at the dinner table as I turn around I see Nigu and Joaco hurridly approaching me,", "")
+	
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Padding",padding_texture,true)
 	tbi.sprite_change("Nigu",nigu_serious_no_speak,false)
@@ -521,13 +572,17 @@ func cono_cutscene():
 	
 	tbi.sprite_change("Joaco",joaco_serious_no_speak,false)
 	tbi.sprite_change("Nigu",nigu_serious_speak,true)
-	tbi.queue_dialogue("Hey i think cono is a fake", "Nigu")
+	tbi.queue_dialogue("Hey! I think cono is a fake", "Nigu")
 	tbi.sprite_change("Nigu",nigu_serious_no_speak,true)
 	
 	tbi.sprite_change("Joaco",joaco_serious_speak,false)
 	tbi.queue_dialogue("WOAH WOAH WOAH", "Joaco")
 	tbi.queue_dialogue("audio... audio... audio place", "Joaco")
 	tbi.sprite_change("Joaco",joaco_serious_no_speak,false)
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("That's a big accusation. Mind backing it up?", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
 	tbi.sprite_change("Nigu",nigu_serious_speak,true)
 	tbi.queue_dialogue("so…", "Nigu")
@@ -544,23 +599,25 @@ func cono_cutscene():
 	tbi.sprite_change("Nigu",null,true)
 	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
 	tbi.queue_dialogue("Hmmm really makes you think…", "Kimbix")
-	tbi.queue_dialogue("that's not cono, thats-", "Kimbix")
 	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
 	
 	tbi.new_clean()
+	
+	tbi.queue_dialogue("We part ways and I can't help but think that there's more beneath the surface regarding Cone", "")
 
 func kimbix_cutscene():
 	# TODO: Once again, it FEELS like there's supposed to be a background change here
 	# but there's nothing indicated in the docs, so imma leave it to chris.
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
 	
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
-	tbi.queue_dialogue("* After leaving the room I notice there's no one in the main hall *", "Humber")
-	tbi.queue_dialogue("* Making my move, I leave the mansion running towards my car *", "Humber")
-	tbi.queue_dialogue("* I open the trunk and reach for my jacket pocket. Grabbing chris’ gun, I make sure the safety is on and throw it inside *", "Humber")
-	tbi.queue_dialogue("* I take a quick glance at my surroundings, no one has spotted me yet. I close the trunk and lock my car *", "Humber")
-	tbi.queue_dialogue("* I run back towards the mansion, composing myself before entering *", "Humber")
-	tbi.queue_dialogue("* Luckily, no one saw me enter *", "Humber")
+	tbi.queue_dialogue("* After leaving the room I notice there's no one in the main hall *", "")
+	tbi.queue_dialogue("* Making my move, I leave the mansion running towards my car *", "")
+	tbi.queue_dialogue("* I open the trunk and reach for my jacket pocket. Grabbing chris’ gun, I make sure the safety is on and throw it inside *", "")
+	tbi.queue_dialogue("* I take a quick glance at my surroundings, no one has spotted me yet. I close the trunk and lock my car *", "")
+	tbi.queue_dialogue("* I run back towards the mansion, composing myself before entering *", "")
+	tbi.queue_dialogue("* Luckily, no one saw me enter *", "")
 	
 	tbi.new_clean()
 
@@ -603,9 +660,12 @@ func chris_cutscene():
 	tbi.new_clean()
 
 func kiri_cutscene():
-	# TODO: Here it just fcking says *The three recount,
-	# probably chris forgot to fcking finish writing the script
-	# must finish later probably
+	
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
+	tbi.queue_dialogue("After leaving the room I notice there's no one in the main hall", "")
+	tbi.queue_dialogue("Picking up my phone, I scroll social media for a bit", "")
+	tbi.queue_dialogue("I can't stop from thinking about today, so I just put my phone away", "")
+	tbi.queue_dialogue("As I do, I notice Clara & co walking towards me", "")
 	
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Padding",padding_texture,true)
@@ -650,6 +710,32 @@ func kiri_cutscene():
 	tbi.queue_dialogue("It’s extremely incriminating, so use it wisely", "Clara")
 	tbi.sprite_change("Clara",clara_serious_no_speak,false)
 
+	tbi.queue_dialogue("They give me a piece of paper with what look to be like chinese scribbles", "")
+	
+	tbi.sprite_change("Cesar",cesar_serious_speak,false)
+	tbi.queue_dialogue("We aren't too sure what it means since Kiri won't let us borrow that book, but", "Cesar")
+	tbi.sprite_change("Cesar",cesar_serious_no_speak,false)
+	
+	tbi.sprite_change("Clara",clara_serious_speak,false)
+	tbi.queue_dialogue("I was able to distract Kiri and Cesar got a few words. Here's what we have so far", "Clara")
+	tbi.sprite_change("Clara",clara_serious_no_speak,false)
+	
+	tbi.queue_dialogue("They hand me their phone with the notes app open. There are only 3 sentences written", "")
+	tbi.queue_dialogue("'1. Go to his mansion'", "")
+	tbi.queue_dialogue("'2. Turn off the breaker'", "")
+	tbi.queue_dialogue("'3. Make him-'", "")
+	tbi.queue_dialogue("It cuts off after that with some question marks", "")
+	
+	tbi.queue_dialogue("* Sigh *", "")
+	tbi.queue_dialogue("This will do for now I suppose", "")
+	tbi.queue_dialogue("I take a pic with my phone and hand theirs back", "")
+	
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+	tbi.queue_dialogue("Thanks guys, this is good. I have to go check some things, I'll see you soon", "Humber")
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	
+	tbi.queue_dialogue("They wave goodbye and go to one of the many rooms", "")
+
 	tbi.new_clean()
 
 func _on_the_dungeon_pressed():
@@ -683,11 +769,11 @@ const cyrus_serious_no_speak = preload("res://Characters/Cyrus/Cyrus_serious1.pn
 
 const dungeon_background = preload("uid://j5mv3uir8tet")
 var dungeon_scene = func():
-	tbi.queue_dialogue(" * I walk towards the dungeon * ", "Humber")
-	tbi.queue_dialogue(" * Chris would always joke and say to others he had a dungeon in their house, only to laugh at people when they actually saw what it was * ", "Humber")
-	tbi.queue_dialogue(" * I enter the dimly lit room, showered with blue light coming from the 3 monitors set up and humming coming from the multiple server racks * ", "Humber")
-	tbi.queue_dialogue(" * After that one time chris hosted the minecraft server, it turned into chris hosting just about anything server related * ", "Humber")
-	tbi.queue_dialogue(" * I scan the room and I spot... * ", "Humber")
+	tbi.queue_dialogue(" * I walk towards the dungeon * ", "")
+	tbi.queue_dialogue(" * Chris would always joke and say to others he had a dungeon in their house, only to laugh at people when they actually saw what it was * ", "")
+	tbi.queue_dialogue(" * I enter the dimly lit room, showered with blue light coming from the 3 monitors set up and humming coming from the multiple server racks * ", "")
+	tbi.queue_dialogue(" * After that one time chris hosted the minecraft server, it turned into chris hosting just about anything server related * ", "")
+	tbi.queue_dialogue(" * I scan the room and I spot... * ", "")
 	if (randi_range(0, 1) == 1):
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("Looks like I'm all alone", "Humber")
@@ -714,11 +800,11 @@ var dungeon_scene = func():
 		tbi.queue_dialogue("just making sure", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.queue_dialogue(" * Walking towards the desk I spot the printer and find chris’ gun on the table * ", "Humber")
-		tbi.queue_dialogue(" * He said he had it in case the printer started rebelling against him * ", "Humber")
-		tbi.queue_dialogue(" * I take a glance at the room to make sure the room really is empty and take the gun, hiding it in the inside of my jacket * ", "Humber")
-		tbi.queue_dialogue(" * It’s best if no one else takes the gun * ", "Humber")
-		tbi.queue_dialogue(" * I should go to the garage to make sure nothing is missing from there * ", "Humber")
+		tbi.queue_dialogue(" * Walking towards the desk I spot the printer and find chris’ gun on the table * ", "")
+		tbi.queue_dialogue(" * He said he had it in case the printer started rebelling against him * ", "")
+		tbi.queue_dialogue(" * I take a glance at the room to make sure the room really is empty and take the gun, hiding it in the inside of my jacket * ", "")
+		tbi.queue_dialogue(" * It’s best if no one else takes the gun * ", "")
+		tbi.queue_dialogue(" * I should go to the garage to make sure nothing is missing from there * ", "")
 		
 		tbi.queue_dialogue("...", "Humber")
 		
@@ -730,11 +816,11 @@ var dungeon_scene = func():
 		
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("Hmmm...", "Humber")
-		tbi.queue_dialogue("I don’t remember if I did. I’ll probably remember if I go back to the main hall", "Humber")
-		tbi.queue_dialogue("I’m leaving before anyone else notices the gun is gone", "Humber")
+		tbi.queue_dialogue("I don’t remember if I did. I’ll probably remember if I go back to the main hall", "")
+		tbi.queue_dialogue("I’m leaving before anyone else notices the gun is gone", "")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.queue_dialogue(" * I take a final look at the room * ", "Humber")
+		tbi.queue_dialogue(" * I take a final look at the room * ", "")
 		
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("Still, no one is there", "Humber")
@@ -742,9 +828,9 @@ var dungeon_scene = func():
 		
 		tbi.new_clean()
 		
-		tbi.queue_dialogue(" * I leave the room without anyone noticing * ", "Humber")
-		tbi.queue_dialogue(" * Everyone must be in the other rooms of the mansion * ", "Humber")
-		tbi.queue_dialogue("Where to now?", "Humber")
+		tbi.queue_dialogue(" * I leave the room without anyone noticing * ", "")
+		tbi.queue_dialogue(" * Everyone must be in the other rooms of the mansion * ", "")
+		tbi.queue_dialogue("Where to now?", "")
 		
 	else:
 		tbi.queue_dialogue("Kiri and Cyrus", "Humber")
