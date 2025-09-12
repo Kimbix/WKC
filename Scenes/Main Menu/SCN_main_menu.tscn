@@ -405,7 +405,6 @@ scale = Vector2(1.88652, 1.88652)
 text = "X"
 
 [node name="Title" type="Sprite2D" parent="."]
-visible = false
 z_index = 1
 position = Vector2(947, 237)
 scale = Vector2(0.738663, 0.738663)

@@ -490,8 +490,6 @@ const kiri_serious_no_speak = preload("res://Characters/Kiri/Kiri_serious1.png")
 const kiri_angry_speak = preload("res://Characters/Kiri/Kiri_angry2.png")
 const kiri_angry_no_speak = preload("res://Characters/Kiri/Kiri_angry1.png")
 
-
-
 func _on_kiri_pressed():
 	if (save_dict["kiri"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -524,7 +522,6 @@ func _on_kiri_pressed():
 
 const magnitude_angry = preload("res://Characters/Magnitude/Magnitude_angry1.png")
 const magnitude_normal = preload("res://Characters/Magnitude/Magnitude_normal1.png")
-
 
 func _on_magnitude_pressed():
 	if (save_dict["magnitude"]):

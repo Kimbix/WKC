@@ -119,7 +119,7 @@ func clean_up():
 
 func new_clean():
 	for i in ["Bici", "Cono", "Cone", "Cesar", "Chris", "Clau", "Clara", "Cyrus", "David",
-	 "Felix", "Humber", "Jacques", "Jem", "Joaco", "Kiri", "Nigu", "Paris", 
+	 "Felix", "Humber", "Kimbix", "Jacques", "Jem", "Joaco", "Kiri", "Nigu", "Paris", 
 	 "Pham", "Sage", "Yeetus", "Ukesito", "Padding"]:
 		sprite_change(i, null, false)
 		sprite_change(i, null, true)
