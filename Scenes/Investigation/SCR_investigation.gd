@@ -406,7 +406,7 @@ func yeetus_cutscene():
 	tbi.queue_dialogue("Honestly the most suspicious guest to me seems to be that horse.", "")
 	tbi.queue_dialogue("Why did Chris even invite a horse anyway?", "")
 	
-	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
+	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
 	tbi.queue_dialogue("Deep in my notes, I feel a tap on my shoulder.", "")
 	tbi.queue_dialogue("Looking up, I see Cyrus", "")
@@ -451,6 +451,8 @@ func yeetus_cutscene():
 	tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
 	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
 	
+	tbi.new_clean()
+	
 	tbi.queue_all(null, null, null, null, yeetus_cutscene_background, false, false)
 	tbi.queue_dialogue("MEEEEEDICCC", "Ghost Chris")
 	tbi.queue_dialogue("MEEEEEEEEDDIIIICCC", "Ghost Chris")
@@ -461,6 +463,8 @@ func yeetus_cutscene():
 	
 	tbi.queue_dialogue("I'm gonna go now, I was playing tf2 with Magnitude", "Ghost Chris")
 	tbi.queue_dialogue(" * dissapears * ", "Ghost Chris")
+	
+	tbi.queue_all(null, null, null, null, mansion_background, false, false)
 	
 	tbi.sprite_change("Kimbix",kimbix_serious_speak,true)
 	tbi.queue_dialogue("Well that was something…", "Kimbix")
@@ -628,20 +632,16 @@ func chris_cutscene():
 	tbi.queue_dialogue("Hmmm...", "Humber")
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
-	tbi.sprite_change("Humber",kimbix_serious_speak,true)
 	tbi.queue_dialogue("The more I think about it the way Chris died doesn’t sit right with me", "Humber")
 	tbi.queue_dialogue("They’re all chris’ friends, it’s hard to believe any one of us could do this", "Humber")
 	tbi.queue_dialogue("Even if everyone seems suspicious", "Humber")
-	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
-	
+
 	tbi.queue_dialogue("* I walk towards the dning table *", "Humber")
 	tbi.queue_dialogue("* Circling around it I find nothing of interest *", "Humber")
-	
-	tbi.sprite_change("Humber",kimbix_serious_speak,true)
+
 	tbi.queue_dialogue("There has to be something here", "Humber")
 	tbi.queue_dialogue("A clue maybe", "Humber")
-	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
-	
+
 	tbi.queue_dialogue("* My eyes pace around the main hall *", "Humber")
 	
 	tbi.sprite_change("Humber",kimbix_serious_speak,true)
