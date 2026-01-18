@@ -11,7 +11,7 @@ var END_READING_FUNCTION = func():
 	end_symbol.text = "V"
 	change_state(State.FINISHED)
 
-var queue = [{}]
+var queue = []
 var highlight_queue = []
 var character_queue = []
 var text_queue = []
@@ -46,7 +46,11 @@ func _process(_delta):
 	match (current_state):
 		State.READY:
 			if not queue.is_empty():
+				print("queue not empty")
+				print(queue)
 				next_all()
+			else:
+				hide_textbox()
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept") or Input.is_key_pressed(KEY_Z):
 				tween.stop()
@@ -55,7 +59,6 @@ func _process(_delta):
 		State.FINISHED:
 			if Input.is_action_just_pressed("ui_accept") or Input.is_key_pressed(KEY_Z):
 				change_state(State.READY)
-				hide_textbox()
 
 func hide_textbox():
 	start_symbol.text = ""
@@ -92,6 +95,9 @@ func change_state(next_state):
 var chars_on_left = {}
 var chars_on_right = {}
 
+func clear_queue():
+	queue.clear()
+
 func sprite_change(char_name, sprite, left):
 	queue_all(null, null, char_name, sprite, null, false, left)
 
@@ -107,15 +113,6 @@ func queue_all(text, speaker, char_name, sprite, background, highlight, left):
 	queue[-1]["background"] = background
 	queue[-1]["highlight"] = highlight
 	queue[-1]["left"] = left
-
-func clean_up():
-	print("cleaning up")
-	for key in chars_on_left.keys():
-		sprite_change(key, null, true)
-		print(key)
-	for key in chars_on_right.keys():
-		sprite_change(key, null, false)
-		print(key)
 
 func new_clean():
 	for i in ["Bici", "Cono", "Cone", "Cesar", "Chris", "Clau", "Clara", "Cyrus", "David",
@@ -136,9 +133,14 @@ func display_text(next_text, speaker):
 
 @onready var background_container : TextureRect = $Background/TextureRect
 
-var current_step : int = 1
+var current_step : int = 0
 func next_all():
-	if (queue.size() == current_step): return
+	print(queue.size())
+	if (queue.size() == current_step): 
+		print("returning next all")
+		current_step = 0
+		clear_queue()
+		return
 	var dict = queue[current_step]
 	if (dict["background"] != null):
 		background_container.texture = dict["background"]
@@ -214,7 +216,6 @@ func fade_black_back_in(callback : Callable, midfunction : Callable):
 		var tweenOff = get_tree().create_tween()
 		if (current_state == State.FINISHED):
 			change_state(State.READY)
-			hide_textbox()
 		tweenOff.tween_property(fade_black, "modulate", Color(0, 0, 0, 0), 1)
 		tweenOff.tween_callback(ending)
 	

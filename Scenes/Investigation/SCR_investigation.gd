@@ -385,7 +385,7 @@ func magnitude_cutscene():
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
 	tbi.sprite_change("Ukesito",uke_serious_speak,false)
-	tbi.queue_dialogue("We were talking about this precense weve been seeing all over the mansion", "Ukesito")
+	tbi.queue_dialogue("We were talking about this precense we've been seeing all over the mansion", "Ukesito")
 	tbi.sprite_change("Ukesito",uke_serious_no_speak,false)
 	
 	tbi.queue_dialogue("They talk to you about the so called ghost. Yeetus seems to be visibly afraid and shits on the floor.", "")
@@ -744,10 +744,8 @@ func _on_the_dungeon_pressed():
 	$"../ButtonsLayer/LocationsContainer/Dungeon_Control".queue_free()
 	var dungeon_trans = func():
 		tbi.queue_all(null, null, null, null, dungeon_background, false, false)
-		tbi.queue_dialogue("You went to the dungeon", "")
-		await get_tree().create_timer(3.0).timeout
-		tbi.change_state(tbi.State.READY)
-		tbi.hide_textbox()
+		await get_tree().create_timer(1.0).timeout
+
 	tbi.fade_black_back_in(dungeon_scene, dungeon_trans)
 
 const padding_texture = preload("uid://cg4jjfi8is6j2")
@@ -958,10 +956,8 @@ func _on_kitchen_pressed():
 	$"../ButtonsLayer/LocationsContainer/Kitchen_Control".queue_free()
 	var kitchen_trans = func():
 		tbi.queue_all(null, null, null, null, kitchen_background, false, false)
-		tbi.queue_dialogue("You went to the kitchen", "")
-		await get_tree().create_timer(3.0).timeout
-		tbi.change_state(tbi.State.READY)
-		tbi.hide_textbox()
+		await get_tree().create_timer(1.0).timeout
+
 	tbi.fade_black_back_in(kitchen_scene, kitchen_trans)
 
 var kitchen_scene = func():
@@ -1180,10 +1176,7 @@ func _on_bedroom_pressed():
 	$"../ButtonsLayer/LocationsContainer/Bedroom_Control".queue_free()
 	var bedroom_trans = func():
 		tbi.queue_all(null, null, null, null, bedroom_background, false, false)
-		tbi.queue_dialogue("You went to the bedroom", "")
-		await get_tree().create_timer(3.0).timeout
-		tbi.change_state(tbi.State.READY)
-		tbi.hide_textbox()
+		await get_tree().create_timer(1.0).timeout
 	tbi.fade_black_back_in(bedroom_scene, bedroom_trans)
 
 const joaco_happy_speak = preload("res://Characters/Joaco/Joaco_happy2.png")
@@ -1261,7 +1254,7 @@ var bedroom_scene = func():
 		tbi.queue_dialogue("Nigu will remember that ","")
 		
 		tbi.sprite_change("Joaco",joaco_serious_speak,false)
-		tbi.queue_dialogue("BECAUSE CRIS BOUGHT GALLONS OF KETCHUP TO GO TO AUDIO PLACE","Joaco")
+		tbi.queue_dialogue("BECAUSE CHRIS BOUGHT GALLONS OF KETCHUP TO GO TO AUDIO PLACE","Joaco")
 		tbi.sprite_change("Joaco",joaco_serious_no_speak,false)
 		
 		tbi.queue_dialogue(" * Whispering to me * ","Nigu")
@@ -1384,10 +1377,7 @@ func _on_garage_pressed():
 	$"../ButtonsLayer/LocationsContainer/Garage_Control".queue_free()
 	var garage_trans = func():
 		tbi.queue_all(null, null, null, null, garage_background, false, false)
-		tbi.queue_dialogue("You went to the garage", "")
-		await get_tree().create_timer(3.0).timeout
-		tbi.change_state(tbi.State.READY)
-		tbi.hide_textbox()
+		await get_tree().create_timer(1.0).timeout
 	tbi.fade_black_back_in(garage_scene, garage_trans)
 
 const david_happy_speak = preload("res://Characters/David/David_happy2.png")
@@ -1410,6 +1400,8 @@ var garage_scene = func():
 	tbi.queue_dialogue(" * There's a huge wall with all of the hand tools hung on it * ", "Humber")
 	tbi.queue_dialogue(" * A few are missing and don't seem to be in the room , but I can't recall which ones are gone * ", "Humber")
 	tbi.queue_dialogue(" * I scan the room and I spot... * ", "Humber")
+	print("hello")
+	tbi.hide_textbox()
 	if (randi_range(0, 1) == 1):
 		tbi.queue_dialogue("David and Paris", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -1435,7 +1427,7 @@ var garage_scene = func():
 		
 		tbi.sprite_change("David",david_serious_speak,false)
 		tbi.queue_dialogue("We found traces of horse food. It has to be the horse", "David™")
-		tbi.queue_dialogue("THE HORSE KILLED CRIS", "David™")
+		tbi.queue_dialogue("THE HORSE KILLED CHRIS", "David™")
 		tbi.sprite_change("David",david_serious_no_speak,false)
 		
 		tbi.sprite_change("Paris",paris_serious_speak,false)
@@ -1578,10 +1570,7 @@ func _on_garden_pressed():
 	$"../ButtonsLayer/LocationsContainer/Garden_Control".queue_free()
 	var garden_trans = func():
 		tbi.queue_all(null, null, null, null, garden_background, false, false)
-		tbi.queue_dialogue("You went to the garden", "")
-		await get_tree().create_timer(3.0).timeout
-		tbi.change_state(tbi.State.READY)
-		tbi.hide_textbox()
+		await get_tree().create_timer(1.0).timeout
 	tbi.fade_black_back_in(garden_scene, garden_trans)
 
 const uke_happy_speak = preload("res://Characters/Ukesito/Uke_happy2.png")
