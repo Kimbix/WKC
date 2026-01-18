@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://84l00vq7non2"]
 
 [ext_resource type="Script" uid="uid://bth5625myrjde" path="res://Scenes/Letter Opening/SCR_intro_script.gd" id="1_18mg5"]
-[ext_resource type="Texture2D" uid="uid://bbv35g4ycdcup" path="res://Assets/UI/Letter/Letters_Full_v2.png" id="2_i5154"]
+[ext_resource type="Texture2D" uid="uid://cxox5b2r6kvrk" path="res://Assets/UI/Letter/Letters_Full_v3.png" id="2_i5154"]
 [ext_resource type="Texture2D" uid="uid://bef8uy8bgtw71" path="res://Assets/UI/Letter/Letter_closed.png" id="2_jvfpr"]
 [ext_resource type="Texture2D" uid="uid://dfsabaxcs45up" path="res://Assets/UI/Letter/Letter_openBack.png" id="4_akr0i"]
 
