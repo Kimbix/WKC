@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://brd5vyvr1h0aj"]
 
-[ext_resource type="FontFile" uid="uid://bhhup8y3o0yw1" path="res://Assets/UI/Chrisbday2025-Regular.ttf" id="1_lfv5j"]
+[ext_resource type="FontFile" uid="uid://cg0lecx2bqyfp" path="res://Assets/UI/Crisbday2025-Regular_Numbered.ttf" id="1_lfv5j"]
 
 [resource]
 default_font = ExtResource("1_lfv5j")

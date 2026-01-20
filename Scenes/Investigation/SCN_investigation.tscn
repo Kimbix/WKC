@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqorb0u87ikqd" path="res://Scenes/Investigation/SCR_investigation.gd" id="1_qf8ob"]
 [ext_resource type="Script" uid="uid://bci8unplm321r" path="res://Scenes/Main Menu/button_control.gd" id="2_1r0jw"]
-[ext_resource type="PackedScene" uid="uid://bt33drb03ogrm" path="res://Button_Control.tscn" id="3_474od"]
+[ext_resource type="PackedScene" uid="uid://bt33drb03ogrm" path="res://UI/Button_Control.tscn" id="3_474od"]
 [ext_resource type="Texture2D" uid="uid://cg8iosx4qqbd2" path="res://Assets/UI/Labels/Locations/Button_Label_Dungeon.png" id="5_qea11"]
 [ext_resource type="Texture2D" uid="uid://b3ah00lkcjqhj" path="res://Assets/UI/Labels/Locations/Button_Label_Bedroom.png" id="7_qea11"]
 [ext_resource type="Texture2D" uid="uid://drekdjirmhf5g" path="res://Assets/UI/Labels/Locations/Button_Label_Kitchen.png" id="8_qea11"]

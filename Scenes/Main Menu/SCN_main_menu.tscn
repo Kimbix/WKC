@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://bjyupdg5nh8qj" path="res://Scenes/Main Menu/SCN_main_menu.gd" id="1_k1ilt"]
 [ext_resource type="Texture2D" uid="uid://lg4cykyd1ups" path="res://Assets/Backgrounds/Locations/MainMenu.png" id="2_wl8ex"]
-[ext_resource type="PackedScene" uid="uid://bt33drb03ogrm" path="res://Button_Control.tscn" id="3_jtag5"]
+[ext_resource type="PackedScene" uid="uid://bt33drb03ogrm" path="res://UI/Button_Control.tscn" id="3_jtag5"]
 [ext_resource type="Script" uid="uid://bci8unplm321r" path="res://Scenes/Main Menu/button_control.gd" id="7_ni3in"]
 [ext_resource type="Texture2D" uid="uid://cgxps2jq0eje0" path="res://Assets/UI/Buttons/Button_Frame.png" id="8_wqrue"]
 [ext_resource type="Texture2D" uid="uid://blic5vu2kbqmj" path="res://Assets/UI/Labels/Actions/Button_Label_Play.png" id="9_ri1ms"]
 [ext_resource type="Texture2D" uid="uid://daes6heih0jxk" path="res://Assets/UI/Labels/Actions/Button_Label_Quit.png" id="10_hfm7t"]
-[ext_resource type="Theme" uid="uid://6jfd7is3o5k3" path="res://textbox_theme.tres" id="11_2v1u8"]
+[ext_resource type="Theme" uid="uid://6jfd7is3o5k3" path="res://UI/textbox_theme.tres" id="11_2v1u8"]
 [ext_resource type="Texture2D" uid="uid://d4fxqhkvbbxf8" path="res://Assets/UI/Labels/Actions/Button_Label_Endings.png" id="11_boqla"]
 [ext_resource type="Texture2D" uid="uid://cpohl5h80ehvp" path="res://Assets/UI/Textures/Tablet.png" id="11_djsjg"]
 [ext_resource type="Texture2D" uid="uid://bmx4mw0gfaa6w" path="res://Assets/UI/Logo/WCK_logo_updated.png" id="12_2v1u8"]
-[ext_resource type="Theme" uid="uid://brd5vyvr1h0aj" path="res://Title_theme.tres" id="12_3a2ve"]
+[ext_resource type="Theme" uid="uid://brd5vyvr1h0aj" path="res://UI/Title_theme.tres" id="12_3a2ve"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg0rw"]
 bg_color = Color(0.301961, 0.141176, 0, 1)

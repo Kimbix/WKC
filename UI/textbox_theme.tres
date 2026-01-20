@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://6jfd7is3o5k3"]
+
+[ext_resource type="FontFile" uid="uid://cg0lecx2bqyfp" path="res://Assets/UI/Crisbday2025-Regular_Numbered.ttf" id="1_0aetk"]
+
+[resource]
+default_font = ExtResource("1_0aetk")
+default_font_size = 46
