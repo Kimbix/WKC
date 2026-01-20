@@ -1,6 +1,6 @@
 extends Control
 
-@onready var scene_to_change : String = "res://Scenes/Intro Cutscene/SCN_intro_cutscene.tscn"
+@onready var scene_to_change : PackedScene = preload("uid://bn17nnkpsj8b7")
 
 @onready var note = $MarginContainer2
 @onready var note_dos = $MarginContainer3
@@ -16,6 +16,7 @@ func _ready():
 	pass
 
 func _input(_event):
+	print(scene_to_change)
 	var ms_pos = get_global_mouse_position()
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if (not note_triggered):
@@ -33,5 +34,9 @@ func _input(_event):
 		elif (opened_note.modulate.a == 1):
 			var tween : Tween = get_tree().create_tween()
 			tween.tween_property(opened_note, "modulate", Color(1, 1, 1, 0), 1.5)
-			var callback = func(): get_tree().change_scene_to_file(scene_to_change)
+			var callback = func(): 
+				await get_tree().create_timer(1).timeout
+				await get_tree().process_frame
+				get_tree().change_scene_to_packed(scene_to_change)
 			tween.tween_callback(callback)
+			
