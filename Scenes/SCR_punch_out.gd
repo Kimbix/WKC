@@ -65,6 +65,10 @@ func _ready():
 	oponent_init_pos = oponent_instance.position
 	
 	oponent_attack_timer = oponent_attack_wait * 1.5
+	
+	$Buttonlayer/MarginContainer/VBoxContainer/KimbixHealth.text = "Streamer " + str(int(player_health))
+	$Buttonlayer/MarginContainer/VBoxContainer/ConeHealth.text = "Cone Tyson " + str(int(oponent_health))
+	$Buttonlayer/MarginContainer/Combo.text = "Combo " + str(punch_combo)
 	pass
 
 func _process(delta):
@@ -208,8 +212,6 @@ func player_punch_right():
 	if ((last_punch == punch.RIGHT or last_punch == punch.STAR) and punch_cooldown_timer > 0.0): return
 	if (last_punch == punch.LEFT and player_sprite.animation == "punch" and player_sprite.frame < 4):return
 	
-	
-	
 	player_sprite.flip_h = true
 	player_sprite.stop()
 	player_sprite.play("punch")
@@ -285,7 +287,7 @@ func oponent_get_hit():
 	var tween = get_tree().create_tween()
 	oponent_sprite.modulate = Color(1,0,0)
 	tween.tween_property(oponent_sprite, "modulate", Color(1,1,1), 0.25 / player_sprite.speed_scale)
-	$Buttonlayer/MarginContainer/VBoxContainer/ConeHealth.text = "Cone Tyson " + str(oponent_health)
+	$Buttonlayer/MarginContainer/VBoxContainer/ConeHealth.text = "Cone Tyson " + str(int(oponent_health))
 	
 	if (oponent_health < 0):
 		save_endings(ScrPersistentData.Endings.CONO)
@@ -305,8 +307,9 @@ func oponent_get_hit():
 
 func check_dead():
 	if (player_health > 0):
-		$Buttonlayer/MarginContainer/VBoxContainer/KimbixHealth.text = "Streamer " + str(player_health)
+		$Buttonlayer/MarginContainer/VBoxContainer/KimbixHealth.text = "Streamer " + str(int(player_health))
 		return
+	$Buttonlayer/MarginContainer/VBoxContainer/KimbixHealth.text = "Streamer " + str(int(player_health))
 	player_state = fighter_state.DEFEATED
 	
 	await get_tree().create_timer(1.0).timeout

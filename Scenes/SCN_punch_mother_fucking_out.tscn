@@ -294,30 +294,31 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
 
 [node name="VBoxContainer" type="HBoxContainer" parent="Buttonlayer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 0
-theme_override_constants/separation = 760
 alignment = 1
 
 [node name="KimbixHealth" type="Label" parent="Buttonlayer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 2
 size_flags_vertical = 0
 theme = ExtResource("9_i8ih2")
-theme_override_font_sizes/font_size = 112
-text = "Kimbix 100"
+theme_override_font_sizes/font_size = 80
+text = "Streamer 100"
 
 [node name="ConeHealth" type="Label" parent="Buttonlayer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 8
 size_flags_vertical = 0
 theme = ExtResource("9_i8ih2")
-theme_override_font_sizes/font_size = 112
+theme_override_font_sizes/font_size = 80
 text = "Cone Tyson 3000"
 
 [node name="Combo" type="Label" parent="Buttonlayer/MarginContainer"]
@@ -325,7 +326,7 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 theme = ExtResource("9_i8ih2")
-theme_override_font_sizes/font_size = 112
+theme_override_font_sizes/font_size = 80
 text = "Combo"
 horizontal_alignment = 1
 vertical_alignment = 1
