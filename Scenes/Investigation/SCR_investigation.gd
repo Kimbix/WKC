@@ -22,7 +22,76 @@ var previous_location : Location = Location.NO_PREVIOUS
 const text_box : PackedScene = preload("res://Text Box/TXT_TextBox.tscn")
 var tbi
 
+# CHARACTERS
+# CONE
+const cone = preload("res://Characters/Cone/Cone_normal.png")
+# CLAU
+const clau_serious_speak = preload("res://Characters/Clau/Clau_serious1.png")
+const clau_serious_no_speak = preload("res://Characters/Clau/Clau_serious2.png")
+# KIMBIX
+const kimbix_serious_speak = preload("res://Characters/Humber/Humber_serious2.png")
+const kimbix_serious_no_speak = preload("res://Characters/Humber/Humber_serious1.png")
+# KIRI
+const kiri_serious_speak = preload("res://Characters/Kiri/Kiri_serious2.png")
+const kiri_serious_no_speak = preload("res://Characters/Kiri/Kiri_serious1.png")
+# CYRUS
+const cyrus_serious_speak = preload("res://Characters/Cyrus/Cyrus_serious2.png")
+const cyrus_serious_no_speak = preload("res://Characters/Cyrus/Cyrus_serious1.png")
+# CLARA
+const clara_serious_speak = preload("res://Characters/Clara/Clara_serious2.png")
+const clara_serious_no_speak = preload("res://Characters/Clara/Clara_serious1.png")
+# CESAR
+const cesar_serious_speak = preload("res://Characters/Cesar/Cesar_serious2.png")
+const cesar_serious_no_speak = preload("res://Characters/Cesar/Cesar_serious1.png")
+# FELIX
+const felix_serious_speak = preload("res://Characters/Felix/Felix_serious2.png")
+const felix_serious_no_speak = preload("res://Characters/Felix/Felix_serious1.png")
+# JEM
+const jem_serious_speak = preload("res://Characters/Jem/Jem_serious2.png")
+const jem_serious_no_speak = preload("res://Characters/Jem/Jem_serious1.png")
+# YEETUS
+const yeetus_serious_speak = preload("res://Characters/Yeetus/Yeetus_serious2.png")
+const yeetus_serious_no_speak = preload("res://Characters/Yeetus/Yeetus_serious1.png")
+const yeetus_cutscene_background = preload("res://Characters/Yeetus/Cutscene_yeetus.png")
+# JOACO
+const joaco_serious_speak = preload("res://Characters/Joaco/Joaco_serious2.png")
+const joaco_serious_no_speak = preload("res://Characters/Joaco/Joaco_serious1.png")
+# NIGU
+const nigu_serious_speak = preload("res://Characters/Nigu/Nigu_serious2.png")
+const nigu_serious_no_speak = preload("res://Characters/Nigu/Nigu_serious1.png")
+#BICI
+const bici_serious_speak = preload("res://Characters/Bici/Bici_serious2.png")
+const bici_serious_no_speak = preload("res://Characters/Bici/Bici_serious1.png")
+# UKE
+const uke_serious_speak = preload("res://Characters/Ukesito/Uke_serious2.png")
+const uke_serious_no_speak = preload("res://Characters/Ukesito/Uke_serious1.png")
+# JACQUES
+const jacques_serious_speak = preload("res://Characters/Jacques/Jacques_serious2.png")
+const jacques_serious_no_speak = preload("res://Characters/Jacques/Jacques_serious1.png")
+# SAGE
+const sage_happy_speak = preload("res://Characters/Sage/Sage_happy2.png")
+const sage_happy_no_speak = preload("res://Characters/Sage/Sage_happy1.png")
+const sage_serious_speak = preload("res://Characters/Sage/Sage_serious2.png")
+const sage_serious_no_speak = preload("res://Characters/Sage/Sage_serious1.png")
+# DAVID
+const david_serious_speak = preload("res://Characters/David/David_serious2.png")
+const david_serious_no_speak = preload("res://Characters/David/David_serious1.png")
+# PARIS
+const paris_serious_speak = preload("res://Characters/Paris/Paris_serious2.png")
+const paris_serious_no_speak = preload("res://Characters/Paris/Paris_serious1.png")
+#PHAM
+const pham_happy_speak = preload("res://Characters/Pham/Pham_happy1.png")
+const pham_serious_speak = preload("res://Characters/Pham/Pham_serious1.png")
+
+# EXTRA PRELOADS
 const mansion_background = preload("uid://dk5f72ug8nyhp")
+const padding_texture = preload("uid://cg4jjfi8is6j2")
+const dungeon_background = preload("uid://j5mv3uir8tet")
+const kitchen_background = preload("uid://bv6b0sxhiwmky")
+const bedroom_background = preload("uid://cib4uxv4l2jka")
+const garage_background = preload("uid://bigfflpd5t1r5")
+const garden_background = preload("uid://6l53gfd7grsx")
+
 
 func _ready():
 	locations_container.visible = false
@@ -54,10 +123,6 @@ func _input(_event):
 		State.ENDING:
 			get_tree().change_scene_to_file("res://Scenes/Ending/SCN_endings.tscn")
 
-const cone = preload("res://Characters/Cone/Cone_normal.png")
-
-const clau_serious_speak = preload("res://Characters/Clau/Clau_serious1.png")
-const clau_serious_no_speak = preload("res://Characters/Clau/Clau_serious2.png")
 func cyru_cutscene():
 	
 	tbi.queue_all(null, null, null, null, mansion_background, false, false)
@@ -398,7 +463,6 @@ func magnitude_cutscene():
 	
 	tbi.new_clean()
 
-const yeetus_cutscene_background = preload("res://Characters/Yeetus/Cutscene_yeetus.png")
 func yeetus_cutscene(): 
 	tbi.queue_all(null, null, null, null, mansion_background, false, false)
 	
@@ -576,7 +640,7 @@ func cono_cutscene():
 	
 	tbi.sprite_change("Joaco",joaco_serious_no_speak,false)
 	tbi.sprite_change("Nigu",nigu_serious_speak,true)
-	tbi.queue_dialogue("Hey! I think cono is a fake", "Nigu")
+	tbi.queue_dialogue("Hey! I think cone is a fake", "Nigu")
 	tbi.sprite_change("Nigu",nigu_serious_no_speak,true)
 	
 	tbi.sprite_change("Joaco",joaco_serious_speak,false)
@@ -592,7 +656,7 @@ func cono_cutscene():
 	tbi.queue_dialogue("so…", "Nigu")
 	tbi.sprite_change("Nigu",nigu_serious_no_speak,true)
 	
-	tbi.queue_dialogue(" * Nigu explains how cono has been acting extremely robotic. * ", "")
+	tbi.queue_dialogue(" * Nigu explains how cone has been acting extremely robotic. * ", "")
 	tbi.queue_dialogue(" * Never answering questions or even speaking. He said he also noticed a red spot in cono’s face. * ", "")
 	tbi.queue_dialogue(" * Nigu asked, cone seemed nervous * ", "")
 
@@ -748,24 +812,6 @@ func _on_the_dungeon_pressed():
 
 	tbi.fade_black_back_in(dungeon_scene, dungeon_trans)
 
-const padding_texture = preload("uid://cg4jjfi8is6j2")
-
-const kimbix_serious_speak = preload("res://Characters/Humber/Humber_serious2.png")
-const kimbix_serious_no_speak = preload("res://Characters/Humber/Humber_serious1.png")
-const kimbix_happy_speak = preload("res://Characters/Humber/Humber_happy2.png")
-const kimbix_happy_no_speak = preload("res://Characters/Humber/Humber_happy1.png")
-
-const kiri_happy_speak = preload("res://Characters/Kiri/Kiri_happy2.png")
-const kiri_happy_no_speak = preload("res://Characters/Kiri/Kiri_happy1.png")
-const kiri_serious_speak = preload("res://Characters/Kiri/Kiri_serious2.png")
-const kiri_serious_no_speak = preload("res://Characters/Kiri/Kiri_serious1.png")
-
-const cyrus_happy_speak = preload("res://Characters/Cyrus/Cyrus_happy2.png")
-const cyrus_happy_no_speak = preload("res://Characters/Cyrus/Cyrus_happy1.png")
-const cyrus_serious_speak = preload("res://Characters/Cyrus/Cyrus_serious2.png")
-const cyrus_serious_no_speak = preload("res://Characters/Cyrus/Cyrus_serious1.png")
-
-const dungeon_background = preload("uid://j5mv3uir8tet")
 var dungeon_scene = func():
 	tbi.queue_dialogue(" * I walk towards the dungeon * ", "")
 	tbi.queue_dialogue(" * Chris would always joke and say to others he had a dungeon in their house, only to laugh at people when they actually saw what it was * ", "")
@@ -931,24 +977,6 @@ var dungeon_scene = func():
 		_:
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.DUNGEON
-
-const clara_happy_speak = preload("res://Characters/Clara/Clara_happy2.png")
-const clara_happy_no_speak = preload("res://Characters/Clara/Clara_happy1.png")
-const clara_serious_speak = preload("res://Characters/Clara/Clara_serious2.png")
-const clara_serious_no_speak = preload("res://Characters/Clara/Clara_serious1.png")
-
-const cesar_happy_speak = preload("res://Characters/Cesar/Cesar_happy2.png")
-const cesar_happy_no_speak = preload("res://Characters/Cesar/Cesar_happy1.png")
-const cesar_serious_speak = preload("res://Characters/Cesar/Cesar_serious2.png")
-const cesar_serious_no_speak = preload("res://Characters/Cesar/Cesar_serious1.png")
-
-const felix_serious_speak = preload("res://Characters/Felix/Felix_serious2.png")
-const felix_serious_no_speak = preload("res://Characters/Felix/Felix_serious1.png")
-
-const jem_serious_speak = preload("res://Characters/Jem/Jem_serious2.png")
-const jem_serious_no_speak = preload("res://Characters/Jem/Jem_serious1.png")
-
-const kitchen_background = preload("uid://bv6b0sxhiwmky")
 
 func _on_kitchen_pressed():
 	locations_container.visible = false
@@ -1169,7 +1197,6 @@ var kitchen_scene = func():
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.KITCHEN
 
-const bedroom_background = preload("uid://cib4uxv4l2jka")
 func _on_bedroom_pressed():
 	locations_container.visible = false
 	current_state = State.PLACE_DIALOGUE
@@ -1178,23 +1205,6 @@ func _on_bedroom_pressed():
 		tbi.queue_all(null, null, null, null, bedroom_background, false, false)
 		await get_tree().create_timer(1.0).timeout
 	tbi.fade_black_back_in(bedroom_scene, bedroom_trans)
-
-const joaco_happy_speak = preload("res://Characters/Joaco/Joaco_happy2.png")
-const joaco_happy_no_speak = preload("res://Characters/Joaco/Joaco_happy1.png")
-const joaco_serious_speak = preload("res://Characters/Joaco/Joaco_serious2.png")
-const joaco_serious_no_speak = preload("res://Characters/Joaco/Joaco_serious1.png")
-
-const nigu_happy_speak = preload("res://Characters/Nigu/Nigu_happy2.png")
-const nigu_happy_no_speak = preload("res://Characters/Nigu/Nigu_happy1.png")
-const nigu_serious_speak = preload("res://Characters/Nigu/Nigu_serious2.png")
-const nigu_serious_no_speak = preload("res://Characters/Nigu/Nigu_serious1.png")
-
-const bici_happy_speak = preload("res://Characters/Bici/Bici_happy2.png")
-const bici_happy_no_speak = preload("res://Characters/Bici/Bici_happy1.png")
-const bici_serious_speak = preload("res://Characters/Bici/Bici_serious2.png")
-const bici_serious_no_speak = preload("res://Characters/Bici/Bici_serious1.png")
-
-const cono = preload("res://Characters/Cone/Cone_normal.png")
 
 var bedroom_scene = func():
 	tbi.queue_dialogue(" * A quick nap would help me concentrate more, I know just the place. I walk towards chris’s bedroom * ", "Humber")
@@ -1270,7 +1280,7 @@ var bedroom_scene = func():
 		tbi.queue_dialogue("Bici and Cone", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		tbi.sprite_change("Padding",padding_texture,true)
-		tbi.sprite_change("Cone",cono,false)
+		tbi.sprite_change("Cone",cone,false)
 		tbi.sprite_change("Bici",bici_serious_no_speak,false)
 		
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
@@ -1370,7 +1380,6 @@ var bedroom_scene = func():
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.BEDROOM
 
-const garage_background = preload("uid://bigfflpd5t1r5")
 func _on_garage_pressed():
 	locations_container.visible = false
 	current_state = State.PLACE_DIALOGUE
@@ -1379,19 +1388,6 @@ func _on_garage_pressed():
 		tbi.queue_all(null, null, null, null, garage_background, false, false)
 		await get_tree().create_timer(1.0).timeout
 	tbi.fade_black_back_in(garage_scene, garage_trans)
-
-const david_happy_speak = preload("res://Characters/David/David_happy2.png")
-const david_happy_no_speak = preload("res://Characters/David/David_happy1.png")
-const david_serious_speak = preload("res://Characters/David/David_serious2.png")
-const david_serious_no_speak = preload("res://Characters/David/David_serious1.png")
-
-const paris_happy_speak = preload("res://Characters/Paris/Paris_happy2.png")
-const paris_happy_no_speak = preload("res://Characters/Paris/Paris_happy1.png")
-const paris_serious_speak = preload("res://Characters/Paris/Paris_serious2.png")
-const paris_serious_no_speak = preload("res://Characters/Paris/Paris_serious1.png")
-
-const pham_happy_speak = preload("res://Characters/Pham/Pham_happy1.png")
-const pham_serious_speak = preload("res://Characters/Pham/Pham_serious1.png")
 
 var garage_scene = func():
 	tbi.queue_dialogue(" * The garage is a good place to go, Chris has many tools there * ", "Humber")
@@ -1562,8 +1558,6 @@ var garage_scene = func():
 			tbi.queue_dialogue("Nothing else happened", "")
 	previous_location = Location.GARAGE
 
-const garden_background = preload("uid://6l53gfd7grsx")
-
 func _on_garden_pressed():
 	locations_container.visible = false
 	current_state = State.PLACE_DIALOGUE
@@ -1572,26 +1566,6 @@ func _on_garden_pressed():
 		tbi.queue_all(null, null, null, null, garden_background, false, false)
 		await get_tree().create_timer(1.0).timeout
 	tbi.fade_black_back_in(garden_scene, garden_trans)
-
-const uke_happy_speak = preload("res://Characters/Ukesito/Uke_happy2.png")
-const uke_happy_no_speak = preload("res://Characters/Ukesito/Uke_happy1.png")
-const uke_serious_speak = preload("res://Characters/Ukesito/Uke_serious2.png")
-const uke_serious_no_speak = preload("res://Characters/Ukesito/Uke_serious1.png")
-
-const yeetus_happy_speak = preload("res://Characters/Yeetus/Yeetus_happy2.png")
-const yeetus_happy_no_speak = preload("res://Characters/Yeetus/Yeetus_happy1.png")
-const yeetus_serious_speak = preload("res://Characters/Yeetus/Yeetus_serious2.png")
-const yeetus_serious_no_speak = preload("res://Characters/Yeetus/Yeetus_serious1.png")
-
-const jacques_happy_speak = preload("res://Characters/Jacques/Jacques_happy2.png")
-const jacques_happy_no_speak = preload("res://Characters/Jacques/Jacques_happy1.png")
-const jacques_serious_speak = preload("res://Characters/Jacques/Jacques_serious2.png")
-const jacques_serious_no_speak = preload("res://Characters/Jacques/Jacques_serious1.png")
-
-const sage_happy_speak = preload("res://Characters/Sage/Sage_happy2.png")
-const sage_happy_no_speak = preload("res://Characters/Sage/Sage_happy1.png")
-const sage_serious_speak = preload("res://Characters/Sage/Sage_serious2.png")
-const sage_serious_no_speak = preload("res://Characters/Sage/Sage_serious1.png")
 
 var garden_scene = func():
 	tbi.queue_dialogue(" * Looking at the flowers in the garden could help me clear my mind. * ", "Humber")
@@ -1658,7 +1632,7 @@ var garden_scene = func():
 		tbi.queue_dialogue("Exactly, handle it with care", "Ukesito")
 		tbi.sprite_change("Ukesito",uke_serious_no_speak,false)
 		
-		tbi.queue_dialogue("I am given the zip lock and find it has a list with three names: chris, cono, david", "Humber")
+		tbi.queue_dialogue("I am given the zip lock and find it has a list with three names: chris, cone, david", "Humber")
 		tbi.queue_dialogue("Chris has multiple lines striked through their name. I give back the ziplock", "Humber")
 		tbi.queue_dialogue("This must be someone's. Chris never bought ziplock bags, something about the temptation of filling them with air and then deflating them over and over again.", "Humber")
 		

@@ -1,12 +1,13 @@
 extends Node2D
 
 ## Navigation bar, use the Ctrl + F function to look for these anchors
+# TRUE ENDING
+# UKE ENDING
+# YEETUS ENDING
+# CYRUS ENDING
 # NO IDEA ENDING
 
 var save_dict = {}
-
-const mansion_background = preload("uid://dk5f72ug8nyhp")
-const black_background = preload("uid://bsx33dhpcodp0")
 
 enum State {
 	START,
@@ -14,6 +15,9 @@ enum State {
 	CONO_ENDING
 }
 var current_state : State = State.START
+
+const text_box : PackedScene = preload("res://Text Box/TXT_TextBox.tscn")
+var tbi
 
 @onready var endings_buttons : GridContainer = $"../ButtonsLayer/EndingsContainer"
 # idiot buttons
@@ -30,6 +34,79 @@ var current_state : State = State.START
 @onready var magnitude_control = $"../ButtonsLayer/EndingsContainer/Magnitude_Control"
 
 ## CHARACTERS
+# CHRIS
+const chris_happy_speak = preload("res://Characters/Chris/Chris_happy2.png")
+const chris_happy_no_speak = preload("res://Characters/Chris/Chris_happy1.png")
+# JEM
+const jem_happy_speak = preload("res://Characters/Jem/Jem_happy2.png")
+const jem_happy_no_speak = preload("res://Characters/Jem/Jem_happy1.png")
+# FELIX
+const felix_happy_speak = preload("res://Characters/Felix/Felix_happy2.png")
+const felix_happy_no_speak = preload("res://Characters/Felix/Felix_happy1.png")
+const felix_serious_speak = preload("res://Characters/Felix/Felix_serious2.png")
+const felix_serious_no_speak = preload("res://Characters/Felix/Felix_serious1.png")
+# PARIS
+const paris_serious_speak = preload("res://Characters/Paris/Paris_serious2.png")
+const paris_serious_no_speak = preload("res://Characters/Paris/Paris_serious1.png")
+# UKESITO
+const ukesito_happy_speak = preload("res://Characters/Ukesito/Uke_happy2.png")
+const ukesito_happy_no_speak = preload("res://Characters/Ukesito/Uke_happy1.png")
+const ukesito_serious_speak = preload("res://Characters/Ukesito/Uke_serious2.png")
+const ukesito_serious_no_speak = preload("res://Characters/Ukesito/Uke_serious1.png")
+const ukesito_angry_speak = preload("res://Characters/Ukesito/Uke_angry2.png")
+const ukesito_angry_no_speak = preload("res://Characters/Ukesito/Uke_angry1.png")
+# JEM
+const jem_serious_speak = preload("res://Characters/Jem/Jem_serious2.png")
+const jem_serious_no_speak = preload("res://Characters/Jem/Jem_serious1.png")
+# CYRUS
+const cyrus_serious_speak = preload("res://Characters/Cyrus/Cyrus_serious2.png")
+const cyrus_serious_no_speak = preload("res://Characters/Cyrus/Cyrus_serious1.png")
+const cyrus_angry_speak = preload("res://Characters/Cyrus/Cyrus_angry2.png")
+const cyrus_angry_no_speak = preload("res://Characters/Cyrus/Cyrus_angry1.png")
+# DAVID
+const david_serious_speak = preload("res://Characters/David/David_serious2.png")
+const david_serious_no_speak = preload("res://Characters/David/David_serious1.png")
+# YEETUS
+const yeetus_serious_speak = preload("res://Characters/Yeetus/Yeetus_serious2.png")
+const yeetus_serious_no_speak = preload("res://Characters/Yeetus/Yeetus_serious1.png")
+const yeetus_angry_speak = preload("res://Characters/Yeetus/Yeetus_angry2.png")
+const yeetus_angry_no_speak = preload("res://Characters/Yeetus/Yeetus_angry1.png")
+# KIMBIX
+const kimbix_serious_speak = preload("res://Characters/Humber/Humber_serious2.png")
+const kimbix_serious_no_speak = preload("res://Characters/Humber/Humber_serious1.png")
+const kimbix_evil_speak = preload("res://Characters/Humber/Humber_evil2.png")
+const kimbix_evil_no_speak = preload("res://Characters/Humber/Humber_evil1.png")
+# CONE
+const cone_evil_speak = preload("res://Characters/Cone/Cone_evil2.png")
+const cone_evil_no_speak = preload("res://Characters/Cone/Cone_evil1.png")
+const cone_serious = preload("res://Characters/Cone/Cone_normal.png")
+# BICI
+const bici_serious_speak = preload("res://Characters/Bici/Bici_serious2.png")
+const bici_serious_no_speak = preload("res://Characters/Bici/Bici_serious1.png")
+const bici_angry_speak = preload("res://Characters/Bici/Bici_angry2.png")
+const bici_angry_no_speak = preload("res://Characters/Bici/Bici_angry1.png")
+# JACQUES
+const jacques_serious_speak = preload("res://Characters/Jacques/Jacques_serious2.png")
+const jacques_serious_no_speak = preload("res://Characters/Jacques/Jacques_serious1.png")
+# PHAM
+const pham_happy_speak = preload("res://Characters/Pham/Pham_happy1.png")
+const pham_serious_speak = preload("res://Characters/Pham/Pham_serious1.png")
+# NIGU
+const nigu_serious_speak = preload("res://Characters/Nigu/Nigu_serious2.png")
+const nigu_serious_no_speak = preload("res://Characters/Nigu/Nigu_serious1.png")
+# KIRI
+const kiri_serious_speak = preload("res://Characters/Kiri/Kiri_serious2.png")
+const kiri_serious_no_speak = preload("res://Characters/Kiri/Kiri_serious1.png")
+const kiri_angry_speak = preload("res://Characters/Kiri/Kiri_angry2.png")
+const kiri_angry_no_speak = preload("res://Characters/Kiri/Kiri_angry1.png")
+# MAGNITUDE
+const magnitude_angry = preload("res://Characters/Magnitude/Magnitude_angry1.png")
+const magnitude_normal = preload("res://Characters/Magnitude/Magnitude_normal1.png")
+# JOACO
+const joaco_serious_speak = preload("res://Characters/Joaco/Joaco_serious2.png")
+const joaco_serious_no_speak = preload("res://Characters/Joaco/Joaco_serious1.png")
+const joaco_angry_speak = preload("res://Characters/Joaco/Joaco_insane2.png")
+const joaco_angry_no_speak = preload("res://Characters/Joaco/Joaco_insane1.png")
 
 ## ENDINGS
 const chris_ending = preload("uid://daj67vd2lo0wm")
@@ -42,8 +119,10 @@ const kiri_ending = preload("uid://cmiyqlv2wqofk")
 const magnitude_ending = preload("uid://ddjeb8e4k7o5h")
 const joaco_ending = preload("uid://die7uvpr2spf8")
 
-const text_box : PackedScene = preload("res://Text Box/TXT_TextBox.tscn")
-var tbi
+## EXTRAS
+const mansion_background = preload("uid://dk5f72ug8nyhp")
+const black_background = preload("uid://bsx33dhpcodp0")
+
 
 func _ready():
 	load_game()
@@ -110,17 +189,7 @@ func show_buttons():
 			ScrPersistentData.Endings.BICI:
 				bici_control.visible = true
 
-const chris_happy_speak = preload("res://Characters/Chris/Chris_happy2.png")
-const chris_happy_no_speak = preload("res://Characters/Chris/Chris_happy1.png")
-
-const jem_happy_speak = preload("res://Characters/Jem/Jem_happy2.png")
-const jem_happy_no_speak = preload("res://Characters/Jem/Jem_happy1.png")
-const felix_happy_speak = preload("res://Characters/Felix/Felix_happy2.png")
-const felix_happy_no_speak = preload("res://Characters/Felix/Felix_happy1.png")
-const felix_serious_speak = preload("res://Characters/Felix/Felix_serious2.png")
-const felix_serious_no_speak = preload("res://Characters/Felix/Felix_serious1.png")
-
-
+# TRUE ENDING
 func _on_chris_pressed():
 	if (save_dict["chris"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -201,22 +270,7 @@ func _on_chris_pressed():
 	tbi.queue_dialogue("TRUE ENDING", "...")
 	tbi.queue_dialogue("...", "...")
 
-const paris_happy_speak = preload("res://Characters/Paris/Paris_happy2.png")
-const paris_happy_no_speak = preload("res://Characters/Paris/Paris_happy1.png")
-const paris_serious_speak = preload("res://Characters/Paris/Paris_serious2.png")
-const paris_serious_no_speak = preload("res://Characters/Paris/Paris_serious1.png")
-
-const ukesito_happy_speak = preload("res://Characters/Ukesito/Uke_happy2.png")
-const ukesito_happy_no_speak = preload("res://Characters/Ukesito/Uke_happy1.png")
-const ukesito_serious_speak = preload("res://Characters/Ukesito/Uke_serious2.png")
-const ukesito_serious_no_speak = preload("res://Characters/Ukesito/Uke_serious1.png")
-const ukesito_angry_speak = preload("res://Characters/Ukesito/Uke_angry2.png")
-const ukesito_angry_no_speak = preload("res://Characters/Ukesito/Uke_angry1.png")
-
-
-const jem_serious_speak = preload("res://Characters/Jem/Jem_serious2.png")
-const jem_serious_no_speak = preload("res://Characters/Jem/Jem_serious1.png")
-
+# UKE ENDING
 func _on_ukesito_pressed():
 	if (save_dict["ukesito"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -268,25 +322,7 @@ func _on_ukesito_pressed():
 	tbi.queue_dialogue("ADMIN ENDING", "")
 	tbi.queue_dialogue("...", "")
 
-const cyrus_happy_speak = preload("res://Characters/Cyrus/Cyrus_happy2.png")
-const cyrus_happy_no_speak = preload("res://Characters/Cyrus/Cyrus_happy1.png")
-const cyrus_serious_speak = preload("res://Characters/Cyrus/Cyrus_serious2.png")
-const cyrus_serious_no_speak = preload("res://Characters/Cyrus/Cyrus_serious1.png")
-const cyrus_angry_speak = preload("res://Characters/Cyrus/Cyrus_angry2.png")
-const cyrus_angry_no_speak = preload("res://Characters/Cyrus/Cyrus_angry1.png")
-
-const david_happy_speak = preload("res://Characters/David/David_happy2.png")
-const david_happy_no_speak = preload("res://Characters/David/David_happy1.png")
-const david_serious_speak = preload("res://Characters/David/David_serious2.png")
-const david_serious_no_speak = preload("res://Characters/David/David_serious1.png")
-
-const yeetus_happy_speak = preload("res://Characters/Yeetus/Yeetus_happy2.png")
-const yeetus_happy_no_speak = preload("res://Characters/Yeetus/Yeetus_happy1.png")
-const yeetus_serious_speak = preload("res://Characters/Yeetus/Yeetus_serious2.png")
-const yeetus_serious_no_speak = preload("res://Characters/Yeetus/Yeetus_serious1.png")
-const yeetus_angry_speak = preload("res://Characters/Yeetus/Yeetus_angry2.png")
-const yeetus_angry_no_speak = preload("res://Characters/Yeetus/Yeetus_angry1.png")
-
+# YEETUS ENDING
 func _on_yeetus_pressed():
 	if (save_dict["yeetus"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -335,6 +371,7 @@ func _on_yeetus_pressed():
 	tbi.queue_dialogue("FREEDOM ENDING", "")
 	tbi.queue_dialogue("...", "")
 
+# CYRUS ENDING
 func _on_cyrus_pressed():
 	if (save_dict["cyrus"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -382,34 +419,7 @@ func _on_cyrus_pressed():
 	tbi.queue_dialogue("JEALOUSY ENDING", "...")
 	tbi.queue_dialogue("...", "...")
 
-const kimbix_serious_speak = preload("res://Characters/Humber/Humber_serious2.png")
-const kimbix_serious_no_speak = preload("res://Characters/Humber/Humber_serious1.png")
-const kimbix_happy_speak = preload("res://Characters/Humber/Humber_happy2.png")
-const kimbix_happy_no_speak = preload("res://Characters/Humber/Humber_happy1.png")
-const kimbix_evil_speak = preload("res://Characters/Humber/Humber_evil2.png")
-const kimbix_evil_no_speak = preload("res://Characters/Humber/Humber_evil1.png")
-
-const cone_evil_speak = preload("res://Characters/Cone/Cone_evil2.png")
-const cone_evil_no_speak = preload("res://Characters/Cone/Cone_evil1.png")
-
-const bici_happy_speak = preload("res://Characters/Bici/Bici_happy2.png")
-const bici_happy_no_speak = preload("res://Characters/Bici/Bici_happy1.png")
-const bici_serious_speak = preload("res://Characters/Bici/Bici_serious2.png")
-const bici_serious_no_speak = preload("res://Characters/Bici/Bici_serious1.png")
-const bici_angry_speak = preload("res://Characters/Bici/Bici_angry2.png")
-const bici_angry_no_speak = preload("res://Characters/Bici/Bici_angry1.png")
-
-const jacques_happy_speak = preload("res://Characters/Jacques/Jacques_happy2.png")
-const jacques_happy_no_speak = preload("res://Characters/Jacques/Jacques_happy1.png")
-const jacques_serious_speak = preload("res://Characters/Jacques/Jacques_serious2.png")
-const jacques_serious_no_speak = preload("res://Characters/Jacques/Jacques_serious1.png")
-
-const pham_happy_speak = preload("res://Characters/Pham/Pham_happy1.png")
-const pham_serious_speak = preload("res://Characters/Pham/Pham_serious1.png")
-
-const cone_serious = preload("res://Characters/Cone/Cone_normal.png")
-
-
+# IMPOSTOR ENDING
 func _on_kimbix_pressed():
 	if (save_dict["kimbix"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -461,11 +471,7 @@ func _on_kimbix_pressed():
 	tbi.queue_dialogue("IMPOSTOR ENDING", "")
 	tbi.queue_dialogue("...", "")
 
-const nigu_happy_speak = preload("res://Characters/Nigu/Nigu_happy2.png")
-const nigu_happy_no_speak = preload("res://Characters/Nigu/Nigu_happy1.png")
-const nigu_serious_speak = preload("res://Characters/Nigu/Nigu_serious2.png")
-const nigu_serious_no_speak = preload("res://Characters/Nigu/Nigu_serious1.png")
-
+# CONE ENDING
 func _on_cono_pressed():
 	if (save_dict["cono"]):
 		tbi.queue_dialogue("You feel deja vu", "...")
@@ -483,12 +489,6 @@ func _on_cono_pressed():
 	tbi.queue_dialogue("I'll enjoy sending you to the same place where chris is", "Evil Cone")
 	tbi.sprite_change("Cone",cone_evil_no_speak,false)
 
-const kiri_happy_speak = preload("res://Characters/Kiri/Kiri_happy2.png")
-const kiri_happy_no_speak = preload("res://Characters/Kiri/Kiri_happy1.png")
-const kiri_serious_speak = preload("res://Characters/Kiri/Kiri_serious2.png")
-const kiri_serious_no_speak = preload("res://Characters/Kiri/Kiri_serious1.png")
-const kiri_angry_speak = preload("res://Characters/Kiri/Kiri_angry2.png")
-const kiri_angry_no_speak = preload("res://Characters/Kiri/Kiri_angry1.png")
 
 func _on_kiri_pressed():
 	if (save_dict["kiri"]):
@@ -520,8 +520,6 @@ func _on_kiri_pressed():
 	tbi.queue_dialogue("小红书 ENDING", "")
 	tbi.queue_dialogue("...", "")
 
-const magnitude_angry = preload("res://Characters/Magnitude/Magnitude_angry1.png")
-const magnitude_normal = preload("res://Characters/Magnitude/Magnitude_normal1.png")
 
 func _on_magnitude_pressed():
 	if (save_dict["magnitude"]):
@@ -590,14 +588,6 @@ func _on_magnitude_pressed():
 	tbi.queue_dialogue("PURGATORY ENDING", "")
 	tbi.queue_dialogue("...", "")
 
-const joaco_happy_speak = preload("res://Characters/Joaco/Joaco_happy2.png")
-const joaco_happy_no_speak = preload("res://Characters/Joaco/Joaco_happy1.png")
-const joaco_serious_speak = preload("res://Characters/Joaco/Joaco_serious2.png")
-const joaco_serious_no_speak = preload("res://Characters/Joaco/Joaco_serious1.png")
-const joaco_angry_speak = preload("res://Characters/Joaco/Joaco_insane2.png")
-const joaco_angry_no_speak = preload("res://Characters/Joaco/Joaco_insane1.png")
-
-
 
 func _on_joaco_pressed():
 	if (save_dict["joaco"]):
@@ -627,7 +617,6 @@ func _on_joaco_pressed():
 	tbi.queue_dialogue("AUDIO PLACE ENDING", "...")
 	tbi.queue_dialogue("audioplaceaudioplaceaudioplaceaudioplaceaudioplaceaudioplaceaudioplace", "Joaco")
 	tbi.queue_dialogue("...", "...")
-
 
 
 func _on_bici_pressed():

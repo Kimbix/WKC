@@ -9,18 +9,9 @@ enum Stages {
 var current_stage = Stages.CAR
 var tbi # Text box instance
 
-## PRELOADS ##
 const text_box : PackedScene = preload("res://Text Box/TXT_TextBox.tscn")
 
-const black_background = preload("uid://bsx33dhpcodp0")
-const car_background = preload("uid://lg4cykyd1ups")
-const mansion_background = preload("uid://dk5f72ug8nyhp")
-
-const kimbix_serious_speak = preload("res://Characters/Humber/Humber_serious2.png")
-const kimbix_serious_no_speak = preload("res://Characters/Humber/Humber_serious1.png")
-const kimbix_happy_speak = preload("res://Characters/Humber/Humber_happy2.png")
-const kimbix_happy_no_speak = preload("res://Characters/Humber/Humber_happy1.png")
-
+@onready var blackbg = $"../Blackbg"
 # variables for idiot buttons :P
 @onready var buttons_container : VBoxContainer = $"../ButtonsLayer/VBoxContainer"
 @onready var unshown_buttons = $"../ButtonsLayer/VBoxContainer/LocationsContainer".get_children().filter(func(object): return object.get_child(0).get_name() not in ["Cono","Cyrus", "Bici", "Chris"])
@@ -46,12 +37,97 @@ const kimbix_happy_no_speak = preload("res://Characters/Humber/Humber_happy1.png
 @onready var yeetus_control = $"../ButtonsLayer/VBoxContainer/LocationsContainer/Yeetus_Control"
 @onready var wait_control = $"../ButtonsLayer/VBoxContainer/Wait_Control"
 
+# CHARACTERS
+# HUMBER
+const kimbix_serious_speak = preload("res://Characters/Humber/Humber_serious2.png")
+const kimbix_serious_no_speak = preload("res://Characters/Humber/Humber_serious1.png")
+const kimbix_happy_speak = preload("res://Characters/Humber/Humber_happy2.png")
+const kimbix_happy_no_speak = preload("res://Characters/Humber/Humber_happy1.png")
+# UKE
+const uke_happy_speak = preload("res://Characters/Ukesito/Uke_happy2.png")
+const uke_happy_no_speak = preload("res://Characters/Ukesito/Uke_happy1.png")
+const uke_serious_speak = preload("res://Characters/Ukesito/Uke_serious2.png")
+const uke_serious_no_speak = preload("res://Characters/Ukesito/Uke_serious1.png")
+# NIGU
+const nigu_happy_speak = preload("res://Characters/Nigu/Nigu_happy2.png")
+const nigu_happy_no_speak = preload("res://Characters/Nigu/Nigu_happy1.png")
+const nigu_serious_speak = preload("res://Characters/Nigu/Nigu_serious2.png")
+const nigu_serious_no_speak = preload("res://Characters/Nigu/Nigu_serious1.png")
+# DAVID
+const david_happy_speak = preload("res://Characters/David/David_happy2.png")
+const david_happy_no_speak = preload("res://Characters/David/David_happy1.png")
+const david_serious_speak = preload("res://Characters/David/David_serious2.png")
+const david_serious_no_speak = preload("res://Characters/David/David_serious1.png")
+# PARIS
+const paris_happy_speak = preload("res://Characters/Paris/Paris_happy2.png")
+const paris_happy_no_speak = preload("res://Characters/Paris/Paris_happy1.png")
+# CLAU
+const clau_happy_speak = preload("res://Characters/Clau/Clau_happy2.png")
+const clau_happy_no_speak = preload("res://Characters/Clau/Clau_happy1.png")
+# CHRIS
+const chris_happy_speak = preload("res://Characters/Chris/Chris_happy2.png")
+const chris_happy_no_speak = preload("res://Characters/Chris/Chris_happy1.png")
+# BICI
+const bici_happy_speak = preload("res://Characters/Bici/Bici_happy2.png")
+const bici_happy_no_speak = preload("res://Characters/Bici/Bici_happy1.png")
+const bici_serious_speak = preload("res://Characters/Bici/Bici_serious2.png")
+const bici_serious_no_speak = preload("res://Characters/Bici/Bici_serious1.png")
+# SAGE
+const sage_happy_speak = preload("res://Characters/Sage/Sage_happy2.png")
+const sage_happy_no_speak = preload("res://Characters/Sage/Sage_happy1.png")
+# JOACO
+const joaco_happy_speak = preload("res://Characters/Joaco/Joaco_happy2.png")
+const joaco_happy_no_speak = preload("res://Characters/Joaco/Joaco_happy1.png")
+# CYRUS
+const cyrus_happy_speak = preload("res://Characters/Cyrus/Cyrus_happy2.png")
+const cyrus_happy_no_speak = preload("res://Characters/Cyrus/Cyrus_happy1.png")
+# JEM
+const jem_happy_speak = preload("res://Characters/Jem/Jem_happy2.png")
+const jem_happy_no_speak = preload("res://Characters/Jem/Jem_happy1.png")
+const jem_serious_speak = preload("res://Characters/Jem/Jem_serious2.png")
+const jem_serious_no_speak = preload("res://Characters/Jem/Jem_serious1.png")
+# FELIX
+const felix_happy_speak = preload("res://Characters/Felix/Felix_happy2.png")
+const felix_happy_no_speak = preload("res://Characters/Felix/Felix_happy1.png")
+# JAQUES
+const jacques_happy_speak = preload("res://Characters/Jacques/Jacques_happy2.png")
+const jacques_happy_no_speak = preload("res://Characters/Jacques/Jacques_happy1.png")
+# CESAR
+const cesar_happy_speak = preload("res://Characters/Cesar/Cesar_happy2.png")
+const cesar_happy_no_speak = preload("res://Characters/Cesar/Cesar_happy1.png")
+# KIRI
+const kiri_happy_speak = preload("res://Characters/Kiri/Kiri_happy2.png")
+const kiri_happy_no_speak = preload("res://Characters/Kiri/Kiri_happy1.png")
+const kiri_serious_speak = preload("res://Characters/Kiri/Kiri_serious2.png")
+const kiri_serious_no_speak = preload("res://Characters/Kiri/Kiri_serious1.png")
+# CLARA
+const clara_happy_speak = preload("res://Characters/Clara/Clara_happy2.png")
+const clara_happy_no_speak = preload("res://Characters/Clara/Clara_happy1.png")
+const clara_serious_speak = preload("res://Characters/Clara/Clara_serious2.png")
+const clara_serious_no_speak = preload("res://Characters/Clara/Clara_serious1.png")
+# YEETUS
+const yeetus_happy_speak = preload("res://Characters/Yeetus/Yeetus_happy2.png")
+const yeetus_happy_no_speak = preload("res://Characters/Yeetus/Yeetus_happy1.png")
+const yeetus_serious_no_speak = preload("res://Characters/Yeetus/Yeetus_serious1.png")
+# CONE
+const cono = preload("res://Characters/Cone/Cone_normal.png")
+# PHAM
+const pham_happy_speak = preload("res://Characters/Pham/Pham_happy1.png")
+const pham_serious_speak = preload("res://Characters/Pham/Pham_serious1.png")
+
+# EXTRAS
+const black_background = preload("uid://bsx33dhpcodp0")
+const car_background = preload("uid://lg4cykyd1ups")
+const mansion_background = preload("uid://dk5f72ug8nyhp")
+
 # Here's all of the arguments because i keep forgetting
 # queue_all(text, speaker, char_name, sprite, background, highlight, left):
 func _ready():
 	tbi = text_box.instantiate()
 	add_child(tbi)
+	await get_tree().create_timer(0.5).timeout
 	tbi.queue_all(null, null, null, null, car_background, null, null)
+	$"../Blackbg".hide()
 	tbi.queue_dialogue("* I stare at the road in front of me *","???")
 	tbi.queue_dialogue("* The ride is peaceful as I listen to the 'Risk of Rain 2: Survivors of the Void OST' in the car *","???")
 	
@@ -122,10 +198,6 @@ func one_more_button():
 	button.visible = true
 	unshown_buttons.erase(button)
 
-const uke_happy_speak = preload("res://Characters/Ukesito/Uke_happy2.png")
-const uke_happy_no_speak = preload("res://Characters/Ukesito/Uke_happy1.png")
-const uke_serious_speak = preload("res://Characters/Ukesito/Uke_serious2.png")
-const uke_serious_no_speak = preload("res://Characters/Ukesito/Uke_serious1.png")
 func _on_ukesito_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -165,10 +237,6 @@ func _on_ukesito_pressed():
 	tbi.sprite_change("Ukesito",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const nigu_happy_speak = preload("res://Characters/Nigu/Nigu_happy2.png")
-const nigu_happy_no_speak = preload("res://Characters/Nigu/Nigu_happy1.png")
-const nigu_serious_speak = preload("res://Characters/Nigu/Nigu_serious2.png")
-const nigu_serious_no_speak = preload("res://Characters/Nigu/Nigu_serious1.png")
 func _on_nigu_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -186,10 +254,6 @@ func _on_nigu_pressed():
 	tbi.sprite_change("Nigu",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const david_happy_speak = preload("res://Characters/David/David_happy2.png")
-const david_happy_no_speak = preload("res://Characters/David/David_happy1.png")
-const david_serious_speak = preload("res://Characters/David/David_serious2.png")
-const david_serious_no_speak = preload("res://Characters/David/David_serious1.png")
 func _on_david_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -218,8 +282,6 @@ func _on_david_pressed():
 	tbi.sprite_change("David",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const paris_happy_speak = preload("res://Characters/Paris/Paris_happy2.png")
-const paris_happy_no_speak = preload("res://Characters/Paris/Paris_happy1.png")
 func _on_paris_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -248,8 +310,6 @@ func _on_paris_pressed():
 	tbi.sprite_change("Paris",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const clau_happy_speak = preload("res://Characters/Clau/Clau_happy2.png")
-const clau_happy_no_speak = preload("res://Characters/Clau/Clau_happy1.png")
 func _on_clau_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -288,8 +348,6 @@ func _on_clau_pressed():
 	tbi.sprite_change("Clau",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const chris_happy_speak = preload("res://Characters/Chris/Chris_happy2.png")
-const chris_happy_no_speak = preload("res://Characters/Chris/Chris_happy1.png")
 func _on_chris_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -320,10 +378,6 @@ func _on_chris_pressed():
 	tbi.sprite_change("Chris",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const bici_happy_speak = preload("res://Characters/Bici/Bici_happy2.png")
-const bici_happy_no_speak = preload("res://Characters/Bici/Bici_happy1.png")
-const bici_serious_speak = preload("res://Characters/Bici/Bici_serious2.png")
-const bici_serious_no_speak = preload("res://Characters/Bici/Bici_serious1.png")
 func _on_bici_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -370,8 +424,6 @@ func _on_bici_pressed():
 	tbi.sprite_change("Bici",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const sage_happy_speak = preload("res://Characters/Sage/Sage_happy2.png")
-const sage_happy_no_speak = preload("res://Characters/Sage/Sage_happy1.png")
 func _on_sage_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -411,8 +463,6 @@ func _on_sage_pressed():
 	tbi.sprite_change("Sage",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const joaco_happy_speak = preload("res://Characters/Joaco/Joaco_happy2.png")
-const joaco_happy_no_speak = preload("res://Characters/Joaco/Joaco_happy1.png")
 func _on_joaco_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -449,8 +499,6 @@ func _on_joaco_pressed():
 	tbi.sprite_change("Joaco",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const cyrus_happy_speak = preload("res://Characters/Cyrus/Cyrus_happy2.png")
-const cyrus_happy_no_speak = preload("res://Characters/Cyrus/Cyrus_happy1.png")
 func _on_cyrus_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -487,10 +535,6 @@ func _on_cyrus_pressed():
 	tbi.sprite_change("Cyrus",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const jem_happy_speak = preload("res://Characters/Jem/Jem_happy2.png")
-const jem_happy_no_speak = preload("res://Characters/Jem/Jem_happy1.png")
-const jem_serious_speak = preload("res://Characters/Jem/Jem_serious2.png")
-const jem_serious_no_speak = preload("res://Characters/Jem/Jem_serious1.png")
 func _on_jem_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -530,8 +574,6 @@ func _on_jem_pressed():
 	tbi.sprite_change("Jem",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const felix_happy_speak = preload("res://Characters/Felix/Felix_happy2.png")
-const felix_happy_no_speak = preload("res://Characters/Felix/Felix_happy1.png")
 func _on_felix_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -574,8 +616,6 @@ func _on_felix_pressed():
 	tbi.sprite_change("Felix",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const jacques_happy_speak = preload("res://Characters/Jacques/Jacques_happy2.png")
-const jacques_happy_no_speak = preload("res://Characters/Jacques/Jacques_happy1.png")
 func _on_jacques_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -636,8 +676,6 @@ func _on_jacques_pressed():
 	tbi.sprite_change("Jacques",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const cesar_happy_speak = preload("res://Characters/Cesar/Cesar_happy2.png")
-const cesar_happy_no_speak = preload("res://Characters/Cesar/Cesar_happy1.png")
 func _on_cesar_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -696,10 +734,6 @@ func _on_cesar_pressed():
 	tbi.sprite_change("Cesar",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const kiri_happy_speak = preload("res://Characters/Kiri/Kiri_happy2.png")
-const kiri_happy_no_speak = preload("res://Characters/Kiri/Kiri_happy1.png")
-const kiri_serious_speak = preload("res://Characters/Kiri/Kiri_serious2.png")
-const kiri_serious_no_speak = preload("res://Characters/Kiri/Kiri_serious1.png")
 func _on_kiri_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -747,10 +781,6 @@ func _on_kiri_pressed():
 	tbi.sprite_change("Kiri",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const clara_happy_speak = preload("res://Characters/Clara/Clara_happy2.png")
-const clara_happy_no_speak = preload("res://Characters/Clara/Clara_happy1.png")
-const clara_serious_speak = preload("res://Characters/Clara/Clara_serious2.png")
-const clara_serious_no_speak = preload("res://Characters/Clara/Clara_serious1.png")
 func _on_clara_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -780,10 +810,6 @@ func _on_clara_pressed():
 	tbi.sprite_change("Clara",null,false)
 	tbi.sprite_change("Humber",null,true)
 
-const yeetus_happy_speak = preload("res://Characters/Yeetus/Yeetus_happy2.png")
-const yeetus_happy_no_speak = preload("res://Characters/Yeetus/Yeetus_happy1.png")
-const yeetus_serious_speak = preload("res://Characters/Yeetus/Yeetus_serious2.png")
-const yeetus_serious_no_speak = preload("res://Characters/Yeetus/Yeetus_serious1.png")
 func _on_yeetus_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -812,7 +838,6 @@ func _on_yeetus_pressed():
 	tbi.sprite_change("Humber",null,true)
 	tbi.sprite_change("Yeetus",null,false)
 
-const cono = preload("res://Characters/Cone/Cone_normal.png")
 func _on_cono_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -835,8 +860,6 @@ func _on_cono_pressed():
 	tbi.sprite_change("Cone",null,false)
 	tbi.sprite_change("Humber",null,true)
 	
-const pham_happy_speak = preload("res://Characters/Pham/Pham_happy1.png")
-const pham_serious_speak = preload("res://Characters/Pham/Pham_serious1.png")
 func _on_pham_pressed():
 	one_more_button()
 	buttons_container.visible = false
@@ -1005,5 +1028,3 @@ var wait_dialogue_part_two = func():
 	tbi.queue_dialogue(" * Those who remember recount the old fable to the other attendees * ","Humber")
 	tbi.queue_dialogue(" * Everyone dices to split up to gather clues on the potential killer * ","Humber")
 	tbi.queue_dialogue(" * As people go towards other parts of the mansion, I’m left alone in the main entrance. I should go too * ","Humber")
-	
-#	tbi.queue_dialogue(" *  Where to go... * ","Humber")
