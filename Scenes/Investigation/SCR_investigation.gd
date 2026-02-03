@@ -26,8 +26,8 @@ var tbi
 # CONE
 const cone = preload("res://Characters/Cone/Cone_normal.png")
 # CLAU
-const clau_serious_speak = preload("res://Characters/Clau/Clau_serious1.png")
-const clau_serious_no_speak = preload("res://Characters/Clau/Clau_serious2.png")
+const clau_serious_speak = preload("res://Characters/Clau/Clau_serious2.png")
+const clau_serious_no_speak = preload("res://Characters/Clau/Clau_serious1.png")
 # KIMBIX
 const kimbix_serious_speak = preload("res://Characters/Humber/Humber_serious2.png")
 const kimbix_serious_no_speak = preload("res://Characters/Humber/Humber_serious1.png")
@@ -103,11 +103,11 @@ func _ready():
 
 func _input(_event):
 	if tbi.disable_input: return
-	if (not Input.is_action_just_pressed("ui_accept") and not Input.is_action_just_released("textbox_fastforward")): 
+	if (not Input.is_action_just_released("ui_accept") and not Input.is_action_just_released("textbox_fastforward")): 
 		return
 	if (not tbi.current_state == tbi.State.READY and not tbi.current_state == tbi.State.FINISHED): 
 		return
-	
+	if (not tbi.queue.is_empty()): return
 	match(current_state):
 		State.CHOOSING:
 			locations_container.visible = true
@@ -116,6 +116,7 @@ func _input(_event):
 			tbi.queue_dialogue("It's nearing midnight, I should go back with the rest", "Humber")
 			current_state = State.ENDING
 		var state when state == State.PLACE_DIALOGUE and locations_container.get_child_count() > 2:
+			if locations_container.visible: return
 			var back_mansion = func():
 				locations_container.visible = true
 			var change_bg = func():
@@ -205,6 +206,8 @@ func cyru_cutscene():
 	tbi.sprite_change("Clau",clau_serious_speak,false)
 	tbi.queue_dialogue("chao tonto", "Clau")
 	tbi.sprite_change("Clau",clau_serious_no_speak,false)
+	
+	print(tbi.queue)
 	
 	tbi.new_clean()
 
@@ -935,11 +938,14 @@ var dungeon_scene = func():
 		
 		tbi.sprite_change("Cyrus",cyrus_serious_speak,false)
 		tbi.queue_dialogue("Cono has been acting kinda strange, he doesn’t speak when spoken to not really", "Cyrus")
-		tbi.queue_dialogue("What’s suspicious to me is the way chris died. Something doesn’t feel right", "Cyrus")
 		tbi.sprite_change("Cyrus",cyrus_serious_no_speak,false)
 		
 		tbi.sprite_change("Kiri",kiri_serious_speak,false)
 		tbi.queue_dialogue("To be fair, Cone has been under a lot of stress being homeless and all, I dont think it’s him", "Kiri")
+		tbi.sprite_change("Kiri",kiri_serious_no_speak,false)
+		
+		tbi.sprite_change("Kiri",kiri_serious_speak,false)
+		tbi.queue_dialogue("What’s really suspicious to me is the way chris died. Something doesn’t feel right", "Kiri")
 		tbi.sprite_change("Kiri",kiri_serious_no_speak,false)
 		
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
@@ -1208,7 +1214,7 @@ func _on_bedroom_pressed():
 	tbi.fade_black_back_in(bedroom_scene, bedroom_trans)
 
 var bedroom_scene = func():
-	tbi.queue_dialogue(" * A quick nap would help me concentrate more, I know just the place. I walk towards chris’s bedroom * ", "Humber")
+	tbi.queue_dialogue(" * A quick nap would help me concentrate more, I know just the place. I walk towards chris’ bedroom * ", "Humber")
 	tbi.queue_dialogue(" * His room has a bunch of anime posters, a king sized bed in the center in between two nightstands * ", "Humber")
 	tbi.queue_dialogue(" * Chris’s phone is left in one of them * ", "Humber")
 	tbi.queue_dialogue(" * I walk towards it and grab his phone. Now if only I can remember what the password was * ", "Humber")
@@ -1308,7 +1314,7 @@ var bedroom_scene = func():
 		tbi.queue_dialogue("Oh now I get what he meant by that","Bici")
 		tbi.sprite_change("Bici",bici_serious_no_speak,false)
 		
-		tbi.queue_dialogue("???","Bici")
+		tbi.queue_dialogue("???","Humber")
 		
 		tbi.sprite_change("Bici",bici_serious_speak,false)
 		tbi.queue_dialogue("We found some boxes inside of chris’ closet. They were all labeled as human-sized pin~ata, whatever that means","Bici")
