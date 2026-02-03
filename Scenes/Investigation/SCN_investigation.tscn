@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://biwtat2m8jaqc"]
+[gd_scene format=3 uid="uid://biwtat2m8jaqc"]
 
 [ext_resource type="Script" uid="uid://cqorb0u87ikqd" path="res://Scenes/Investigation/SCR_investigation.gd" id="1_qf8ob"]
 [ext_resource type="Script" uid="uid://bci8unplm321r" path="res://Scenes/Main Menu/button_control.gd" id="2_1r0jw"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cbvdbh4i0vg6t" path="res://Assets/UI/Labels/Locations/Button_Label_Garden.png" id="9_ubl3h"]
 [ext_resource type="Texture2D" uid="uid://mxynj2fvspoo" path="res://Assets/UI/Labels/Locations/Button_Label_Garage.png" id="10_474od"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=385675957]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,12 +17,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScnIntroCutscene" type="Node2D" parent="."]
+[node name="ScnIntroCutscene" type="Node2D" parent="." unique_id=1684878393]
 script = ExtResource("1_qf8ob")
 
-[node name="ButtonsLayer" type="CanvasLayer" parent="."]
+[node name="ButtonsLayer" type="CanvasLayer" parent="." unique_id=899375991]
 
-[node name="LocationsContainer" type="VBoxContainer" parent="ButtonsLayer"]
+[node name="LocationsContainer" type="VBoxContainer" parent="ButtonsLayer" unique_id=1515364408]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -36,53 +36,53 @@ size_flags_vertical = 4
 theme_override_constants/separation = 125
 alignment = 1
 
-[node name="Dungeon_Control" type="Control" parent="ButtonsLayer/LocationsContainer"]
+[node name="Dungeon_Control" type="Control" parent="ButtonsLayer/LocationsContainer" unique_id=937021272]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 script = ExtResource("2_1r0jw")
 
-[node name="The Dungeon" parent="ButtonsLayer/LocationsContainer/Dungeon_Control" instance=ExtResource("3_474od")]
+[node name="The Dungeon" parent="ButtonsLayer/LocationsContainer/Dungeon_Control" unique_id=912782663 instance=ExtResource("3_474od")]
 layout_mode = 1
 text_texture = ExtResource("5_qea11")
 
-[node name="Bedroom_Control" type="Control" parent="ButtonsLayer/LocationsContainer"]
+[node name="Bedroom_Control" type="Control" parent="ButtonsLayer/LocationsContainer" unique_id=1815860448]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 script = ExtResource("2_1r0jw")
 
-[node name="Bedroom" parent="ButtonsLayer/LocationsContainer/Bedroom_Control" instance=ExtResource("3_474od")]
+[node name="Bedroom" parent="ButtonsLayer/LocationsContainer/Bedroom_Control" unique_id=2005375800 instance=ExtResource("3_474od")]
 layout_mode = 1
 text_texture = ExtResource("7_qea11")
 
-[node name="Kitchen_Control" type="Control" parent="ButtonsLayer/LocationsContainer"]
+[node name="Kitchen_Control" type="Control" parent="ButtonsLayer/LocationsContainer" unique_id=1385628585]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 script = ExtResource("2_1r0jw")
 
-[node name="Kitchen" parent="ButtonsLayer/LocationsContainer/Kitchen_Control" instance=ExtResource("3_474od")]
+[node name="Kitchen" parent="ButtonsLayer/LocationsContainer/Kitchen_Control" unique_id=1306404680 instance=ExtResource("3_474od")]
 layout_mode = 1
 text_texture = ExtResource("8_qea11")
 
-[node name="Garden_Control" type="Control" parent="ButtonsLayer/LocationsContainer"]
+[node name="Garden_Control" type="Control" parent="ButtonsLayer/LocationsContainer" unique_id=1226940237]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 script = ExtResource("2_1r0jw")
 
-[node name="Garden" parent="ButtonsLayer/LocationsContainer/Garden_Control" instance=ExtResource("3_474od")]
+[node name="Garden" parent="ButtonsLayer/LocationsContainer/Garden_Control" unique_id=173192716 instance=ExtResource("3_474od")]
 layout_mode = 1
 text_texture = ExtResource("9_ubl3h")
 
-[node name="Garage_Control" type="Control" parent="ButtonsLayer/LocationsContainer"]
+[node name="Garage_Control" type="Control" parent="ButtonsLayer/LocationsContainer" unique_id=1607403826]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
 script = ExtResource("2_1r0jw")
 
-[node name="Garage" parent="ButtonsLayer/LocationsContainer/Garage_Control" instance=ExtResource("3_474od")]
+[node name="Garage" parent="ButtonsLayer/LocationsContainer/Garage_Control" unique_id=2025083878 instance=ExtResource("3_474od")]
 layout_mode = 1
 text_texture = ExtResource("10_474od")
 
