@@ -1604,7 +1604,7 @@ var garden_scene = func():
 		tbi.sprite_change("Yeetus",yeetus_serious_no_speak,false)
 		
 		tbi.sprite_change("Ukesito",uke_serious_speak,false)
-		tbi.queue_dialogue("Humberto the “horse” has a name, Yeetus… Don't be rude…", "Ukesito")
+		tbi.queue_dialogue("Humberto the “horse” has a name, Yeetus... Don't be rude...", "Ukesito")
 		tbi.sprite_change("Ukesito",uke_serious_no_speak,false)
 		
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
@@ -1639,9 +1639,9 @@ var garden_scene = func():
 		tbi.queue_dialogue("Exactly, handle it with care", "Ukesito")
 		tbi.sprite_change("Ukesito",uke_serious_no_speak,false)
 		
-		tbi.queue_dialogue("I am given the zip lock and find it has a list with three names: chris, cone, david", "Humber")
-		tbi.queue_dialogue("Chris has multiple lines striked through their name. I give back the ziplock", "Humber")
-		tbi.queue_dialogue("This must be someone's. Chris never bought ziplock bags, something about the temptation of filling them with air and then deflating them over and over again.", "Humber")
+		tbi.queue_dialogue("* I am given the zip lock and find it has a list with three names: chris, cone, david *", "Humber")
+		tbi.queue_dialogue("* Chris has multiple lines striked through their name. I give back the ziplock *", "Humber")
+		tbi.queue_dialogue("* This must be someone's. Chris never bought ziplock bags, something about the temptation of filling them with air and then deflating them over and over again.*", "Humber")
 		
 		tbi.sprite_change("Ukesito",uke_serious_speak,false)
 		tbi.queue_dialogue("I'm pretty sure this is bici’s. She's always hating on me, so maybe she lost it.", "Ukesito")
