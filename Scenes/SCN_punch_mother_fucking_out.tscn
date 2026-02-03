@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://3sgf5bejjl3v"]
+[gd_scene format=3 uid="uid://3sgf5bejjl3v"]
 
 [ext_resource type="Script" uid="uid://bdi1oftfralyn" path="res://Scenes/SCR_punch_out.gd" id="1_un1sr"]
 [ext_resource type="Texture2D" uid="uid://cphejw2fg8yw0" path="res://Characters/PUNCH OUT/cono_hurt.png" id="2_bgoxt"]
@@ -244,51 +244,51 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="ScnPunchMotherFuckingOut" type="Node2D"]
+[node name="ScnPunchMotherFuckingOut" type="Node2D" unique_id=1921192134]
 script = ExtResource("1_un1sr")
 
-[node name="Oponent" type="Area2D" parent="."]
+[node name="Oponent" type="Area2D" parent="." unique_id=1126313047]
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Oponent"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Oponent" unique_id=171062288]
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_ko0d0")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Oponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Oponent" unique_id=1041488290]
 shape = SubResource("RectangleShape2D_lw72s")
 
-[node name="Player" type="Area2D" parent="."]
+[node name="Player" type="Area2D" parent="." unique_id=1665622571]
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Player" unique_id=2049789418]
 texture_filter = 1
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_nlbht")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1703203171]
 shape = SubResource("RectangleShape2D_lw72s")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=447729775]
 layer = -1
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=274483578]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer" unique_id=798703721]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("8_f38vc")
 
-[node name="Buttonlayer" type="CanvasLayer" parent="."]
+[node name="Buttonlayer" type="CanvasLayer" parent="." unique_id=129413746]
 
-[node name="MarginContainer" type="MarginContainer" parent="Buttonlayer"]
+[node name="MarginContainer" type="MarginContainer" parent="Buttonlayer" unique_id=16560304]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -299,12 +299,12 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="HBoxContainer" parent="Buttonlayer/MarginContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Buttonlayer/MarginContainer" unique_id=1747216588]
 layout_mode = 2
 size_flags_vertical = 0
 alignment = 1
 
-[node name="KimbixHealth" type="Label" parent="Buttonlayer/MarginContainer/VBoxContainer"]
+[node name="KimbixHealth" type="Label" parent="Buttonlayer/MarginContainer/VBoxContainer" unique_id=323399876]
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 0
@@ -312,7 +312,7 @@ theme = ExtResource("9_i8ih2")
 theme_override_font_sizes/font_size = 80
 text = "Streamer 100"
 
-[node name="ConeHealth" type="Label" parent="Buttonlayer/MarginContainer/VBoxContainer"]
+[node name="ConeHealth" type="Label" parent="Buttonlayer/MarginContainer/VBoxContainer" unique_id=1525662664]
 custom_minimum_size = Vector2(450, 0)
 layout_mode = 2
 size_flags_horizontal = 8
@@ -321,7 +321,7 @@ theme = ExtResource("9_i8ih2")
 theme_override_font_sizes/font_size = 80
 text = "Cone Tyson 3000"
 
-[node name="Combo" type="Label" parent="Buttonlayer/MarginContainer"]
+[node name="Combo" type="Label" parent="Buttonlayer/MarginContainer" unique_id=1175554450]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -331,7 +331,7 @@ text = "Combo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Buttons" type="MarginContainer" parent="Buttonlayer"]
+[node name="Buttons" type="MarginContainer" parent="Buttonlayer" unique_id=1588053929]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -339,12 +339,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Buttonlayer/Buttons"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Buttonlayer/Buttons" unique_id=1401491296]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Retry" type="Button" parent="Buttonlayer/Buttons/VBoxContainer"]
+[node name="Retry" type="Button" parent="Buttonlayer/Buttons/VBoxContainer" unique_id=44659708]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -352,7 +352,7 @@ theme = ExtResource("9_i8ih2")
 theme_override_font_sizes/font_size = 112
 text = "Stay Determined?"
 
-[node name="Quit" type="Button" parent="Buttonlayer/Buttons/VBoxContainer"]
+[node name="Quit" type="Button" parent="Buttonlayer/Buttons/VBoxContainer" unique_id=718686022]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
