@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ddbxg3vh1iyw4"]
+[gd_scene format=3 uid="uid://ddbxg3vh1iyw4"]
 
 [ext_resource type="Script" uid="uid://cfqgo5stuav8a" path="res://Scenes/Ending/SCR_endings.gd" id="1_cy0ak"]
 [ext_resource type="PackedScene" uid="uid://bt33drb03ogrm" path="res://UI/Button_Control.tscn" id="2_vgrty"]
@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://c7aklovgwugri" path="res://Assets/UI/Labels/Characters/Button_Label_Humber.png" id="11_3arvf"]
 [ext_resource type="Texture2D" uid="uid://d1m06phj6xkts" path="res://Assets/UI/Labels/Characters/Button_Label_Magnitude.png" id="12_3arvf"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=687929883]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,12 +22,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ScnIntroCutscene" type="Node2D" parent="."]
+[node name="ScnIntroCutscene" type="Node2D" parent="." unique_id=857597656]
 script = ExtResource("1_cy0ak")
 
-[node name="ButtonsLayer" type="CanvasLayer" parent="."]
+[node name="ButtonsLayer" type="CanvasLayer" parent="." unique_id=1500459531]
 
-[node name="EndingsContainer" type="GridContainer" parent="ButtonsLayer"]
+[node name="EndingsContainer" type="GridContainer" parent="ButtonsLayer" unique_id=1713660151]
 show_behind_parent = true
 anchors_preset = 8
 anchor_left = 0.5
@@ -46,117 +46,117 @@ theme_override_constants/h_separation = 595
 theme_override_constants/v_separation = 60
 columns = 2
 
-[node name="Bici_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
+[node name="Bici_Control" type="Control" parent="ButtonsLayer/EndingsContainer" unique_id=1509107105]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Bici" parent="ButtonsLayer/EndingsContainer/Bici_Control" instance=ExtResource("2_vgrty")]
+[node name="Bici" parent="ButtonsLayer/EndingsContainer/Bici_Control" unique_id=2063396864 instance=ExtResource("2_vgrty")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("3_jkabb")
 
-[node name="Chris_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
+[node name="Chris_Control" type="Control" parent="ButtonsLayer/EndingsContainer" unique_id=1682882120]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Chris" parent="ButtonsLayer/EndingsContainer/Chris_Control" instance=ExtResource("2_vgrty")]
+[node name="Chris" parent="ButtonsLayer/EndingsContainer/Chris_Control" unique_id=1107974256 instance=ExtResource("2_vgrty")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("5_3arvf")
 
-[node name="Cono_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
+[node name="Cono_Control" type="Control" parent="ButtonsLayer/EndingsContainer" unique_id=1526419308]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Cono" parent="ButtonsLayer/EndingsContainer/Cono_Control" instance=ExtResource("2_vgrty")]
+[node name="Cono" parent="ButtonsLayer/EndingsContainer/Cono_Control" unique_id=314167997 instance=ExtResource("2_vgrty")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("4_sq4ug")
 
-[node name="Cyrus_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
+[node name="Cyrus_Control" type="Control" parent="ButtonsLayer/EndingsContainer" unique_id=112752526]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Cyrus" parent="ButtonsLayer/EndingsContainer/Cyrus_Control" instance=ExtResource("2_vgrty")]
+[node name="Cyrus" parent="ButtonsLayer/EndingsContainer/Cyrus_Control" unique_id=1999280667 instance=ExtResource("2_vgrty")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("6_qjvhs")
 
-[node name="Joaco_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
+[node name="Joaco_Control" type="Control" parent="ButtonsLayer/EndingsContainer" unique_id=250768296]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Joaco" parent="ButtonsLayer/EndingsContainer/Joaco_Control" instance=ExtResource("2_vgrty")]
+[node name="Joaco" parent="ButtonsLayer/EndingsContainer/Joaco_Control" unique_id=1160271655 instance=ExtResource("2_vgrty")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("7_1niy8")
 
-[node name="Kiri_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
+[node name="Kiri_Control" type="Control" parent="ButtonsLayer/EndingsContainer" unique_id=2015995757]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Kiri" parent="ButtonsLayer/EndingsContainer/Kiri_Control" instance=ExtResource("2_vgrty")]
+[node name="Kiri" parent="ButtonsLayer/EndingsContainer/Kiri_Control" unique_id=2115784452 instance=ExtResource("2_vgrty")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("8_erqhj")
 
-[node name="Yeetus_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
+[node name="Yeetus_Control" type="Control" parent="ButtonsLayer/EndingsContainer" unique_id=1568614105]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Yeetus" parent="ButtonsLayer/EndingsContainer/Yeetus_Control" instance=ExtResource("2_vgrty")]
+[node name="Yeetus" parent="ButtonsLayer/EndingsContainer/Yeetus_Control" unique_id=2105085635 instance=ExtResource("2_vgrty")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("10_s831j")
 
-[node name="NoOne_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
+[node name="NoOne_Control" type="Control" parent="ButtonsLayer/EndingsContainer" unique_id=1460373103]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="None" parent="ButtonsLayer/EndingsContainer/NoOne_Control" instance=ExtResource("2_vgrty")]
+[node name="None" parent="ButtonsLayer/EndingsContainer/NoOne_Control" unique_id=1402655077 instance=ExtResource("2_vgrty")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("10_sq4ug")
 
-[node name="Kimbix_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
+[node name="Kimbix_Control" type="Control" parent="ButtonsLayer/EndingsContainer" unique_id=1338299797]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Kimbix" parent="ButtonsLayer/EndingsContainer/Kimbix_Control" instance=ExtResource("2_vgrty")]
+[node name="Kimbix" parent="ButtonsLayer/EndingsContainer/Kimbix_Control" unique_id=615290599 instance=ExtResource("2_vgrty")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("11_3arvf")
 
-[node name="Magnitude_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
+[node name="Magnitude_Control" type="Control" parent="ButtonsLayer/EndingsContainer" unique_id=201030498]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Magnitude" parent="ButtonsLayer/EndingsContainer/Magnitude_Control" instance=ExtResource("2_vgrty")]
+[node name="Magnitude" parent="ButtonsLayer/EndingsContainer/Magnitude_Control" unique_id=204454684 instance=ExtResource("2_vgrty")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("12_3arvf")
 
-[node name="Ukesito_Control" type="Control" parent="ButtonsLayer/EndingsContainer"]
+[node name="Ukesito_Control" type="Control" parent="ButtonsLayer/EndingsContainer" unique_id=1506579000]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Ukesito" parent="ButtonsLayer/EndingsContainer/Ukesito_Control" instance=ExtResource("2_vgrty")]
+[node name="Ukesito" parent="ButtonsLayer/EndingsContainer/Ukesito_Control" unique_id=617183439 instance=ExtResource("2_vgrty")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("9_qrd88")
 
-[node name="LocationsContainer" type="GridContainer" parent="ButtonsLayer"]
+[node name="LocationsContainer" type="GridContainer" parent="ButtonsLayer" unique_id=1430883292]
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_constants/h_separation = 535

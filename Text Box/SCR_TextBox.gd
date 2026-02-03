@@ -46,11 +46,11 @@ func _process(_delta):
 	match (current_state):
 		State.READY:
 			if not queue.is_empty():
-				print("queue not empty")
-				#print(queue)
+				#print("queue not empty")
+				print(queue)
 				next_all()
 			else:
-				print("queue empty")
+				#print("queue empty")
 				hide_textbox()
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept") or Input.is_action_pressed("textbox_fastforward"):

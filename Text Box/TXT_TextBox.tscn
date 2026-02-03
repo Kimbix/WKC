@@ -141,7 +141,7 @@ theme_override_constants/separation = 25
 layout_mode = 2
 size_flags_vertical = 0
 theme = ExtResource("3_k88rq")
-text = "*"
+text = ">"
 
 [node name="Text" type="Label" parent="PanelContainer/MarginContainer/TextboxContainer/MarginContainer/HBoxContainer" unique_id=2123016188]
 custom_minimum_size = Vector2(1, 0)
@@ -149,7 +149,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme = ExtResource("3_k88rq")
-text = "This is the default text :D, you should NOT be seeing this
+text = "This is the default text :D, you should NOT be seeing this... …
 
 "
 autowrap_mode = 3
