@@ -52,12 +52,12 @@ func _process(_delta):
 			else:
 				hide_textbox()
 		State.READING:
-			if Input.is_action_just_pressed("ui_accept") or Input.is_key_pressed(KEY_Z):
+			if Input.is_action_just_pressed("ui_accept") or Input.is_action_pressed("textbox_fastforward"):
 				tween.stop()
 				label.visible_ratio = 1
 				END_READING_FUNCTION.call()
 		State.FINISHED:
-			if Input.is_action_just_pressed("ui_accept") or Input.is_key_pressed(KEY_Z):
+			if Input.is_action_just_pressed("ui_accept") or Input.is_action_pressed("textbox_fastforward"):
 				change_state(State.READY)
 
 func hide_textbox():
@@ -135,9 +135,9 @@ func display_text(next_text, speaker):
 
 var current_step : int = 0
 func next_all():
-	print(queue.size())
+	#print(queue.size())
 	if (queue.size() == current_step): 
-		print("returning next all")
+		#print("returning next all")
 		current_step = 0
 		clear_queue()
 		return
