@@ -47,9 +47,10 @@ func _process(_delta):
 		State.READY:
 			if not queue.is_empty():
 				print("queue not empty")
-				print(queue)
+				#print(queue)
 				next_all()
 			else:
+				print("queue empty")
 				hide_textbox()
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept") or Input.is_action_pressed("textbox_fastforward"):
@@ -82,13 +83,13 @@ func queue_text(next_text):
 
 func change_state(next_state):
 	current_state = next_state
-#	match (current_state):
-#		State.READY:
-#			print("Changing to State.READY")
-#		State.READING:
-#			print("Changing to State.READING")
-#		State.FINISHED:
-#			print("Changing to State.FINISHED")
+	match (current_state):
+		State.READY:
+			print("Changing to State.READY")
+		State.READING:
+			print("Changing to State.READING")
+		State.FINISHED:
+			print("Changing to State.FINISHED")
 
 @onready var left_container = $CharacterContainerLeft/LeftContainer
 @onready var right_container = $CharacterContainerRight/RightContainer

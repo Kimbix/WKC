@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bn17nnkpsj8b7"]
+[gd_scene format=3 uid="uid://bn17nnkpsj8b7"]
 
 [ext_resource type="Script" uid="uid://drsoti0e0mtau" path="res://Scenes/Intro Cutscene/SCN_intro_cutscene.gd" id="1_7l8le"]
 [ext_resource type="Texture2D" uid="uid://bsx33dhpcodp0" path="res://Assets/Backgrounds/Locations/BG_black.png" id="1_lau3o"]
@@ -25,7 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://clxscyrbappeq" path="res://Assets/UI/Labels/Characters/Button_Label_Sage.png" id="19_l3qpx"]
 [ext_resource type="Texture2D" uid="uid://c73f6xc052f8r" path="res://Assets/UI/Labels/Characters/Button_Label_Yeetus.png" id="21_ciimh"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=316753835]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,17 +33,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Blackbg" type="Sprite2D" parent="."]
+[node name="Blackbg" type="Sprite2D" parent="." unique_id=126751334]
 position = Vector2(968, 542.25)
 scale = Vector2(1.6383333, 1.6911111)
 texture = ExtResource("1_lau3o")
 
-[node name="ScnIntroCutscene" type="Node2D" parent="."]
+[node name="ScnIntroCutscene" type="Node2D" parent="." unique_id=241413065]
 script = ExtResource("1_7l8le")
 
-[node name="ButtonsLayer" type="CanvasLayer" parent="."]
+[node name="ButtonsLayer" type="CanvasLayer" parent="." unique_id=2022247428]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ButtonsLayer" unique_id=147795724]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -57,7 +57,7 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 theme_override_constants/separation = 150
 
-[node name="LocationsContainer" type="GridContainer" parent="ButtonsLayer/VBoxContainer"]
+[node name="LocationsContainer" type="GridContainer" parent="ButtonsLayer/VBoxContainer" unique_id=1442639465]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -65,199 +65,199 @@ theme_override_constants/h_separation = 535
 theme_override_constants/v_separation = 145
 columns = 2
 
-[node name="Bici_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Bici_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=1578739479]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Bici" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Bici_Control" instance=ExtResource("2_eap7a")]
+[node name="Bici" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Bici_Control" unique_id=1383618076 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("3_iqbal")
 
-[node name="Cono_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Cono_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=1424159505]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Cono" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Cono_Control" instance=ExtResource("2_eap7a")]
+[node name="Cono" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Cono_Control" unique_id=1521801844 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("3_yuhcw")
 
-[node name="Cesar_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Cesar_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=283246184]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Cesar" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Cesar_Control" instance=ExtResource("2_eap7a")]
+[node name="Cesar" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Cesar_Control" unique_id=971015453 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("5_i1yqi")
 
-[node name="Chris_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Chris_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=460068247]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Chris" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Chris_Control" instance=ExtResource("2_eap7a")]
+[node name="Chris" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Chris_Control" unique_id=513344848 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("6_58cu6")
 
-[node name="Clara_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Clara_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=129750666]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Clara" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Clara_Control" instance=ExtResource("2_eap7a")]
+[node name="Clara" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Clara_Control" unique_id=233054173 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("7_c06mg")
 
-[node name="Clau_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Clau_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=781899430]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Clau" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Clau_Control" instance=ExtResource("2_eap7a")]
+[node name="Clau" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Clau_Control" unique_id=42290359 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("8_eap7a")
 
-[node name="Cyrus_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Cyrus_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=373352654]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Cyrus" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Cyrus_Control" instance=ExtResource("2_eap7a")]
+[node name="Cyrus" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Cyrus_Control" unique_id=1070799143 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("9_aat0a")
 
-[node name="David_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="David_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=40230322]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="David" parent="ButtonsLayer/VBoxContainer/LocationsContainer/David_Control" instance=ExtResource("2_eap7a")]
+[node name="David" parent="ButtonsLayer/VBoxContainer/LocationsContainer/David_Control" unique_id=1456436868 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("10_68pme")
 
-[node name="Felix_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Felix_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=1934473408]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Felix" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Felix_Control" instance=ExtResource("2_eap7a")]
+[node name="Felix" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Felix_Control" unique_id=1374846968 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("11_d82ur")
 
-[node name="Jacques_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Jacques_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=1289421942]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Jacques" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Jacques_Control" instance=ExtResource("2_eap7a")]
+[node name="Jacques" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Jacques_Control" unique_id=787043187 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("12_i83ca")
 
-[node name="Jem_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Jem_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=1077800325]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Jem" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Jem_Control" instance=ExtResource("2_eap7a")]
+[node name="Jem" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Jem_Control" unique_id=1893360368 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("13_wg24y")
 
-[node name="Joaco_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Joaco_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=1025708000]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Joaco" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Joaco_Control" instance=ExtResource("2_eap7a")]
+[node name="Joaco" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Joaco_Control" unique_id=559075821 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("14_wj3yb")
 
-[node name="Kiri_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Kiri_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=1862993884]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Kiri" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Kiri_Control" instance=ExtResource("2_eap7a")]
+[node name="Kiri" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Kiri_Control" unique_id=2035188012 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("15_fb47f")
 
-[node name="Nigu_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Nigu_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=1360448253]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Nigu" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Nigu_Control" instance=ExtResource("2_eap7a")]
+[node name="Nigu" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Nigu_Control" unique_id=879805830 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("16_4aci3")
 
-[node name="Paris_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Paris_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=1036629923]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Paris" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Paris_Control" instance=ExtResource("2_eap7a")]
+[node name="Paris" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Paris_Control" unique_id=1125136686 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("17_l3qpx")
 
-[node name="Pham_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Pham_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=418712544]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Pham" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Pham_Control" instance=ExtResource("2_eap7a")]
+[node name="Pham" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Pham_Control" unique_id=1260603673 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("18_ciimh")
 
-[node name="Sage_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Sage_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=678276349]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Sage" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Sage_Control" instance=ExtResource("2_eap7a")]
+[node name="Sage" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Sage_Control" unique_id=278863494 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("19_l3qpx")
 
-[node name="Ukesito_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Ukesito_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=1887772930]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Ukesito" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Ukesito_Control" instance=ExtResource("2_eap7a")]
+[node name="Ukesito" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Ukesito_Control" unique_id=1189657763 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("4_228gy")
 
-[node name="Yeetus_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer"]
+[node name="Yeetus_Control" type="Control" parent="ButtonsLayer/VBoxContainer/LocationsContainer" unique_id=966583554]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Yeetus" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Yeetus_Control" instance=ExtResource("2_eap7a")]
+[node name="Yeetus" parent="ButtonsLayer/VBoxContainer/LocationsContainer/Yeetus_Control" unique_id=158735201 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("21_ciimh")
 
-[node name="Wait_Control" type="Control" parent="ButtonsLayer/VBoxContainer"]
+[node name="Wait_Control" type="Control" parent="ButtonsLayer/VBoxContainer" unique_id=1185898621]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 script = ExtResource("2_c06mg")
 
-[node name="Wait" parent="ButtonsLayer/VBoxContainer/Wait_Control" instance=ExtResource("2_eap7a")]
+[node name="Wait" parent="ButtonsLayer/VBoxContainer/Wait_Control" unique_id=705982345 instance=ExtResource("2_eap7a")]
 layout_mode = 1
 scale = Vector2(1, 1)
 text_texture = ExtResource("6_228gy")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://84l00vq7non2"]
+[gd_scene format=3 uid="uid://84l00vq7non2"]
 
 [ext_resource type="Script" uid="uid://bth5625myrjde" path="res://Scenes/Letter Opening/SCR_intro_script.gd" id="1_18mg5"]
 [ext_resource type="Texture2D" uid="uid://cxox5b2r6kvrk" path="res://Assets/UI/Letter/Letters_Full_v3.png" id="2_i5154"]
@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tit78"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="ScnIntroScene" type="Control"]
+[node name="ScnIntroScene" type="Control" unique_id=564288697]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +17,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_18mg5")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=941499904]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_tit78")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=87560285]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,13 +38,13 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="Note3" type="TextureRect" parent="MarginContainer"]
+[node name="Note3" type="TextureRect" parent="MarginContainer" unique_id=518083458]
 layout_mode = 2
 texture = ExtResource("2_i5154")
 expand_mode = 3
 stretch_mode = 5
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1339526209]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,12 +56,12 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="LetterClosed" type="TextureRect" parent="MarginContainer2"]
+[node name="LetterClosed" type="TextureRect" parent="MarginContainer2" unique_id=1007139382]
 layout_mode = 2
 texture = ExtResource("2_jvfpr")
 stretch_mode = 3
 
-[node name="MarginContainer3" type="MarginContainer" parent="."]
+[node name="MarginContainer3" type="MarginContainer" parent="." unique_id=62349202]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -74,7 +74,7 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_right = 64
 theme_override_constants/margin_bottom = 64
 
-[node name="LetterOpened" type="TextureRect" parent="MarginContainer3"]
+[node name="LetterOpened" type="TextureRect" parent="MarginContainer3" unique_id=1142055952]
 layout_mode = 2
 texture = ExtResource("4_akr0i")
 stretch_mode = 3

@@ -105,7 +105,6 @@ func _input(_event):
 	if tbi.disable_input: return
 	if (not Input.is_action_just_pressed("ui_accept") and not Input.is_action_just_released("textbox_fastforward")): 
 		return
-
 	if (not tbi.current_state == tbi.State.READY and not tbi.current_state == tbi.State.FINISHED): 
 		return
 	

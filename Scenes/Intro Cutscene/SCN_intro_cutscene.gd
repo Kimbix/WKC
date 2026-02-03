@@ -168,18 +168,16 @@ func _ready():
 
 func _input(_event):
 	if tbi.disable_input: return
-	if (current_stage == Stages.CAR and
-		tbi.current_state == tbi.State.READY and
-		Input.is_action_just_released("ui_accept")):
+	if (not Input.is_action_just_released("ui_accept") and not Input.is_action_just_released("textbox_fastforward")): return
+	if (not tbi.current_state == tbi.State.READY and not tbi.current_state == tbi.State.FINISHED): return
+	if (not tbi.queue.is_empty()): return
+	print(current_stage)
+	if (current_stage == Stages.CAR):
 		buttons_container.visible = true
 		current_stage = Stages.TALKING
-	elif (current_stage == Stages.TALKING and
-		tbi.current_state == tbi.State.READY and
-		Input.is_action_just_released("ui_accept")):
-			buttons_container.visible = true
-	elif (current_stage == Stages.WAIT_PRESSED_ONE and
-		tbi.current_state == tbi.State.READY and
-		Input.is_action_just_released("ui_accept")):
+	elif (current_stage == Stages.TALKING):
+		buttons_container.visible = true
+	elif (current_stage == Stages.WAIT_PRESSED_ONE):
 			var dialogue = func():
 				tbi.queue_dialogue("Everyone had a wonderful time", "")
 				await get_tree().create_timer(3.0).timeout
@@ -187,9 +185,7 @@ func _input(_event):
 				tbi.hide_textbox()
 			tbi.fade_black_back_in(wait_dialogue_part_two, dialogue)
 			current_stage = Stages.WAIT_PRESSED_TWO
-	elif (current_stage == Stages.WAIT_PRESSED_TWO and
-		tbi.current_state == tbi.State.READY and
-		Input.is_action_just_released("ui_accept")):
+	elif (current_stage == Stages.WAIT_PRESSED_TWO):
 			get_tree().change_scene_to_file("res://Scenes/Investigation/SCN_investigation.tscn")
 
 func one_more_button():
