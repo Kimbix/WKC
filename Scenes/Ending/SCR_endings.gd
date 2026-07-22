@@ -160,6 +160,7 @@ func _input(_event):
 			tbi.fade_black_back_in(func(): get_tree().change_scene_to_file("res://SCN_punch_mother_fucking_out.tscn"), exit_func)
 
 func show_buttons():
+	ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIRI)
 	for ending in ScrPersistentData.possible_endings:
 		match(ending):
 			ScrPersistentData.Endings.CHRIS:
@@ -270,7 +271,7 @@ func _on_chris_pressed():
 	
 	tbi.queue_all(null, null, null, null, chris_ending, false, false)
 	tbi.queue_dialogue("TRUE ENDING", "...")
-	tbi.queue_dialogue("...", "...")
+	tbi.queue_all(null, "", null, null, null, null, null, 0)
 
 # UKE ENDING
 func _on_ukesito_pressed():
@@ -322,7 +323,7 @@ func _on_ukesito_pressed():
 
 	tbi.queue_all(null, null, null, null, uke_ending, false, false)
 	tbi.queue_dialogue("ADMIN ENDING", "")
-	tbi.queue_dialogue("...", "")
+	tbi.queue_all(null, "", null, null, null, null, null, 0)
 
 # YEETUS ENDING
 func _on_yeetus_pressed():
@@ -371,7 +372,7 @@ func _on_yeetus_pressed():
 
 	tbi.queue_all(null, null, null, null, yeetus_ending, false, false)
 	tbi.queue_dialogue("FREEDOM ENDING", "")
-	tbi.queue_dialogue("...", "")
+	tbi.queue_all(null, "", null, null, null, null, null, 0)
 
 # CYRUS ENDING
 func _on_cyrus_pressed():
@@ -419,7 +420,7 @@ func _on_cyrus_pressed():
 	tbi.queue_dialogue(" * As i get close i see the tv is on with Bojack horseman on * ", "Kimbix")
 	tbi.queue_dialogue(" * this is going to be a fun night * ", "Kimbix")
 	tbi.queue_dialogue("JEALOUSY ENDING", "...")
-	tbi.queue_dialogue("...", "...")
+	tbi.queue_all(null, "", null, null, null, null, null, 0)
 
 # IMPOSTOR ENDING
 func _on_kimbix_pressed():
@@ -471,7 +472,7 @@ func _on_kimbix_pressed():
 	
 	tbi.queue_all(null, null, null, null, kimbix_ending, false, false)
 	tbi.queue_dialogue("IMPOSTOR ENDING", "")
-	tbi.queue_dialogue("...", "")
+	tbi.queue_all(null, "", null, null, null, null, null, 0)
 
 # CONE ENDING
 func _on_cono_pressed():
@@ -490,7 +491,6 @@ func _on_cono_pressed():
 	tbi.queue_dialogue("I hate people who spoil surprises", "Evil Cone")
 	tbi.queue_dialogue("I'll enjoy sending you to the same place where chris is", "Evil Cone")
 	tbi.sprite_change("Cone",cone_evil_no_speak,false)
-
 
 func _on_kiri_pressed():
 	if (save_dict["kiri"]):
@@ -520,8 +520,7 @@ func _on_kiri_pressed():
 	
 	tbi.queue_all(null, null, null, null, kiri_ending, false, false)
 	tbi.queue_dialogue("小红书 ENDING", "")
-	tbi.queue_dialogue("...", "")
-
+	tbi.queue_all(null, "", null, null, null, null, null, 0)
 
 func _on_magnitude_pressed():
 	if (save_dict["magnitude"]):
@@ -586,10 +585,10 @@ func _on_magnitude_pressed():
 	tbi.sprite_change("Kimbix",kimbix_serious_no_speak,true)
 
 	tbi.sprite_change("Kimbix",null,true)
+	
 	tbi.queue_all(null, null, null, null, magnitude_ending, false, false)
 	tbi.queue_dialogue("PURGATORY ENDING", "")
-	tbi.queue_dialogue("...", "")
-
+	tbi.queue_all(null, "", null, null, null, null, null, 0)
 
 func _on_joaco_pressed():
 	if (save_dict["joaco"]):
@@ -616,10 +615,9 @@ func _on_joaco_pressed():
 	tbi.sprite_change("Joaco",null,true)
 	
 	tbi.queue_all(null, null, null, null, joaco_ending, false, false)
-	tbi.queue_dialogue("AUDIO PLACE ENDING", "...")
 	tbi.queue_dialogue("audioplaceaudioplaceaudioplaceaudioplaceaudioplaceaudioplaceaudioplace", "Joaco")
-	tbi.queue_dialogue("...", "...")
-
+	tbi.queue_dialogue("AUDIO PLACE ENDING", "...")
+	tbi.queue_all(null, "", null, null, null, null, null, 0)
 
 func _on_bici_pressed():
 	if (save_dict["bici"]):
@@ -642,7 +640,7 @@ func _on_bici_pressed():
 	
 	tbi.queue_all(null, null, null, null, bici_ending, false, false)
 	tbi.queue_dialogue("EGGNOID ENDING", "...")
-	tbi.queue_dialogue("...", "...")
+	tbi.queue_all(null, "", null, null, null, null, null, 0)
 
 # NO IDEA ENDING
 func _on_none_pressed():
@@ -670,6 +668,7 @@ func _on_none_pressed():
 	tbi.queue_dialogue("I guess nobody really did it...", "...")
 	
 	tbi.queue_dialogue("HIDDEN ENDING: NO ONE", "...")
+	tbi.queue_all(null, "", null, null, null, null, null, 0)
 
 func load_game():
 	if not FileAccess.file_exists("user://endings.json"):

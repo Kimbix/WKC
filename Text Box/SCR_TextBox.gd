@@ -46,11 +46,9 @@ func _process(_delta):
 	match (current_state):
 		State.READY:
 			if not queue.is_empty():
-				#print("queue not empty")
-				print(queue)
+				#print(queue)
 				next_all()
 			else:
-				#print("queue empty")
 				hide_textbox()
 		State.READING:
 			if Input.is_action_just_pressed("ui_accept") or Input.is_action_pressed("textbox_fastforward"):
@@ -102,10 +100,10 @@ func clear_queue():
 func sprite_change(char_name, sprite, left):
 	queue_all(null, null, char_name, sprite, null, false, left)
 
-func queue_dialogue(text, speaker):
-	queue_all(text, speaker, null, null, null, false, false)
+func queue_dialogue(text, speaker, showtbi: int = 1):
+	queue_all(text, speaker, null, null, null, false, false, showtbi)
 
-func queue_all(text, speaker, char_name, sprite, background, highlight, left):
+func queue_all(text, speaker, char_name, sprite, background, highlight, left, showtbi: int = 1):
 	queue.append({})
 	queue[-1]["text"] = text
 	queue[-1]["speaker"] = speaker
@@ -114,6 +112,7 @@ func queue_all(text, speaker, char_name, sprite, background, highlight, left):
 	queue[-1]["background"] = background
 	queue[-1]["highlight"] = highlight
 	queue[-1]["left"] = left
+	queue[-1]["showtbi"] = showtbi
 
 func new_clean():
 	for i in ["Bici", "Cono", "Cone", "Cesar", "Chris", "Clau", "Clara", "Cyrus", "David",
@@ -136,13 +135,15 @@ func display_text(next_text, speaker):
 
 var current_step : int = 0
 func next_all():
-	#print(queue.size())
 	if (queue.size() == current_step): 
 		#print("returning next all")
 		current_step = 0
 		clear_queue()
 		return
 	var dict = queue[current_step]
+	if (dict["showtbi"] == 0):
+		hide_textbox()
+		print("hiding")
 	if (dict["background"] != null):
 		background_container.texture = dict["background"]
 	if (dict["text"] != null):
@@ -203,7 +204,8 @@ func next_all():
 				character.modulate = Color(0.2, 0.2, 0.2)
 			chars_on_right[char_name].modulate = Color(1, 1, 1)
 	current_step += 1
-	if (dict["text"] == null): next_all()
+	if ((dict["text"] == null) && (dict["showtbi"] == 1)): 
+		next_all()
 
 var disable_input = false
 @onready var fade_black = $FadeBlack
