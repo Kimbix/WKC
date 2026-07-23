@@ -16,7 +16,6 @@ func _ready():
 	pass
 
 func _input(_event):
-	print(scene_to_change)
 	var ms_pos = get_global_mouse_position()
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		if (not note_triggered):
