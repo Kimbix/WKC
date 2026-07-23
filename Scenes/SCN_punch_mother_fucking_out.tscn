@@ -68,7 +68,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_xn32h")
 }],
-"loop": false,
+"loop": 0,
 "name": &"defeat",
 "speed": 5.0
 }, {
@@ -82,7 +82,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kf4u6")
 }],
-"loop": false,
+"loop": 0,
 "name": &"hook",
 "speed": 6.0
 }, {
@@ -105,7 +105,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_itaex")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 12.0
 }, {
@@ -119,7 +119,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1v5tl")
 }],
-"loop": false,
+"loop": 0,
 "name": &"punch",
 "speed": 6.0
 }]
@@ -219,7 +219,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sfvci")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 12.0
 }, {
@@ -239,7 +239,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dmwic")
 }],
-"loop": false,
+"loop": 0,
 "name": &"punch",
 "speed": 12.0
 }]
@@ -332,7 +332,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Buttons" type="MarginContainer" parent="Buttonlayer" unique_id=1588053929]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -340,6 +339,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Buttonlayer/Buttons" unique_id=1401491296]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
