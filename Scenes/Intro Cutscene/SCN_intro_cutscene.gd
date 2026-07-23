@@ -152,17 +152,17 @@ func _ready():
 	
 	tbi.sprite_change("Humber",null,true)
 	
-	tbi.queue_dialogue("* I pull towards the mansion *","Humber")
-	tbi.queue_dialogue("* After honking the car thrice, the gates open for me *","Humber")
-	tbi.queue_dialogue("* I park near the entrance of the house and get off *","Humber")
-	tbi.queue_dialogue("* Looking at the mansion before me I feel a bit excited for what’s to come *","Humber")
+	tbi.queue_dialogue("* I pull towards the mansion *","")
+	tbi.queue_dialogue("* After honking the car thrice, the gates open for me *","")
+	tbi.queue_dialogue("* I park near the entrance of the house and get off *","")
+	tbi.queue_dialogue("* Looking at the mansion before me I feel a bit excited for what’s to come *","")
 	tbi.queue_all(null, null, null, null, mansion_background, null, null)
 	
-	tbi.queue_dialogue("* Opening the main door, I see how some have arrived but not all *","Humber")
-	tbi.queue_dialogue("* Some are exploring the house and looking at the other rooms *","Humber")
-	tbi.queue_dialogue("* I don’t feel like looking at the rooms, Chris has already shown them to me so many times *","Humber")
+	tbi.queue_dialogue("* Opening the main door, I see how some have arrived but not all *","")
+	tbi.queue_dialogue("* Some are exploring the house and looking at the other rooms *","")
+	tbi.queue_dialogue("Looks like I'm early. I don’t feel like exploring, Chris has already given me like 10 tours","")
 	
-	tbi.queue_dialogue("* Looks like I'm early, maybe I should talk to others to kill time or I could just wait here *","Humber")
+	tbi.queue_dialogue("I could talk to others to kill time. Or I could just wait here","")
 
 
 func _input(_event):
@@ -220,6 +220,7 @@ func _on_ukesito_pressed():
 	
 	tbi.sprite_change("Ukesito",uke_happy_speak,false)
 	tbi.queue_dialogue("Haha what a coincidence","Ukesito")
+	tbi.sprite_change("Ukesito",uke_happy_no_speak,false)
 	tbi.queue_dialogue(" * Glances at his phone * ","Ukesito")
 	
 	tbi.sprite_change("Ukesito",uke_serious_speak,false)
@@ -232,6 +233,9 @@ func _on_ukesito_pressed():
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
 	tbi.sprite_change("Ukesito",null,false)
+	
+	tbi.queue_dialogue("What was that about?","Humber")
+	
 	tbi.sprite_change("Humber",null,true)
 
 func _on_nigu_pressed():
@@ -274,10 +278,10 @@ func _on_david_pressed():
 	tbi.sprite_change("David",david_happy_speak,false)
 	tbi.queue_dialogue("Have you heard of this new Javascript frame-","David")
 	
-	tbi.queue_dialogue("I promptly walk away not wanting to hear more","Humber")
-	
 	tbi.sprite_change("David",null,false)
 	tbi.sprite_change("Humber",null,true)
+	
+	tbi.queue_dialogue("I promptly walk away not wanting to hear more","Humber")
 
 func _on_paris_pressed():
 	one_more_button()
@@ -302,10 +306,10 @@ func _on_paris_pressed():
 	tbi.sprite_change("Paris",paris_happy_speak,false)
 	tbi.queue_dialogue("Have you heard of this new linux tool for-","Paris")
 	
-	tbi.queue_dialogue("I promptly walk away not wanting to hear more","Humber")
-	
 	tbi.sprite_change("Paris",null,false)
 	tbi.sprite_change("Humber",null,true)
+	
+	tbi.queue_dialogue("I promptly walk away not wanting to hear more","Humber")
 
 func _on_clau_pressed():
 	one_more_button()
@@ -395,7 +399,7 @@ func _on_bici_pressed():
 	tbi.sprite_change("Bici",bici_happy_no_speak,false)
 	
 	tbi.sprite_change("Humber",kimbix_happy_speak,true)
-	tbi.queue_dialogue("I know I know, I'll do it one if these days","Humber")
+	tbi.queue_dialogue("I know, I know. I'll do it one if these days","Humber")
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
 	tbi.sprite_change("Bici",bici_happy_speak,false)
@@ -414,12 +418,12 @@ func _on_bici_pressed():
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
 	tbi.sprite_change("Bici",bici_happy_speak,false)
-	tbi.queue_dialogue("Ran wakes up to a giant egg by her bed the morning after being rejected by her longtime crush-","Bici")
-	
-	tbi.queue_dialogue("I promptly walk away not wanting to hear more","Humber")
+	tbi.queue_dialogue("Ran wakes up to see a giant egg next to her bed the morning after being rejected by her longtime crush-","Bici")
 	
 	tbi.sprite_change("Bici",null,false)
 	tbi.sprite_change("Humber",null,true)
+	
+	tbi.queue_dialogue("I promptly walk away not wanting to hear more","Humber")
 
 func _on_sage_pressed():
 	one_more_button()
@@ -714,7 +718,7 @@ func _on_cesar_pressed():
 	
 	tbi.sprite_change("Cesar",cesar_happy_speak,false)
 	tbi.queue_dialogue("No I'm not","Cesar")
-	tbi.queue_dialogue("I have to keep up with this stupid fucking joke or else I’ll be beaten","Cesar")
+	tbi.queue_dialogue("I have to keep up with this stupid fucking joke or else I’ll psychologically tortured","Cesar")
 	tbi.queue_dialogue("My self has been reduced to a mere phrase I must repeat over and over","Cesar")
 	tbi.queue_dialogue("I have been ridden of my free will against my wishes","Cesar")
 	tbi.queue_dialogue("Please set me free","Cesar")
@@ -825,14 +829,14 @@ func _on_yeetus_pressed():
 	tbi.queue_dialogue("NEIGH NEIGH NEIGH","Yeetus")
 	tbi.sprite_change("Yeetus",yeetus_happy_no_speak,false)
 	
-	tbi.sprite_change("Humber",kimbix_happy_speak,true)
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
 	tbi.queue_dialogue("I'm gonna leave now","Humber")
-	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
 	tbi.sprite_change("Yeetus",yeetus_serious_no_speak,false)
-	tbi.queue_dialogue(" * I scurry away while Yeetus gives me the side eye * ","Humber")
-	
 	tbi.sprite_change("Humber",null,true)
+	
+	tbi.queue_dialogue(" * I scurry away while Yeetus gives me the side eye * ","Humber")
 	tbi.sprite_change("Yeetus",null,false)
 
 func _on_cono_pressed():
@@ -866,22 +870,22 @@ func _on_pham_pressed():
 	
 	tbi.queue_dialogue("Hi Humberto!","Pham")
 	
-	tbi.sprite_change("Humber",kimbix_happy_speak,true)
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
 	tbi.queue_dialogue("Hello. Uh, why are you a squid?","Humber")
-	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
 	tbi.queue_dialogue("Oh yeah an evil wizard turned me into this form after an epic battle","Pham")
 	
-	tbi.sprite_change("Humber",kimbix_happy_speak,true)
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.queue_dialogue("???","Humber")
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
 	tbi.queue_dialogue("I’m just messing with you, I just didn’t want to turn into my human form","Pham")
 	tbi.queue_dialogue("The only suit I have was dirty from the last time I used it","Pham")
 	
-	tbi.sprite_change("Humber",kimbix_happy_speak,true)
+	tbi.sprite_change("Humber",kimbix_serious_speak,true)
 	tbi.queue_dialogue("You mean to tell me, you can turn into a squid at will","Humber")
-	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
+	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	
 	tbi.queue_dialogue("YES EXACTLY","Pham")
 	
@@ -904,10 +908,10 @@ func _on_wait_pressed():
 	tbi.fade_black_back_in(wait_dialogue_part_one, func(): pass)
 
 var wait_dialogue_part_one = func():
-	tbi.queue_dialogue(" * Everyone seems to have arrived * ","Humber")
+	tbi.queue_dialogue("Everyone seems to have arrived","Humber")
 	
 	tbi.sprite_change("Chris",chris_happy_no_speak,true)
-	tbi.queue_dialogue("* clings a crystal glass * ","Chris")
+	tbi.queue_dialogue(" * clings a crystal glass * ","Chris")
 	
 	tbi.sprite_change("Chris",chris_happy_speak,true)
 	tbi.queue_dialogue(" ahem ","Chris")
@@ -915,9 +919,9 @@ var wait_dialogue_part_one = func():
 	tbi.queue_dialogue("I've arranged seating for all of you. Come now","Chris")
 	tbi.sprite_change("Chris",null,true)
 	
-	tbi.queue_dialogue(" * I make my way towards the table. There are name tags on the chairs for each person * ","Humber")
-	tbi.queue_dialogue(" * I circle around the table to find my seat in between Chris and uke * ","Humber")
-	tbi.queue_dialogue(" * Cone brings out a cart with multiple plates all labeled and starts placing them on the table * ","Humber")
+	tbi.queue_dialogue(" * I make my way towards the table. There are name tags on the chairs for each person * ","")
+	tbi.queue_dialogue(" * I circle around the table to find my seat in between Chris and uke * ","")
+	tbi.queue_dialogue(" * Cone brings out a cart with multiple plates all labeled and starts placing them on the table * ","")
 	
 	tbi.sprite_change("Ukesito",uke_happy_speak,true)
 	tbi.queue_dialogue("Wow! This looks delicious, thanks!","Ukesito")
@@ -931,14 +935,14 @@ var wait_dialogue_part_one = func():
 	tbi.queue_dialogue("Holy shit is that the 2l of duck fat that went missing?","Sage")
 	tbi.sprite_change("Sage",null,true)
 	
-	tbi.queue_dialogue(" * After Cone brings out a final plate for Chris and sets it in front of him * ","Humber")
+	tbi.queue_dialogue(" * After Cone brings out a final plate for Chris and sets it in front of him * ","")
 	
 	tbi.sprite_change("Chris",chris_happy_speak,true)
 	tbi.sprite_change("Cone",load("res://Characters/Cone/Cone_normal.png"),false)
 	tbi.queue_dialogue("Thank you Cone","Chris")
 	tbi.sprite_change("Chris",chris_happy_no_speak,true)
 	tbi.queue_dialogue(" * nods *","Cone")
-	tbi.queue_dialogue(" * Cone walks back towards the kitchen with the now empty car * ","Humber")
+	tbi.queue_dialogue(" * Cone walks back towards the kitchen with the now empty car * ","")
 	tbi.sprite_change("Cone",null,false)
 	
 	tbi.sprite_change("Chris",chris_happy_speak,true)
@@ -954,20 +958,20 @@ var wait_dialogue_part_two = func():
 	tbi.queue_dialogue("Now that we all ate, I want to show you guys something","Chris")
 	tbi.sprite_change("Chris",chris_happy_no_speak,true)
 	
-	tbi.queue_dialogue(" * We all stand up and follow behind Chris * ","Humber")
+	tbi.queue_dialogue(" * We all stand up and follow behind Chris * ","")
 	
 	tbi.sprite_change("Chris",chris_happy_speak,true)
 	tbi.queue_dialogue("I've spent a long time working on this so I really hope you all like it","Chris")
 	tbi.sprite_change("Chris",chris_happy_no_speak,true)
 	
-	tbi.queue_dialogue(" * We stand close to the circular rug and Chris motions for us to stay put * ","Humber")
-	tbi.queue_dialogue(" * As he walks towards the center of the rug he- ","Humber")
+	tbi.queue_dialogue(" * We stand close to the circular rug and Chris motions for us to stay put * ","")
+	tbi.queue_dialogue(" * As he walks towards the center of the rug he- ","")
 	
 	tbi.sprite_change("Chris",null,true)
 	tbi.queue_all(null, null, null, null, black_background, null, null)
 	tbi.queue_dialogue(" KABLAMO ","")
-	tbi.queue_dialogue(" * The lights quickly flicker before shutting off * ","Humber")
-	tbi.queue_dialogue(" * We're all blinded by the lack of light and jump at the sudden noise * ","Humber")
+	tbi.queue_dialogue(" * The lights quickly flicker before shutting off * ","")
+	tbi.queue_dialogue(" * We're all blinded by the lack of light and jump at the sudden noise * ","")
 	tbi.queue_dialogue("GASP","Bici")
 	tbi.queue_dialogue("nojoda","Cyrus")
 	tbi.queue_dialogue("Nunca se puede escapar del tercer mundo","Clau")
@@ -975,15 +979,15 @@ var wait_dialogue_part_two = func():
 	tbi.queue_dialogue("AAAAAAHHHH","David")
 	tbi.queue_dialogue(".   .   .   si ok entiendo","Chris")
 	tbi.queue_dialogue("BANG","")
-	tbi.queue_dialogue(" * Another loud sound can be heard, but this one felt way closer than the thunder * ","Humber")
-	tbi.queue_dialogue(" * An audible thud rings in my ear following the band. * ","Humber")
-	tbi.queue_dialogue(" * A few panic and try getting their phones * ","Humber")
-	tbi.queue_dialogue(" * Some move towards the walls trying to look for a switch * ","Humber")
-	tbi.queue_dialogue(" * My eyes meet a terrifying sight, as I drop my phone some gasp as they notice what it was I saw * ","Humber")
+	tbi.queue_dialogue(" * Another loud sound can be heard, but this one felt way closer than the thunder * ","")
+	tbi.queue_dialogue(" * An audible thud rings in my ear following the bang. * ","")
+	tbi.queue_dialogue(" * A few panic and try getting their phones * ","")
+	tbi.queue_dialogue(" * Some move towards the walls trying to look for a switch * ","")
+	tbi.queue_dialogue(" * My eyes meet a terrifying sight, as I drop my phone some gasp as they notice what it was I saw * ","")
 	tbi.queue_all(null, null, null, null, mansion_background, null, null)
-	tbi.queue_dialogue(" * The lights come back on and now I can see more clearly what it is now * ","Humber")
-	tbi.queue_dialogue(" * Chris's dead body. * ","Humber")
-	tbi.queue_dialogue(" * Their body is face down with blood slowly oozing out from their torso * ","Humber")
+	tbi.queue_dialogue(" * The lights come back on and now I can see more clearly what it is now * ","")
+	tbi.queue_dialogue(" * Chris's dead body. * ","")
+	tbi.queue_dialogue(" * Their body is face down with blood slowly oozing out from their torso * ","")
 	
 	tbi.sprite_change("David",david_serious_speak,true)
 	tbi.queue_dialogue("AAAAAAHHHH","David")
@@ -994,8 +998,10 @@ var wait_dialogue_part_two = func():
 	tbi.sprite_change("Bici",bici_serious_no_speak,false)
 	
 	tbi.sprite_change("David",null,true)
+	tbi.sprite_change("Kiri",kiri_serious_no_speak,true)
+	tbi.queue_dialogue(" * Holding her hand against her mouth * ","Kiri")
 	tbi.sprite_change("Kiri",kiri_serious_speak,true)
-	tbi.queue_dialogue(" * Holding hand against mouth * I'm gonna puke","Kiri")
+	tbi.queue_dialogue("I'm gonna puke","Kiri")
 	tbi.sprite_change("Kiri",kiri_serious_no_speak,true)
 	
 	tbi.sprite_change("Bici",null,false)
@@ -1011,17 +1017,18 @@ var wait_dialogue_part_two = func():
 	tbi.sprite_change("Clara",null,false)
 	tbi.sprite_change("Jem",null,true)
 	
-	tbi.queue_dialogue(" * I can only stare at what was once a living person * ","Humber")
-	tbi.queue_dialogue(" * Many start to argue over if we should check the body * ","Humber")
-	tbi.queue_dialogue(" * Despite everything I think we all thought the same thing * ","Humber")
-	tbi.queue_dialogue(" * Someone in this party just killed Chris... * ","Humber")
+	tbi.queue_dialogue(" * I can only stare at what was once a living person * ","")
+	tbi.queue_dialogue(" * Many start to argue over if we should check the body * ","")
+	tbi.queue_dialogue(" * Despite everything I think we all thought the same thing * ","")
+	tbi.queue_dialogue(" * Someone in this party just killed Chris... * ","")
 	
-	tbi.queue_dialogue(" * A while passes and many seem to calm down * ","Humber")
-	tbi.queue_dialogue(" * We hear the chiming of the grand clock, 8pm, it reads * ","Humber")
-	tbi.queue_dialogue(" * Many remember an old fable they heard as kids * ","Humber")
-	tbi.queue_dialogue(" * You must proclaim to a body how it dies so that its spirit may rest in peace * ","Humber")
-	tbi.queue_dialogue(" * After 4 hours if nothing is done, the spirit will roam this realm * ","Humber")
+	tbi.queue_dialogue(" * A while passes and many seem to calm down * ","")
+	tbi.queue_dialogue(" * We hear the chiming of the grand clock, 8pm, it reads * ","")
+	tbi.queue_dialogue(" * Many remember an old fable they heard as kids * ","")
+	tbi.queue_dialogue(" * You must proclaim to a body its cause of death so that its spirit may rest in peace * ","")
+	tbi.queue_dialogue(" * After 4 hours if nothing is done, the spirit will become vengeful and forever roam this realm * ","")
 	
-	tbi.queue_dialogue(" * Those who remember recount the old fable to the other attendees * ","Humber")
-	tbi.queue_dialogue(" * Everyone dices to split up to gather clues on the potential killer * ","Humber")
-	tbi.queue_dialogue(" * As people go towards other parts of the mansion, I’m left alone in the main entrance. I should go too * ","Humber")
+	tbi.queue_dialogue(" * Some of the guests start whispering amongst themselves about the fable * ","")
+	tbi.queue_dialogue(" * Everyone decides to split up to gather clues on the potential killer * ","")
+	tbi.queue_dialogue(" * As people go towards other parts of the mansion, I’m left alone in the main entrance. * ","")
+	tbi.queue_dialogue("I should get going too","Humber")

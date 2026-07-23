@@ -115,10 +115,21 @@ func _input(_event):
 			tbi.new_clean()
 			tbi.queue_dialogue("It's nearing midnight, I should go back with the rest", "Humber")
 			current_state = State.ENDING
-		var state when state == State.PLACE_DIALOGUE and locations_container.get_child_count() > 2:
-			if locations_container.visible: return
+		
+		var state when state == State.PLACE_DIALOGUE and locations_container.get_child_count() == 4:
 			var back_mansion = func():
-				locations_container.visible = true
+				tbi.queue_dialogue(" * I reach for my phone in my pocket * ", "")
+				tbi.queue_dialogue(" * Taking a quick glace, the time reads 9:15 PM * ", "")
+				current_state = State.CHOOSING
+			var change_bg = func():
+				tbi.queue_all(null, null, null, null, mansion_background, false, false)
+			tbi.fade_black_back_in(back_mansion, change_bg)
+			
+		var state when state == State.PLACE_DIALOGUE and locations_container.get_child_count() == 3:
+			var back_mansion = func():
+				tbi.queue_dialogue(" * Feeling overly concious of the time I pull out my phone again * ", "")
+				tbi.queue_dialogue(" * Taking a quick glace, the time reads 11:01 PM * ", "")
+				current_state = State.CHOOSING
 			var change_bg = func():
 				tbi.queue_all(null, null, null, null, mansion_background, false, false)
 			tbi.fade_black_back_in(back_mansion, change_bg)
@@ -129,7 +140,7 @@ func cyru_cutscene():
 	
 	tbi.queue_all(null, null, null, null, mansion_background, false, false)
 	
-	tbi.queue_dialogue("* As I walk towards the main hall I see Jem and someone behind a...? plant *", "Humber")
+	tbi.queue_dialogue(" * As I walk towards the main hall I see Jem and someone behind a...? plant *", "")
 	
 	tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 	tbi.sprite_change("Padding",padding_texture,true)
@@ -661,8 +672,8 @@ func cono_cutscene():
 	tbi.sprite_change("Nigu",nigu_serious_no_speak,true)
 	
 	tbi.queue_dialogue(" * Nigu explains how cone has been acting extremely robotic. * ", "")
-	tbi.queue_dialogue(" * Never answering questions or even speaking. He said he also noticed a red spot in cono’s face. * ", "")
-	tbi.queue_dialogue(" * Nigu asked, cone seemed nervous * ", "")
+	tbi.queue_dialogue(" * Never answering questions or even speaking. He said he also noticed a red spot in Cono’s face. * ", "")
+	tbi.queue_dialogue(" * Nigu asked, Cono seemed nervous * ", "")
 
 	tbi.sprite_change("Nigu",nigu_serious_speak,true)
 	tbi.queue_dialogue("And thats about it", "Nigu")
@@ -911,10 +922,10 @@ var dungeon_scene = func():
 		tbi.queue_dialogue("He did, let me check", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.queue_dialogue(" * Walking towards the desk I spot the printer and no gun to be seen * ", "Humber")
-		tbi.queue_dialogue(" * I inspect the desk and spot Chris had some open tabs before * ", "Humber")
-		tbi.queue_dialogue(" * I sit on his chair and go to the link * ", "Humber")
-		tbi.queue_dialogue(" * “Custom hyper realistic pinata” it reads. There seems to be a completed order for 9999 pinatas * ", "Humber")
+		tbi.queue_dialogue(" * Walking towards the desk I spot the printer and no gun to be seen * ", "")
+		tbi.queue_dialogue(" * I inspect the desk and spot Chris had some open tabs before * ", "")
+		tbi.queue_dialogue(" * I sit on his chair and go to the link * ", "")
+		tbi.queue_dialogue(" * “Custom hyper realistic pinata” it reads. There seems to be a completed order for 9999 pinatas * ", "")
 		
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("huh", "Humber")
@@ -982,7 +993,7 @@ var dungeon_scene = func():
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CONO)
 			cono_cutscene()
 		_:
-			tbi.queue_dialogue("Nothing else happened", "")
+			tbi.queue_dialogue("I should keep exploring for the time being", "")
 	previous_location = Location.DUNGEON
 
 func _on_kitchen_pressed():
@@ -1000,7 +1011,7 @@ var kitchen_scene = func():
 	tbi.queue_dialogue(" * I'm craving a monster and flips, chris should have some left * ", "Humber")
 	tbi.queue_dialogue(" * The kitchen is bathed in blue light. It's surrounded by appliances and a white countertop hugging the wall * ", "Humber")
 	tbi.queue_dialogue(" * There is a center aisle with some leftover food * ", "Humber")
-	tbi.queue_dialogue(" * Feeling hungry while looking for food, I spot...* ", "Humber")
+	tbi.queue_dialogue(" * Feeling hungry while looking for food, I spot... * ", "Humber")
 	if (randi_range(0, 1) == 1):
 		tbi.queue_dialogue("Clara and Cesar", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -1038,15 +1049,15 @@ var kitchen_scene = func():
 		tbi.queue_dialogue("yeah, and what might be blood over in that trash can over there", "Clara")
 		tbi.sprite_change("Clara",clara_serious_no_speak,false)
 		
-		tbi.queue_dialogue(" * Clara points towards a bin next to the center aisle * ", "Humber")
+		tbi.queue_dialogue(" * Clara points towards a bin next to the center aisle * ", "")
 		
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("Let me take a look", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.queue_dialogue(" * Walking towards the aisle I look down at the trash can Clara was talking about * ", "Humber")
-		tbi.queue_dialogue(" * I lean towards it and pick up the lid. Crimson liquid is splattered across the bottom of the bin * ", "Humber")
-		tbi.queue_dialogue(" * I spot a chefs’ knife covered in it as well * ", "Humber")
+		tbi.queue_dialogue(" * Walking towards the aisle I look down at the trash can Clara was talking about * ", "")
+		tbi.queue_dialogue(" * I lean towards it and pick up the lid. Crimson liquid is splattered across the bottom of the bin * ", "")
+		tbi.queue_dialogue(" * I spot a chefs’ knife covered in it as well * ", "")
 		
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("What I want to know is who would throw away a perfectly good knife?", "Humber")
@@ -1183,7 +1194,7 @@ var kitchen_scene = func():
 		tbi.queue_dialogue("Well thanks, I'll try to ask him about it", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.queue_dialogue(" * I bid goodbye and leave the room. Maybe i should make some theories too * ", "Humber")
+		tbi.queue_dialogue(" * I bid goodbye and leave the room. Maybe i should make some theories too * ", "")
 		
 		tbi.new_clean()
 		
@@ -1201,7 +1212,7 @@ var kitchen_scene = func():
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.BICI)
 			bici_cutscene()
 		_:
-			tbi.queue_dialogue("Nothing else happened", "")
+			tbi.queue_dialogue("I should keep exploring for the time being", "")
 	previous_location = Location.KITCHEN
 
 func _on_bedroom_pressed():
@@ -1214,11 +1225,11 @@ func _on_bedroom_pressed():
 	tbi.fade_black_back_in(bedroom_scene, bedroom_trans)
 
 var bedroom_scene = func():
-	tbi.queue_dialogue(" * A quick nap would help me concentrate more, I know just the place. I walk towards chris’ bedroom * ", "Humber")
-	tbi.queue_dialogue(" * His room has a bunch of anime posters, a king sized bed in the center in between two nightstands * ", "Humber")
-	tbi.queue_dialogue(" * Chris’s phone is left in one of them * ", "Humber")
-	tbi.queue_dialogue(" * I walk towards it and grab his phone. Now if only I can remember what the password was * ", "Humber")
-	tbi.queue_dialogue(" * I look around the room and I spot... * ", "Humber")
+	tbi.queue_dialogue(" * A quick nap would help me concentrate more, I know just the place. I walk towards chris’ bedroom * ", "")
+	tbi.queue_dialogue(" * His room has a bunch of anime posters, a king sized bed in the center in between two nightstands * ", "")
+	tbi.queue_dialogue(" * Chris’s phone is left in one of them * ", "")
+	tbi.queue_dialogue(" * I walk towards it and grab his phone. Now if only I can remember what the password was * ", "")
+	tbi.queue_dialogue(" * I look around the room and I spot... * ", "")
 	if (randi_range(0, 1) == 1):
 		tbi.queue_dialogue("Joaco and Nigu", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -1281,7 +1292,7 @@ var bedroom_scene = func():
 		
 		tbi.new_clean()
 		
-		tbi.queue_dialogue(" * I scurry away before joaco can even think of peeling me layer by layer * ","Kimbix")
+		tbi.queue_dialogue(" * I scurry away before joaco can even think of peeling me layer by layer * ","")
 		
 	else:
 		tbi.queue_dialogue("Bici and Cone", "Humber")
@@ -1384,7 +1395,7 @@ var bedroom_scene = func():
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.UKESITO)
 			uke_cutscene()
 		_:
-			tbi.queue_dialogue("Nothing else happened", "")
+			tbi.queue_dialogue("I should keep exploring for the time being", "")
 	previous_location = Location.BEDROOM
 
 func _on_garage_pressed():
@@ -1397,12 +1408,12 @@ func _on_garage_pressed():
 	tbi.fade_black_back_in(garage_scene, garage_trans)
 
 var garage_scene = func():
-	tbi.queue_dialogue(" * The garage is a good place to go, Chris has many tools there * ", "Humber")
-	tbi.queue_dialogue(" * If someone took one that could give me an idea of who did based on what they took * ", "Humber")
-	tbi.queue_dialogue(" * As I enter the room my eyes are met with all of the heavy machinery and tools * ", "Humber")
-	tbi.queue_dialogue(" * There's a huge wall with all of the hand tools hung on it * ", "Humber")
-	tbi.queue_dialogue(" * A few are missing and don't seem to be in the room , but I can't recall which ones are gone * ", "Humber")
-	tbi.queue_dialogue(" * I scan the room and I spot... * ", "Humber")
+	tbi.queue_dialogue(" * The garage is a good place to go, Chris has many tools there * ", "")
+	tbi.queue_dialogue(" * If someone took one that could give me an idea of who did based on what they took * ", "")
+	tbi.queue_dialogue(" * As I enter the room my eyes are met with all of the heavy machinery and tools * ", "")
+	tbi.queue_dialogue(" * There's a huge wall with all of the hand tools hung on it * ", "")
+	tbi.queue_dialogue(" * A few are missing and don't seem to be in the room , but I can't recall which ones are gone * ", "")
+	tbi.queue_dialogue(" * I scan the room and I spot... * ", "")
 	print("hello")
 	tbi.hide_textbox()
 	if (randi_range(0, 1) == 1):
@@ -1485,7 +1496,7 @@ var garage_scene = func():
 		
 		tbi.new_clean()
 		
-		tbi.queue_dialogue(" * I go back towards the main hall feeling a bit disturbed. * ", "Humber")
+		tbi.queue_dialogue(" * I go back towards the main hall feeling a bit disturbed. * ", "")
 	else:
 		tbi.queue_dialogue("Pham", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -1531,7 +1542,7 @@ var garage_scene = func():
 		tbi.queue_dialogue("NO DONT TRY AND POSSESS MY BODY", "Pham")
 		tbi.queue_dialogue("HEEEEEELP", "Pham")
 		tbi.sprite_change("Pham",null,false)
-		tbi.queue_dialogue(" * Pham runs round in circles * ", "")
+		tbi.queue_dialogue(" *  Runs round in circles * ", "Pham")
 		
 		tbi.sprite_change("Humber",kimbix_serious_speak,true)
 		tbi.queue_dialogue("What is going on...", "Humber")
@@ -1547,7 +1558,7 @@ var garage_scene = func():
 		
 		tbi.new_clean()
 		
-		tbi.queue_dialogue(" * I run towards the main hall * ", "Humber")
+		tbi.queue_dialogue(" * I run towards the main hall * ", "")
 	match (previous_location):
 		Location.DUNGEON:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.KIMBIX)
@@ -1562,7 +1573,7 @@ var garage_scene = func():
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.JOACO)
 			joaco_cutscene()
 		_:
-			tbi.queue_dialogue("Nothing else happened", "")
+			tbi.queue_dialogue("I should keep exploring for the time being", "")
 	previous_location = Location.GARAGE
 
 func _on_garden_pressed():
@@ -1575,11 +1586,11 @@ func _on_garden_pressed():
 	tbi.fade_black_back_in(garden_scene, garden_trans)
 
 var garden_scene = func():
-	tbi.queue_dialogue(" * Looking at the flowers in the garden could help me clear my mind. * ", "Humber")
-	tbi.queue_dialogue(" * Chris used to have a secret spot in the garden, but Google's satellite view said otherwise. * ", "Humber")
-	tbi.queue_dialogue(" * The garden is adorned with a stone pathway and multiple bushes almost twice my size. * ", "Humber")
-	tbi.queue_dialogue(" * The grass and hedges are freshly cut. The smell of fresh air makes me feel lively. * ", "Humber")
-	tbi.queue_dialogue(" * I look around and I spot... * ", "Humber")
+	tbi.queue_dialogue(" * Looking at the flowers in the garden could help me clear my mind. * ", "")
+	tbi.queue_dialogue(" * Chris used to have a secret spot in the garden, but Google's satellite view said otherwise. * ", "")
+	tbi.queue_dialogue(" * The garden is adorned with a stone pathway and multiple bushes almost twice my size. * ", "")
+	tbi.queue_dialogue(" * The grass and hedges are freshly cut. The smell of fresh air makes me feel lively. * ", "")
+	tbi.queue_dialogue(" * I look around and I spot... * ", "")
 	if (randi_range(0, 1) == 1):
 		tbi.queue_dialogue("Uke and Yeetus", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
@@ -1682,7 +1693,7 @@ var garden_scene = func():
 		tbi.queue_dialogue("Thanks for the info guys", "Humber")
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		
-		tbi.queue_dialogue(" * I leave * ", "Humber")
+		tbi.queue_dialogue(" * I leave * ", "")
 		tbi.sprite_change("Humber",null,true)
 		tbi.queue_dialogue("What the fuck was that horse saying", "Humber")
 		
@@ -1749,7 +1760,7 @@ var garden_scene = func():
 		
 		tbi.new_clean()
 		
-		tbi.queue_dialogue(" * Humberto goes to a duckventure * ", "Humber")
+		tbi.queue_dialogue(" * Humberto goes on a duckventure * ", "")
 		
 		tbi.sprite_change("Humber",kimbix_serious_no_speak,true)
 		tbi.sprite_change("Padding",padding_texture,true)
@@ -1844,7 +1855,7 @@ var garden_scene = func():
 		
 		tbi.new_clean()
 		
-		tbi.queue_dialogue(" * We say our goodbyes and I head towards the main hall. I hope to never see someone drink a whole liter of fat again * ", "Humber")
+		tbi.queue_dialogue(" * We say our goodbyes and I head towards the main hall. I hope to never see someone drink a whole liter of fat again * ", "")
 	match (previous_location):
 		Location.DUNGEON:
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.CONO)
@@ -1859,5 +1870,5 @@ var garden_scene = func():
 			ScrPersistentData.possible_endings.append(ScrPersistentData.Endings.JOACO)
 			joaco_cutscene()
 		_:
-			tbi.queue_dialogue("Nothing else happened", "")
+			tbi.queue_dialogue("I should keep exploring for the time being", "")
 	previous_location = Location.GARDEN
