@@ -150,6 +150,8 @@ func _ready():
 	tbi.queue_dialogue("Looks like im close","Humber")
 	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
 	
+	tbi.sprite_change("Humber",null,true)
+	
 	tbi.queue_dialogue("* I pull towards the mansion *","Humber")
 	tbi.queue_dialogue("* After honking the car thrice, the gates open for me *","Humber")
 	tbi.queue_dialogue("* I park near the entrance of the house and get off *","Humber")
@@ -160,11 +162,8 @@ func _ready():
 	tbi.queue_dialogue("* Some are exploring the house and looking at the other rooms *","Humber")
 	tbi.queue_dialogue("* I don’t feel like looking at the rooms, Chris has already shown them to me so many times *","Humber")
 	
-	tbi.sprite_change("Humber",kimbix_happy_speak,true)
-	tbi.queue_dialogue("Looks like I'm early, maybe I should talk to others to kill time or I could just wait here","Humber")
-	tbi.sprite_change("Humber",kimbix_happy_no_speak,true)
-	
-	tbi.sprite_change("Humber",null,true)
+	tbi.queue_dialogue("* Looks like I'm early, maybe I should talk to others to kill time or I could just wait here *","Humber")
+
 
 func _input(_event):
 	if tbi.disable_input: return
